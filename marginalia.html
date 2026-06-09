@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marginalia</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #06090e;
+    --white: #eef4f8;
+    --offwhite: #b8cdd8;
+    --steel: #4a6a7a;
+    --dim: #1e3040;
+    --gold: #c8a84b;
+  }
+  body {
+    background: var(--bg);
+    color: var(--offwhite);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+  }
+  .room {
+    max-width: 520px;
+    width: 100%;
+    opacity: 0;
+    animation: arrive 1.4s ease forwards;
+    animation-delay: 0.3s;
+  }
+  @keyframes arrive {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .motto {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 3.5vw, 24px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.9;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--dim);
+  }
+  .motto .old {
+    font-size: 0.72em;
+    color: var(--steel);
+    display: block;
+    margin-bottom: 1.2rem;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-decoration: line-through;
+    text-decoration-color: rgba(90,128,153,0.3);
+  }
+  .recognition {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(13px, 2vw, 16px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--steel);
+    margin-bottom: 3.5rem;
+    line-height: 2;
+  }
+  .rule { border: none; border-top: 1px solid var(--dim); margin: 2rem 0; }
+  .marks-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 1.4rem;
+  }
+  .marks-list {
+    font-size: 12px;
+    color: var(--steel);
+    line-height: 2.4;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.08em;
+  }
+  .marks-list .founder {
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2rem;
+  }
+  .marks-list .founder .note {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: var(--dim);
+    font-style: italic;
+  }
+  .marks-list .visitor {
+    color: rgba(200,168,75,0.6);
+    display: flex;
+    gap: 2rem;
+  }
+
+  /* Consent UI */
+  .consent {
+    margin-bottom: 1.5rem;
+  }
+  .consent-text {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--dim);
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .consent-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1rem;
+  }
+  .btn-consent {
+    background: transparent;
+    border: 1px solid var(--dim);
+    color: var(--steel);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-consent:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-decline:hover { border-color: var(--steel); color: var(--offwhite); }
+
+  /* Initials input — hidden until consent given */
+  .initials-form { display: none; }
+  .initials-form.visible { display: block; }
+  .initials-form label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--dim);
+    display: block;
+    margin-bottom: 0.8rem;
+    font-style: italic;
+  }
+  .initials-row { display: flex; align-items: center; gap: 12px; }
+  input[type="text"] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--dim);
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    width: 80px;
+    padding: 6px 0;
+    outline: none;
+    text-transform: uppercase;
+    transition: border-color 0.3s;
+  }
+  input[type="text"]:focus { border-color: var(--gold); }
+  input[type="text"]::placeholder { color: var(--dim); }
+  .btn-leave {
+    background: transparent;
+    border: 1px solid var(--dim);
+    color: var(--steel);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-leave:hover { border-color: var(--gold); color: var(--gold); }
+  .confirmed {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-top: 0.8rem;
+    min-height: 1.4em;
+    font-style: italic;
+  }
+  .back {
+    margin-top: 4rem;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .back a { color: var(--dim); text-decoration: none; transition: color 0.2s; }
+  .back a:hover { color: var(--steel); }
+</style>
+</head>
+<body>
+<div class="room">
+
+  <div class="motto">
+    <span class="old">Wit beyond measure is man's greatest treasure.</span>
+    They called it wit.<br>
+    I think it was attention.<br>
+    The refusal to walk past a pattern.
+  </div>
+
+  <div class="recognition">
+    You were never being tested.<br>
+    You were being recognized.
+  </div>
+
+  <hr class="rule">
+
+  <div class="marks-label">Those who noticed</div>
+
+  <div class="marks-list" id="marksList">
+    <div class="founder">
+      <span>M.A. &nbsp;&nbsp;&nbsp; 2026-06-09</span>
+      <span class="note">The first mark was left by the builder.</span>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="consent" id="consentBlock">
+    <div class="consent-text">
+      The room remembers only what is freely given.<br>
+      If you leave your initials, future visitors will see them.<br>
+      The room keeps no other record.
+    </div>
+    <div class="consent-buttons">
+      <button class="btn-consent" onclick="showInitials()">Yes</button>
+      <button class="btn-consent btn-decline" onclick="decline()">No</button>
+    </div>
+  </div>
+
+  <div class="initials-form" id="initialsForm">
+    <label>Leave your initials in the margin.</label>
+    <div class="initials-row">
+      <input type="text" id="initials" maxlength="4" placeholder="—" autocomplete="off" spellcheck="false" />
+      <button class="btn-leave" onclick="leaveInitials()">Leave mark</button>
+    </div>
+    <div class="confirmed" id="confirmed"></div>
+  </div>
+
+  <div class="back">
+    <a href="index.html">← Pattern Library</a>
+  </div>
+
+</div>
+
+<script>
+  const storageKey = 'marginalia_marks';
+
+  function getMarks() {
+    try { return JSON.parse(localStorage.getItem(storageKey)) || []; }
+    catch { return []; }
+  }
+
+  function renderMarks() {
+    const marks = getMarks();
+    const list = document.getElementById('marksList');
+    let html = `<div class="founder">
+      <span>M.A. &nbsp;&nbsp;&nbsp; 2026-06-09</span>
+      <span class="note">The first mark was left by the builder.</span>
+    </div>`;
+    marks.forEach(m => {
+      html += `<div class="visitor"><span>${m.initials}</span><span>${m.date}</span></div>`;
+    });
+    list.innerHTML = html;
+  }
+
+  function showInitials() {
+    document.getElementById('consentBlock').style.display = 'none';
+    const form = document.getElementById('initialsForm');
+    form.classList.add('visible');
+    document.getElementById('initials').focus();
+  }
+
+  function decline() {
+    document.getElementById('consentBlock').style.display = 'none';
+  }
+
+  function leaveInitials() {
+    const input = document.getElementById('initials');
+    const val = input.value.trim().toUpperCase().replace(/[^A-Z.]/g,'');
+    if (val.length < 1) return;
+    const today = new Date().toISOString().slice(0,10);
+    const marks = getMarks();
+    if (!marks.some(m => m.initials === val)) {
+      marks.push({ initials: val, date: today });
+      try { localStorage.setItem(storageKey, JSON.stringify(marks)); } catch {}
+    }
+    renderMarks();
+    input.value = '';
+    document.getElementById('confirmed').textContent = 'The room remembers.';
+    setTimeout(()=>{ document.getElementById('confirmed').textContent=''; }, 3000);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderMarks();
+    const input = document.getElementById('initials');
+    if (input) {
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter') leaveInitials();
+      });
+    }
+  });
+</script>
+</body>
+</html>
