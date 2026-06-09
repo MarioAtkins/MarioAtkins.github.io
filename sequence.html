@@ -31,7 +31,6 @@
     overflow-x: hidden;
   }
 
-  /* Film grain overlay */
   body::before {
     content: '';
     position: fixed;
@@ -42,7 +41,6 @@
     z-index: 100;
   }
 
-  /* Vignette */
   body::after {
     content: '';
     position: fixed;
@@ -52,7 +50,6 @@
     z-index: 99;
   }
 
-  /* Nav */
   nav {
     padding: 2rem 2rem 0;
     display: flex;
@@ -74,14 +71,12 @@
 
   nav a:hover { color: var(--white); }
 
-  /* Main content */
   main {
     max-width: 680px;
     margin: 0 auto;
     padding: clamp(3rem, 8vw, 6rem) 2rem clamp(4rem, 10vw, 8rem);
   }
 
-  /* Video */
   .video-wrap {
     position: relative;
     width: 100%;
@@ -99,7 +94,6 @@
     height: 100%;
   }
 
-  /* Opening directive — the signature element */
   .directive {
     font-family: 'Space Mono', monospace;
     font-size: clamp(0.65rem, 1.4vw, 0.75rem);
@@ -120,7 +114,6 @@
     letter-spacing: -0.01em;
     color: var(--white);
     margin-bottom: 0.2em;
-    /* Inline highlight on thick strokes — the Spider-Noir effect */
     text-shadow:
        1px  0px 0 rgba(255,255,255,0.12),
       -1px  0px 0 rgba(255,255,255,0.06),
@@ -141,14 +134,12 @@
     margin-top: 1.2em;
   }
 
-  /* Horizontal rule — single hairline */
   .rule {
     border: none;
     border-top: 1px solid #2a2520;
     margin: 3rem 0;
   }
 
-  /* Subhead / author */
   .byline {
     font-family: 'Space Mono', monospace;
     font-size: 0.68rem;
@@ -158,7 +149,6 @@
     margin-bottom: 3.5rem;
   }
 
-  /* Body text */
   .body p {
     margin-bottom: 1.6em;
     color: var(--white);
@@ -170,7 +160,6 @@
     font-size: 1.05em;
   }
 
-  /* The scrambled-text block */
   .scramble {
     font-family: 'Space Mono', monospace;
     font-size: clamp(0.65rem, 1.5vw, 0.78rem);
@@ -184,7 +173,6 @@
     word-break: break-all;
   }
 
-  /* Pull quote */
   .pull {
     border-top: 1px solid #2a2520;
     border-bottom: 1px solid #2a2520;
@@ -196,7 +184,6 @@
     line-height: 1.55;
   }
 
-  /* Closer */
   .coda {
     font-family: 'Space Mono', monospace;
     font-size: 0.68rem;
@@ -217,7 +204,6 @@
 
   .coda a:hover { color: var(--white); }
 
-  /* Typewriter animation on directive */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(14px); }
     to { opacity: 1; transform: translateY(0); }
@@ -368,6 +354,9 @@
   </div>
 
 </main>
+
+<script data-goatcounter="https://marioatkins.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 
 </body>
 </html>
