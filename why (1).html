@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>—</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #06090e;
+    --white: #eef4f8;
+    --offwhite: #b8cdd8;
+    --steel: #4a6a7a;
+    --dim: #1e3040;
+    --gold: #c8a84b;
+    --cyan: #3cb8d8;
+  }
+  body {
+    background: var(--bg);
+    color: var(--offwhite);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow: hidden;
+  }
+  canvas {
+    position: fixed;
+    inset: 0;
+    opacity: 0.12;
+    pointer-events: none;
+  }
+  .corridor {
+    position: relative;
+    z-index: 1;
+    max-width: 560px;
+    width: 100%;
+    text-align: center;
+  }
+  .arch {
+    border: 1px solid rgba(200,168,75,0.15);
+    border-bottom: none;
+    border-radius: 200px 200px 0 0;
+    padding: 4rem 3rem 3rem;
+    position: relative;
+  }
+  .arch::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(200,168,75,0.06);
+    border-bottom: none;
+    border-radius: 190px 190px 0 0;
+    pointer-events: none;
+  }
+  .arch-base {
+    border-left: 1px solid rgba(200,168,75,0.15);
+    border-right: 1px solid rgba(200,168,75,0.15);
+    border-bottom: 1px solid rgba(200,168,75,0.15);
+    padding: 2rem 3rem 3rem;
+  }
+  .inscription {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(11px, 2vw, 13px);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 3rem;
+    line-height: 2;
+  }
+  .question {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+  .question em { font-style: normal; color: var(--gold); }
+  input[type="text"] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--steel);
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    text-align: center;
+    width: 220px;
+    padding: 10px 0;
+    outline: none;
+    transition: border-color 0.3s;
+    display: block;
+    margin: 0 auto 1.5rem;
+  }
+  input[type="text"]:focus { border-color: var(--gold); }
+  input[type="text"]::placeholder { color: var(--dim); letter-spacing: 0.15em; }
+  .hint {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--dim);
+    margin-bottom: 2rem;
+    min-height: 1.4em;
+    transition: color 0.4s;
+    font-style: italic;
+  }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+  }
+  .shake { animation: shake 0.4s ease; }
+  @keyframes fadeOut {
+    to { opacity: 0; transform: translateY(-20px); }
+  }
+  .fading { animation: fadeOut 0.8s ease forwards; }
+</style>
+<script data-goatcounter="https://marioatkins.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="corridor" id="door">
+  <div class="arch">
+    <div class="inscription">Pattern Library · Hidden Room</div>
+    <div class="question">
+      Which comes first —<br>
+      the <em>pattern</em>,<br>
+      or the attention<br>
+      that discovers it?
+    </div>
+  </div>
+  <div class="arch-base">
+    <input type="text" id="answer" placeholder="your answer" autocomplete="off" spellcheck="false" />
+    <div class="hint" id="hint">&nbsp;</div>
+  </div>
+</div>
+<script>
+  // Constellation
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    draw();
+  }
+  function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    const n = [[0.2,0.09],[0.47,0.22],[0.75,0.14],[0.93,0.31],[0.57,0.44],
+               [0.83,0.5],[0.3,0.47],[0.7,0.69],[0.88,0.76]]
+      .map(([x,y])=>[x*canvas.width,y*canvas.height]);
+    [[0,1],[1,2],[2,3],[1,4],[4,5],[3,5],[0,6],[6,4],[4,7],[5,8]].forEach(([a,b])=>{
+      ctx.globalAlpha=0.4; ctx.lineWidth=0.6; ctx.strokeStyle='#3cb8d8';
+      ctx.beginPath(); ctx.moveTo(n[a][0],n[a][1]); ctx.lineTo(n[b][0],n[b][1]); ctx.stroke();
+    });
+    n.forEach(([x,y],i)=>{
+      ctx.globalAlpha=0.7; ctx.fillStyle='#60c8e8';
+      ctx.beginPath(); ctx.arc(x,y,i===1?5:3,0,Math.PI*2); ctx.fill();
+    });
+  }
+  window.addEventListener('resize',resize); resize();
+
+  const keys = new Set([
+    'attention','pattern','both','neither','sequence','observation',
+    'ambiguity','meaning','they create each other','they are the same',
+    'one','the same','together','neither comes first','inseparable',
+    'neither one','you cannot separate them','the same thing','notice'
+  ]);
+
+  const input = document.getElementById('answer');
+  const hint  = document.getElementById('hint');
+  const door  = document.getElementById('door');
+  let attempts = 0;
+  let unlocked = false;
+
+  function enter() {
+    if (unlocked) return;
+    const val = input.value.trim().toLowerCase();
+    if (!val) return;
+
+    if (keys.has(val)) {
+      unlock();
+    } else {
+      attempts++;
+      input.classList.add('shake');
+      setTimeout(()=>input.classList.remove('shake'),400);
+      input.value='';
+
+      if (attempts === 1) {
+        hint.textContent = 'The door remains closed.';
+      } else if (attempts === 2) {
+        hint.textContent = '';
+      } else {
+        // After 3 attempts — the real message. Then accept any thoughtful answer.
+        hint.textContent = 'What if the answer is not the thing being tested?';
+        unlocked = true; // next enter with length > 3 passes
+      }
+    }
+  }
+
+  function unlock() {
+    hint.textContent = '';
+    door.classList.add('fading');
+    setTimeout(()=>{ window.location.href = 'marginalia.html'; }, 800);
+  }
+
+  input.addEventListener('keydown', e => {
+    if (e.key !== 'Enter') return;
+    if (unlocked && input.value.trim().length > 3) { unlock(); return; }
+    if (!unlocked) enter();
+  });
+
+  input.focus();
+</script>
+</body>
+</html>
