@@ -38,7 +38,6 @@
     overflow-x: hidden;
   }
 
-  /* ── GRID TEXTURE ── */
   body::before {
     content: '';
     position: fixed;
@@ -50,7 +49,6 @@
     z-index: 0;
   }
 
-  /* ── NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -90,8 +88,9 @@
   }
 
   nav ul a:hover { color: var(--cyan); }
+  nav ul a.nav-sequence { color: var(--gold); }
+  nav ul a.nav-sequence:hover { color: var(--white); }
 
-  /* ── SECTIONS ── */
   section {
     position: relative;
     z-index: 1;
@@ -102,7 +101,6 @@
 
   section:first-of-type { padding-top: 180px; }
 
-  /* ── HERO ── */
   #hero {
     min-height: 100vh;
     display: flex;
@@ -113,7 +111,6 @@
     position: relative;
   }
 
-  /* Node network SVG */
   .nodes-bg {
     position: absolute;
     right: 0; top: 0;
@@ -123,7 +120,6 @@
     pointer-events: none;
   }
 
-  /* Left accent bar */
   #hero::before {
     content: '';
     position: absolute;
@@ -154,10 +150,7 @@
     margin-bottom: 8px;
   }
 
-  .hero-name em {
-    font-style: italic;
-    color: var(--accent);
-  }
+  .hero-name em { font-style: italic; color: var(--accent); }
 
   .hero-tagline {
     font-family: var(--serif);
@@ -203,7 +196,6 @@
   .corner-mark.bl { bottom: 24px; left: 24px; border-bottom: 1px solid var(--cyan); border-left: 1px solid var(--cyan); }
   .corner-mark.br { bottom: 24px; right: 24px; border-bottom: 1px solid var(--cyan); border-right: 1px solid var(--cyan); }
 
-  /* ── SECTION HEADERS ── */
   .section-label {
     font-size: 10px;
     letter-spacing: 0.3em;
@@ -228,12 +220,8 @@
     margin-bottom: 8px;
   }
 
-  .section-title em {
-    font-style: italic;
-    color: var(--accent);
-  }
+  .section-title em { font-style: italic; color: var(--accent); }
 
-  /* ── ABOUT ── */
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -287,7 +275,6 @@
     text-transform: uppercase;
   }
 
-  /* ── PATTERN LIBRARY ── */
   .pattern-intro {
     font-family: var(--serif);
     font-size: 18px;
@@ -317,10 +304,7 @@
     border-radius: 2px;
   }
 
-  .method-arrow {
-    color: var(--dim);
-    font-size: 12px;
-  }
+  .method-arrow { color: var(--dim); font-size: 12px; }
 
   .entries-grid {
     display: grid;
@@ -339,6 +323,62 @@
   .entry-card:hover {
     border-color: rgba(60,184,216,0.35);
     background: var(--bg3);
+  }
+
+  /* Sequence card — full width, gold accent, distinct */
+  .entry-card.sequence-card {
+    grid-column: 1 / -1;
+    border-color: rgba(200,168,75,0.3);
+    background: linear-gradient(135deg, #0c1118 0%, #11180f 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    text-decoration: none;
+  }
+
+  .entry-card.sequence-card:hover {
+    border-color: rgba(200,168,75,0.7);
+    background: linear-gradient(135deg, #0e1420 0%, #141a10 100%);
+  }
+
+  .sequence-card-left { flex: 1; }
+
+  .sequence-label {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .sequence-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+
+  .sequence-domain {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--steel);
+    text-transform: uppercase;
+  }
+
+  .sequence-arrow {
+    font-size: 24px;
+    color: var(--gold);
+    opacity: 0.6;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .entry-card.sequence-card:hover .sequence-arrow {
+    opacity: 1;
+    transform: translateX(4px);
   }
 
   .entry-num {
@@ -371,13 +411,9 @@
     flex-wrap: wrap;
   }
 
-  /* ── ESSAY ── */
   #essay { background: var(--bg); }
 
-  .essay-wrapper {
-    max-width: 720px;
-    margin: 0 auto;
-  }
+  .essay-wrapper { max-width: 720px; margin: 0 auto; }
 
   .essay-meta {
     display: flex;
@@ -435,7 +471,6 @@
     font-weight: 300;
   }
 
-  /* ── BUTTONS ── */
   .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -454,10 +489,7 @@
     color: var(--cyan);
   }
 
-  .btn-primary:hover {
-    background: var(--cyan);
-    color: var(--bg);
-  }
+  .btn-primary:hover { background: var(--cyan); color: var(--bg); }
 
   .btn-ghost {
     background: transparent;
@@ -465,12 +497,8 @@
     color: var(--steel);
   }
 
-  .btn-ghost:hover {
-    border-color: var(--steel);
-    color: var(--offwhite);
-  }
+  .btn-ghost:hover { border-color: var(--steel); color: var(--offwhite); }
 
-  /* ── CONTACT ── */
   #contact {
     text-align: center;
     border-top: 1px solid rgba(60,184,216,0.1);
@@ -518,7 +546,6 @@
     color: var(--dim);
   }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     nav { padding: 14px 20px; }
     nav ul { gap: 16px; }
@@ -531,9 +558,9 @@
     .entries-grid { grid-template-columns: 1fr; }
     .metrics-grid { grid-template-columns: 1fr 1fr; }
     .nodes-bg { opacity: 0.08; width: 100%; }
+    .entry-card.sequence-card { flex-direction: column; align-items: flex-start; }
   }
 
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -546,32 +573,27 @@
   .hero-sub     { animation: fadeUp 0.8s 0.4s ease both; }
   .hero-method  { animation: fadeUp 0.8s 0.5s ease both; }
 
-  /* ── SCROLL FADE ── */
   .fade-in {
     opacity: 0;
     transform: translateY(16px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="brand">Mario D. <span>Atkins</span></div>
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#pattern-library">Library</a></li>
     <li><a href="#essay">Essay</a></li>
+    <li><a href="sequence.html" class="nav-sequence">Sequence</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="corner-mark tl"></div>
   <div class="corner-mark tr"></div>
@@ -608,10 +630,9 @@
   <p class="hero-tagline">Turning Unresolved Complexity<br>Into Defensible Action</p>
   <div class="hero-divider"></div>
   <p class="hero-sub">Palm Bay, FL · Financial Services · 15 Years · Pattern Library</p>
-  <p class="hero-method">Ambiguity &nbsp;→&nbsp; Investigation &nbsp;→&nbsp; Pattern &nbsp;→&nbsp; Defensible Action</p>
+  <p class="hero-method">Ambiguity &nbsp;→&nbsp; Investigation &nbsp;→&nbsp; Pattern &nbsp;→&nbsp; Projection &nbsp;→&nbsp; Defensible Action</p>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="section-label fade-in">About</div>
   <div class="section-rule"></div>
@@ -655,7 +676,6 @@
   </div>
 </section>
 
-<!-- PATTERN LIBRARY -->
 <section id="pattern-library">
   <div class="section-label fade-in">Pattern Library</div>
   <div class="section-rule"></div>
@@ -670,10 +690,23 @@
     <span class="method-arrow">→</span>
     <span class="method-step">Pattern</span>
     <span class="method-arrow">→</span>
+    <span class="method-step">Projection</span>
+    <span class="method-arrow">→</span>
     <span class="method-step">Defensible Action</span>
   </div>
 
   <div class="entries-grid">
+
+    <!-- Sequence — featured card, full width, gold -->
+    <a href="sequence.html" class="entry-card sequence-card fade-in">
+      <div class="sequence-card-left">
+        <span class="sequence-label">Featured · Cinematic Essay</span>
+        <div class="sequence-title">"Sequence"</div>
+        <div class="sequence-domain">Duke Ellington · Noir · Pattern · The Road You Are On</div>
+      </div>
+      <div class="sequence-arrow">→</div>
+    </a>
+
     <div class="entry-card fade-in">
       <span class="entry-num">Entry 01</span>
       <div class="entry-title">Insurance Claim Analysis</div>
@@ -732,7 +765,6 @@
   </div>
 </section>
 
-<!-- ESSAY -->
 <section id="essay">
   <div class="section-label fade-in">Essay</div>
   <div class="section-rule"></div>
@@ -746,49 +778,27 @@
 
     <div class="essay-body">
       <p class="drop-cap fade-in">There is a moment in fraud prevention that nobody talks about. It is not the moment the fraud happens. It is not the moment the member sits across from you, hands shaking, realizing their Social Security deposit is gone.</p>
-
       <p class="fade-in">The moment nobody talks about is the one that comes after all of that. When the member leaves. When the branch quiets. When you sit with what just happened and you think: this did not have to occur.</p>
-
       <p class="italic fade-in">I know how to fix it.</p>
-
       <div class="section-break fade-in">· · ·</div>
-
       <p class="fade-in">I spent fifteen years inside a financial institution. I managed fraud escalations, compliance workflows, branch operations, and the space between what the institution needed and what the member standing in front of me needed — which were not always the same thing.</p>
-
       <p class="fade-in">I learned early that fraudsters do not attack the institution. They attack the people. They attack the convenience the institution built for those people. Online banking. Remote access. Self-service transfers. All of it designed to reduce friction for the legitimate customer. All of it, simultaneously, a door left open for the person who has learned to perform as one.</p>
-
       <p class="highlight fade-in">The dollar threshold is not identity verification. It is a speed bump.</p>
-
       <p class="fade-in">What the existing wire transfer authorization process cannot tell you is whether the person who logged in, filled out the form, and clicked submit is actually the person whose name is on the account.</p>
-
       <div class="section-break fade-in">· · ·</div>
-
       <p class="fade-in">Remote online notarization became legal in Florida on January 1, 2020. I know that date precisely because I was building a business around it. The process requires live appearance on camera, credential analysis, dynamic knowledge-based authentication, and a recorded session stored for ten years under law. Every commissioned notary carries a bond. Many carry errors and omissions insurance in addition.</p>
-
       <p class="fade-in">I mapped out what it would look like embedded into wire transfer authorization above a defined threshold. Not as friction for the member. As accountability for the fraudster. A recorded, identity-verified, legally weighted authorization event with a bonded recovery mechanism built in.</p>
-
       <p class="italic fade-in">I believed this was worth building. I still believe it.</p>
-
       <div class="section-break fade-in">· · ·</div>
-
       <p class="fade-in">Here is where I have to be honest with myself. I was right about the idea. I was not right about how I brought it forward. I went to the wrong rooms first. I sent communications dense with detail when they should have been simple invitations. I let my excitement outrun my understanding of the politics required to move it.</p>
-
       <p class="fade-in">I was an assistant branch manager. And in the architecture of a financial institution, that position does not determine the ceiling of what you can see. But it does determine whether anyone will look where you are pointing.</p>
-
       <p class="italic fade-in">I watched ideas die for all of those reasons. Including my own.</p>
-
       <div class="section-break fade-in">· · ·</div>
-
       <p class="fade-in">I am sharing this because I have looked into the faces of the people it costs. I have watched members learn that the money they counted on is gone. I have watched institutions do what the regulation permits, which is not always what the member believed they were owed.</p>
-
       <p class="fade-in">The wire fraud gap I identified still exists. The tool that addresses it still exists. The institutions still losing money to it still exist.</p>
-
       <p class="fade-in">I am no longer inside the institution. I no longer have to navigate the politics of advancing an idea through a hierarchy that was not built to receive it from where I was standing.</p>
-
       <p class="highlight fade-in">So I am saying it here instead. Not as a complaint. As a pattern worth naming.</p>
-
       <p class="fade-in">The framework is in the carousel below. Freely given. The game is usually to be sold, not told. I have watched enough people lose enough money to be done playing that game.</p>
-
       <div class="pattern-cta fade-in" style="margin-top:40px;">
         <a href="https://marioatkins.github.io/The_Idea_That_Never_Made_It_Out.pdf" class="btn btn-primary" target="_blank">Read Full Essay</a>
         <a href="https://marioatkins.github.io/Wire_Fraud_Framework_Carousel.pdf" class="btn btn-ghost" target="_blank">View Framework</a>
@@ -797,36 +807,28 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="corner-mark tl"></div>
   <div class="corner-mark tr"></div>
-
   <p class="contact-statement fade-in">"I turn unresolved complexity<br>into defensible action."</p>
   <p class="contact-sub fade-in">Fraud Analysis · Risk Operations · Root Cause Analysis · Palm Bay, FL</p>
-
   <div class="contact-links fade-in">
     <a href="mailto:mario.data.leader@gmail.com" class="contact-link">mario.data.leader@gmail.com</a>
     <a href="https://www.linkedin.com/in/mario-atkins-07013a50" class="contact-link" target="_blank">LinkedIn</a>
     <a href="https://www.backstage.com/tal/mario-atkins" class="contact-link" target="_blank">Backstage</a>
     <a href="https://www.tiktok.com/@marioatkins8" class="contact-link" target="_blank">@marioatkins8</a>
   </div>
-
   <div class="footer-line fade-in">
-    Mario D. Atkins · Pattern Library · Ambiguity to Defensible Action
+    Mario D. Atkins · Pattern Library · Ambiguity → Projection → Defensible Action
   </div>
 </section>
 
 <script>
-  // Scroll fade-in
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 
