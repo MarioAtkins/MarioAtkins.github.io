@@ -244,15 +244,16 @@
 <body>
 
 <nav>
-  <a href="https://marioatkins.github.io">← Pattern Library</a>
-  <a href="https://marioatkins.github.io#pattern-library">Entries</a>
+  <a href="https://marioatkins.github.io" data-goatcounter-click="sequence-nav-library">&larr; Pattern Library</a>
+  <a href="https://marioatkins.github.io#pattern-library" data-goatcounter-click="sequence-nav-entries">Entries</a>
 </nav>
 
 <main>
 
   <div class="video-wrap">
     <iframe
-      src="https://www.youtube.com/embed/A2SSKzK_yYA?rel=0&modestbranding=1&controls=1&color=white"
+      id="sequenceVideo"
+      src="https://www.youtube.com/embed/A2SSKzK_yYA?rel=0&modestbranding=1&controls=1&color=white&enablejsapi=1"
       title="Keep Driving — Mario D. Atkins"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -344,19 +345,80 @@
   <div class="coda">
     Some things don't get solved. They get read.<br>
     Pattern by pattern. Mile by mile.<br><br>
-    <a href="https://marioatkins.github.io">← Pattern Library</a> &nbsp;·&nbsp;
-    <a href="https://www.linkedin.com/in/mario-atkins-07013a50">LinkedIn</a> &nbsp;·&nbsp;
-    <a href="https://www.backstage.com/tal/mario-atkins">Backstage</a> &nbsp;·&nbsp;
-    <a href="https://www.tiktok.com/@marioatkins8">TikTok</a> &nbsp;·&nbsp;
-    <a href="mailto:mario.data.leader@gmail.com">Email</a><br><br>
-    Mario D. Atkins · Palm Bay, FL · Financial Services · 15 Years<br><br>
-    #DecisionMaking · #PatternRecognition
+    <a href="https://marioatkins.github.io" data-goatcounter-click="sequence-coda-library">&larr; Pattern Library</a> &nbsp;&middot;&nbsp;
+    <a href="https://www.linkedin.com/in/mario-atkins-07013a50" data-goatcounter-click="sequence-coda-linkedin">LinkedIn</a> &nbsp;&middot;&nbsp;
+    <a href="https://www.backstage.com/tal/mario-atkins" data-goatcounter-click="sequence-coda-backstage">Backstage</a> &nbsp;&middot;&nbsp;
+    <a href="https://www.tiktok.com/@marioatkins8" data-goatcounter-click="sequence-coda-tiktok">TikTok</a> &nbsp;&middot;&nbsp;
+    <a href="mailto:mario.data.leader@gmail.com" data-goatcounter-click="sequence-coda-email">Email</a><br><br>
+    Mario D. Atkins &middot; Palm Bay, FL &middot; Financial Services &middot; 15 Years<br><br>
+    #DecisionMaking &middot; #PatternRecognition
   </div>
 
 </main>
 
 <script data-goatcounter="https://marioatkins.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xbvggb3cfr");
+</script>
+
+<script>
+  // Scroll depth milestones: 25 / 50 / 75 / 100 percent, each fires once per visit
+  (function() {
+    const fired = { 25: false, 50: false, 75: false, 100: false };
+    function checkScroll() {
+      const scrolled = window.scrollY + window.innerHeight;
+      const total = document.documentElement.scrollHeight;
+      const pct = (scrolled / total) * 100;
+      [25, 50, 75, 100].forEach((milestone) => {
+        if (pct >= milestone && !fired[milestone]) {
+          fired[milestone] = true;
+          if (window.goatcounter && window.goatcounter.count) {
+            window.goatcounter.count({ path: 'sequence-scroll-' + milestone, title: 'Sequence scrolled ' + milestone + '%', event: true });
+          }
+        }
+      });
+    }
+    window.addEventListener('scroll', checkScroll, { passive: true });
+  })();
+
+  // Real video-play detection via the YouTube IFrame Player API.
+  // A plain iframe can't be inspected from the parent page (cross-origin),
+  // so this loads YouTube's own API, which reports player state back to us.
+  (function() {
+    let ytApiTag = document.createElement('script');
+    ytApiTag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(ytApiTag);
+
+    let firstPlayLogged = false;
+    let firstFullWatchLogged = false;
+
+    window.onYouTubeIframeAPIReady = function() {
+      new YT.Player('sequenceVideo', {
+        events: {
+          onStateChange: function(event) {
+            if (event.data === YT.PlayerState.PLAYING && !firstPlayLogged) {
+              firstPlayLogged = true;
+              if (window.goatcounter && window.goatcounter.count) {
+                window.goatcounter.count({ path: 'sequence-video-played', title: 'Sequence video played', event: true });
+              }
+            }
+            if (event.data === YT.PlayerState.ENDED && !firstFullWatchLogged) {
+              firstFullWatchLogged = true;
+              if (window.goatcounter && window.goatcounter.count) {
+                window.goatcounter.count({ path: 'sequence-video-completed', title: 'Sequence video watched to end', event: true });
+              }
+            }
+          }
+        }
+      });
+    };
+  })();
+</script>
 
 </body>
 </html>
