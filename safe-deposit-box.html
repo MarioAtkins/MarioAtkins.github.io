@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Empty Safe Deposit Box — Mario D. Atkins</title>
+<meta name="description" content="A fictional notarial ethics case study. A safe deposit box is drilled. Years later, a customer claims seven million dollars in jewelry disappeared. The entire case turns on one notarized document.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #080e16;
+    --bg2:       #0c1520;
+    --bg3:       #0e1e30;
+    --cyan:      #3cb8d8;
+    --cyan-dim:  #1e6a82;
+    --white:     #eef4f8;
+    --offwhite:  #b8cdd8;
+    --steel:     #5a8099;
+    --dim:       #2a4a5e;
+    --accent:    #60c8e8;
+    --gold:      #c8a84b;
+    --serif:     'Cormorant Garamond', serif;
+    --mono:      'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--offwhite);
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 53px, rgba(255,255,255,0.025) 53px, rgba(255,255,255,0.025) 54px),
+      repeating-linear-gradient(90deg, transparent, transparent 53px, rgba(255,255,255,0.015) 53px, rgba(255,255,255,0.015) 54px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 48px;
+    background: rgba(8,14,22,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(60,184,216,0.12);
+  }
+
+  nav .brand {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  nav .brand span { color: var(--accent); font-style: italic; }
+
+  nav .back-link {
+    color: var(--steel);
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav .back-link:hover { color: var(--cyan); }
+
+  section {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 48px;
+  }
+  section:first-of-type { padding-top: 160px; }
+
+  .corner-mark { position: absolute; width: 20px; height: 20px; opacity: 0.35; }
+  .corner-mark.tl { top: 24px; left: 24px; border-top: 1px solid var(--cyan); border-left: 1px solid var(--cyan); }
+  .corner-mark.tr { top: 24px; right: 24px; border-top: 1px solid var(--cyan); border-right: 1px solid var(--cyan); }
+  .corner-mark.bl { bottom: 24px; left: 24px; border-bottom: 1px solid var(--cyan); border-left: 1px solid var(--cyan); }
+  .corner-mark.br { bottom: 24px; right: 24px; border-bottom: 1px solid var(--cyan); border-right: 1px solid var(--cyan); }
+
+  /* CASE HERO */
+  #case-hero {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  #case-hero::before {
+    content: '';
+    position: absolute;
+    left: 48px; top: 12%; bottom: 12%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--cyan) 30%, var(--cyan) 70%, transparent);
+    opacity: 0.5;
+  }
+  .case-eyebrow {
+    font-size: 10px; letter-spacing: 0.3em; color: var(--cyan-dim);
+    text-transform: uppercase; margin-bottom: 24px; margin-left: 56px;
+  }
+  .case-title {
+    font-family: var(--serif);
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.08;
+    margin-left: 56px;
+    margin-bottom: 16px;
+  }
+  .case-title em { font-style: italic; color: var(--accent); }
+  .case-tagline {
+    font-family: var(--serif);
+    font-size: clamp(16px, 2vw, 21px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--offwhite);
+    margin-left: 56px;
+    margin-bottom: 28px;
+    max-width: 640px;
+  }
+  .case-divider {
+    width: 52px; height: 1px;
+    background: linear-gradient(to right, var(--cyan), transparent);
+    margin-left: 56px; margin-bottom: 24px;
+  }
+  .case-meta {
+    font-size: 11px; letter-spacing: 0.15em; color: var(--steel);
+    margin-left: 56px;
+  }
+
+  /* SECTION HEADERS */
+  .section-label { font-size: 10px; letter-spacing: 0.3em; color: var(--cyan-dim); text-transform: uppercase; margin-bottom: 8px; }
+  .section-rule { width: 100%; height: 1px; background: linear-gradient(to right, rgba(60,184,216,0.3), transparent); margin-bottom: 40px; }
+  .section-title { font-family: var(--serif); font-size: clamp(28px, 4vw, 44px); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 24px; }
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  /* NOTE BOX */
+  .note-box {
+    background: var(--bg2);
+    border-left: 2px solid var(--cyan-dim);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    font-size: 12.5px;
+    line-height: 1.8;
+    color: var(--offwhite);
+  }
+  .note-box strong { color: var(--white); }
+  .note-box.disclaimer { border-left-color: var(--gold); }
+  .note-box ul { margin: 10px 0 0 18px; }
+  .note-box li { margin-bottom: 6px; }
+
+  /* AUDIO PLAYER */
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--bg2);
+    border: 1px solid rgba(60,184,216,0.15);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 32px;
+  }
+  .audio-toggle {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--cyan);
+    background: transparent;
+    color: var(--cyan);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .audio-toggle:hover { background: var(--cyan); color: var(--bg); }
+  .audio-meta { flex: 1; min-width: 0; }
+  .audio-title { font-size: 11px; letter-spacing: 0.1em; color: var(--offwhite); text-transform: uppercase; margin-bottom: 10px; }
+  .audio-scrub { height: 6px; background: rgba(60,184,216,0.1); border-radius: 3px; cursor: pointer; position: relative; margin-bottom: 8px; }
+  .audio-scrub-fill { height: 100%; width: 0%; background: var(--cyan); border-radius: 3px; }
+  .audio-time { font-size: 10px; color: var(--steel); letter-spacing: 0.05em; }
+
+  /* TRANSCRIPT TOGGLE */
+  details.transcript {
+    background: var(--bg2);
+    border: 1px solid rgba(60,184,216,0.15);
+    border-radius: 4px;
+    padding: 4px 28px 4px;
+  }
+  details.transcript summary {
+    cursor: pointer;
+    padding: 20px 0;
+    font-family: var(--serif);
+    font-size: 18px;
+    font-style: italic;
+    color: var(--white);
+    list-style: none;
+  }
+  details.transcript summary::-webkit-details-marker { display: none; }
+  details.transcript summary::before {
+    content: '▸ ';
+    color: var(--cyan);
+  }
+  details.transcript[open] summary::before { content: '▾ '; }
+  .script-body { padding-bottom: 28px; }
+  .part-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 36px 0 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(60,184,216,0.1);
+  }
+  .script-body .part-title:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+  p.line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--offwhite);
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+  p.line.narrator { font-style: italic; color: var(--steel); }
+  p.line .speaker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--gold); font-style: normal; }
+  p.part-end { text-align: center; color: var(--dim); letter-spacing: 0.3em; font-size: 11px; margin: 24px 0; }
+
+  /* EVIDENCE LOCKER */
+  .exhibit-block { margin-bottom: 64px; }
+  .exhibit-label { font-size: 10px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .exhibit-heading { font-family: var(--serif); font-size: 24px; color: var(--white); font-weight: 300; margin-bottom: 16px; }
+  .exhibit-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+  .exhibit-tab {
+    background: transparent;
+    border: 1px solid var(--dim);
+    color: var(--steel);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .exhibit-tab.active { border-color: var(--cyan); color: var(--cyan); }
+  .exhibit-frame {
+    border: 1px solid rgba(60,184,216,0.15);
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .exhibit-frame img { display: block; width: 100%; height: auto; }
+  .exhibit-view { display: none; }
+  .exhibit-view.active { display: block; }
+  .exhibit-actions { margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-block;
+    padding: 11px 24px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    cursor: pointer;
+    font-family: var(--mono);
+  }
+  .btn-primary { background: transparent; border: 1px solid var(--cyan); color: var(--cyan); }
+  .btn-primary:hover { background: var(--cyan); color: var(--bg); }
+  .btn-ghost { background: transparent; border: 1px solid var(--dim); color: var(--steel); }
+  .btn-ghost:hover { border-color: var(--steel); color: var(--offwhite); }
+
+  /* DISCUSSION QUESTIONS */
+  .qa-list { list-style: none; counter-reset: qa; }
+  .qa-list li {
+    counter-increment: qa;
+    position: relative;
+    padding-left: 44px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: var(--offwhite);
+    line-height: 1.7;
+  }
+  .qa-list li::before {
+    content: counter(qa);
+    position: absolute;
+    left: 0; top: -2px;
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* PERSPECTIVES */
+  .perspective-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .perspective-card {
+    background: var(--bg2);
+    border: 1px solid rgba(60,184,216,0.1);
+    border-radius: 4px;
+    padding: 24px;
+  }
+  .perspective-card h4 {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(60,184,216,0.15);
+  }
+  .perspective-card ul { list-style: none; }
+  .perspective-card li {
+    font-size: 12px;
+    color: var(--offwhite);
+    line-height: 1.6;
+    margin-bottom: 10px;
+    padding-left: 14px;
+    border-left: 2px solid var(--cyan-dim);
+  }
+
+  /* AGREEMENT LIST */
+  .agreement-list { list-style: none; }
+  .agreement-list li {
+    font-size: 13px;
+    color: var(--offwhite);
+    line-height: 1.7;
+    margin-bottom: 12px;
+    padding-left: 22px;
+    position: relative;
+  }
+  .agreement-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+  }
+
+  /* AUTHORITIES */
+  .authority-card {
+    background: var(--bg2);
+    border: 1px solid rgba(60,184,216,0.1);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .authority-card .stat-label {
+    font-size: 10px; letter-spacing: 0.2em; color: var(--cyan); text-transform: uppercase; margin-bottom: 8px; display: block;
+  }
+  .authority-card p { font-size: 13px; color: var(--offwhite); line-height: 1.7; }
+
+  /* COMING SOON */
+  .soon-card {
+    background: linear-gradient(135deg, #0c1118 0%, #11180f 100%);
+    border: 1px solid rgba(200,168,75,0.3);
+    border-radius: 4px;
+    padding: 40px;
+    text-align: center;
+  }
+  .soon-badge {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    border: 1px solid rgba(200,168,75,0.4);
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+  .soon-card h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .soon-card p { font-size: 13px; color: var(--steel); max-width: 540px; margin: 0 auto; }
+
+  /* CLOSING */
+  #closing { text-align: center; border-top: 1px solid rgba(60,184,216,0.1); }
+  .closing-statement {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3.5vw, 38px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--white);
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+  .closing-sub { font-size: 12px; color: var(--steel); margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .footer-line { font-size: 10px; letter-spacing: 0.15em; color: var(--dim); margin-top: 40px; }
+
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    section { padding: 70px 24px; }
+    section:first-of-type { padding-top: 130px; }
+    .case-title, .case-tagline, .case-eyebrow, .case-divider, .case-meta { margin-left: 0; }
+    #case-hero::before { display: none; }
+    .perspective-grid { grid-template-columns: 1fr; }
+  }
+
+  .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+<script data-goatcounter="https://marioatkins.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">Mario D. <span>Atkins</span></a>
+  <a href="index.html#pattern-library" class="back-link">&larr; Pattern Library</a>
+</nav>
+
+<section id="case-hero">
+  <div class="corner-mark tl"></div>
+  <div class="corner-mark tr"></div>
+  <p class="case-eyebrow">Pattern Library · Entry 02 · Notary Compliance · Risk Analysis</p>
+  <h1 class="case-title">The Empty<br><em>Safe Deposit Box.</em></h1>
+  <p class="case-tagline">A safe deposit box is drilled. Years later, a customer claims seven million dollars in jewelry disappeared. The entire case turns on one notarized document.</p>
+  <div class="case-divider"></div>
+  <p class="case-meta">A Fictional Notarial Ethics Case Study &middot; Florida Statute 655.94 &middot; No Verdict</p>
+</section>
+
+<section id="introduction">
+  <div class="section-label fade-in">Introduction</div>
+  <div class="section-rule"></div>
+  <h2 class="section-title fade-in">Read this <em>first.</em></h2>
+
+  <div class="note-box fade-in disclaimer">
+    <strong>This is a dramatization, not a courtroom transcript.</strong> Real civil litigation does not unfold the way it does below. Witnesses are not recalled back-to-back in the same afternoon. Objections are not resolved in seconds. Discovery, depositions, and motion practice would ordinarily take months or years before any of this dialogue happened in front of a jury. The courtroom format was chosen to compress a discussion about notarial practice and institutional procedure into something listenable, not to depict how litigation actually proceeds.
+  </div>
+
+  <div class="note-box fade-in">
+    <strong>Basic case posture, for readers who want the legal scaffolding:</strong>
+    <ul>
+      <li><strong>Plaintiff:</strong> Samuel Barrett, the box lessee.</li>
+      <li><strong>Defendant:</strong> Ocean View National Bank. Barrett is suing the institution, not any individual employee, since the notary and officer acted within the scope of their employment.</li>
+      <li><strong>Alleged damages:</strong> $7,000,000, representing the value Barrett claims was in the box when it was drilled.</li>
+      <li><strong>Underlying theory:</strong> the bank, through its officer and notary, failed to properly document and preserve the contents when the box was opened, which is why there is no reliable record of what it actually contained. A real version of this fact pattern would likely sound in negligence and/or breach of the institution's duty as bailee, though the dramatization doesn't litigate the cause of action by name.</li>
+      <li><strong>What the bank disputes:</strong> that anything beyond bare statutory compliance was required, and that Barrett has offered no independent proof of what the box contained.</li>
+    </ul>
+  </div>
+
+  <div class="note-box fade-in">
+    None of this is modeled on any actual lawsuit, reported case, or real institution. It is a hypothetical fact pattern built to dramatize a real structural question in Florida notarial practice. The exhibits, names, and institution below are fictional. <strong>Reasonable practitioners may disagree</strong> about the legal sufficiency of either approach shown in this case study, and that disagreement is the point.
+  </div>
+</section>
+
+<section id="story">
+  <div class="section-label fade-in">Part One</div>
+  <div class="section-rule"></div>
+  <h2 class="section-title fade-in">The <em>Story.</em></h2>
+
+  <div class="audio-player fade-in" id="audioPlayer">
+    <button class="audio-toggle" id="audioToggle" aria-label="Play or pause narration">&#9654;</button>
+    <div class="audio-meta">
+      <div class="audio-title">Listen: The Empty Safe Deposit Box</div>
+      <div class="audio-scrub" id="audioScrub"><div class="audio-scrub-fill" id="audioScrubFill"></div></div>
+      <div class="audio-time"><span id="audioCurrent">0:00</span> / <span id="audioDuration">--:--</span></div>
+    </div>
+    <audio id="audioEl" src="the-empty-safe-deposit-box.mp3" preload="metadata"></audio>
+  </div>
+
+  <details class="transcript fade-in">
+    <summary>Read the full courtroom script</summary>
+    <div class="script-body">
+<h3 class="part-title">PART ONE — OPENING STATEMENTS</h3>
+<p class="line narrator"> The courtroom is tense as the jurors file in, their eyes scanning the room with a mix of curiosity and anticipation. The judge enters, and the buzz of whispers fades into silence. All rise. The gavel strikes sharply. The room goes silent as the judge takes their seat.</p>
+<p class="line dialogue"><span class="speaker">JUDGE</span>: Please be seated. Today we have Barrett v. Ocean View National Bank. The plaintiff, Mr. Samuel Barrett, claims that the contents of his safe deposit box, including seven million dollars worth of jewelry, are missing following an unauthorized drilling by the bank. The defense asserts that all proper procedures were followed. At the center of this case is a single document: a notarized affidavit. Let's begin with opening statements.</p>
+<p class="line narrator"> Plaintiff's attorney, Miss Thompson, steps forward, holding the affidavit like it's the key to unraveling the entire case. She addresses the jury, her voice steady but sharp.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Ladies and gentlemen of the jury, this affidavit should have been the most reliable piece of evidence the bank could present. It's supposed to be sworn proof of what happened when the box was drilled open. But let's look closely at what actually took place. The notary who signed off on this document was not an impartial party. They were an employee of the bank, named directly in the affidavit, and they administered an oath to their own colleague — the bank officer who oversaw the drilling. This isn't just a minor issue. It's a fundamental problem that taints the entire process.</p>
+<p class="line narrator"> Miss Thompson steps closer to the jury, holding up the document for all to see.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: This document lists three signatures: the locksmith who drilled the box, the bank officer who oversaw it, and the notary who notarized the affidavit. But here's the critical flaw. The locksmith's role ended the moment the box was drilled open. They didn't see the contents inside. They stepped out. So the only people left to verify what was inside were two bank employees: the officer, who is making a sworn statement, and the notary, who is supposed to be an impartial witness. But how can the notary be impartial when they are also named in the document and administering the oath to their own colleague?</p>
+<p class="line narrator"> The defense attorney, Mr. Davis, rises, appearing confident and unbothered.</p>
+<p class="line dialogue"><span class="speaker">MR. DAVIS</span>: Members of the jury, this is a simple case of following procedure. Florida law doesn't require anything more than what was done here. A notary was present, an oath was administered, and the document was signed. Are we really to believe that because the notary works for the bank, they're incapable of performing their duties impartially? That's an absurd leap to make.</p>
+<p class="line narrator"> Miss Thompson fires back immediately, her voice filled with conviction.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Absurd? What's absurd is thinking that meeting the bare minimum legal standard is enough when you're dealing with millions of dollars in assets. This isn't a casual notarization for a basic document. This is about entering a safe deposit box, potentially containing anything from family heirlooms to priceless jewelry. And instead of using a certification, which would have simply attested to the presence of the notary without making them a party to the transaction, they chose a jurat. A jurat requires the notary to administer an oath and verify the truthfulness of the statement made. In doing so, they put the full weight of their own credibility behind a statement from a colleague. That's the risk.</p>
+<p class="line narrator"> The jury leans in, intrigued by the back and forth. Mr. Davis smirks slightly, turning back to address them.</p>
+<p class="line dialogue"><span class="speaker">MR. DAVIS</span>: And what evidence do we have that seven million dollars worth of jewelry was even in this box? We're expected to take the plaintiff's word for it. There's no inventory list, no photos, nothing. They're making a claim without proof — and we're supposed to ignore the fact that the notary was simply doing their job as required by law. This is a textbook example of meeting all legal requirements.</p>
+<p class="line narrator"> Miss Thompson steps forward once more, unwavering, clearly ready for this counter.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Yes, Mr. Davis, the notary met the bare minimum requirements. But when you're dealing with assets valued at seven million dollars, is the bare minimum really enough? The bank officer made a sworn statement, and the notary — who was also an employee — vouched for it without documenting any details of what was actually removed from the box. There was no independent verification, no inventory taken, and no third party present to corroborate the contents. The bank chose convenience over diligence. And now we're left to deal with the consequences.</p>
+<p class="line dialogue"><span class="speaker">JUDGE</span>: We will take a brief recess. This court will reconvene in fifteen minutes.</p>
+<p class="line narrator"> The courtroom buzzes with whispered conversations as the jury exits for recess, leaving the gallery to speculate.</p>
+<p class="part-end">— END OF PART ONE —</p>
+<h3 class="part-title">PART TWO — THE NOTARY TESTIFIES</h3>
+<p class="line narrator"> The courtroom reconvenes after recess. The atmosphere is charged with anticipation as the judge strikes the gavel.</p>
+<p class="line dialogue"><span class="speaker">JUDGE</span>: Court is back in session. Miss Thompson, you may call your first witness.</p>
+<p class="line narrator"> Miss Thompson rises with confidence, her expression focused.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Thank you, Your Honor. I call Miss Jessica Reed, the notary, to the stand.</p>
+<p class="line narrator"> Jessica Reed steps forward, visibly tense. She is sworn in and takes her seat, fidgeting slightly with her hands.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Miss Reed, you were the notary present during the drilling of the safe deposit box in question, on July 12th, three years ago. Is that correct?</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: Yes, that's correct.</p>
+<p class="line narrator"> Miss Thompson holds up a blown-up copy of the affidavit on a projector screen.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Let's take a look at this affidavit. This is the document you notarized, correct? And can you confirm that this is your signature at the bottom?</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: Yes, that's my signature.</p>
+<p class="line narrator"> Miss Thompson points to the section for contents.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Now let's focus on this section here, where the contents of the box should be listed. There's a diagonal strike-through. Did you make this mark, Miss Reed?</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: <em>(visibly confused)</em> I... I'm not sure. I mean, I don't recall making any adjustments outside of the notarial block.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: You're not sure? As a notary, are you permitted to make any alterations or notations on a document outside of your designated notarial section?</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: No. We're only supposed to complete the notarial block.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: <em>(sensing an opportunity)</em> Exactly. So if you didn't make this strike-through, then who did?</p>
+<p class="line narrator"> Jessica Reed's eyes widen as she realizes it must have been the bank officer.</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: I didn't make that mark.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: <em>(turning to the jury with a slight smile)</em> So you're saying that the officer made this adjustment — the officer who also swore an oath about the contents of the box?</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: Yes, it seems so.</p>
+<p class="line narrator"> The courtroom stirs with murmurs. Mr. Davis quickly stands.</p>
+<p class="line dialogue"><span class="speaker">MR. DAVIS</span>: Objection, Your Honor. The witness is speculating. There's no evidence that the officer made any unauthorized changes. This line of questioning is leading and assumes facts not in evidence.</p>
+<p class="line dialogue"><span class="speaker">JUDGE</span>: Sustained. Miss Thompson, stick to what the witness can confirm directly.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Miss Reed, were you trained to verify or document the contents of a safe deposit box when it's drilled open?</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: No. We were only trained to witness the signing and complete the notarial block.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: So you didn't note any specific items found in the box, nor did you keep a separate record in a notarial journal?</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: No, I didn't.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: <em>(firm, driving the point home)</em> In other words, you have no independent record of what happened that day, aside from this affidavit — with a strike-through made by someone else.</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: No. No, I don't.</p>
+<p class="line narrator"> Miss Thompson turns back to the judge.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: I have no further questions for this witness. I request to excuse Miss Reed for now, but I may need to recall her for further clarification.</p>
+<p class="line dialogue"><span class="speaker">JUDGE</span>: Miss Reed, you are temporarily excused. You may step down.</p>
+<p class="line narrator"> Jessica Reed stands, visibly relieved, and exits the stand quickly. Miss Thompson remains composed as she turns to the judge once more.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Your Honor, I'd like to call the bank officer who was present during the drilling, Mr. Alan Peterson.</p>
+<p class="part-end">— END OF PART TWO —</p>
+<h3 class="part-title">PART THREE — THE OFFICER UNDER SCRUTINY</h3>
+<p class="line narrator"> Alan Peterson steps up to the stand. He is visibly tense, his expression guarded, as he's sworn in and takes his seat.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Mr. Peterson, you were the officer in charge on the day the safe deposit box was drilled open. Is that correct?</p>
+<p class="line dialogue"><span class="speaker">ALAN PETERSON</span>: Yes, that's correct.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Can you confirm that this is your signature on the affidavit?</p>
+<p class="line dialogue"><span class="speaker">ALAN PETERSON</span>: Yes, that's my signature.</p>
+<p class="line narrator"> Miss Thompson points to the strike-through.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Did you make this diagonal strike-through in the contents section?</p>
+<p class="line dialogue"><span class="speaker">ALAN PETERSON</span>: Yes, I did. It's a standard way to indicate that the box was empty.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Standard, you say. Did you consider writing "none found," or listing any items that might have been in the box, even if insignificant?</p>
+<p class="line dialogue"><span class="speaker">ALAN PETERSON</span>: There was nothing of value to list. A simple strike-through was sufficient.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: And you swore an oath to that effect, didn't you — that there was absolutely nothing in that box worth noting?</p>
+<p class="line dialogue"><span class="speaker">ALAN PETERSON</span>: I... I did. Yes.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Mr. Peterson, this is a sworn statement. If you made this mark, you effectively documented that nothing was in the box. But can you confirm that you checked every item — every paper, every possible belonging inside — before making that decision?</p>
+<p class="line dialogue"><span class="speaker">ALAN PETERSON</span>: It was three years ago. I don't remember every detail. I followed the procedure as we were trained.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: <em>(voice rising slightly)</em> You don't remember, or you chose not to document it? Because there's a big difference, Mr. Peterson. You took an oath, and now we're left with a document that gives us nothing — no list, just a hasty strike-through.</p>
+<p class="line narrator"> Mr. Davis leaps to his feet.</p>
+<p class="line dialogue"><span class="speaker">MR. DAVIS</span>: Objection, Your Honor. The plaintiff's counsel is badgering the witness. He has stated multiple times that he followed procedure. This is nothing more than a fishing expedition.</p>
+<p class="line dialogue"><span class="speaker">JUDGE</span>: Sustained. Miss Thompson, wrap up your questioning.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: <em>(calm)</em> Mr. Peterson, to the best of your recollection, did you ever confirm with the notary what was inside the box before finalizing this affidavit?</p>
+<p class="line dialogue"><span class="speaker">ALAN PETERSON</span>: <em>(tight-lipped)</em> No, I didn't. It wasn't necessary.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: No further questions, Your Honor. However, I request permission to briefly recall Miss Reed to the stand for clarification based on Mr. Peterson's testimony.</p>
+<p class="line dialogue"><span class="speaker">JUDGE</span>: Permission granted.</p>
+<p class="part-end">— END OF PART THREE —</p>
+<h3 class="part-title">PART FOUR — THE GRILLING OF THE NOTARY</h3>
+<p class="line narrator"> Jessica Reed returns to the stand, visibly more nervous now.</p>
+<p class="line dialogue"><span class="speaker">JUDGE</span>: The witness is reminded that they are under oath. Miss Thompson, you may continue.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: <em>(calm, yet piercing)</em> You were the notary named on this affidavit, and you administered the oath to your colleague. Correct?</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: Yes, that's correct.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: And as we established, you did not keep a journal of this notarization. Is that also correct?</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: Yes, that's correct. The bank's policy doesn't require it.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: This notarization took place nearly three years ago. Can you tell us what you remember about the contents of the safe deposit box that day?</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: <em>(visibly nervous)</em> I... I don't recall exactly.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: You don't recall exactly? You were there when the box was opened. You administered the oath. You signed off on this affidavit. Yet you don't remember what was inside?</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: There are many of these procedures. I can't be expected to remember every single detail from years ago.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: <em>(smiling slightly, sensing an opportunity)</em> That's exactly my point. Without a journal entry, there is no independent record of what took place. How can we trust the contents of this affidavit when even you — the notary — cannot recall the events clearly?</p>
+<p class="line narrator"> Mr. Davis rises.</p>
+<p class="line dialogue"><span class="speaker">MR. DAVIS</span>: Objection, Your Honor. This is unfair. The notary followed the standard procedures outlined by the bank. This line of questioning is leading the witness into speculation.</p>
+<p class="line dialogue"><span class="speaker">JUDGE</span>: Overruled. The witness will answer.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Let me ask you again. Do you remember any of the items that were listed as coming out of that box?</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: No, I don't remember the specifics. It was a routine procedure.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Routine? We're talking about a claim involving seven million dollars worth of jewelry. Is that your idea of a routine procedure?</p>
+<p class="line dialogue"><span class="speaker">JESSICA REED</span>: I... I didn't know the value of the contents.</p>
+<p class="line narrator"> Miss Thompson stands tall, addressing the jury directly.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Ladies and gentlemen, this is the core issue. A notary who cannot recall the events, who didn't keep a journal, who administered an oath without verifying the contents — and yet we are expected to trust this process. This isn't just negligence. This is a failure of the entire procedure, one that jeopardizes the integrity of what a notary's role is supposed to protect.</p>
+<p class="line narrator"> Mr. Davis, visibly frustrated, stands to counter.</p>
+<p class="line dialogue"><span class="speaker">MR. DAVIS</span>: The bank met every legal requirement. The notary acted according to policy. To place blame on her for not recalling every detail from three years ago is unreasonable. She followed the standard.</p>
+<p class="line dialogue"><span class="speaker">JUDGE</span>: We'll take a brief recess before moving on to expert testimony.</p>
+<p class="line narrator"> The gavel strikes. The court is adjourned for a short recess.</p>
+<p class="part-end">— END OF PART FOUR —</p>
+<h3 class="part-title">PART FIVE — EXPERT TESTIMONY AND VERDICT</h3>
+<p class="line narrator"> The notary, visibly rattled from her testimony, steps down from the witness stand. The defense attorney gives her a sympathetic nod, but it's clear she didn't deliver the solid defense they had hoped for. The judge rustles his papers, adjusting his glasses as he looks up.</p>
+<p class="line dialogue"><span class="speaker">JUDGE</span>: Miss Thompson, please call your next witness.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: <em>(confident stride)</em> Your Honor, the plaintiff calls Mr. Mark Clobert, expert in notary law.</p>
+<p class="line narrator"> The jury leans forward as Mark Clobert, a distinguished figure in his sixties with a calm demeanor, steps up. He is sworn in, takes the stand, and the room falls silent.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Mr. Clobert, you've been called here today to provide your expert analysis on the notarization process involved in this case. Can you begin by sharing your professional background?</p>
+<p class="line dialogue"><span class="speaker">MARK CLOBERT</span>: Of course. I've spent over thirty years studying notarial law. I've consulted on hundreds of cases involving improper notarizations, and I am frequently called as an expert witness to evaluate the integrity of notarial acts. I'm also a published author on best practices for notaries, focusing on how to exceed minimum legal requirements.</p>
+<p class="line dialogue"><span class="speaker">MISS THOMPSON</span>: Thank you. Now, based on your review of the affidavit in question, what are your main concerns with how the notarization was handled?</p>
+<p class="line narrator"> Mark Clobert leans slightly forward, addressing the jury.</p>
+<p class="line dialogue"><span class="speaker">MARK CLOBERT</span>: The primary issue lies in the type of notarization chosen. A jurat was used, requiring an oath or affirmation from the officer. However, the notary was named directly in the document as a party, compromising her impartiality. Additionally, there was no record kept of the specific details of the contents removed from the box, and the notary admitted she could not recall whether she administered the oath properly. This points to serious deficiencies in both notarial practice and training.</p>
+<p class="line narrator"> Mr. Davis rises with a swift, almost predatory motion, ready to pounce.</p>
+<p class="line dialogue"><span class="speaker">MR. DAVIS</span>: Mr. Clobert, let's get something straight. You're suggesting that every notary who doesn't keep a journal, or who follows their employer's protocols, is negligent?</p>
+<p class="line dialogue"><span class="speaker">MARK CLOBERT</span>: <em>(shaking his head slightly)</em> Not at all. I'm saying that in high-risk situations like this, a prudent notary should take extra steps to ensure the integrity of the notarization. A journal is not legally required in Florida, but it is a best practice that helps protect the notary, the signers, and the institution. In this case, it would have provided crucial evidence of what transpired.</p>
+<p class="line dialogue"><span class="speaker">MR. DAVIS</span>: <em>(pressing harder)</em> The notary followed the law, Mr. Clobert. The law does not mandate a journal, and it does not specify what kind of notarial act must be used in a safe deposit box drilling. Are you suggesting that your interpretation should override state law?</p>
+<p class="line dialogue"><span class="speaker">MARK CLOBERT</span>: No, Mr. Davis. I am suggesting that the standard of care should be higher than just meeting the bare minimum legal requirements. The notary's role is to act as an impartial witness to the truth of the statements being made. In this case, that standard was compromised by the notary's involvement as a named party, and the choice of a jurat instead of a certification. A certification would have documented the facts of what was witnessed, reducing the risk to everyone involved.</p>
+<p class="line narrator"> The jury exchanges glances, sensing the gravity of Clobert's argument. Davis, however, is not ready to back down. He steps closer, his voice dripping with sarcasm.</p>
+<p class="line dialogue"><span class="speaker">MR. DAVIS</span>: So you would have preferred a certification instead of a jurat? You believe that would have magically prevented this dispute over the seven million dollars in missing jewelry?</p>
+<p class="line dialogue"><span class="speaker">MARK CLOBERT</span>: <em>(unperturbed)</em> It's not about preventing the dispute, Mr. Davis. It's about ensuring the integrity of the notarial act. A certification would have required the notary to observe and document the removal of the contents, providing an independent record. Instead, we have a flawed affidavit, relying solely on the officer's statement without sufficient corroboration. That's a recipe for exactly this kind of litigation.</p>
+<p class="line narrator"> Mr. Davis, almost shouting now, sensing the shift in the jury's sentiment.</p>
+<p class="line dialogue"><span class="speaker">MR. DAVIS</span>: You're setting an impossible standard, Mr. Clobert. Are you really saying that every notary should question their employer's directives? That's absurd. Notaries aren't legal experts — they rely on their employers to set the procedures.</p>
+<p class="line narrator"> Mark Clobert raises a hand slightly, his voice stern and measured.</p>
+<p class="line dialogue"><span class="speaker">MARK CLOBERT</span>: A notary's first duty is to the public, Mr. Davis. Not their employer. It is the notary's responsibility to understand the difference between a jurat and a certification, and to ensure that their actions uphold the integrity of the notarial act. If the employer's directive compromises that, the notary must speak up — or refuse to proceed. That's not an impossible standard. It's the very essence of the notary's role.</p>
+<p class="line narrator"> The courtroom falls silent. The defense attorney looks momentarily deflated, but he rallies for one final attempt.</p>
+<p class="line dialogue"><span class="speaker">MR. DAVIS</span>: One last question, Mr. Clobert. You're saying the notary failed, the officer failed, and the employer failed. Isn't this just hindsight bias? The notary did what she was instructed to do, and now you're placing all the blame on her.</p>
+<p class="line narrator"> Mark Clobert nods slightly, his voice softening as he addresses the jury.</p>
+<p class="line dialogue"><span class="speaker">MARK CLOBERT</span>: This isn't about hindsight, Mr. Davis. It's about foresight. A diligent notary anticipates these risks and takes steps to mitigate them. It's about understanding the weight of the seal, and the responsibility that comes with it. The notary's actions, the employer's training, and the choice of an affidavit all fell short of what's expected when dealing with something as sensitive as the contents of a safe deposit box. That's why we're here today.</p>
+<p class="line narrator"> The jury is visibly moved. The judge finally intervenes, sensing the exhaustion of both attorneys.</p>
+<p class="line dialogue"><span class="speaker">JUDGE</span>: Thank you, Mr. Clobert. You may step down. We'll now proceed to closing arguments before this case is handed over to the jury.</p>
+<p class="line narrator"> As Clobert steps down, he makes brief eye contact with the notary, who looks down, visibly shaken. The judge bangs his gavel, and the courtroom settles once more. It's clear that Clobert's testimony has left a lasting impact. The air in the room feels heavy with anticipation as everyone braces for the final arguments — and the jury's decision.</p>
+    </div>
+  </details>
+</section>
+
+<section id="evidence">
+  <div class="section-label fade-in">Part Two</div>
+  <div class="section-rule"></div>
+  <h2 class="section-title fade-in">The Evidence <em>Locker.</em></h2>
+
+  <div class="note-box fade-in">
+    The exhibits below are not intended to demonstrate the "correct" or "incorrect" way to conduct a safe deposit box opening. They are intended to facilitate discussion concerning statutory interpretation, notarial impartiality, evidentiary preservation, institutional procedure, and risk management.
+  </div>
+
+  <div class="exhibit-block fade-in">
+    <div class="exhibit-label">Exhibit A</div>
+    <div class="exhibit-heading">The Form As Used (Discussion Version)</div>
+    <div class="exhibit-tabs">
+      <button class="exhibit-tab active" onclick="showExhibit('a-blank', this)">Blank Form</button>
+      <button class="exhibit-tab" onclick="showExhibit('a-completed', this)">Illustrative Completion</button>
+    </div>
+    <div class="exhibit-frame">
+      <div class="exhibit-view active" id="a-blank"><img src="exhibit-a-blank.png" alt="Exhibit A, blank discussion version of the Drilling and Contents Affidavit"></div>
+      <div class="exhibit-view" id="a-completed"><img src="exhibit-a-completed.png" alt="Exhibit A, illustrative completed version showing the diagonal strike-through in the contents section"></div>
+    </div>
+    <div class="exhibit-actions">
+      <a href="Exhibit A and B - Printable Forms.pdf" class="btn btn-ghost" target="_blank">Download Blank PDF</a>
+      <a href="Exhibit A - Illustrative Completion.pdf" class="btn btn-ghost" target="_blank">Download Completed PDF</a>
+    </div>
+  </div>
+
+  <div class="exhibit-block fade-in">
+    <div class="exhibit-label">Exhibit B</div>
+    <div class="exhibit-heading">One Possible Alternative (Fictional, Proposed, Never Adopted)</div>
+    <div class="exhibit-frame">
+      <div class="exhibit-view active"><img src="exhibit-b-blank.png" alt="Exhibit B, proposed certificate format aligned with Florida Statute 655.94"></div>
+    </div>
+    <div class="exhibit-actions">
+      <a href="Exhibit A and B - Printable Forms.pdf" class="btn btn-ghost" target="_blank">Download PDF</a>
+    </div>
+  </div>
+</section>
+
+<section id="questions">
+  <div class="section-label fade-in">Part Three</div>
+  <div class="section-rule"></div>
+  <h2 class="section-title fade-in">The <em>Questions.</em></h2>
+
+  <ol class="qa-list fade-in">
+    <li>The statute does not expressly require either an affidavit or a sworn oath. Does the use of an affidavit add clarity, create unnecessary complexity, or alter the notary's role?</li>
+    <li>Does naming the notary as an "observer" in the substantive body of a form change her legal posture under Florida Statute 117.107(12), even if she's still just an employee notarizing for her employer? Why or why not?</li>
+    <li>Why might an institution prefer an officer's sworn affidavit over a notary's independent certificate, even though the certificate is the format the statute anticipates?</li>
+    <li>If you were the notary in Exhibit A, at what point would you have raised an objection, and to whom?</li>
+    <li>Should the notary have refused to proceed with Exhibit A? Why or why not?</li>
+    <li>If litigation arose eight years after the box was drilled, what evidence would you want available in court, and who should have been responsible for creating and preserving that evidence?</li>
+  </ol>
+</section>
+
+<section id="perspectives">
+  <div class="section-label fade-in">Part Four</div>
+  <div class="section-rule"></div>
+  <h2 class="section-title fade-in">Competing <em>Perspectives.</em></h2>
+
+  <div class="perspective-grid fade-in">
+    <div class="perspective-card">
+      <h4>The Institution</h4>
+      <ul>
+        <li>The affidavit exceeds statutory minimum requirements.</li>
+        <li>Multiple signatures increase accountability.</li>
+        <li>Employee-notaries routinely notarize for their employers.</li>
+        <li>No statute expressly prohibits this format.</li>
+      </ul>
+    </div>
+    <div class="perspective-card">
+      <h4>The Critic</h4>
+      <ul>
+        <li>The statute contemplates a certificate rather than a sworn affidavit.</li>
+        <li>The form may blur the distinction between witness and certifying official.</li>
+        <li>The absence of an inventory increases evidentiary risk.</li>
+        <li>The form may create avoidable questions concerning impartiality.</li>
+      </ul>
+    </div>
+    <div class="perspective-card">
+      <h4>The Practitioner</h4>
+      <ul>
+        <li>The process may be legally sufficient while still exposing the institution and notary to unnecessary litigation risk.</li>
+        <li>Best practices frequently exceed statutory minimums.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="agreement">
+  <div class="section-label fade-in">Part Five</div>
+  <div class="section-rule"></div>
+  <h2 class="section-title fade-in">Points of General <em>Agreement.</em></h2>
+
+  <ul class="agreement-list fade-in">
+    <li>Florida Statute 655.94 requires a notary to be present during certain safe deposit box openings and to execute a certificate regarding the contents.</li>
+    <li>The statute does not prescribe a specific certificate form.</li>
+    <li>Florida law generally permits employee-notaries to notarize documents for their employers, absent a prohibited interest.</li>
+    <li>Maintaining detailed contemporaneous records often reduces litigation risk.</li>
+    <li>Institutions may adopt procedures that exceed statutory minimum requirements.</li>
+  </ul>
+</section>
+
+<section id="authorities">
+  <div class="section-label fade-in">Part Six</div>
+  <div class="section-rule"></div>
+  <h2 class="section-title fade-in">Governing <em>Authorities.</em></h2>
+
+  <div class="authority-card fade-in">
+    <span class="stat-label">Florida Statute 655.94</span>
+    <p>Governs the opening of safe deposit boxes for nonpayment of rent. Requires the box to be opened in the presence of an officer of the institution and a notary public. The notary public seals the contents in a package and executes a certificate reciting the lessee's name, the date of opening, and a list of the contents. The statute does not require an affidavit, an oath, or a jurat, and it does not prescribe a specific certificate form.</p>
+  </div>
+  <div class="authority-card fade-in">
+    <span class="stat-label">Florida Statute 117.107(12)</span>
+    <p>A notary public may not notarize a signature on a document if the notary has a financial interest in, or is a party to, the underlying transaction. An employee may notarize for their employer without that employment alone being disqualifying, so long as the notary receives no benefit beyond salary and the statutory notary fee.</p>
+  </div>
+  <div class="authority-card fade-in">
+    <span class="stat-label">National Notary Association Guidance</span>
+    <p>Because Florida law does not provide a form certificate for safe deposit box openings, the NNA's Florida Notary Primer publishes a suggested certificate format consistent with the statute's requirements, present, inventory, certify, seal, without an oath.</p>
+  </div>
+
+  <div class="note-box fade-in disclaimer" style="margin-top:24px;">
+    This section is provided for educational context only and is not legal advice. Statutory text changes over time; always verify current law before relying on it.
+  </div>
+</section>
+
+<section id="simulation">
+  <div class="section-label fade-in">Part Seven</div>
+  <div class="section-rule"></div>
+  <h2 class="section-title fade-in">The <em>Decision.</em></h2>
+
+  <div class="soon-card fade-in">
+    <span class="soon-badge">Interactive</span>
+    <h3>What would you have done?</h3>
+    <p>You'll be handed the institution's standard paperwork, asked to decide whether to proceed, and shown the consequences of your choice years later. No verdict. No official answer key. Just the decision, and what it costs.</p>
+    <p style="margin-top:24px;"><a href="the-decision.html" class="btn btn-primary">Begin the Decision</a></p>
+  </div>
+</section>
+
+<section id="closing">
+  <div class="corner-mark tl"></div>
+  <div class="corner-mark tr"></div>
+  <p class="closing-statement fade-in">"What would you have done<br>if you had been the notary?"</p>
+  <p class="closing-sub fade-in">This case study is fictional and intended solely to promote discussion concerning notarial practice, institutional procedure, and risk management. Nothing presented here should be construed as legal advice or an authoritative interpretation of Florida law. Not affiliated with any financial institution, regulator, or professional organization.</p>
+  <a href="mailto:mario.data.leader@gmail.com" class="btn btn-primary">Share Your Answer</a>
+  <p class="footer-line fade-in">Mario D. Atkins &middot; Pattern Library &middot; Entry 02 &middot; The Empty Safe Deposit Box</p>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  function showExhibit(id, btn) {
+    const block = btn.closest('.exhibit-block');
+    block.querySelectorAll('.exhibit-view').forEach(v => v.classList.remove('active'));
+    block.querySelectorAll('.exhibit-tab').forEach(t => t.classList.remove('active'));
+    block.querySelector('#' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Audio player
+  (function() {
+    const audio = document.getElementById('audioEl');
+    const toggle = document.getElementById('audioToggle');
+    const scrub = document.getElementById('audioScrub');
+    const scrubFill = document.getElementById('audioScrubFill');
+    const curEl = document.getElementById('audioCurrent');
+    const durEl = document.getElementById('audioDuration');
+    if (!audio) return;
+
+    function fmt(s) {
+      if (!isFinite(s)) return '--:--';
+      const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+      return m + ':' + String(sec).padStart(2, '0');
+    }
+    function updateDuration() {
+      if (audio.duration && isFinite(audio.duration)) durEl.textContent = fmt(audio.duration);
+    }
+    toggle.addEventListener('click', () => {
+      if (audio.paused) { audio.play(); toggle.innerHTML = '&#10073;&#10073;'; }
+      else { audio.pause(); toggle.innerHTML = '&#9654;'; }
+    });
+    audio.addEventListener('loadedmetadata', updateDuration);
+    audio.addEventListener('durationchange', updateDuration);
+    if (audio.readyState >= 1) updateDuration();
+    audio.addEventListener('timeupdate', () => {
+      curEl.textContent = fmt(audio.currentTime);
+      scrubFill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    });
+    audio.addEventListener('ended', () => { toggle.innerHTML = '&#9654;'; });
+    audio.addEventListener('error', () => {
+      document.getElementById('audioPlayer').innerHTML =
+        '<div style="font-size:11px;color:var(--steel);letter-spacing:0.05em;">Audio file not found yet &mdash; upload the-empty-safe-deposit-box.mp3 to the repo root.</div>';
+    });
+    scrub.addEventListener('click', (e) => {
+      const rect = scrub.getBoundingClientRect();
+      const pct = (e.clientX - rect.left) / rect.width;
+      audio.currentTime = pct * audio.duration;
+    });
+  })();
+</script>
+
+</body>
+</html>
