@@ -192,6 +192,13 @@
   .back a:hover { color: var(--steel); }
 </style>
 <script data-goatcounter="https://marioatkins.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xbvggb3cfr");
+</script>
 </head>
 <body>
 <div class="room">
@@ -274,10 +281,16 @@
     const form = document.getElementById('initialsForm');
     form.classList.add('visible');
     document.getElementById('initials').focus();
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: 'marginalia-consent-yes', title: 'Marginalia consent: yes', event: true });
+    }
   }
 
   function decline() {
     document.getElementById('consentBlock').style.display = 'none';
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: 'marginalia-consent-no', title: 'Marginalia consent: no', event: true });
+    }
   }
 
   function leaveInitials() {
@@ -294,6 +307,9 @@
     input.value = '';
     document.getElementById('confirmed').textContent = 'The room remembers.';
     setTimeout(()=>{ document.getElementById('confirmed').textContent=''; }, 3000);
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: 'marginalia-mark-left', title: 'Marginalia mark left', event: true });
+    }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
