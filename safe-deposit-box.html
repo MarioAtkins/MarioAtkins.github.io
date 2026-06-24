@@ -425,6 +425,13 @@
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 </style>
 <script data-goatcounter="https://marioatkins.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xbvggb3cfr");
+</script>
 </head>
 <body>
 
@@ -484,7 +491,7 @@
     <audio id="audioEl" src="the-empty-safe-deposit-box.mp3" preload="metadata"></audio>
   </div>
 
-  <details class="transcript fade-in">
+  <details class="transcript fade-in" id="transcriptDetails">
     <summary>Read the full courtroom script</summary>
     <div class="script-body">
 <h3 class="part-title">PART ONE — OPENING STATEMENTS</h3>
@@ -824,6 +831,47 @@
       const pct = (e.clientX - rect.left) / rect.width;
       audio.currentTime = pct * audio.duration;
     });
+
+    // Track first play only, not every pause/resume
+    let firstPlayLogged = false;
+    audio.addEventListener('play', () => {
+      if (!firstPlayLogged && window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({ path: 'audio-first-play', title: 'Audio first play', event: true });
+        firstPlayLogged = true;
+      }
+    });
+  })();
+
+  // Transcript opened (fires once per visit)
+  (function() {
+    const details = document.getElementById('transcriptDetails');
+    if (!details) return;
+    let logged = false;
+    details.addEventListener('toggle', () => {
+      if (details.open && !logged && window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({ path: 'transcript-opened', title: 'Transcript opened', event: true });
+        logged = true;
+      }
+    });
+  })();
+
+  // Scroll depth milestones: 25 / 50 / 75 / 100 percent, each fires once per visit
+  (function() {
+    const fired = { 25: false, 50: false, 75: false, 100: false };
+    function checkScroll() {
+      const scrolled = window.scrollY + window.innerHeight;
+      const total = document.documentElement.scrollHeight;
+      const pct = (scrolled / total) * 100;
+      [25, 50, 75, 100].forEach((milestone) => {
+        if (pct >= milestone && !fired[milestone]) {
+          fired[milestone] = true;
+          if (window.goatcounter && window.goatcounter.count) {
+            window.goatcounter.count({ path: 'scroll-' + milestone, title: 'Scrolled ' + milestone + '%', event: true });
+          }
+        }
+      });
+    }
+    window.addEventListener('scroll', checkScroll, { passive: true });
   })();
 </script>
 
