@@ -123,6 +123,13 @@
   .fading { animation: fadeOut 0.8s ease forwards; }
 </style>
 <script data-goatcounter="https://marioatkins.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xbvggb3cfr");
+</script>
 </head>
 <body>
 <canvas id="stars"></canvas>
@@ -185,7 +192,7 @@
     if (!val) return;
 
     if (keys.has(val)) {
-      unlock();
+      unlock(true);
     } else {
       attempts++;
       input.classList.add('shake');
@@ -204,15 +211,22 @@
     }
   }
 
-  function unlock() {
+  function unlock(exactMatch) {
     hint.textContent = '';
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({
+        path: exactMatch ? 'why-door-solved-exact' : 'why-door-solved-after-hint',
+        title: 'Why door solved',
+        event: true
+      });
+    }
     door.classList.add('fading');
     setTimeout(()=>{ window.location.href = 'marginalia.html'; }, 800);
   }
 
   input.addEventListener('keydown', e => {
     if (e.key !== 'Enter') return;
-    if (unlocked && input.value.trim().length > 3) { unlock(); return; }
+    if (unlocked && input.value.trim().length > 3) { unlock(false); return; }
     if (!unlocked) enter();
   });
 
