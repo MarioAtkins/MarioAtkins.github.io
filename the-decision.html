@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Decision — The Empty Safe Deposit Box</title>
+<meta name="description" content="An interactive decision simulation. You are the notary. What do you do?">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #080e16;
+    --bg2:       #0c1520;
+    --bg3:       #0e1e30;
+    --cyan:      #3cb8d8;
+    --cyan-dim:  #1e6a82;
+    --white:     #eef4f8;
+    --offwhite:  #b8cdd8;
+    --steel:     #5a8099;
+    --dim:       #2a4a5e;
+    --accent:    #60c8e8;
+    --gold:      #c8a84b;
+    --serif:     'Cormorant Garamond', serif;
+    --mono:      'DM Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--offwhite);
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 53px, rgba(255,255,255,0.025) 53px, rgba(255,255,255,0.025) 54px),
+      repeating-linear-gradient(90deg, transparent, transparent 53px, rgba(255,255,255,0.015) 53px, rgba(255,255,255,0.015) 54px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 48px;
+    background: rgba(8,14,22,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(60,184,216,0.12);
+  }
+  nav .brand { font-family: var(--serif); font-size: 18px; font-weight: 300; color: var(--white); letter-spacing: 0.02em; text-decoration: none; }
+  nav .brand span { color: var(--accent); font-style: italic; }
+  nav .back-link { color: var(--steel); text-decoration: none; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; transition: color 0.2s; }
+  nav .back-link:hover { color: var(--cyan); }
+
+  .stage-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 160px 32px 100px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .progress {
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    height: 2px;
+    background: rgba(60,184,216,0.1);
+    z-index: 99;
+  }
+  .progress-bar { height: 100%; background: var(--cyan); width: 0%; transition: width 0.4s ease; }
+
+  .stage { display: none; }
+  .stage.active { display: block; animation: fadeIn 0.5s ease both; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  .stage-label { font-size: 10px; letter-spacing: 0.3em; color: var(--cyan-dim); text-transform: uppercase; margin-bottom: 16px; }
+  .stage-title { font-family: var(--serif); font-size: clamp(26px, 4vw, 38px); font-weight: 300; color: var(--white); line-height: 1.25; margin-bottom: 28px; }
+  .stage-title em { font-style: italic; color: var(--accent); }
+  .stage-body { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--offwhite); line-height: 1.8; margin-bottom: 16px; }
+  .stage-body.quote { font-style: italic; color: var(--steel); padding-left: 20px; border-left: 2px solid var(--cyan-dim); }
+  .stage-prompt { font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--white); margin: 28px 0 24px; }
+
+  .choice-grid { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+  .choice-btn {
+    background: var(--bg2);
+    border: 1px solid rgba(60,184,216,0.2);
+    color: var(--white);
+    font-family: var(--mono);
+    font-size: 13px;
+    text-align: left;
+    padding: 18px 22px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .choice-btn:hover { border-color: var(--cyan); background: var(--bg3); }
+  .choice-btn .choice-label { display: block; font-size: 9px; letter-spacing: 0.2em; color: var(--cyan); text-transform: uppercase; margin-bottom: 6px; }
+
+  .exhibit-pick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  .exhibit-pick {
+    background: var(--bg2);
+    border: 1px solid rgba(60,184,216,0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+  }
+  .exhibit-pick:hover { border-color: var(--cyan); }
+  .exhibit-pick img { width: 100%; display: block; border-bottom: 1px solid rgba(60,184,216,0.15); }
+  .exhibit-pick .pick-cap { padding: 14px 16px; font-size: 11px; letter-spacing: 0.1em; color: var(--offwhite); text-transform: uppercase; }
+
+  .checkbox-list { display: flex; flex-direction: column; gap: 10px; margin: 8px 0 28px; }
+  .checkbox-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--offwhite); cursor: pointer; }
+  .checkbox-row input { accent-color: var(--cyan); width: 15px; height: 15px; }
+
+  .seal-frame { border: 1px solid rgba(60,184,216,0.15); border-radius: 4px; overflow: hidden; margin: 20px 0; background: #fff; }
+  .seal-frame img { width: 100%; display: block; }
+
+  .btn { display: inline-block; padding: 13px 30px; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.2s; cursor: pointer; font-family: var(--mono); border: 1px solid var(--cyan); background: transparent; color: var(--cyan); }
+  .btn:hover:not(:disabled) { background: var(--cyan); color: var(--bg); }
+  .btn:disabled { opacity: 0.3; cursor: not-allowed; border-color: var(--dim); color: var(--steel); }
+  .btn-ghost { border-color: var(--dim); color: var(--steel); }
+  .btn-ghost:hover { border-color: var(--steel); color: var(--offwhite); background: transparent; }
+
+  .seal-stamp-zone { text-align: center; margin: 28px 0; }
+  .seal-applied-mark {
+    display: inline-block;
+    width: 90px; height: 90px;
+    border: 2px solid var(--cyan);
+    border-radius: 50%;
+    color: var(--cyan);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto 16px;
+    transform: rotate(-6deg);
+    opacity: 0;
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .seal-applied-mark.show { opacity: 1; transform: rotate(-6deg) scale(1); }
+
+  .consequence-box {
+    background: var(--bg2);
+    border-left: 2px solid var(--gold);
+    border-radius: 4px;
+    padding: 24px 26px;
+    margin: 20px 0 28px;
+  }
+  .consequence-box p { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--white); line-height: 1.7; }
+
+  .results-box { background: var(--bg2); border: 1px solid rgba(60,184,216,0.15); border-radius: 4px; padding: 24px; margin: 20px 0; }
+  .results-row { margin-bottom: 16px; }
+  .results-row-label { font-size: 11px; letter-spacing: 0.1em; color: var(--offwhite); text-transform: uppercase; margin-bottom: 6px; display: flex; justify-content: space-between; }
+  .results-bar-track { height: 8px; background: rgba(60,184,216,0.08); border-radius: 4px; overflow: hidden; }
+  .results-bar-fill { height: 100%; background: var(--cyan); border-radius: 4px; }
+  .results-note { font-size: 11px; color: var(--steel); margin-top: 16px; line-height: 1.6; }
+
+  .authority-mini { background: var(--bg2); border: 1px solid rgba(60,184,216,0.1); border-radius: 4px; padding: 16px 20px; margin-bottom: 14px; font-size: 12.5px; line-height: 1.7; }
+  .authority-mini .stat-label { font-size: 9px; letter-spacing: 0.2em; color: var(--cyan); text-transform: uppercase; margin-bottom: 6px; display: block; }
+
+  .final-statement { font-family: var(--serif); font-size: clamp(22px, 3vw, 32px); font-weight: 300; font-style: italic; color: var(--white); margin-bottom: 20px; line-height: 1.35; text-align: center; }
+  .final-sub { font-size: 12px; color: var(--steel); text-align: center; margin-bottom: 32px; line-height: 1.7; }
+  .final-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  .footer-line { font-size: 10px; letter-spacing: 0.12em; color: var(--dim); text-align: center; margin-top: 48px; }
+
+  @media (max-width: 600px) {
+    .stage-wrap { padding: 130px 20px 80px; }
+    .exhibit-pick-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<script data-goatcounter="https://marioatkins.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<nav>
+  <a href="index.html" class="brand">Mario D. <span>Atkins</span></a>
+  <a href="safe-deposit-box.html" class="back-link">&larr; The Case Study</a>
+</nav>
+
+<div class="stage-wrap">
+
+  <!-- STAGE 1: SITUATION -->
+  <div class="stage active" id="stage-1">
+    <div class="stage-label">The Decision &middot; Step 1 of 7</div>
+    <h1 class="stage-title">You are the <em>notary.</em></h1>
+    <p class="stage-body">You are a commissioned Florida notary employed by Ocean View National Bank. A safe deposit box must be drilled for nonpayment of rent. You are handed the institution's standard paperwork.</p>
+    <p class="stage-body quote">"This is the form we've always used."</p>
+    <p class="stage-body">The locksmith is waiting. The customer is not present.</p>
+    <p class="stage-prompt">What do you do?</p>
+    <div class="choice-grid">
+      <button class="choice-btn" data-goatcounter-click="decision-refuse" onclick="goRefuse()">
+        <span class="choice-label">Option A</span>
+        Refuse to proceed.
+      </button>
+      <button class="choice-btn" data-goatcounter-click="decision-proceed" onclick="goToStage('stage-2b')">
+        <span class="choice-label">Option B</span>
+        Review the document and proceed.
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 2A: REFUSE -->
+  <div class="stage" id="stage-2a">
+    <div class="stage-label">The Decision &middot; Step 2 of 7</div>
+    <h2 class="stage-title">You <em>decline.</em></h2>
+    <div class="consequence-box">
+      <p>You decline to proceed until additional guidance is obtained. The branch manager escalates the matter to legal and compliance. The opening is delayed. The institution must now determine whether an alternative procedure or form is required.</p>
+    </div>
+    <p class="stage-prompt">Why did you refuse?</p>
+    <div class="checkbox-list" id="refuse-reasons">
+      <label class="checkbox-row"><input type="checkbox" value="impartiality" data-goatcounter-click="reason-impartiality"> Concern regarding impartiality</label>
+      <label class="checkbox-row"><input type="checkbox" value="statutory" data-goatcounter-click="reason-statutory"> Uncertainty regarding statutory compliance</label>
+      <label class="checkbox-row"><input type="checkbox" value="discomfort" data-goatcounter-click="reason-discomfort"> Discomfort with the form</label>
+      <label class="checkbox-row"><input type="checkbox" value="guidance" data-goatcounter-click="reason-guidance"> Need for legal guidance</label>
+      <label class="checkbox-row"><input type="checkbox" value="other-refuse" data-goatcounter-click="reason-other-refuse"> Other</label>
+    </div>
+    <button class="btn" id="refuse-continue" disabled onclick="goToStage('stage-7')">Continue</button>
+  </div>
+
+  <!-- STAGE 2B: CHOOSE EXHIBIT -->
+  <div class="stage" id="stage-2b">
+    <div class="stage-label">The Decision &middot; Step 2 of 7</div>
+    <h2 class="stage-title">You <em>proceed.</em></h2>
+    <p class="stage-body">Two documents sit on the desk. Neither is labeled as correct or preferred.</p>
+    <p class="stage-prompt">Which document would you choose to complete?</p>
+    <div class="exhibit-pick-grid">
+      <button class="exhibit-pick" data-goatcounter-click="decision-exhibit-a" onclick="chooseExhibit('a')">
+        <img src="exhibit-a-blank.png" alt="Discussion Version">
+        <span class="pick-cap">Discussion Version</span>
+      </button>
+      <button class="exhibit-pick" data-goatcounter-click="decision-exhibit-b" onclick="chooseExhibit('b')">
+        <img src="exhibit-b-blank.png" alt="Alternative Version">
+        <span class="pick-cap">Alternative Version</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 3: SEAL -->
+  <div class="stage" id="stage-3">
+    <div class="stage-label">The Decision &middot; Step 3 of 7</div>
+    <h2 class="stage-title">Complete the <em>act.</em></h2>
+    <p class="stage-body">Select the reason for opening, then apply your notarial seal.</p>
+    <div class="checkbox-list" id="reason-radios">
+      <label class="checkbox-row"><input type="radio" name="openreason" value="nonpayment" data-goatcounter-click="openreason-nonpayment"> Non-payment of rent</label>
+      <label class="checkbox-row"><input type="radio" name="openreason" value="nokeys" data-goatcounter-click="openreason-nokeys"> Box was surrendered without the two keys</label>
+      <label class="checkbox-row"><input type="radio" name="openreason" value="misplaced" data-goatcounter-click="openreason-misplaced"> Lessee misplaced key(s)</label>
+    </div>
+    <div class="seal-stamp-zone">
+      <div class="seal-applied-mark" id="sealMark">SEAL<br>APPLIED</div><br>
+      <button class="btn" id="apply-seal-btn" disabled onclick="applySeal()">Apply Notarial Seal</button>
+    </div>
+  </div>
+
+  <!-- STAGE 4: FLASH FORWARD -->
+  <div class="stage" id="stage-4">
+    <div class="stage-label">The Decision &middot; Step 4 of 7</div>
+    <h2 class="stage-title">Three years <em>later.</em></h2>
+    <div class="consequence-box" id="flashforward-box"></div>
+    <button class="btn" onclick="goToStage('stage-5')">Continue</button>
+  </div>
+
+  <!-- STAGE 5: REFLECTION -->
+  <div class="stage" id="stage-5">
+    <div class="stage-label">The Decision &middot; Step 5 of 7</div>
+    <h2 class="stage-title">What influenced <em>you?</em></h2>
+    <p class="stage-prompt">What most influenced your decision?</p>
+    <div class="checkbox-list" id="reflection-reasons">
+      <label class="checkbox-row"><input type="checkbox" value="policy" data-goatcounter-click="reflect-policy"> I relied on institutional policy</label>
+      <label class="checkbox-row"><input type="checkbox" value="statute" data-goatcounter-click="reflect-statute"> I relied on statutory language</label>
+      <label class="checkbox-row"><input type="checkbox" value="practice" data-goatcounter-click="reflect-practice"> I trusted established practice</label>
+      <label class="checkbox-row"><input type="checkbox" value="documentation" data-goatcounter-click="reflect-documentation"> I preferred additional documentation</label>
+      <label class="checkbox-row"><input type="checkbox" value="impartiality2" data-goatcounter-click="reflect-impartiality"> I was concerned about impartiality</label>
+      <label class="checkbox-row"><input type="checkbox" value="other-reflect" data-goatcounter-click="reflect-other"> Other</label>
+    </div>
+    <button class="btn" id="reflection-continue" disabled onclick="goToStage('stage-6')">Continue</button>
+  </div>
+
+  <!-- STAGE 6: RESULTS -->
+  <div class="stage" id="stage-6">
+    <div class="stage-label">The Decision &middot; Step 6 of 7</div>
+    <h2 class="stage-title">What others <em>chose.</em></h2>
+    <div class="results-box" id="resultsBox"></div>
+    <button class="btn" onclick="goToStage('stage-7')">Continue</button>
+  </div>
+
+  <!-- STAGE 7: EDUCATIONAL CONTEXT -->
+  <div class="stage" id="stage-7">
+    <div class="stage-label">The Decision &middot; Step 7 of 7</div>
+    <h2 class="stage-title">The <em>law,</em> for context.</h2>
+    <div class="authority-mini">
+      <span class="stat-label">Florida Statute 655.94</span>
+      Requires the box to be opened in the presence of an officer and a notary public, who seals the contents and executes a certificate listing them. No oath, affidavit, or jurat is required, and no specific form is prescribed.
+    </div>
+    <div class="authority-mini">
+      <span class="stat-label">Florida Statute 117.107(12)</span>
+      A notary may not notarize if they have a financial interest in, or are a party to, the underlying transaction. An employee notarizing for their employer is not automatically disqualifying, absent a benefit beyond salary and the statutory fee.
+    </div>
+    <div class="authority-mini">
+      <span class="stat-label">National Notary Association Guidance</span>
+      Because Florida law provides no form certificate for this procedure, the NNA's Florida Notary Primer publishes a suggested format: present, inventory, certify, seal, without an oath.
+    </div>
+    <button class="btn" onclick="goToStage('stage-final')">Continue</button>
+  </div>
+
+  <!-- FINAL STAGE -->
+  <div class="stage" id="stage-final">
+    <p class="final-statement">"There is no official answer key."</p>
+    <p class="final-sub">The purpose of this exercise is not to determine who is right. It is to explore how reasonable professionals make decisions when statutory requirements, institutional procedures, and professional judgment intersect.<br><br>What would you do differently today?</p>
+    <div class="final-actions">
+      <a href="safe-deposit-box.html" class="btn">Return to the Case Study</a>
+      <a href="mailto:mario.data.leader@gmail.com" class="btn btn-ghost">Share Your Answer</a>
+    </div>
+    <p class="footer-line">Mario D. Atkins &middot; Pattern Library &middot; Entry 02 &middot; The Decision</p>
+  </div>
+
+</div>
+
+<script>
+  const STAGES = ['stage-1','stage-2a','stage-2b','stage-3','stage-4','stage-5','stage-6','stage-7','stage-final'];
+  let chosenExhibit = null;
+  let tookPath = null; // 'refuse' | 'a' | 'b'
+
+  function updateProgress(stageId) {
+    const idx = STAGES.indexOf(stageId);
+    const pct = ((idx + 1) / STAGES.length) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  }
+
+  function goToStage(id) {
+    document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    updateProgress(id);
+    window.scrollTo({top:0, behavior:'instant'});
+  }
+
+  function goRefuse() {
+    tookPath = 'refuse';
+    goToStage('stage-2a');
+  }
+
+  function chooseExhibit(which) {
+    chosenExhibit = which;
+    tookPath = which;
+    goToStage('stage-3');
+  }
+
+  function applySeal() {
+    document.getElementById('sealMark').classList.add('show');
+    const ff = document.getElementById('flashforward-box');
+    if (chosenExhibit === 'a') {
+      ff.innerHTML = '<p>Three years later, litigation arises concerning the contents of the safe deposit box. Your document is introduced as Exhibit A.</p>';
+    } else {
+      ff.innerHTML = '<p>Three years later, questions arise concerning the opening of the safe deposit box. Your certificate and inventory records are requested.</p>';
+    }
+    setTimeout(() => goToStage('stage-4'), 900);
+  }
+
+  // Refuse reasons gate
+  document.querySelectorAll('#refuse-reasons input').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const any = Array.from(document.querySelectorAll('#refuse-reasons input')).some(c => c.checked);
+      document.getElementById('refuse-continue').disabled = !any;
+    });
+  });
+
+  // Open reason gate (radio, single select required)
+  document.querySelectorAll('#reason-radios input').forEach(r => {
+    r.addEventListener('change', () => {
+      document.getElementById('apply-seal-btn').disabled = false;
+    });
+  });
+
+  // Reflection gate
+  document.querySelectorAll('#reflection-reasons input').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const any = Array.from(document.querySelectorAll('#reflection-reasons input')).some(c => c.checked);
+      document.getElementById('reflection-continue').disabled = !any;
+    });
+  });
+
+  // ---------------------------------------------------------------------
+  // RESULTS: update these three numbers manually from your GoatCounter
+  // dashboard (Settings > or the event breakdown for decision-refuse,
+  // decision-exhibit-a, decision-exhibit-b). Leave as null until you
+  // have a meaningful sample size.
+  // ---------------------------------------------------------------------
+  const RESULTS = {
+    examA: null,   // e.g. 42
+    examB: null,   // e.g. 39
+    refuse: null,  // e.g. 19
+  };
+
+  function renderResults() {
+    const box = document.getElementById('resultsBox');
+    const { examA, examB, refuse } = RESULTS;
+    if (examA === null || examB === null || refuse === null) {
+      box.innerHTML = '<p class="results-note">Results are still accumulating. Check back once more people have completed this exercise. Nothing is shown here until there is a real, meaningful sample to report.</p>';
+      return;
+    }
+    const total = examA + examB + refuse;
+    const pa = Math.round((examA/total)*100), pb = Math.round((examB/total)*100), pr = Math.round((refuse/total)*100);
+    box.innerHTML = `
+      <div class="results-row">
+        <div class="results-row-label"><span>Chose the Discussion Version</span><span>${pa}%</span></div>
+        <div class="results-bar-track"><div class="results-bar-fill" style="width:${pa}%"></div></div>
+      </div>
+      <div class="results-row">
+        <div class="results-row-label"><span>Chose the Alternative Version</span><span>${pb}%</span></div>
+        <div class="results-bar-track"><div class="results-bar-fill" style="width:${pb}%"></div></div>
+      </div>
+      <div class="results-row">
+        <div class="results-row-label"><span>Refused to proceed</span><span>${pr}%</span></div>
+        <div class="results-bar-track"><div class="results-bar-fill" style="width:${pr}%"></div></div>
+      </div>
+      <p class="results-note">Based on ${total} responses so far. Thoughtful people disagree, that's the thesis of this whole case study.</p>`;
+  }
+  renderResults();
+
+  updateProgress('stage-1');
+</script>
+
+</body>
+</html>
