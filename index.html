@@ -320,6 +320,19 @@
   }
   .hidden-glyph:hover { color: rgba(200,168,75,0.6); }
 
+  /* Row holding both hidden glyphs, mirrored left/right */
+  .glyph-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+  }
+  .glyph-row .hidden-glyph { margin-top: 0; }
+
+  /* Second door — emerald, opposite side */
+  .hidden-glyph-emerald { color: rgba(46,204,113,0.16); }
+  .hidden-glyph-emerald:hover { color: rgba(46,204,113,0.65); }
+
   .entries-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -339,6 +352,7 @@
     background: var(--bg3);
   }
 
+  /* Sequence card — full width, gold accent, distinct */
   .entry-card.sequence-card {
     grid-column: 1 / -1;
     border-color: rgba(200,168,75,0.3);
@@ -394,6 +408,7 @@
     transform: translateX(4px);
   }
 
+  /* Active/clickable entry card — cyan accent, distinct from inert grid cards */
   .entry-card.active-card {
     border-color: rgba(60,184,216,0.4);
     background: var(--bg3);
@@ -620,7 +635,7 @@
   }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-  /* ---------- PIN gate over the hidden glyph ---------- */
+  /* ---------- PIN gate shared by the emerald door ---------- */
   .pin-gate-overlay {
     position: fixed;
     inset: 0;
@@ -639,7 +654,7 @@
   .pin-gate-box {
     position: relative;
     background: var(--bg2);
-    border: 1px solid rgba(60,184,216,0.3);
+    border: 1px solid rgba(46,204,113,0.35);
     border-radius: 6px;
     padding: 40px 36px 32px;
     max-width: 300px;
@@ -674,7 +689,7 @@
   .pin-gate-label {
     font-size: 10px;
     letter-spacing: 0.28em;
-    color: var(--gold);
+    color: #3ecf7e;
     text-transform: uppercase;
     margin-bottom: 20px;
   }
@@ -699,7 +714,7 @@
   }
   .pin-digit:focus {
     outline: none;
-    border-color: var(--cyan);
+    border-color: #3ecf7e;
   }
 
   .pin-gate-error {
@@ -833,7 +848,10 @@
     <span class="method-step">Defensible Action</span>
   </div>
 
-  <a href="why.html" class="hidden-glyph" id="glyphGate" tabindex="-1" aria-hidden="true">·</a>
+  <div class="glyph-row">
+    <a href="why.html" class="hidden-glyph" tabindex="-1" aria-hidden="true">·</a>
+    <a href="why-emerald.html" class="hidden-glyph hidden-glyph-emerald" id="glyphGate2" tabindex="-1" aria-hidden="true">·</a>
+  </div>
 
   <div class="entries-grid">
 
@@ -966,7 +984,7 @@
   </div>
 </section>
 
-<!-- PIN gate overlay, triggered only by the hidden glyph -->
+<!-- PIN gate overlay — only the emerald door (glyphGate2) is wired to this -->
 <div class="pin-gate-overlay" id="pinGate" role="dialog" aria-modal="true" aria-label="Enter code">
   <div class="pin-gate-box" id="pinGateBox">
     <button class="pin-gate-close" id="pinGateClose" aria-label="Close">×</button>
@@ -991,7 +1009,9 @@
 <script>
   (function () {
     var CODE = '2585';
-    var glyph = document.getElementById('glyphGate');
+    var BYPASS_PARAM = 'key';
+
+    var glyph = document.getElementById('glyphGate2');
     var gate = document.getElementById('pinGate');
     var box = document.getElementById('pinGateBox');
     var closeBtn = document.getElementById('pinGateClose');
@@ -999,12 +1019,24 @@
     var digits = Array.prototype.slice.call(document.querySelectorAll('.pin-digit'));
     var destination = glyph.getAttribute('href');
 
+    function hasBypass() {
+      try {
+        return new URLSearchParams(window.location.search).get(BYPASS_PARAM) === CODE;
+      } catch (e) {
+        return false;
+      }
+    }
+
     function resetDigits() {
       digits.forEach(function (d) { d.value = ''; });
       errorEl.textContent = '';
     }
 
     function openGate(e) {
+      if (hasBypass()) {
+        window.location.href = destination;
+        return;
+      }
       e.preventDefault();
       resetDigits();
       gate.classList.add('open');
