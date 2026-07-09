@@ -339,7 +339,6 @@
     background: var(--bg3);
   }
 
-  /* Sequence card — full width, gold accent, distinct */
   .entry-card.sequence-card {
     grid-column: 1 / -1;
     border-color: rgba(200,168,75,0.3);
@@ -395,7 +394,6 @@
     transform: translateX(4px);
   }
 
-  /* Active/clickable entry card — cyan accent, distinct from inert grid cards */
   .entry-card.active-card {
     border-color: rgba(60,184,216,0.4);
     background: var(--bg3);
@@ -621,6 +619,96 @@
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ---------- PIN gate over the hidden glyph ---------- */
+  .pin-gate-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(8,14,22,0.94);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .pin-gate-overlay.open { opacity: 1; pointer-events: all; }
+
+  .pin-gate-box {
+    position: relative;
+    background: var(--bg2);
+    border: 1px solid rgba(60,184,216,0.3);
+    border-radius: 6px;
+    padding: 40px 36px 32px;
+    max-width: 300px;
+    width: 90%;
+    text-align: center;
+    transform: translateY(8px);
+    transition: transform 0.25s ease;
+  }
+  .pin-gate-overlay.open .pin-gate-box { transform: translateY(0); }
+  .pin-gate-box.shake { animation: pinShake 0.4s; }
+
+  @keyframes pinShake {
+    10%, 90% { transform: translateX(-2px); }
+    20%, 80% { transform: translateX(4px); }
+    30%, 50%, 70% { transform: translateX(-6px); }
+    40%, 60% { transform: translateX(6px); }
+  }
+
+  .pin-gate-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: none;
+    border: none;
+    color: var(--steel);
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .pin-gate-close:hover { color: var(--offwhite); }
+
+  .pin-gate-label {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .pin-gate-input {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .pin-digit {
+    width: 42px;
+    height: 52px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 22px;
+    background: var(--bg);
+    border: 1px solid var(--dim);
+    color: var(--white);
+    border-radius: 3px;
+  }
+  .pin-digit:focus {
+    outline: none;
+    border-color: var(--cyan);
+  }
+
+  .pin-gate-error {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #c86868;
+    height: 14px;
+  }
 </style>
 <script data-goatcounter="https://marioatkins.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
@@ -745,7 +833,7 @@
     <span class="method-step">Defensible Action</span>
   </div>
 
-  <a href="why.html" class="hidden-glyph" tabindex="-1" aria-hidden="true">·</a>
+  <a href="why.html" class="hidden-glyph" id="glyphGate" tabindex="-1" aria-hidden="true">·</a>
 
   <div class="entries-grid">
 
@@ -878,11 +966,89 @@
   </div>
 </section>
 
+<!-- PIN gate overlay, triggered only by the hidden glyph -->
+<div class="pin-gate-overlay" id="pinGate" role="dialog" aria-modal="true" aria-label="Enter code">
+  <div class="pin-gate-box" id="pinGateBox">
+    <button class="pin-gate-close" id="pinGateClose" aria-label="Close">×</button>
+    <div class="pin-gate-label">Enter Code</div>
+    <div class="pin-gate-input">
+      <input type="tel" maxlength="1" inputmode="numeric" pattern="[0-9]*" class="pin-digit" aria-label="Digit 1">
+      <input type="tel" maxlength="1" inputmode="numeric" pattern="[0-9]*" class="pin-digit" aria-label="Digit 2">
+      <input type="tel" maxlength="1" inputmode="numeric" pattern="[0-9]*" class="pin-digit" aria-label="Digit 3">
+      <input type="tel" maxlength="1" inputmode="numeric" pattern="[0-9]*" class="pin-digit" aria-label="Digit 4">
+    </div>
+    <div class="pin-gate-error" id="pinGateError"></div>
+  </div>
+</div>
+
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+<script>
+  (function () {
+    var CODE = '2585';
+    var glyph = document.getElementById('glyphGate');
+    var gate = document.getElementById('pinGate');
+    var box = document.getElementById('pinGateBox');
+    var closeBtn = document.getElementById('pinGateClose');
+    var errorEl = document.getElementById('pinGateError');
+    var digits = Array.prototype.slice.call(document.querySelectorAll('.pin-digit'));
+    var destination = glyph.getAttribute('href');
+
+    function resetDigits() {
+      digits.forEach(function (d) { d.value = ''; });
+      errorEl.textContent = '';
+    }
+
+    function openGate(e) {
+      e.preventDefault();
+      resetDigits();
+      gate.classList.add('open');
+      digits[0].focus();
+    }
+
+    function closeGate() {
+      gate.classList.remove('open');
+      resetDigits();
+    }
+
+    function checkCode() {
+      var entered = digits.map(function (d) { return d.value; }).join('');
+      if (entered === CODE) {
+        window.location.href = destination;
+      } else {
+        errorEl.textContent = 'Incorrect';
+        box.classList.add('shake');
+        setTimeout(function () {
+          box.classList.remove('shake');
+          resetDigits();
+          digits[0].focus();
+        }, 400);
+      }
+    }
+
+    glyph.addEventListener('click', openGate);
+    closeBtn.addEventListener('click', closeGate);
+    gate.addEventListener('click', function (e) { if (e.target === gate) closeGate(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && gate.classList.contains('open')) closeGate();
+    });
+
+    digits.forEach(function (input, i) {
+      input.addEventListener('input', function () {
+        input.value = input.value.replace(/[^0-9]/g, '').slice(0, 1);
+        if (input.value && i < digits.length - 1) digits[i + 1].focus();
+        if (digits.every(function (d) { return d.value.length === 1; })) checkCode();
+      });
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Backspace' && !input.value && i > 0) digits[i - 1].focus();
+      });
+    });
+  })();
 </script>
 
 </body>
