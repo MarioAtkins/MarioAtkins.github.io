@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mario D. Atkins — Why</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080e16;
+    --bg2: #0c1520;
+    --emerald: #2ecc71;
+    --emerald-dim: #1e7a48;
+    --white: #eef4f8;
+    --offwhite: #b8cdd8;
+    --steel: #5a8099;
+    --dim: #2a4a5e;
+    --serif: 'Cormorant Garamond', serif;
+    --mono: 'DM Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--offwhite);
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+  }
+  .wrap { max-width: 620px; }
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--emerald-dim);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--emerald); }
+  .divider {
+    width: 52px;
+    height: 1px;
+    background: linear-gradient(to right, var(--emerald), transparent);
+    margin-bottom: 28px;
+  }
+  p {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--offwhite);
+    margin-bottom: 20px;
+  }
+  a.back {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    text-decoration: none;
+    border: 1px solid rgba(46,204,113,0.3);
+    padding: 12px 24px;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  a.back:hover { background: var(--emerald); color: var(--bg); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">Entry Point — Emerald</p>
+    <h1>You found the <em>second door.</em></h1>
+    <div class="divider"></div>
+    <p>This page is a placeholder — replace this content whenever you're ready with whatever this door was meant to hold.</p>
+    <a class="back" href="index.html">← Back</a>
+  </div>
+</body>
+</html>
