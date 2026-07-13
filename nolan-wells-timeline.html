@@ -5,32 +5,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Nolan Wells Case — Timeline & Open Questions</title>
 <style>
-  :root { --ink:#111; --paper:#fff; --paper2:#f6f3ec; --accent:#8b1e1e; --line:#b9b2a3; }
+  :root { --ink:#111; --paper:#fff; --paper2:#f6f3ec; --line:#b9b2a3;
+    --c-confirmed:#0d6e2c; --c-confirmed-bg:#e5f4e8;
+    --c-family:#1a4fa0; --c-family-bg:#e6edf9;
+    --c-witness:#a05a00; --c-witness-bg:#faedd9;
+    --c-social:#555; --c-social-bg:#e9e9e6;
+    --c-question:#a01414; --c-question-bg:#fbe6e6;
+  }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { background:var(--paper2); color:var(--ink); font-family:Georgia,'Times New Roman',serif; line-height:1.6; }
   header { background:#111; color:#fff; padding:48px 24px 32px; text-align:center; }
   header h1 { font-size:1.9rem; margin:0 0 8px; color:#fff; }
   header p { color:#fff; font-size:0.95rem; font-family:Helvetica,Arial,sans-serif; }
-  .container { max-width:920px; margin:0 auto; padding:32px 20px 80px; background:var(--paper); }
-  .disclaimer { background:#fff8e6; border-left:5px solid var(--accent); padding:16px 20px; margin-bottom:40px; font-size:0.95rem; font-family:Helvetica,Arial,sans-serif; color:#111; }
+  .container { max-width:960px; margin:0 auto; padding:32px 20px 80px; background:var(--paper); }
+  .disclaimer { background:#fff8e6; border-left:5px solid var(--c-question); padding:16px 20px; margin-bottom:32px; font-size:0.95rem; font-family:Helvetica,Arial,sans-serif; color:#111; }
+
+  .legend { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:40px; font-family:Helvetica,Arial,sans-serif; font-size:0.78rem; }
+  .legend-item { display:flex; align-items:center; gap:6px; padding:6px 10px; border-radius:3px; }
+  .dot { width:11px; height:11px; border-radius:50%; display:inline-block; }
+
   h2 { font-size:1.4rem; color:#111; border-bottom:3px solid var(--ink); padding-bottom:6px; margin-top:56px; }
-  table { width:100%; border-collapse:collapse; margin:16px 0 32px; font-size:0.95rem; }
+  h3 { font-family:Helvetica,Arial,sans-serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.5px; margin-top:28px; margin-bottom:10px; color:#111; }
+
+  table { width:100%; border-collapse:collapse; margin:16px 0 32px; font-size:0.92rem; }
   th, td { border:1px solid var(--line); padding:10px 12px; vertical-align:top; text-align:left; color:#111; }
-  th { background:#111; color:#fff; font-family:Helvetica,Arial,sans-serif; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.5px; }
-  tr:nth-child(even) td { background:#f0ece1; }
-  tr:nth-child(odd) td { background:#fff; }
+  th { background:#111; color:#fff; font-family:Helvetica,Arial,sans-serif; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.5px; }
   a { color:#0645ad; }
-  .status-confirmed { color:#0d5c1f; font-weight:bold; font-size:0.85rem; }
-  .status-family { color:#8b5a00; font-weight:bold; font-size:0.85rem; }
-  .status-alleged { color:var(--accent); font-weight:bold; font-size:0.85rem; }
-  .status-none { color:#555; font-weight:bold; font-size:0.85rem; font-style:italic; }
+  .src { font-size:0.8rem; font-family:Helvetica,Arial,sans-serif; }
+
+  .badge { display:inline-block; font-family:Helvetica,Arial,sans-serif; font-size:0.72rem; font-weight:bold; padding:3px 8px; border-radius:3px; white-space:nowrap; }
+  .badge-confirmed { background:var(--c-confirmed-bg); color:var(--c-confirmed); }
+  .badge-family { background:var(--c-family-bg); color:var(--c-family); }
+  .badge-witness { background:var(--c-witness-bg); color:var(--c-witness); }
+  .badge-social { background:var(--c-social-bg); color:var(--c-social); }
+  .badge-question { background:var(--c-question-bg); color:var(--c-question); }
+
+  .stars { font-size:0.85rem; letter-spacing:1px; color:#b8860b; white-space:nowrap; }
+  .stars .dim { color:#ccc4b0; }
+
+  tr.row-confirmed td { background:#f4faf5; }
+  tr.row-family td { background:#f3f6fc; }
+  tr.row-witness td { background:#fdf8ee; }
+  tr.row-social td { background:#f0efec; }
+
+  .qcell { font-size:0.85rem; }
+  .qcell ul { margin:0; padding-left:18px; }
+  .qcell li { margin-bottom:4px; }
+
   ol.qlist { padding-left:24px; }
   ol.qlist li { margin-bottom:8px; color:#111; }
+
+  .narrative-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin:20px 0 8px; }
+  .narrative-card { border:2px solid var(--line); border-radius:6px; padding:18px 20px; background:#fbfaf6; }
+  .narrative-card h4 { font-family:Helvetica,Arial,sans-serif; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px; }
+  .narrative-card p { font-size:0.9rem; margin-bottom:8px; }
+  .narrative-card .support { font-size:0.8rem; font-family:Helvetica,Arial,sans-serif; color:#555; }
+  .narrative-status { font-family:Helvetica,Arial,sans-serif; font-size:0.85rem; font-weight:bold; text-transform:uppercase; letter-spacing:0.5px; color:var(--c-question); background:var(--c-question-bg); display:inline-block; padding:8px 16px; border-radius:4px; margin-top:16px; }
+
   .central-question { background:#111; color:#fff; padding:24px; margin-top:48px; font-size:1.1rem; font-style:italic; }
   .toc { background:var(--paper2); border:1px solid var(--line); padding:20px 24px; margin-bottom:40px; font-family:Helvetica,Arial,sans-serif; font-size:0.9rem; color:#111; }
-  .toc a { color:var(--accent); text-decoration:none; font-weight:bold; }
+  .toc a { color:var(--c-question); text-decoration:none; font-weight:bold; }
   .toc ul { columns:2; column-gap:32px; }
-  .src { font-size:0.82rem; font-family:Helvetica,Arial,sans-serif; }
   footer { text-align:center; color:#111; background:var(--paper2); font-size:0.85rem; font-family:Helvetica,Arial,sans-serif; padding:24px; }
 </style>
 </head>
@@ -38,23 +73,30 @@
 
 <header>
   <h1>The Nolan Wells Case</h1>
-  <p>A Sourced Timeline and Open Questions — Ocean Springs, Mississippi, July 2026</p>
+  <p>An Investigative Timeline and War Room — Ocean Springs, Mississippi, July 2026</p>
 </header>
 
 <div class="container">
 
   <div class="disclaimer">
-    <strong>How to read this page:</strong> Every timeline entry is tagged and sourced. "Confirmed" means
-    reported directly by a named news outlet or official, with a link. "Family/attorney account" means it
-    comes from Nolan's parents or attorney Ben Crump, on the record, but it is unclear whether it has been
-    independently verified by investigators. "No news corroboration found" means a claim traces only to
-    social media and no named outlet has confirmed it. Nothing here accuses a named individual of a crime;
-    the questions ask what evidence exists to resolve conflicting accounts.
+    <strong>How to read this page:</strong> The goal isn't to prove a theory. It's to identify where the
+    evidence is clear, where it conflicts, and where questions still remain. Every entry is color-coded by
+    evidence type and rated for strength. Nothing here accuses a named individual of a crime — the questions
+    ask what evidence exists to resolve conflicting accounts.
+  </div>
+
+  <div class="legend">
+    <span class="legend-item badge-confirmed"><span class="dot" style="background:var(--c-confirmed)"></span>Officially Confirmed</span>
+    <span class="legend-item badge-family"><span class="dot" style="background:var(--c-family)"></span>Family / Attorney Statement</span>
+    <span class="legend-item badge-witness"><span class="dot" style="background:var(--c-witness)"></span>Witness Statement</span>
+    <span class="legend-item badge-social"><span class="dot" style="background:var(--c-social)"></span>Social Media Allegation (Unverified)</span>
+    <span class="legend-item badge-question"><span class="dot" style="background:var(--c-question)"></span>Open Investigative Question</span>
   </div>
 
   <div class="toc">
     <strong>Contents</strong>
     <ul>
+      <li><a href="#narratives">Conflicting Narratives</a></li>
       <li><a href="#timeline">Sourced Timeline</a></li>
       <li><a href="#claims">Claims & Verification Status</a></li>
       <li><a href="#conflicting">Conflicting Accounts</a></li>
@@ -71,38 +113,123 @@
     </ul>
   </div>
 
+  <h2 id="narratives">Conflicting Narratives</h2>
+  <p style="margin-top:14px; font-family:Helvetica,Arial,sans-serif; font-size:0.9rem; color:#333;">Three mutually incompatible accounts of what happened to Nolan Wells after 3 p.m. on July 4 are currently in public circulation. They cannot all be true.</p>
+
+  <div class="narrative-grid">
+    <div class="narrative-card">
+      <h4>Narrative A — Stayed on Horn Island</h4>
+      <p>Nolan voluntarily remained on the island to talk with a young woman, intending to catch a ride back with another group.</p>
+      <p class="support"><strong>Support:</strong> Friends' accounts; Sheriff Ledbetter's public statement ("we understand Nolan chose to stay") — <span class="badge badge-witness">Witness</span></p>
+    </div>
+    <div class="narrative-card">
+      <h4>Narrative B — Returned to the Boat</h4>
+      <p>The young woman reportedly told investigators Nolan said he was heading back to rejoin his friends on the original boat.</p>
+      <p class="support"><strong>Support:</strong> On record via attorney Ben Crump: "One of them is telling the truth, one of them is not." — <span class="badge badge-family">Family/Attorney</span></p>
+    </div>
+    <div class="narrative-card">
+      <h4>Narrative C — Returned to the Mainland</h4>
+      <p>Nolan made it back to the mainland, allegedly attended a party, and was involved in an altercation before his death.</p>
+      <p class="support"><strong>Support:</strong> Unverified social media screenshots only; no named news outlet has confirmed this — <span class="badge badge-social">Social Media</span></p>
+    </div>
+  </div>
+
+  <div class="narrative-status">Status: Unresolved — no independently verified evidence has ruled out any single narrative.</div>
+
+  <h3 style="margin-top:32px;">What Would Resolve This</h3>
+  <ul style="padding-left:20px; font-size:0.9rem;">
+    <li>Forensic extraction of Nolan's phone (in progress — requested by Sheriff Ledbetter)</li>
+    <li>The young woman's exact, verbatim, recorded statement</li>
+    <li>Boat GPS/engine logs and marina camera footage</li>
+    <li>Original, unedited video/photo evidence from Horn Island and any other location</li>
+    <li>Completed autopsy and toxicology results (state and independent)</li>
+  </ul>
+
   <h2 id="timeline">Sourced Timeline</h2>
   <table>
-    <tr><th>Date</th><th>Event</th><th>Status</th><th>Source</th></tr>
-    <tr><td>July 3, 2026</td><td>Nolan cooks his parents dinner, then stays overnight at a friend's house ahead of the trip.</td><td class="status-family">Family account</td><td class="src"><a href="https://www.pbs.org/newshour/nation/what-we-know-about-death-of-nolan-wells-black-teen-who-went-missing-on-mississippi-boat-trip" target="_blank">PBS NewsHour</a></td></tr>
-    <tr><td>July 4, ~3:00 p.m.</td><td>Nolan last seen on the northwest tip of Horn Island, wearing blue swim trunks and sunglasses.</td><td class="status-confirmed">Confirmed — Jackson County Sheriff's Dept.</td><td class="src"><a href="https://www.wlox.com/2026/07/07/timeline-heres-what-we-know-about-disappearance-death-18-year-old-nolan-wells/" target="_blank">WLOX</a>, <a href="https://www.nbcnews.com/news/us-news/investigation-underway-death-mississippi-nolan-wells-rcna353753" target="_blank">NBC News</a></td></tr>
-    <tr><td>July 4, ~4:30 p.m.</td><td>Friends' boat leaves Horn Island; a friend's mother (a Jackson County chancery judge) says her son left around this time.</td><td class="status-family">Family/on-record statement</td><td class="src"><a href="https://www.pbs.org/newshour/nation/what-we-know-about-death-of-nolan-wells-black-teen-who-went-missing-on-mississippi-boat-trip" target="_blank">PBS NewsHour</a></td></tr>
-    <tr><td>July 4, evening</td><td>Sheriff Ledbetter says witnesses reported Nolan "chose to stay on the island with the assumption that he was going to ride back to the mainland with someone else."</td><td class="status-family">Sheriff's statement, based on witness accounts — unclear if independently verified</td><td class="src"><a href="https://www.nbcnews.com/news/us-news/investigation-underway-death-mississippi-nolan-wells-rcna353753" target="_blank">NBC News</a>, <a href="https://www.newsnationnow.com/missing/mississippi-teen-nolan-wells-body-found/" target="_blank">NewsNation</a></td></tr>
-    <tr><td>July 4, evening/night</td><td>Warren (son of the chancery judge) contacts the U.S. Coast Guard to report Nolan missing.</td><td class="status-confirmed">Confirmed</td><td class="src"><a href="https://www.cnn.com/2026/07/09/us/nolan-xavier-wells-what-we-know" target="_blank">CNN</a></td></tr>
-    <tr><td>July 4–5</td><td>Mother Christine Wonsley tracks Nolan's phone and retrieves it from his friends; she says texts and Snapchat messages appeared deleted, and both his Snapchat accounts were empty.</td><td class="status-family">Family account, on the record with ABC News</td><td class="src"><a href="https://abcnews.com/US/parents-nolan-wells-call-investigation-seek-answers-mysterious/story?id=134627407" target="_blank">ABC News</a></td></tr>
-    <tr><td>Morning, July 5</td><td>Nolan's father, Elmore Wonsley, searches by boat near Horn Island with Nolan's football coach; finds nothing.</td><td class="status-family">Family account</td><td class="src"><a href="https://www.cnn.com/2026/07/09/us/nolan-xavier-wells-what-we-know" target="_blank">CNN</a></td></tr>
-    <tr><td>July 5</td><td>Jackson County Sheriff's Dept. press release: island searched with Dept. of Marine Resources, Gulf Islands National Seashore, and U.S. Coast Guard.</td><td class="status-confirmed">Confirmed — official press release</td><td class="src"><a href="https://www.pbs.org/newshour/nation/what-we-know-about-death-of-nolan-wells-black-teen-who-went-missing-on-mississippi-boat-trip" target="_blank">PBS NewsHour</a></td></tr>
-    <tr><td>July 6, morning</td><td>A U.S. Park Service ranger finds a body in the water off the northwest tip of Horn Island.</td><td class="status-confirmed">Confirmed — Sheriff Ledbetter</td><td class="src"><a href="https://www.wlox.com/2026/07/07/timeline-heres-what-we-know-about-search-recovery-18-year-old-nolan-wells/" target="_blank">WLOX</a></td></tr>
-    <tr><td>July 6, ~1:00 p.m.</td><td>Family confirms on Facebook that the body found is believed to be Nolan.</td><td class="status-confirmed">Confirmed</td><td class="src"><a href="https://www.wlox.com/2026/07/07/timeline-heres-what-we-know-about-search-recovery-18-year-old-nolan-wells/" target="_blank">WLOX</a></td></tr>
-    <tr><td>July 7, ~2:00 p.m.</td><td>Coroner Bruce Lynd confirms via dental records the body is Nolan Wells; autopsy performed same day by the state medical examiner (results, including toxicology, pending).</td><td class="status-confirmed">Confirmed — Coroner Bruce Lynd</td><td class="src"><a href="https://www.wlox.com/2026/07/07/timeline-heres-what-we-know-about-search-recovery-18-year-old-nolan-wells/" target="_blank">WLOX</a></td></tr>
-    <tr><td>By July 9–10</td><td>Family retains attorney Ben Crump; press conference held with Rev. Al Sharpton. Crump cites "glaring contradictions," including whether Nolan stayed or left the island, why he didn't have his phone, and a viral video in which Nolan can allegedly be heard demanding his phone back.</td><td class="status-family">Attorney statement, on the record</td><td class="src"><a href="https://www.cnn.com/2026/07/09/us/nolan-xavier-wells-what-we-know" target="_blank">CNN</a>, <a href="https://www.pbs.org/newshour/nation/what-we-know-about-death-of-nolan-wells-black-teen-who-went-missing-on-mississippi-boat-trip" target="_blank">PBS NewsHour</a></td></tr>
-    <tr><td>By July 10</td><td>Colin Kaepernick (via Know Your Rights Camp) funds an independent autopsy in Washington, D.C.; Tyler Perry covers funeral costs. Sheriff Ledbetter says his office has requested Nolan's phone for forensic extraction and is reviewing the "argument" video.</td><td class="status-confirmed">Confirmed — multiple outlets, Sheriff Ledbetter on record</td><td class="src"><a href="https://www.knowyourrightscamp.org/post/founder-colin-kaepernick-pays-for-independent-autopsy-of-nolan-wells" target="_blank">Know Your Rights Camp</a>, <a href="https://abcnews.com/US/parents-nolan-wells-call-investigation-seek-answers-mysterious/story?id=134627407" target="_blank">ABC News</a></td></tr>
-    <tr><td>Ongoing</td><td>Sheriff's Dept. has publicly asked for original, unedited photos/videos from Horn Island on July 4, "particularly those depicting alleged altercations."</td><td class="status-confirmed">Confirmed — official request</td><td class="src"><a href="https://www.cnn.com/2026/07/09/us/nolan-xavier-wells-what-we-know" target="_blank">CNN</a></td></tr>
+    <tr><th>Date</th><th>Event</th><th>Evidence Type</th><th>Strength</th><th>Source</th></tr>
+    <tr class="row-family"><td>July 3</td><td>Nolan cooks his parents dinner, then stays overnight at a friend's house ahead of the trip.</td><td><span class="badge badge-family">Family Statement</span></td><td class="stars">★★<span class="dim">★★★</span></td><td class="src"><a href="https://www.pbs.org/newshour/nation/what-we-know-about-death-of-nolan-wells-black-teen-who-went-missing-on-mississippi-boat-trip" target="_blank">PBS NewsHour</a></td></tr>
+    <tr class="row-confirmed"><td>July 4, ~3:00 p.m.</td><td>Nolan last seen on the northwest tip of Horn Island, wearing blue swim trunks and sunglasses.</td><td><span class="badge badge-confirmed">Confirmed</span></td><td class="stars">★★★★<span class="dim">★</span></td><td class="src"><a href="https://www.wlox.com/2026/07/07/timeline-heres-what-we-know-about-disappearance-death-18-year-old-nolan-wells/" target="_blank">WLOX</a>, <a href="https://www.nbcnews.com/news/us-news/investigation-underway-death-mississippi-nolan-wells-rcna353753" target="_blank">NBC News</a></td></tr>
+    <tr class="row-family"><td>July 4, ~4:30 p.m.</td><td>Friends' boat leaves Horn Island; a friend's mother (a Jackson County chancery judge) says her son left around this time.</td><td><span class="badge badge-family">Family Statement</span></td><td class="stars">★★<span class="dim">★★★</span></td><td class="src"><a href="https://www.pbs.org/newshour/nation/what-we-know-about-death-of-nolan-wells-black-teen-who-went-missing-on-mississippi-boat-trip" target="_blank">PBS NewsHour</a></td></tr>
+    <tr class="row-witness">
+      <td>July 4, evening</td>
+      <td>Sheriff Ledbetter says witnesses reported Nolan "chose to stay on the island with the assumption that he was going to ride back to the mainland with someone else."</td>
+      <td><span class="badge badge-witness">Witness / Official Statement</span></td>
+      <td class="stars">★★★<span class="dim">★★</span></td>
+      <td class="src"><a href="https://www.nbcnews.com/news/us-news/investigation-underway-death-mississippi-nolan-wells-rcna353753" target="_blank">NBC News</a>, <a href="https://www.newsnationnow.com/missing/mississippi-teen-nolan-wells-body-found/" target="_blank">NewsNation</a>
+        <div class="qcell"><strong>Outstanding Questions:</strong>
+          <ul>
+            <li>What independent evidence supported this understanding beyond the friends' own account?</li>
+            <li>Had the young woman been interviewed before this statement was made public?</li>
+            <li>Was any digital evidence (phone, Life360) reviewed before this statement?</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    <tr class="row-confirmed"><td>July 4, evening/night</td><td>Warren (son of the chancery judge) contacts the U.S. Coast Guard to report Nolan missing.</td><td><span class="badge badge-confirmed">Confirmed</span></td><td class="stars">★★★★<span class="dim">★</span></td><td class="src"><a href="https://www.cnn.com/2026/07/09/us/nolan-xavier-wells-what-we-know" target="_blank">CNN</a></td></tr>
+    <tr class="row-family">
+      <td>July 4–5</td>
+      <td>Mother Christine Wonsley tracks Nolan's phone and retrieves it from his friends; she says texts and Snapchat messages appeared deleted, and both his Snapchat accounts were empty.</td>
+      <td><span class="badge badge-family">Family Statement</span></td>
+      <td class="stars">★★<span class="dim">★★★</span></td>
+      <td class="src"><a href="https://abcnews.com/US/parents-nolan-wells-call-investigation-seek-answers-mysterious/story?id=134627407" target="_blank">ABC News</a>
+        <div class="qcell"><strong>Outstanding Questions:</strong>
+          <ul>
+            <li>Who physically had the phone, and when did they realize whose it was?</li>
+            <li>Has forensic extraction confirmed deletion, timestamps, and who performed it?</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    <tr class="row-family"><td>Morning, July 5</td><td>Nolan's father, Elmore Wonsley, searches by boat near Horn Island with Nolan's football coach; finds nothing.</td><td><span class="badge badge-family">Family Statement</span></td><td class="stars">★★<span class="dim">★★★</span></td><td class="src"><a href="https://www.cnn.com/2026/07/09/us/nolan-xavier-wells-what-we-know" target="_blank">CNN</a></td></tr>
+    <tr class="row-confirmed"><td>July 5</td><td>Jackson County Sheriff's Dept. press release: island searched with Dept. of Marine Resources, Gulf Islands National Seashore, and U.S. Coast Guard.</td><td><span class="badge badge-confirmed">Confirmed</span></td><td class="stars">★★★★<span class="dim">★</span></td><td class="src"><a href="https://www.pbs.org/newshour/nation/what-we-know-about-death-of-nolan-wells-black-teen-who-went-missing-on-mississippi-boat-trip" target="_blank">PBS NewsHour</a></td></tr>
+    <tr class="row-confirmed">
+      <td>July 6, morning</td>
+      <td>A U.S. Park Service ranger finds a body in the water off the northwest tip of Horn Island.</td>
+      <td><span class="badge badge-confirmed">Confirmed</span></td>
+      <td class="stars">★★★★★</td>
+      <td class="src"><a href="https://www.wlox.com/2026/07/07/timeline-heres-what-we-know-about-search-recovery-18-year-old-nolan-wells/" target="_blank">WLOX</a>
+        <div class="qcell"><strong>Outstanding Questions:</strong>
+          <ul>
+            <li>Were these exact coordinates searched on July 5? If so, why wasn't he found then?</li>
+            <li>What do tide/current drift models show for this stretch of water?</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    <tr class="row-confirmed"><td>July 6, ~1:00 p.m.</td><td>Family confirms on Facebook that the body found is believed to be Nolan.</td><td><span class="badge badge-confirmed">Confirmed</span></td><td class="stars">★★★<span class="dim">★★</span></td><td class="src"><a href="https://www.wlox.com/2026/07/07/timeline-heres-what-we-know-about-search-recovery-18-year-old-nolan-wells/" target="_blank">WLOX</a></td></tr>
+    <tr class="row-confirmed"><td>July 7, ~2:00 p.m.</td><td>Coroner Bruce Lynd confirms via dental records the body is Nolan Wells; autopsy performed same day (results, including toxicology, pending).</td><td><span class="badge badge-confirmed">Confirmed</span></td><td class="stars">★★★★★</td><td class="src"><a href="https://www.wlox.com/2026/07/07/timeline-heres-what-we-know-about-search-recovery-18-year-old-nolan-wells/" target="_blank">WLOX</a></td></tr>
+    <tr class="row-family">
+      <td>By July 9–10</td>
+      <td>Family retains attorney Ben Crump; press conference held with Rev. Al Sharpton. Crump cites "glaring contradictions," including whether Nolan stayed or left the island, why he didn't have his phone, and a viral video in which Nolan can allegedly be heard demanding his phone back.</td>
+      <td><span class="badge badge-family">Family / Attorney Statement</span></td>
+      <td class="stars">★★<span class="dim">★★★</span></td>
+      <td class="src"><a href="https://www.cnn.com/2026/07/09/us/nolan-xavier-wells-what-we-know" target="_blank">CNN</a>, <a href="https://www.pbs.org/newshour/nation/what-we-know-about-death-of-nolan-wells-black-teen-who-went-missing-on-mississippi-boat-trip" target="_blank">PBS NewsHour</a>
+        <div class="qcell"><strong>Outstanding Questions:</strong>
+          <ul>
+            <li>Has the original video and its metadata been authenticated?</li>
+            <li>Have the friends been interviewed separately and formally, given they are now "lawyered up"?</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    <tr class="row-confirmed"><td>By July 10</td><td>Colin Kaepernick (via Know Your Rights Camp) funds an independent autopsy in Washington, D.C.; Tyler Perry covers funeral costs. Sheriff Ledbetter says his office has requested Nolan's phone for forensic extraction and is reviewing the "argument" video.</td><td><span class="badge badge-confirmed">Confirmed</span></td><td class="stars">★★★★<span class="dim">★</span></td><td class="src"><a href="https://www.knowyourrightscamp.org/post/founder-colin-kaepernick-pays-for-independent-autopsy-of-nolan-wells" target="_blank">Know Your Rights Camp</a>, <a href="https://abcnews.com/US/parents-nolan-wells-call-investigation-seek-answers-mysterious/story?id=134627407" target="_blank">ABC News</a></td></tr>
+    <tr class="row-confirmed"><td>Ongoing</td><td>Sheriff's Dept. has publicly asked for original, unedited photos/videos from Horn Island on July 4, "particularly those depicting alleged altercations."</td><td><span class="badge badge-confirmed">Confirmed</span></td><td class="stars">★★★★<span class="dim">★</span></td><td class="src"><a href="https://www.cnn.com/2026/07/09/us/nolan-xavier-wells-what-we-know" target="_blank">CNN</a></td></tr>
   </table>
 
   <h2 id="claims">Claims & Verification Status</h2>
   <table>
-    <tr><th>Claim</th><th>Status</th><th>Notes / Source</th></tr>
-    <tr><td>A young woman told investigators Nolan said he was heading back to his friends' boat, contradicting the friends' account that he chose to stay.</td><td class="status-family">On record via Crump</td><td class="src">Crump: "One of them is telling the truth, one of them is not." — <a href="https://www.pbs.org/newshour/nation/what-we-know-about-death-of-nolan-wells-black-teen-who-went-missing-on-mississippi-boat-trip" target="_blank">PBS NewsHour</a></td></tr>
-    <tr><td>A video exists of Nolan demanding his phone back before it disappeared.</td><td class="status-family">On record; being reviewed by Sheriff's Dept.</td><td class="src"><a href="https://abcnews.com/US/parents-nolan-wells-call-investigation-seek-answers-mysterious/story?id=134627407" target="_blank">ABC News</a></td></tr>
-    <tr><td>Nolan's phone showed deleted texts and empty Snapchat accounts when retrieved.</td><td class="status-family">On record — Christine Wonsley to ABC News</td><td class="src"><a href="https://abcnews.com/US/parents-nolan-wells-call-investigation-seek-answers-mysterious/story?id=134627407" target="_blank">ABC News</a></td></tr>
-    <tr><td>Nolan attended a second, mainland pool party after leaving the island, where a further altercation and injury allegedly occurred.</td><td class="status-none">No news corroboration found</td><td class="src">Traces only to unverified social media screenshots. No named outlet has confirmed a mainland pool party. Public reporting refers to an alleged altercation <em>on Horn Island</em>, not a second mainland location.</td></tr>
-    <tr><td>Friends' social media accounts were deactivated in the days after Nolan went missing.</td><td class="status-alleged">Publicly observed, timing unconfirmed</td><td class="src">Widely observed on X/Instagram by July 7; no outlet has published exact deactivation timestamps.</td></tr>
-    <tr><td>Body did not surface until July 6 despite searches on July 5, raising questions about tide/drift.</td><td class="status-family">Raised on record by father and Crump</td><td class="src"><a href="https://www.pbs.org/newshour/nation/what-we-know-about-death-of-nolan-wells-black-teen-who-went-missing-on-mississippi-boat-trip" target="_blank">PBS NewsHour</a></td></tr>
-    <tr><td>No indication of drug or alcohol use found so far; toxicology pending.</td><td class="status-confirmed">Confirmed — Sheriff Ledbetter to WLOX/GMA</td><td class="src"><a href="https://www.wlox.com/2026/07/07/timeline-heres-what-we-know-about-search-recovery-18-year-old-nolan-wells/" target="_blank">WLOX</a></td></tr>
+    <tr><th>Claim</th><th>Evidence Type</th><th>Strength</th><th>Notes / Source</th></tr>
+    <tr class="row-family"><td>A young woman told investigators Nolan said he was heading back to his friends' boat, contradicting the friends' account that he chose to stay.</td><td><span class="badge badge-family">Family/Attorney</span></td><td class="stars">★★<span class="dim">★★★</span></td><td class="src">Crump: "One of them is telling the truth, one of them is not." — <a href="https://www.pbs.org/newshour/nation/what-we-know-about-death-of-nolan-wells-black-teen-who-went-missing-on-mississippi-boat-trip" target="_blank">PBS NewsHour</a></td></tr>
+    <tr class="row-family"><td>A video exists of Nolan demanding his phone back before it disappeared.</td><td><span class="badge badge-family">Family/Attorney</span></td><td class="stars">★★★<span class="dim">★★</span></td><td class="src">Under review by Sheriff's Dept. — <a href="https://abcnews.com/US/parents-nolan-wells-call-investigation-seek-answers-mysterious/story?id=134627407" target="_blank">ABC News</a></td></tr>
+    <tr class="row-family"><td>Nolan's phone showed deleted texts and empty Snapchat accounts when retrieved.</td><td><span class="badge badge-family">Family Statement</span></td><td class="stars">★★<span class="dim">★★★</span></td><td class="src"><a href="https://abcnews.com/US/parents-nolan-wells-call-investigation-seek-answers-mysterious/story?id=134627407" target="_blank">ABC News</a></td></tr>
+    <tr class="row-social"><td>Nolan attended a second, mainland pool party after leaving the island, where a further altercation and injury allegedly occurred.</td><td><span class="badge badge-social">Social Media (Unverified)</span></td><td class="stars">★<span class="dim">★★★★</span></td><td class="src">No named outlet has confirmed this. Public reporting refers only to an alleged altercation <em>on Horn Island</em>.</td></tr>
+    <tr class="row-social"><td>Friends' social media accounts were deactivated in the days after Nolan went missing.</td><td><span class="badge badge-social">Social Media</span></td><td class="stars">★★<span class="dim">★★★</span></td><td class="src">Widely observed on X/Instagram by July 7; exact timing unconfirmed by any outlet.</td></tr>
+    <tr class="row-family"><td>Body did not surface until July 6 despite searches on July 5, raising questions about tide/drift.</td><td><span class="badge badge-family">Family/Attorney</span></td><td class="stars">★★<span class="dim">★★★</span></td><td class="src"><a href="https://www.pbs.org/newshour/nation/what-we-know-about-death-of-nolan-wells-black-teen-who-went-missing-on-mississippi-boat-trip" target="_blank">PBS NewsHour</a></td></tr>
+    <tr class="row-confirmed"><td>No indication of drug or alcohol use found so far; toxicology pending.</td><td><span class="badge badge-confirmed">Confirmed</span></td><td class="stars">★★★★<span class="dim">★</span></td><td class="src"><a href="https://www.wlox.com/2026/07/07/timeline-heres-what-we-know-about-search-recovery-18-year-old-nolan-wells/" target="_blank">WLOX</a></td></tr>
   </table>
 
-  <h2 id="conflicting">Conflicting Accounts</h2>
+  <h2 id="conflicting">Conflicting Accounts — Full Question Set</h2>
   <ol class="qlist">
     <li>Which account is investigators' actual working timeline right now?</li>
     <li>Did Nolan remain on Horn Island?</li>
