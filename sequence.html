@@ -204,6 +204,16 @@
 
   .coda a:hover { color: var(--white); }
 
+  /* hidden doorway — matches the low-opacity glyph pattern used on the main index */
+  .hidden-glyph {
+    color: rgba(200,184,154,0.12);
+    text-decoration: none;
+    cursor: default;
+    user-select: none;
+    transition: color 0.4s;
+  }
+  .hidden-glyph:hover { color: rgba(140,180,200,0.7); }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(14px); }
     to { opacity: 1; transform: translateY(0); }
@@ -351,7 +361,7 @@
     <a href="https://www.tiktok.com/@marioatkins8" data-goatcounter-click="sequence-coda-tiktok">TikTok</a> &nbsp;&middot;&nbsp;
     <a href="mailto:mario.data.leader@gmail.com" data-goatcounter-click="sequence-coda-email">Email</a><br><br>
     Mario D. Atkins &middot; Palm Bay, FL &middot; Financial Services &middot; 15 Years<br><br>
-    #DecisionMaking &middot; #PatternRecognition
+    #DecisionMaking &middot; #PatternRecognition <a href="nolan-wells-timeline.html" class="hidden-glyph" tabindex="-1" aria-hidden="true" data-goatcounter-click="sequence-hidden-door">.</a>
   </div>
 
 </main>
@@ -387,8 +397,6 @@
   })();
 
   // Real video-play detection via the YouTube IFrame Player API.
-  // A plain iframe can't be inspected from the parent page (cross-origin),
-  // so this loads YouTube's own API, which reports player state back to us.
   (function() {
     let ytApiTag = document.createElement('script');
     ytApiTag.src = 'https://www.youtube.com/iframe_api';
