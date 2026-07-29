@@ -56,35 +56,61 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 48px;
-    background: rgba(8,14,22,0.92);
+    padding: 16px 32px;
+    background: rgba(8,14,22,0.95);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(60,184,216,0.12);
   }
 
   nav .brand {
     font-family: var(--serif);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     color: var(--white);
     letter-spacing: 0.02em;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   nav .brand span { color: var(--accent); font-style: italic; }
 
+  /* Hamburger button — mobile only */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+    z-index: 200;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--cyan);
+    transition: all 0.25s;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
   nav ul {
     display: flex;
-    gap: 32px;
+    gap: 24px;
     list-style: none;
+    align-items: center;
   }
 
   nav ul a {
     color: var(--steel);
     text-decoration: none;
     font-size: 10px;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     transition: color 0.2s;
+    white-space: nowrap;
   }
 
   nav ul a:hover { color: var(--cyan); }
@@ -95,6 +121,7 @@
     border: 1px solid rgba(200,168,75,0.4);
     padding: 4px 10px;
     border-radius: 2px;
+    white-space: nowrap;
   }
   nav ul a.nav-portfolio:hover { background: var(--gold); color: var(--bg); }
   nav ul a.nav-sequence:hover { color: var(--white); }
@@ -569,7 +596,41 @@
 
   @media (max-width: 768px) {
     nav { padding: 14px 20px; }
-    nav ul { gap: 16px; }
+    .nav-toggle { display: flex; }
+    nav ul {
+      display: none;
+      position: fixed;
+      top: 52px;
+      left: 0;
+      right: 0;
+      background: #080e16;
+      border-bottom: 2px solid #1e6a82;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      z-index: 9999;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    }
+    nav ul.open { display: flex; }
+    nav ul li { border-bottom: 1px solid rgba(60,184,216,0.1); }
+    nav ul li:last-child { border-bottom: none; }
+    nav ul a {
+      display: block;
+      padding: 16px 24px;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: #b8cdd8;
+    }
+    nav ul a:hover { background: rgba(60,184,216,0.08); color: #3cb8d8; }
+    nav ul a.nav-portfolio {
+      padding: 16px 24px;
+      font-size: 11px;
+      border: none;
+      border-radius: 0;
+      color: #c8a84b;
+      background: rgba(200,168,75,0.06);
+    }
+    nav ul a.nav-portfolio:hover { background: rgba(200,168,75,0.15); color: #c8a84b; }
     #hero { padding: 140px 24px 80px; }
     .hero-name, .hero-tagline, .hero-eyebrow,
     .hero-divider, .hero-sub, .hero-method { margin-left: 0; }
@@ -606,7 +667,10 @@
 
 <nav>
   <div class="brand">Mario D. <span>Atkins</span></div>
-  <ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="navMenu">
     <li><a href="#about">About</a></li>
     <li><a href="#pattern-library">Library</a></li>
     <li><a href="#essay">Essay</a></li>
@@ -845,6 +909,25 @@
     Mario D. Atkins · Pattern Library · Ambiguity → Projection → Defensible Action
   </div>
 </section>
+
+<script>
+  // Mobile nav toggle
+  var navToggle = document.getElementById('navToggle');
+  var navMenu = document.getElementById('navMenu');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      navToggle.classList.toggle('open');
+      navMenu.classList.toggle('open');
+    });
+    // Close menu when a link is clicked
+    navMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navToggle.classList.remove('open');
+        navMenu.classList.remove('open');
+      });
+    });
+  }
+</script>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
