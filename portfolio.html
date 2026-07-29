@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mario D. Atkins — Fraud Investigation, Financial Crime Analysis, Root Cause Analysis. 15 years in regulated financial environments.">
+<title>Mario D. Atkins — Investigative Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy:    #080e16;
+    --teal:    #1e6a82;
+    --cyan:    #3cb8d8;
+    --gold:    #c8a84b;
+    --bg:      #eef4f8;
+    --surface: #ffffff;
+    --body:    #1a1a1a;
+    --muted:   #4a6a7a;
+    --rule:    #ccd8e0;
+    --mono:    'JetBrains Mono', monospace;
+    --display: 'Playfair Display', Georgia, serif;
+    --sans:    'Inter', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* FRAMEWORK BAR */
+  .framework-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy);
+    padding: 10px 0;
+    border-bottom: 2px solid var(--teal);
+  }
+  .framework-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .framework-step {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--cyan);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .framework-arrow {
+    font-family: var(--mono);
+    color: var(--teal);
+    margin: 0 8px;
+    font-size: 11px;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--navy);
+    padding: 56px 24px 48px;
+  }
+  .header-inner { max-width: 900px; margin: 0 auto; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    color: #eef4f8;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+  h1 em { font-style: italic; color: var(--cyan); }
+  .header-sub {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 300;
+    color: #7aabb8;
+    margin-top: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Employment anchor — new addition */
+  .employment-line {
+    margin-top: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #5a8099;
+    letter-spacing: 0.07em;
+  }
+
+  .header-contact {
+    margin-top: 24px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .header-contact a {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #7aabb8;
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--teal);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+  .header-contact a:hover { color: var(--cyan); }
+  /* "How I Think" styled differently from plain links */
+  .header-contact a.how-i-think {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+  .header-contact a.how-i-think:hover { color: #dbbf6a; }
+
+  /* LAYOUT */
+  main { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  h2 em { font-style: italic; color: var(--teal); }
+
+  p {
+    font-size: 15.5px;
+    font-weight: 400;
+    color: #2a3a42;
+    max-width: 680px;
+    margin-bottom: 14px;
+    line-height: 1.7;
+  }
+  p:last-child { margin-bottom: 0; }
+
+  /* METRICS */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2px;
+    margin: 36px 0;
+    background: var(--rule);
+  }
+  .metric {
+    background: var(--surface);
+    padding: 24px 20px;
+  }
+  .metric-value {
+    font-family: var(--mono);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--navy);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .metric-value span { color: var(--gold); }
+  .metric-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* CASE CARDS */
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--rule);
+    margin-top: 32px;
+  }
+  .case-card {
+    background: var(--surface);
+    padding: 28px 24px;
+  }
+  .case-tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .case-title {
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .case-desc {
+    font-size: 13.5px;
+    color: #3a5060;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .case-card.featured {
+    background: var(--navy);
+    grid-column: 1 / -1;
+  }
+  .case-card.featured .case-tag { color: var(--cyan); }
+  .case-card.featured .case-title { color: var(--bg); font-size: 20px; }
+  .case-card.featured .case-desc { color: #7aabb8; font-size: 14.5px; }
+
+  /* SKILLS */
+  .skills-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--rule);
+    margin-top: 32px;
+  }
+  .skill-group {
+    background: var(--surface);
+    padding: 28px 24px;
+  }
+  .skill-group-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .skill-list li {
+    font-size: 13.5px;
+    color: var(--body);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .skill-list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    font-weight: 700;
+  }
+
+  /* CERTS */
+  .cert-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .cert-pill {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    border: 1px solid var(--teal);
+    padding: 5px 12px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* STATEMENT */
+  .statement-block {
+    border-left: 3px solid var(--gold);
+    padding: 20px 0 20px 28px;
+    margin: 36px 0 0;
+  }
+  .statement-block p {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--navy);
+    max-width: 600px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* CTA */
+  .cta-block {
+    background: var(--navy);
+    padding: 48px;
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .cta-block p {
+    color: #7aabb8;
+    font-size: 14px;
+    max-width: 520px;
+    margin: 0;
+  }
+  .cta-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .cta-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid;
+    transition: all 0.2s;
+  }
+  .cta-link.primary {
+    background: var(--cyan);
+    color: var(--navy);
+    border-color: var(--cyan);
+  }
+  .cta-link.primary:hover { background: #5bcde6; }
+  .cta-link.secondary {
+    color: #7aabb8;
+    border-color: var(--teal);
+  }
+  .cta-link.secondary:hover { color: var(--cyan); border-color: var(--cyan); }
+  .cta-link.resume {
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+  .cta-link.resume:hover { color: #dbbf6a; border-color: #dbbf6a; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid var(--teal);
+    padding: 24px;
+    text-align: center;
+  }
+  footer p {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: #4a6a7a;
+    letter-spacing: 0.08em;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .case-grid { grid-template-columns: 1fr; }
+    .case-card.featured { grid-column: 1; }
+    .skills-cols { grid-template-columns: 1fr; }
+    .metrics { grid-template-columns: 1fr 1fr; }
+    .cta-block { padding: 32px 24px; }
+    header { padding: 40px 24px 36px; }
+  }
+  /* HEADER RESUME BUTTONS */
+  .header-resumes {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    max-width: 340px;
+  }
+  .resume-group-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    max-width: none;
+  }
+  .header-resume-btn {
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 7px 14px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    transition: all 0.2s;
+    white-space: nowrap;
+    width: 100%;
+    display: block;
+  }
+  .header-resume-btn:hover {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- FRAMEWORK BAR -->
+<div class="framework-bar" role="banner">
+  <div class="framework-inner">
+    <span class="framework-step">Ambiguity</span>
+    <span class="framework-arrow">→</span>
+    <span class="framework-step">Investigation</span>
+    <span class="framework-arrow">→</span>
+    <span class="framework-step">Pattern</span>
+    <span class="framework-arrow">→</span>
+    <span class="framework-step">Projection</span>
+    <span class="framework-arrow">→</span>
+    <span class="framework-step">Defensible Action</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <p class="eyebrow">Investigative Portfolio · Palm Bay, FL</p>
+    <h1>Mario D. <em>Atkins</em></h1>
+    <p class="header-sub">Fraud Investigation &nbsp;·&nbsp; Financial Crime Analysis &nbsp;·&nbsp; Root Cause Analysis &nbsp;·&nbsp; 15 Years in Regulated Financial Environments</p>
+
+    <p class="employment-line">15 years &nbsp;·&nbsp; Financial Services &nbsp;·&nbsp; Fraud Investigation &amp; Compliance</p>
+
+    <nav class="header-contact" aria-label="Contact and resources">
+      <a href="mailto:mario.data.leader@gmail.com">mario.data.leader@gmail.com</a>
+      <a href="https://www.linkedin.com/in/mario-atkins-07013a50" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://marioatkins.github.io" target="_blank" rel="noopener" class="how-i-think">How I Think →</a>
+    </nav>
+    <div class="header-resumes" aria-label="Resume downloads">
+      <p class="resume-group-label">Download a Resume</p>
+      <a class="header-resume-btn" href="/Freddie_Mac_Fraud_Senior_Resume.pdf" target="_blank">Resume: Financial Crimes &amp; Fraud ↓</a>
+      <a class="header-resume-btn" href="/Senior_Fraud_Investigator_Resume.pdf" target="_blank">Resume: Investigative Analyst ↓</a>
+      <a class="header-resume-btn" href="/Financial_Services_Leadership_Resume.pdf" target="_blank">Resume: Operations &amp; Leadership ↓</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- IDENTITY -->
+  <section aria-label="Professional Identity">
+    <p class="section-label">Who I Am</p>
+    <h2>Investigator by <em>method.</em><br>Financial services by environment.</h2>
+    <p>Fifteen years in regulated financial environments produced one consistent finding. The most important information is rarely on the surface. It lives in the gap between what the record says happened and what actually happened.</p>
+    <p>I built a career finding that gap, in fraud escalations, compliance review, elder financial exploitation, independent case analysis, and identity verification. The environments changed. The method did not.</p>
+
+    <div class="statement-block">
+      <p>"I turn unresolved complexity into defensible action."</p>
+    </div>
+  </section>
+
+  <!-- EVIDENCE / METRICS -->
+  <section aria-label="Career Evidence">
+    <p class="section-label">The Record</p>
+    <h2>Documented <em>outcomes.</em></h2>
+
+    <div class="metrics" role="list">
+      <div class="metric" role="listitem">
+        <span class="metric-value">15<span>+</span></span>
+        <span class="metric-label">Years in regulated financial environments</span>
+      </div>
+      <div class="metric" role="listitem">
+        <span class="metric-value">$300<span>K+</span></span>
+        <span class="metric-label">Fraud cases investigated and resolved</span>
+      </div>
+      <div class="metric" role="listitem">
+        <span class="metric-value">$500<span>K</span></span>
+        <span class="metric-label">Elder exploitation case, emergency intervention</span>
+      </div>
+      <div class="metric" role="listitem">
+        <span class="metric-value">1,500<span>+</span></span>
+        <span class="metric-label">Identity &amp; authenticity assessments (RON)</span>
+      </div>
+      <div class="metric" role="listitem">
+        <span class="metric-value">3<span>×</span></span>
+        <span class="metric-label">Six Sigma certified: Black, Green, Yellow</span>
+      </div>
+      <div class="metric" role="listitem">
+        <span class="metric-value">$20<span>K+</span></span>
+        <span class="metric-label">Projected annual savings from process redesign</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE WORK -->
+  <section aria-label="Case Work">
+    <p class="section-label">Case Work</p>
+    <h2>Selected <em>investigations.</em></h2>
+
+    <div class="case-grid">
+
+      <div class="case-card featured">
+        <span class="case-tag">Fraud Prevention Framework · C-Suite Submission · Wire Transfer Authentication</span>
+        <div class="case-title">Remote Wire Authorization Gap: Proposed Industry Solution</div>
+        <p class="case-desc">Identified a structural authentication failure in the remote wire transfer process: the existing verification chain of online banking credentials, KBA questions, and document upload could be bypassed by anyone with access to a member&#39;s personal information. That population is precisely who commits wire fraud most often.</p>
+        <p class="case-desc" style="margin-top:10px;">Designed and formally submitted a framework embedding Remote Online Notarization into wire authorization above a defined dollar threshold. The solution added credential analysis, deepfake detection, live recorded identity verification, a sworn jurat, and a bonded recovery mechanism, all without requiring branch presence. Presented to CEO, COO, and VP leadership.</p>
+        <p class="case-desc" style="margin-top:10px;color:#3cb8d8;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;">The wire fraud gap this framework was designed to close still exists across the industry.</p>
+      </div>
+
+      <div class="case-card featured" style="background:#0d1a24;margin-top:2px;">
+        <span class="case-tag">Elder Financial Exploitation · Emergency Intervention</span>
+        <div class="case-title">$500,000 Check: Weekend Emergency Response</div>
+        <p class="case-desc">Identified and intervened in an elder financial exploitation matter involving a high-value check already issued to a suspected fraudster. Coordinated emergency payment restrictions over a weekend, obtained executive approval, and worked to protect the vulnerable member from an irreversible financial loss. The institution held the instrument. The member was protected.</p>
+      </div>
+
+      <div class="case-card">
+        <span class="case-tag">Fraud Investigation · 3-Day Resolution</span>
+        <div class="case-title">$48,705 Unauthorized Withdrawal</div>
+        <p class="case-desc">Reconstructed access patterns, account behavior, and transaction sequences. Closed within 3 business days with full case documentation prepared for escalation and law enforcement coordination.</p>
+      </div>
+
+      <div class="case-card">
+        <span class="case-tag">Independent Investigation · Regulatory Complaint</span>
+        <div class="case-title">Property Fraud &amp; Notarial Misconduct</div>
+        <p class="case-desc">Independent investigation of fraudulent deed transfer targeting an elderly homeowner. Reviewed deed history, identified procedural inconsistencies, and assembled an evidence package. Filed a state regulatory complaint resulting in the maximum available surety bond recovery.</p>
+      </div>
+
+      <div class="case-card">
+        <span class="case-tag">Video-Assisted Forensic Reconstruction</span>
+        <div class="case-title">Multi-Camera Transaction Correlation</div>
+        <!-- UPDATED: no "CCTV" standalone, describes actual methodology -->
+        <p class="case-desc">Correlated multi-camera video surveillance footage, including 360 degree dome cameras, ATM feeds, and teller-line views, against transaction journals timestamped to the millisecond. Identified the precise moment observable cash activity diverged from recorded transactions. Rotated recorded footage across camera angles to reconstruct events from multiple vantage points simultaneously.</p>
+      </div>
+
+      <div class="case-card">
+        <span class="case-tag">Post-Death Asset Dispute · Evidence Evaluation</span>
+        <div class="case-title">Competing Family Claims &amp; Account Modifications</div>
+        <p class="case-desc">Navigated complex post-death asset disputes involving competing family claims, suspicious timing of account changes, and conflicting documentation. Evaluated evidence against policy and regulatory standards to reach defensible conclusions.</p>
+      </div>
+
+      <div class="case-card">
+        <span class="case-tag">Identity Verification · 1,500+ Sessions</span>
+        <div class="case-title">Remote Online Notarization: Authenticity Assessment</div>
+        <p class="case-desc">Conducted more than 1,500 remote identity and authenticity assessments in recorded environments. Evaluated each session for impersonation, off-camera coaching, coercion, and document irregularities. Exercised independent authority to terminate when fraud became apparent, with every decision documented.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section aria-label="Core Skills">
+    <p class="section-label">What I Bring</p>
+    <h2>Core <em>competencies.</em></h2>
+
+    <div class="skills-cols">
+      <div class="skill-group">
+        <span class="skill-group-title">Investigations</span>
+        <ul class="skill-list">
+          <li>Fraud investigation &amp; case development</li>
+          <li>Elder financial exploitation detection</li>
+          <li>Evidence assembly &amp; case documentation</li>
+          <li>Allegation triage &amp; prioritization</li>
+          <li>Law enforcement &amp; agency coordination</li>
+          <li>Investigative report writing</li>
+          <li>Video surveillance forensic reconstruction</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group-title">Analysis &amp; Process</span>
+        <ul class="skill-list">
+          <li>Root cause analysis via Six Sigma methodology</li>
+          <li>Multi-source evidence correlation</li>
+          <li>Pattern recognition across data systems</li>
+          <li>Control failure identification</li>
+          <li>Remediation recommendation</li>
+          <li>Chronology reconstruction</li>
+          <li>Behavioral &amp; capacity assessment</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cert-strip" role="list" aria-label="Certifications">
+      <span class="cert-pill" role="listitem">Six Sigma Black Belt</span>
+      <span class="cert-pill" role="listitem">Six Sigma Green Belt</span>
+      <span class="cert-pill" role="listitem">Six Sigma Yellow Belt</span>
+      <span class="cert-pill" role="listitem">Agile Project Management</span>
+      <span class="cert-pill" role="listitem">Google Data Analytics</span>
+      <span class="cert-pill" role="listitem">Financial Analysis</span>
+      <span class="cert-pill" role="listitem">FL Notary Public</span>
+      <span class="cert-pill" role="listitem">FL Remote Online Notary</span>
+    </div>
+  </section>
+
+  <!-- CTA — now with resume download slot -->
+  <div class="cta-block" role="complementary" aria-label="Contact">
+    <p class="section-label" style="color: var(--cyan);">Next Step</p>
+    <p>Available for financial crimes investigation, fraud analysis, APS, loss prevention, and regulated financial operations roles. Palm Bay, FL. Open to remote.</p>
+    <p style="font-family:var(--mono);font-size:10px;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-top:4px;">Three resumes available. Select the version that fits your role.</p>
+    <div class="cta-links">
+      <a class="cta-link primary" href="mailto:mario.data.leader@gmail.com">Get in Touch</a>
+      <a class="cta-link resume" href="/Freddie_Mac_Fraud_Senior_Resume.pdf" target="_blank">Resume: Financial Crimes &amp; Fraud ↓</a>
+      <a class="cta-link resume" href="/Senior_Fraud_Investigator_Resume.pdf" target="_blank">Resume: Investigative Analyst ↓</a>
+      <a class="cta-link resume" href="/Financial_Services_Leadership_Resume.pdf" target="_blank">Resume: Operations &amp; Leadership ↓</a>
+      <a class="cta-link secondary" href="https://www.linkedin.com/in/mario-atkins-07013a50" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="cta-link secondary" href="https://marioatkins.github.io" target="_blank" rel="noopener">How I Think →</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>Mario D. Atkins &nbsp;·&nbsp; Investigative Portfolio &nbsp;·&nbsp; Ambiguity → Investigation → Pattern → Projection → Defensible Action</p>
+</footer>
+
+</body>
+</html>
