@@ -219,6 +219,24 @@
   section.contact .note { max-width: 440px; margin: 1rem auto 0; font-size: 0.86rem; font-style: italic; color: var(--ink); }
 
   footer { text-align: center; padding: 2rem 1.25rem 3.5rem; font-size: 0.78rem; color: var(--ink); font-style: italic; }
+
+  /* ---------- mascot accents ---------- */
+  .mascot-solo { margin: 1.6rem 0 2.2rem; }
+  .mascot-solo.right { text-align: right; }
+  .mascot-solo.left { text-align: left; }
+  .mascot-solo img {
+    width: 175px; max-width: 42%; height: auto;
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .mascot-solo img.in-view { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .mascot-solo img { transition: none; opacity: 1; transform: none; }
+  }
+  @media (max-width: 640px) {
+    .mascot-solo.right, .mascot-solo.left { text-align: center; }
+    .mascot-solo img { max-width: 55%; }
+  }
 </style>
 </head>
 <body>
@@ -241,6 +259,10 @@
 
   <h1 class="headline">Need something notarized?</h1>
   <p class="subhead">You may not need to leave home or the office.</p>
+
+  <div class="mascot-solo right">
+    <img class="mascot-img" src="gator-stamp.png" alt="" loading="lazy" width="350" height="269">
+  </div>
 
   <!-- ============ PRIMARY ACTION: UPLOAD & START ============ -->
   <div class="action-box">
@@ -270,6 +292,9 @@
   </div>
 
   <!-- ============ WHAT HAPPENS NEXT ============ -->
+  <div class="mascot-solo left">
+    <img class="mascot-img" src="gator-magnify.png" alt="" loading="lazy" width="350" height="330">
+  </div>
   <section class="block">
     <div class="kicker">What Happens Next?</div>
     <ol class="steps">
@@ -329,6 +354,9 @@
   </section>
 
   <!-- ============ PROFESSIONAL / TITLE / LEGAL ============ -->
+  <div class="mascot-solo left">
+    <img class="mascot-img" src="gator-briefcase.png" alt="" loading="lazy" width="350" height="294">
+  </div>
   <section class="professional">
     <h3>Professional, Title &amp; Legal Assignments</h3>
     <p>For title companies, law offices, lenders, real estate professionals, and other organizations coordinating notarizations for clients. Remote online assignments available.</p>
@@ -363,6 +391,9 @@
   <hr class="rule">
 
   <!-- ============ FAQ ============ -->
+  <div class="mascot-solo right">
+    <img class="mascot-img" src="gator-padlock.png" alt="" loading="lazy" width="350" height="488">
+  </div>
   <section class="block">
     <div class="kicker">Questions</div>
     <h3 class="block-title">Frequently Asked</h3>
@@ -482,6 +513,26 @@
   <span class="lock-icon"></span>Secure online notarization through Proof. Completed documents are digitally signed and tamper-evident.<br>
   Document eligibility varies. Mario Atkins is a Florida Notary Public, not an attorney, and cannot provide legal advice.
 </footer>
+
+<script>
+(function () {
+  var imgs = document.querySelectorAll('.mascot-img');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    imgs.forEach(function (img) { img.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  imgs.forEach(function (img) { io.observe(img); });
+})();
+</script>
 
 </body>
 </html>
