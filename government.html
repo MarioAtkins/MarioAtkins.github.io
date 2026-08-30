@@ -121,6 +121,23 @@
     .scope-grid{grid-template-columns:1fr;gap:22px;}
     h1.page-title, h2.section-title{font-size:1.3rem;}
   }
+
+  .mascot-solo { margin: 1.4rem 0 1.8rem; }
+  .mascot-solo.right { text-align: right; }
+  .mascot-solo.left { text-align: left; }
+  .mascot-solo img {
+    width: 170px; max-width: 42%; height: auto;
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .mascot-solo img.in-view { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .mascot-solo img { transition: none; opacity: 1; transform: none; }
+  }
+  @media (max-width: 640px) {
+    .mascot-solo.right, .mascot-solo.left { text-align: center; }
+    .mascot-solo img { max-width: 55%; }
+  }
 </style>
 </head>
 <body>
@@ -141,6 +158,10 @@
 <div class="wrap">
   <h1 class="page-title">Notarial services built for public-sector workflows</h1>
   <p class="subhead">Remote Online Notarization, remote oath and affirmation administration, and local mobile service for agencies, schools, departments, courts, employees, contractors, vendors, and other public-sector participants.</p>
+
+  <div class="mascot-solo right">
+    <img class="mascot-img" src="gator-stamp.png" alt="" loading="lazy" width="340" height="261">
+  </div>
 
   <div class="action-box">
     <a class="btn-primary" href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx"
@@ -202,6 +223,9 @@
 <hr class="rule">
 
 <section class="wrap" id="fast-answers">
+  <div class="mascot-solo left">
+    <img class="mascot-img" src="gator-magnify.png" alt="" loading="lazy" width="330" height="311">
+  </div>
   <div class="eyebrow">Fast Answers</div>
   <h2 class="section-title">What You Need to Know</h2>
   <div class="fast-grid">
@@ -305,6 +329,9 @@
 <hr class="rule">
 
 <section class="wrap" id="recurring">
+  <div class="mascot-solo left">
+    <img class="mascot-img" src="gator-briefcase.png" alt="" loading="lazy" width="330" height="277">
+  </div>
   <div class="eyebrow">Recurring Documents</div>
   <div class="box centered">
     If your agency or organization repeatedly uses the same document format, Mario may be able to reuse a prior Proof transaction setup or prepare a repeat workflow after your organization supplies or confirms the applicable document. This may reduce repetitive field preparation for recurring assignments.
@@ -325,6 +352,9 @@
 <hr class="rule">
 
 <section class="wrap" id="details">
+  <div class="mascot-solo right">
+    <img class="mascot-img" src="gator-padlock.png" alt="" loading="lazy" width="330" height="460">
+  </div>
   <div class="eyebrow">The Details</div>
   <h2 class="section-title">Technology &amp; Records</h2>
   <div class="service-block">
@@ -405,6 +435,26 @@
   <p><span class="lock-icon"></span>Secure online notarization through Proof. Proof protects transaction data using encryption in transit and at rest. Completed notarized documents are digitally signed and tamper-evident, and Florida Remote Online Notarization creates an electronic journal and audio-video record of the notarial session.</p>
   <p>Mario Atkins is a Florida Notary Public, not an attorney, and cannot provide legal advice.</p>
 </footer>
+
+<script>
+(function () {
+  var imgs = document.querySelectorAll('.mascot-img');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    imgs.forEach(function (img) { img.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  imgs.forEach(function (img) { io.observe(img); });
+})();
+</script>
 
 </body>
 </html>
