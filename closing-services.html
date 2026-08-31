@@ -422,6 +422,33 @@
   .secondary-path a{font-weight:700;color:#000}
   @media(max-width:620px){.handoff-steps{grid-template-columns:1fr}.handoff-step{text-align:left;border-top:1px solid #000;padding:.5rem 0}.handoff-step strong{display:inline;margin-right:.25rem}}
 
+
+
+  /* ---------- completion mascot ---------- */
+  .final-cta.completion-cta{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(185px,255px);
+    gap:1.35rem;
+    align-items:center;
+    max-width:700px;
+    text-align:left;
+  }
+  .completion-copy{text-align:left;}
+  .completion-copy .kicker{text-align:left;}
+  .completion-copy .btn-primary{max-width:430px;text-align:center;}
+  .completion-copy .contact-line{text-align:left;}
+  .completion-art img{
+    width:100%;
+    max-width:255px;
+    height:auto;
+    display:block;
+    margin:0 auto;
+  }
+  @media(max-width:620px){
+    .final-cta.completion-cta{grid-template-columns:1fr;text-align:center;}
+    .completion-copy,.completion-copy .kicker,.completion-copy .contact-line{text-align:center;}
+    .completion-art img{max-width:280px;}
+  }
 </style>
 </head>
 <body>
@@ -663,12 +690,15 @@
 <p>Remote assignments are available 24 hours a day, 7 days a week, subject to availability. For an urgent closing or correction, call or text Mario directly.</p>
 </details>
 </section>
-<section class="final-cta">
+<section class="final-cta completion-cta">
+<div class="completion-copy">
 <div class="kicker">Professional Assignment</div>
 <h3>Ready when your closing is.</h3>
 <p>Start the assignment, answer a few quick questions, then confirm. Your confirmation page will show <strong>Where → Secure Package Upload</strong>. Upload the package right away and Mario will take it from there.</p>
 <a class="btn-primary" data-goatcounter-click="click-professional-final" href="https://cal.com/the-florida-notaire-zy8tt2/professional-title-legal-ron-assignment">Start RON Assignment</a>
 <p class="contact-line">Call or text <a href="tel:+13215372876">321-537-2876</a>  ·  <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p>
+</div>
+<div class="completion-art"><img alt="" aria-hidden="true" loading="lazy" src="Gator-Work-Complete.png"/></div>
 </section>
 <section class="final-cta" style="margin-top:1.8rem;">
 <p class="contact-line">Need a personal notarization instead? <a href="notary.html">View Everyday Notary Services</a>.<br/>Government or public-sector request? <a href="government.html">View Government &amp; Public-Sector Services</a>.</p>
