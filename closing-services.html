@@ -1,15 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light only">
-<meta name="supported-color-schemes" content="light">
-<meta name="theme-color" content="#ffffff">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="light only" name="color-scheme"/>
+<meta content="light" name="supported-color-schemes"/>
+<meta content="#ffffff" name="theme-color"/>
 <title>Professional Signing Services | Mario Atkins, Florida Notary</title>
-<meta name="description" content="Professional Remote Online Notarization and mobile signing services for title companies, lenders, credit unions, law firms, settlement professionals, and closing teams. Brevard based, remote when the transaction allows it.">
-
-<script data-goatcounter="https://marioatkins.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<meta content="Professional Remote Online Notarization and mobile signing services for title companies, lenders, credit unions, law firms, settlement professionals, and closing teams. Brevard based, remote when the transaction allows it." name="description"/>
+<script async="" data-goatcounter="https://marioatkins.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){
   c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -17,7 +17,6 @@
   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "xbvggb3cfr");
 </script>
-
 <style>
   :root {
     color-scheme: light only;
@@ -239,64 +238,69 @@
   }
 
 
-  /* ---------- shared motion system ---------- */
+  /* ---------- unified motion system ---------- */
   @keyframes heroRise {
-    from { opacity:0; transform:translateY(12px); }
+    from { opacity:0; transform:translateY(14px); }
     to   { opacity:1; transform:translateY(0); }
   }
   @keyframes proofPop {
-    0%   { transform:scale(.65); opacity:.35; }
-    70%  { transform:scale(1.25); opacity:1; }
+    0%   { transform:scale(.72); opacity:.25; }
+    72%  { transform:scale(1.22); opacity:1; }
     100% { transform:scale(1); opacity:1; }
   }
 
-  .topnav { animation:heroRise .48s ease-out both; }
-  header.hero .mark { animation:heroRise .58s cubic-bezier(.2,.7,.2,1) .06s both; }
-  header.hero .title-line { animation:heroRise .58s cubic-bezier(.2,.7,.2,1) .14s both; }
-  header.hero .loc-line { animation:heroRise .58s cubic-bezier(.2,.7,.2,1) .20s both; }
-  header.hero .proof-strip { animation:heroRise .58s cubic-bezier(.2,.7,.2,1) .27s both; }
-  header.hero .proof-dot { animation:proofPop .5s ease-out .62s both; }
-  main > .kicker:first-of-type { animation:heroRise .58s ease-out .30s both; }
-  main > h1.headline:first-of-type { animation:heroRise .62s cubic-bezier(.2,.7,.2,1) .36s both; }
-  main > p.subhead:first-of-type { animation:heroRise .62s cubic-bezier(.2,.7,.2,1) .43s both; }
+  .topnav { animation:heroRise .50s ease-out both; }
+  header.hero .mark { animation:heroRise .62s cubic-bezier(.2,.72,.2,1) .06s both; }
+  header.hero .title-line { animation:heroRise .60s cubic-bezier(.2,.72,.2,1) .14s both; }
+  header.hero .loc-line { animation:heroRise .60s cubic-bezier(.2,.72,.2,1) .21s both; }
+  header.hero .proof-strip { animation:heroRise .60s cubic-bezier(.2,.72,.2,1) .28s both; }
+  header.hero .proof-dot { animation:proofPop .48s ease-out .66s both; }
+  main > .kicker:first-of-type { animation:heroRise .58s ease-out .31s both; }
+  main > h1.headline:first-of-type { animation:heroRise .64s cubic-bezier(.2,.72,.2,1) .37s both; }
+  main > p.subhead:first-of-type { animation:heroRise .64s cubic-bezier(.2,.72,.2,1) .44s both; }
+  main > .hero-note:first-of-type { animation:heroRise .64s cubic-bezier(.2,.72,.2,1) .50s both; }
 
-  .scroll-reveal.is-pending {
-    opacity:0;
-    transform:translateY(18px);
-  }
-  .scroll-reveal {
-    transition:opacity .62s cubic-bezier(.2,.7,.2,1), transform .62s cubic-bezier(.2,.7,.2,1);
-    transition-delay:var(--reveal-delay,0ms);
-    will-change:opacity,transform;
-  }
-  .scroll-reveal.in-view {
+  .motion-item {
     opacity:1;
     transform:none;
+    transition:
+      opacity .72s cubic-bezier(.2,.72,.2,1),
+      transform .72s cubic-bezier(.2,.72,.2,1);
+    transition-delay:var(--motion-delay,0ms);
+    will-change:opacity,transform;
   }
-  .mascot-accent.scroll-reveal.is-pending { transform:translateX(-24px); }
-  .mascot-accent.reverse.scroll-reveal.is-pending { transform:translateX(24px); }
-  .mascot-feature.scroll-reveal.is-pending { transform:translateY(12px) scale(.975); }
+  .motion-item.motion-pending { opacity:0; transform:translateY(22px); }
+  .motion-item.motion-from-left.motion-pending { transform:translateX(-30px); }
+  .motion-item.motion-from-right.motion-pending { transform:translateX(30px); }
+  .motion-item.motion-scale.motion-pending { transform:translateY(10px) scale(.965); }
+  .motion-item.motion-visible { opacity:1; transform:none; }
+
+  /* Legacy reveal classes stay compatible with the unified observer. */
+  .reveal.motion-visible { opacity:1; transform:none; }
 
   .mascot-art img, .mascot-feature img {
-    transition:transform .28s ease;
+    transition:transform .34s cubic-bezier(.2,.72,.2,1);
     transform-origin:center;
   }
   @media (hover:hover) {
-    .mascot-accent:hover .mascot-art img { transform:translateY(-3px) rotate(-.25deg); }
-    .mascot-accent.reverse:hover .mascot-art img { transform:translateY(-3px) rotate(.25deg); }
-    .mascot-feature:hover img { transform:translateY(-3px) scale(1.008); }
+    .mascot-accent:hover .mascot-art img { transform:translateY(-4px) rotate(-.3deg); }
+    .mascot-accent.reverse:hover .mascot-art img { transform:translateY(-4px) rotate(.3deg); }
+    .mascot-feature:hover img { transform:translateY(-4px) scale(1.01); }
   }
 
   .btn-primary, .btn-outline, .btn, .service-link a, .choice-card a {
-    transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+    transition:transform .22s ease, box-shadow .22s ease, opacity .22s ease;
   }
   @media (hover:hover) {
     .btn-primary:hover, .btn-outline:hover, .btn:hover {
       transform:translateY(-2px);
-      box-shadow:0 7px 18px rgba(0,0,0,.10);
+      box-shadow:0 8px 20px rgba(0,0,0,.11);
     }
     .service-link a:hover, .choice-card a:hover { opacity:.68; }
   }
+
+  details.faq[open] > p { animation:heroRise .28s ease-out both; }
+
   a:focus-visible, button:focus-visible, summary:focus-visible {
     outline:2px solid #000;
     outline-offset:4px;
@@ -305,371 +309,459 @@
   @media (prefers-reduced-motion:reduce) {
     .topnav, header.hero .mark, header.hero .title-line, header.hero .loc-line,
     header.hero .proof-strip, header.hero .proof-dot,
-    main > .kicker:first-of-type, main > h1.headline:first-of-type, main > p.subhead:first-of-type {
+    main > .kicker:first-of-type, main > h1.headline:first-of-type,
+    main > p.subhead:first-of-type, main > .hero-note:first-of-type,
+    details.faq[open] > p {
       animation:none !important;
     }
-    .scroll-reveal, .scroll-reveal.is-pending, .scroll-reveal.in-view {
+    .motion-item, .motion-item.motion-pending, .motion-item.motion-visible,
+    .reveal, .reveal.in-view, .reveal.motion-visible {
       opacity:1 !important;
       transform:none !important;
       transition:none !important;
     }
-    .mascot-art img, .mascot-feature img, .btn-primary, .btn-outline, .btn, .service-link a, .choice-card a {
+    .mascot-art img, .mascot-feature img, .btn-primary, .btn-outline, .btn,
+    .service-link a, .choice-card a {
       transition:none !important;
       transform:none !important;
     }
+  }
+
+
+  /* ---------- 2026 shared polish ---------- */
+  :root{--online:#39ff14}
+  .proof-dot{
+    background:var(--online)!important;
+    box-shadow:0 0 0 2px rgba(57,255,20,.14),0 0 9px rgba(57,255,20,.48);
+  }
+  .hero-contact{
+    margin:.72rem auto 0;
+    text-align:center;
+    font-size:.82rem;
+    line-height:1.55;
+  }
+  .hero-contact a{
+    font-weight:700;
+    text-decoration:none;
+    border-bottom:1px solid var(--hairline);
+  }
+  .online-status{
+    position:fixed;
+    z-index:8;
+    top:14px;
+    right:16px;
+    display:inline-flex;
+    align-items:center;
+    gap:.48rem;
+    padding:.42rem .7rem;
+    border:1px solid var(--hairline);
+    border-radius:999px;
+    background:rgba(255,255,255,.96);
+    font-size:.66rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    box-shadow:0 4px 18px rgba(0,0,0,.06);
+    backdrop-filter:blur(6px);
+  }
+  .online-status .status-dot{
+    width:8px;height:8px;border-radius:50%;background:var(--online);
+    box-shadow:0 0 0 2px rgba(57,255,20,.15),0 0 9px rgba(57,255,20,.55);
+    animation:statusGlow 2.2s ease-in-out infinite;
+  }
+  @keyframes statusGlow{
+    0%,100%{box-shadow:0 0 0 2px rgba(57,255,20,.14),0 0 6px rgba(57,255,20,.34)}
+    50%{box-shadow:0 0 0 3px rgba(57,255,20,.12),0 0 12px rgba(57,255,20,.66)}
+  }
+  @keyframes stampLogo{
+    0%{opacity:0;transform:translateY(-8px) scale(1.28) rotate(-1.6deg);filter:blur(1.2px) contrast(1.05)}
+    62%{opacity:1;transform:translateY(1px) scale(.965) rotate(.35deg);filter:blur(0) contrast(1.12)}
+    78%{transform:translateY(0) scale(1.018) rotate(-.12deg)}
+    100%{opacity:1;transform:none;filter:none}
+  }
+  header.hero .mark{
+    animation:stampLogo .72s cubic-bezier(.17,.84,.25,1.08) .05s both!important;
+    transform-origin:center;
+  }
+  .price-card,.credential-badges a,.credential-actions a{
+    transition:transform .24s ease,box-shadow .24s ease,opacity .24s ease;
+  }
+  @media (hover:hover){
+    .price-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08)}
+    .credential-badges a:hover{transform:translateY(-3px) scale(1.025)}
+    .credential-actions a:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.10)}
+  }
+  .payment-quickline{
+    margin:.85rem auto 0;
+    max-width:650px;
+    font-size:.78rem;
+    color:var(--muted);
+    line-height:1.5;
+  }
+  .payment-quickline strong{color:var(--ink)}
+  @media(max-width:900px){
+    .online-status{position:static;width:max-content;max-width:calc(100% - 2.5rem);margin:.65rem auto 0}
+  }
+  @media(max-width:620px){
+    .credential-stats{grid-template-columns:1fr;gap:0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    header.hero .mark,.online-status .status-dot{animation:none!important}
   }
 
 </style>
 </head>
 <body>
-
 <div class="frame"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
-
-<nav class="topnav" aria-label="Services">
-  <a href="notary.html">General Notary Services</a>
-  <a href="government.html">Government &amp; Public-Sector</a>
-  <a href="closing-services.html" class="current">Professional Signing Services</a>
+<div class="online-status" title="Remote Online Notarization available 24/7, subject to availability"><span aria-hidden="true" class="status-dot"></span><span>Online RON · 24/7</span></div>
+<nav aria-label="Services" class="topnav">
+<a href="notary.html">General Notary Services</a>
+<a href="government.html">Government &amp; Public-Sector</a>
+<a class="current" href="closing-services.html">Professional Signing Services</a>
 </nav>
-
 <header class="hero">
-  <img class="mark" src="logo-lockup.png" alt="Mario Atkins, A Florida Notary">
-  <p class="title-line">Florida Notary Public&nbsp;&nbsp;|&nbsp;&nbsp;Florida Online Notary Public</p>
-  <p class="loc-line">Professional Signing Services&nbsp;&nbsp;|&nbsp;&nbsp;Brevard County &amp; Central Florida</p>
-  <div class="proof-strip"><span class="proof-dot"></span>Remote Online Notarization powered by Proof</div>
+<img alt="Mario Atkins, A Florida Notary" class="mark" src="logo-lockup.png"/>
+<p class="title-line">Florida Notary Public  |  Florida Online Notary Public</p>
+<p class="loc-line">Professional Signing Services  |  Brevard County &amp; Central Florida</p>
+<div class="proof-strip"><span class="proof-dot"></span>Remote Online Notarization powered by Proof (formerly Notarize)</div>
+<p class="hero-contact">Call or text <a href="tel:+13215372876">321-537-2876</a>  ·  <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p>
 </header>
-
 <main class="wrap">
-  <hr class="rule">
-
-  <div class="kicker">Professional, Title &amp; Legal</div>
-  <h1 class="headline">Send the assignment.<br>I'll handle the signing.</h1>
-  <p class="subhead">RON first when the transaction allows it. Mobile when physical presence or wet ink is required.</p>
-  <p class="hero-note">For title companies, lenders, credit unions, law firms, settlement professionals, real estate teams, and organizations coordinating notarizations for clients.</p>
-
-  <div class="mascot-feature">
-    <img src="pro-gator-stamp.webp" alt="" aria-hidden="true">
-  </div>
-
-  <section class="action-box" id="pricing">
-    <div class="kicker">Professional RON Assignment Rates</div>
-    <h2>Closing-ready pricing without a marketplace handoff</h2>
-    <p class="lede">You coordinate with Mario directly. Professional assignment pricing may include transaction setup, signer coordination, document preparation and tagging, technology expense, electronic transaction handling, and authorized notarial acts as applicable.</p>
-
-    <div class="price-grid">
-      <div class="price-card">
-        <h3>Ancillary Documents / Loan Modification</h3>
-        <div class="price">$30</div>
-        <p>For a limited professional assignment that is not a full closing package.</p>
-      </div>
-      <div class="price-card featured">
-        <h3>Seller / Cash / HELOC</h3>
-        <div class="price">$90</div>
-        <p>Managed RON assignment for eligible seller-side, cash, or home-equity closing packages.</p>
-      </div>
-      <div class="price-card featured">
-        <h3>Purchase / Refinance Package</h3>
-        <div class="price">$125</div>
-        <p>Full professional RON workflow for eligible home purchase or refinance packages.</p>
-      </div>
-      <div class="price-card">
-        <h3>Error Correction / Trailing Documents</h3>
-        <div class="price">From $30</div>
-        <p>Designed for small corrective assignments, generally one to three affected documents when RON is appropriate.</p>
-      </div>
-    </div>
-
-    <p class="pricing-note">These are professional assignment or transaction package rates, not a statement that the Florida notarial-act fee itself exceeds the statutory limit. Florida statutory limits continue to apply to the notarial-act component. Larger or unusual assignments are confirmed before the signing.</p>
-
-    <a class="btn-primary" href="https://cal.com/the-florida-notaire-zy8tt2/professional-title-legal-ron-assignment" data-goatcounter-click="click-professional-schedule">Request Professional Assignment</a>
-    <p class="urgent-inline"><strong>Closing issue today?</strong> Call or text <a href="tel:+13215372876">321-537-2876</a> for urgent availability.</p>
-  </section>
-
-  <section class="block" id="workflow">
-    <div class="kicker">Managed Workflow</div>
-    <h2 class="section-title">What you hand off, and what I handle</h2>
-    <ol class="steps">
-      <li><strong>Your team supplies the assignment and applicable document package</strong> through the secure workflow we agree on. Your organization identifies the document to be used.</li>
-      <li><strong>I coordinate the signer and prepare the transaction</strong> when the assignment workflow allows it, including document field preparation and notarial setup.</li>
-      <li><strong>The signer completes Proof's identity-verification requirements</strong> and joins the live audio-video session.</li>
-      <li><strong>I perform the authorized notarial acts</strong> and the completed electronic documents become available through the transaction workflow after completion and applicable payment requirements.</li>
-    </ol>
-  </section>
-
-  <div class="mascot-accent">
-    <div class="mascot-art"><img src="pro-gator-desk.webp" alt="" loading="lazy" aria-hidden="true"></div>
-    <div class="mascot-copy">
-      <h3>One assignment. One Florida notary. One direct contact.</h3>
-      <p>I contact the signer, coordinate the appointment, and handle the notarial session. Your team does not have to chase appointment logistics or wonder which notary received the job.</p>
-      <p>For repeat clients, the goal is continuity. I learn how your team wants eligible transactions handled and stay available when something changes. For eligible RON transactions, that same Florida-based relationship can continue even when the signer is in another state or, when permitted, abroad.</p>
-    </div>
-  </div>
-
-  <section class="block" id="why-ron">
-    <div class="kicker">RON First</div>
-    <h2 class="section-title">Why professional teams use remote notarization</h2>
-    <div class="benefit-grid">
-      <div class="benefit"><h4>No notary travel when RON is eligible</h4><p>The signer can participate from another location without waiting for a mobile notary to arrive.</p></div>
-      <div class="benefit"><h4>Electronic return</h4><p>Eligible completed documents can return through the electronic workflow instead of waiting on an overnight package.</p></div>
-      <div class="benefit"><h4>After-hours flexibility</h4><p>Remote assignments are available 24/7 subject to availability, including urgent, evening, and weekend needs.</p></div>
-      <div class="benefit"><h4>Your signer does not have to be in Florida</h4><p>For an eligible U.S.-use RON transaction, the signer may be in another state and, in some circumstances, abroad while Mario remains the Florida online notary for the transaction.</p></div>
-      <div class="benefit"><h4>Prepared digital fields</h4><p>Digital transaction preparation can help guide required signatures and information before the transaction is completed.</p></div>
-      <div class="benefit"><h4>Recorded notarial process</h4><p>Florida RON creates an electronic journal and audio-video recording retained as required by Florida law.</p></div>
-    </div>
-  </section>
-
-  <section class="block" id="corrections">
-    <div class="kicker">Trailing Documents &amp; Corrections</div>
-    <div class="correction-box">
-      <h3>A missed notarization should not automatically require another drive across town.</h3>
-      <div class="start-price">Starting at $30</div>
-      <p>If a signer has already left the office and one or more documents need a corrected or repeated notarization, an eligible RON session may avoid dispatching another mobile notary or asking the signer to return solely for the notarial act.</p>
-      <p><strong>Your team determines what corrected document or execution is required.</strong> Mario performs the authorized notarial act on the document supplied for the corrective transaction.</p>
-      <p>Larger corrective packages or assignments involving substantial additional scope are quoted before the session.</p>
-    </div>
-  </section>
-
-  <div class="mascot-accent reverse">
-    <div class="mascot-art"><img src="pro-gator-assignment.webp" alt="" loading="lazy" aria-hidden="true"></div>
-    <div class="mascot-copy">
-      <h3>You send the package. I work from the assignment you approved.</h3>
-      <p>Your team keeps control of the document set. Send or identify the package you want executed, and I use that assignment to prepare and complete the notarial workflow.</p>
-      <p>That means fewer handoffs, less back-and-forth, and no time lost guessing which form belongs in the transaction. The title company, lender, attorney, settlement agent, agency, signer, or document issuer remains responsible for supplying or identifying the document to be used.</p>
-    </div>
-  </div>
-
-  <section class="block" id="security">
-    <div class="kicker">Security &amp; Records</div>
-    <h2 class="section-title">Secure online notarization through Proof</h2>
-    <div class="mascot-accent session-visual" style="margin-bottom:0;">
-      <div class="mascot-art"><img src="pro-gator-secure-session.webp" alt="" loading="lazy" aria-hidden="true"></div>
-      <div class="mascot-copy">
-        <p>Remote transactions are conducted through Proof's online notarization platform. Proof uses encrypted data transmission and storage, layered identity-verification tools, electronic signing, and tamper-evident completed documents.</p>
-        <p>Florida RON also creates an electronic journal and audio-video recording of the notarial session. These controls reduce risk and create a richer transaction record, but they do not guarantee that fraud will never occur.</p>
-        <ul>
-          <li>Credential analysis and identity-verification workflow</li>
-          <li>Live audio-video session</li>
-          <li>Electronic journal and recording</li>
-          <li>Digitally signed, tamper-evident completed documents</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="repeat-work">
-    <div class="kicker">Recurring Workflows</div>
-    <h2 class="section-title">Repeat documents can become repeatable workflows</h2>
-    <div class="mascot-accent" style="margin-bottom:0;">
-      <div class="mascot-art"><img src="pro-gator-magnify.webp" alt="" loading="lazy" aria-hidden="true"></div>
-      <div class="mascot-copy">
-        <p>If your organization repeatedly uses the same document format, a familiar assignment can require less setup the next time it comes through.</p>
-        <p>When appropriate, Mario may be able to reuse an approved prior transaction setup or prepare a repeat workflow after your organization supplies or confirms the applicable document. The benefit is less repetitive preparation and a faster path from assignment to signing.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr class="rule">
-
-  <section class="block" id="service-choice">
-    <div class="kicker">Remote or Physical</div>
-    <h2 class="section-title">RON when it works. Mobile when it is needed.</h2>
-    <div class="choice-grid">
-      <div class="choice-card ron">
-        <h3>Remote Online Notarization</h3>
-        <p>Preferred for eligible professional assignments when the receiving party, underwriter, lender, recording requirements, and document requirements permit RON.</p>
-        <ul>
-          <li>No notary travel</li>
-          <li>Remote signer convenience</li>
-          <li>Electronic transaction workflow</li>
-          <li>24/7 availability subject to availability</li>
-        </ul>
-      </div>
-      <div class="choice-card mobile">
-        <h3>Traditional Physical Signing</h3>
-        <p>Available in Palm Bay, Melbourne, and surrounding Brevard areas when wet ink, physical presence, or the specific transaction requires it.</p>
-        <ul>
-          <li>Quoted based on assignment scope</li>
-          <li>Travel and printing may apply</li>
-          <li>Scan-back or shipping requirements may apply</li>
-          <li>Confirmed before the assignment when known</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="local">
-    <div class="kicker">Brevard Based</div>
-    <h2 class="section-title">Brevard based. Your signer does not have to be.</h2>
-    <div class="location-box">
-      <h4>Brevard County</h4>
-      <p>Mario remains physically in Florida for the online notarial act, while an eligible signer may participate from another location. That can let a Brevard-based closing team keep one Florida notary relationship instead of sourcing a new local notary wherever the signer happens to be. RON eligibility and acceptance still depend on the transaction, document, underwriter, lender, and receiving office requirements.</p>
-      <h4>Orange County / Orlando</h4>
-      <p>Orange County's published eRecording rules expressly address remotely notarized acknowledgments. Professional RON assignments can extend into Orange County and Orlando when the transaction requirements permit it.</p>
-    </div>
-  </section>
-
-  <section class="block" id="credentials">
-    <div class="kicker">Credentials &amp; Experience</div>
-    <h2 class="section-title">Professional credentials you can verify</h2>
-    <div class="credentials-panel">
-      <p class="credentials-lede">Current NNA signing-agent credentials and background-screening status can be independently verified through Mario's public SigningAgent.com profile. The underlying background report is not published on this website.</p>
-
-      <div class="credential-badges">
-        <a href="https://www.signingagent.com/profile/160440444" target="_blank" rel="noopener noreferrer" aria-label="View Mario Atkins's NNA Signing Agent profile">
-          <img class="badge-screened" src="nna-background-screened-badge.png" alt="NNA signing agent credential badge">
-        </a>
-        <a href="https://www.signingagent.com/profile/160440444" target="_blank" rel="noopener noreferrer" aria-label="Verify Mario Atkins's 2026 NNA Certified Notary Signing Agent status">
-          <img class="badge-certified" src="nna-certified-2026-badge.png" alt="2026 NNA Certified Notary Signing Agent badge">
-        </a>
-      </div>
-
-      <div class="credential-stats">
-        <div class="credential-stat"><strong>1,500+</strong><span>Remote Online Notarizations Completed</span></div>
-        <div class="credential-stat"><strong>$100,000</strong><span>Notary Errors &amp; Omissions Coverage</span></div>
-        <div class="credential-stat"><strong>2026</strong><span>NNA Certified Notary Signing Agent</span></div>
-      </div>
-
-      <div class="credential-actions">
-        <a class="btn-outline" href="https://www.signingagent.com/profile/160440444" target="_blank" rel="noopener noreferrer" data-goatcounter-click="click-nna-profile">View NNA Signing Agent Profile</a>
-        <a class="btn-outline" href="Mario-Atkins-100000-EO-Insurance-2026-2027.pdf" target="_blank" rel="noopener noreferrer" data-goatcounter-click="click-eo-certificate">View $100,000 E&amp;O Certificate</a>
-      </div>
-      <p class="credential-note">Current E&amp;O policy term: July 2026 through July 2027. Certification and background-screening status should be verified through the linked NNA profile for the most current status.</p>
-    </div>
-  </section>
-
-  <section class="block" id="scope">
-    <div class="kicker">Scope</div>
-    <h2 class="section-title">What Mario handles, and what stays with your team</h2>
-    <p class="scope-note">Mario provides notarial and related signing services. He is not acting as the attorney, title agent, settlement agent, lender, or document preparer.</p>
-    <div class="scope-cols">
-      <div>
-        <div class="col-title">Mario Can</div>
-        <ul>
-          <li>Coordinate the signing appointment</li>
-          <li>Prepare transaction fields where appropriate</li>
-          <li>Perform authorized Florida notarial acts</li>
-          <li>Administer authorized oaths and affirmations</li>
-          <li>Complete the notarial certificate</li>
-          <li>Handle local mobile assignments when needed</li>
-        </ul>
-      </div>
-      <div>
-        <div class="col-title">Mario Does Not</div>
-        <ul>
-          <li>Choose the legal document for the signer</li>
-          <li>Give legal advice</li>
-          <li>Determine how a legal defect should be corrected</li>
-          <li>Draft closing or legal documents</li>
-          <li>Conduct a deposition or provide court reporting</li>
-          <li>Guarantee that a receiving party will accept RON</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <hr class="rule tight">
-
-  <section class="block" id="faq">
-    <div class="kicker">Questions</div>
-    <h2 class="section-title">Professional Assignment FAQ</h2>
-
-    <details class="faq">
-      <summary>Can I send the same document format to Mario repeatedly?</summary>
-      <p>Yes. If your organization repeatedly supplies the same document format, a prior transaction setup may be reusable where appropriate. Your organization still supplies or confirms the applicable document. Mario does not choose a legal form for the signer.</p>
-    </details>
-    <details class="faq">
-      <summary>Can Mario fix a closing error after the signer leaves?</summary>
-      <p>Potentially. If your team supplies the corrected document or instructions and the transaction is eligible for RON, Mario may be able to perform the required notarial act remotely. The responsible title company, lender, attorney, or document issuer determines what correction is required.</p>
-    </details>
-    <details class="faq">
-      <summary>Can a signer be outside Brevard County?</summary>
-      <p>Yes for an eligible RON transaction. Mario performs the online notarial act while physically located in Florida. The signer may be elsewhere, including another state and, in some circumstances, abroad for a document intended for U.S. use. The transaction must still satisfy applicable Florida law, Proof requirements, and the receiving party's requirements.</p>
-    </details>
-    <details class="faq">
-      <summary>Do you handle physical signing appointments?</summary>
-      <p>Yes. Local professional mobile assignments are available when wet ink or physical presence is required or preferred. Pricing is quoted based on the assignment scope, travel, printing, scan-back, shipping, and other known requirements.</p>
-    </details>
-    <details class="faq">
-      <summary>Are you available after normal business hours?</summary>
-      <p>Remote assignments are available 24 hours a day, 7 days a week, subject to availability. For an urgent closing or correction, call or text Mario directly.</p>
-    </details>
-  </section>
-
-  <section class="final-cta">
-    <div class="kicker">Professional Assignment</div>
-    <h3>Ready when your closing is.</h3>
-    <p>Request the assignment, or contact Mario directly when the transaction is urgent or needs a quick second look at the notarial workflow.</p>
-    <a class="btn-primary" href="https://cal.com/the-florida-notaire-zy8tt2/professional-title-legal-ron-assignment" data-goatcounter-click="click-professional-final">Request Professional Assignment</a>
-    <p class="contact-line">Call or text <a href="tel:+13215372876">321-537-2876</a> &nbsp;·&nbsp; <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p>
-  </section>
-
-  <section class="final-cta" style="margin-top:1.8rem;">
-    <p class="contact-line">Need a personal notarization instead? <a href="notary.html">View General Notary Services</a>.<br>Government or public-sector request? <a href="government.html">View Government &amp; Public-Sector Services</a>.</p>
-  </section>
+<hr class="rule"/>
+<div class="kicker">Professional, Title &amp; Legal</div>
+<h1 class="headline">Send the assignment.<br/>I'll handle the signing.</h1>
+<p class="subhead">RON first when the transaction allows it. Mobile when physical presence or wet ink is required.</p>
+<p class="hero-note">For title companies, lenders, credit unions, law firms, settlement professionals, real estate teams, and organizations coordinating notarizations for clients.</p>
+<div class="mascot-feature">
+<img alt="" aria-hidden="true" src="pro-gator-stamp.webp"/>
+</div>
+<section class="action-box" id="pricing">
+<div class="kicker">Professional RON Assignment Rates</div>
+<h2>Closing-ready pricing without a marketplace handoff</h2>
+<p class="lede">You coordinate with Mario directly. Professional assignment pricing may include transaction setup, signer coordination, document preparation and tagging, technology expense, electronic transaction handling, and authorized notarial acts as applicable.</p>
+<div class="price-grid">
+<div class="price-card">
+<h3>Ancillary Documents / Loan Modification</h3>
+<div class="price">$30</div>
+<p>For a limited professional assignment that is not a full closing package.</p>
+</div>
+<div class="price-card featured">
+<h3>Seller / Cash / HELOC</h3>
+<div class="price">$90</div>
+<p>Managed RON assignment for eligible seller-side, cash, or home-equity closing packages.</p>
+</div>
+<div class="price-card featured">
+<h3>Purchase / Refinance Package</h3>
+<div class="price">$125</div>
+<p>Full professional RON workflow for eligible home purchase or refinance packages.</p>
+</div>
+<div class="price-card">
+<h3>Error Correction / Trailing Documents</h3>
+<div class="price">From $30</div>
+<p>Designed for small corrective assignments, generally one to three affected documents when RON is appropriate.</p>
+</div>
+</div>
+<p class="pricing-note">These are professional assignment or transaction package rates, not a statement that the Florida notarial-act fee itself exceeds the statutory limit. Florida statutory limits continue to apply to the notarial-act component. Additional notarizations or seals beyond the included or quoted assignment scope are generally $10 each when applicable. Larger or unusual assignments are confirmed before the signing.</p>
+<a class="btn-primary" data-goatcounter-click="click-professional-schedule" href="https://cal.com/the-florida-notaire-zy8tt2/professional-title-legal-ron-assignment">Request Professional Assignment</a>
+<p class="urgent-inline"><strong>Closing issue today?</strong><a href="tel:+13215372876">321-537-2876</a><a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p>
+<p class="payment-quickline"><strong>Payment:</strong> Stripe payment is available by text or email. Established business clients may use an approved invoicing, check, or other company remittance arrangement agreed in advance.</p></section><section class="block" id="payment">
+<div class="kicker">Payment &amp; Remittance</div>
+<h2 class="section-title">Fast electronic payment, with room for established business workflows</h2>
+<div class="location-box">
+<p>Payment for Mario's service is handled separately from Proof (formerly Notarize). Unless a different arrangement has been approved, Mario may send a Stripe payment link by text or email before or during the assignment.</p>
+<p>Stripe checkout may offer credit or debit card, Apple Pay, Google Pay, and ACH when available.</p>
+<p>Title companies, lenders, law firms, settlement professionals, and established business clients may use an approved invoicing, electronic or paper check, or other organizational remittance process when agreed in advance. Any delayed-payment or Net terms require prior approval and are not automatic.</p>
+<p>When no separate business-payment arrangement is in place, payment is expected in connection with the assignment before the completed transaction is closed and released through the Proof workflow.</p>
+</div>
+</section>
+<section class="block" id="workflow">
+<div class="kicker">Managed Workflow</div>
+<h2 class="section-title">What you hand off, and what I handle</h2>
+<ol class="steps">
+<li><strong>Your team supplies the assignment and applicable document package</strong> through the secure workflow we agree on. Your organization identifies the document to be used.</li>
+<li><strong>I coordinate the signer and prepare the transaction</strong> when the assignment workflow allows it, including document field preparation and notarial setup.</li>
+<li><strong>The signer completes Proof's identity-verification requirements</strong> and joins the live audio-video session.</li>
+<li><strong>I perform the authorized notarial acts</strong> and the completed electronic documents become available through the transaction workflow after completion and applicable payment requirements.</li>
+</ol>
+</section>
+<div class="mascot-accent">
+<div class="mascot-art"><img alt="" aria-hidden="true" loading="lazy" src="pro-gator-desk.webp"/></div>
+<div class="mascot-copy">
+<h3>One assignment. One Florida notary. One direct contact.</h3>
+<p>I contact the signer, coordinate the appointment, and handle the notarial session. Your team does not have to chase appointment logistics or wonder which notary received the job.</p>
+<p>For repeat clients, the goal is continuity. I learn how your team wants eligible transactions handled and stay available when something changes. For eligible RON transactions, that same Florida-based relationship can continue even when the signer is in another state or, when permitted, abroad.</p>
+</div>
+</div>
+<section class="block" id="why-ron">
+<div class="kicker">RON First</div>
+<h2 class="section-title">Why professional teams use remote notarization</h2>
+<div class="benefit-grid">
+<div class="benefit"><h4>No notary travel when RON is eligible</h4><p>The signer can participate from another location without waiting for a mobile notary to arrive.</p></div>
+<div class="benefit"><h4>Electronic return</h4><p>Eligible completed documents can return through the electronic workflow instead of waiting on an overnight package.</p></div>
+<div class="benefit"><h4>After-hours flexibility</h4><p>Remote assignments are available 24/7 subject to availability, including urgent, evening, and weekend needs.</p></div>
+<div class="benefit"><h4>Your signer does not have to be in Florida</h4><p>For an eligible U.S.-use RON transaction, the signer may be in another state and, in some circumstances, abroad while Mario remains the Florida online notary for the transaction.</p></div>
+<div class="benefit"><h4>Prepared digital fields</h4><p>Digital transaction preparation can help guide required signatures and information before the transaction is completed.</p></div>
+<div class="benefit"><h4>Recorded notarial process</h4><p>Florida RON creates an electronic journal and audio-video recording retained as required by Florida law.</p></div>
+</div>
+</section>
+<section class="block" id="corrections">
+<div class="kicker">Trailing Documents &amp; Corrections</div>
+<div class="correction-box">
+<h3>A missed notarization should not automatically require another drive across town.</h3>
+<div class="start-price">Starting at $30</div>
+<p>If a signer has already left the office and one or more documents need a corrected or repeated notarization, an eligible RON session may avoid dispatching another mobile notary or asking the signer to return solely for the notarial act.</p>
+<p><strong>Your team determines what corrected document or execution is required.</strong> Mario performs the authorized notarial act on the document supplied for the corrective transaction.</p>
+<p>Larger corrective packages or assignments involving substantial additional scope are quoted before the session.</p>
+</div>
+</section>
+<div class="mascot-accent reverse">
+<div class="mascot-art"><img alt="" aria-hidden="true" loading="lazy" src="pro-gator-assignment.webp"/></div>
+<div class="mascot-copy">
+<h3>You send the package. I work from the assignment you approved.</h3>
+<p>Your team keeps control of the document set. Send or identify the package you want executed, and I use that assignment to prepare and complete the notarial workflow.</p>
+<p>That means fewer handoffs, less back-and-forth, and no time lost guessing which form belongs in the transaction. The title company, lender, attorney, settlement agent, agency, signer, or document issuer remains responsible for supplying or identifying the document to be used.</p>
+</div>
+</div>
+<section class="block" id="security">
+<div class="kicker">Security &amp; Records</div>
+<h2 class="section-title">Secure online notarization through Proof</h2>
+<div class="mascot-accent session-visual" style="margin-bottom:0;">
+<div class="mascot-art"><img alt="" aria-hidden="true" loading="lazy" src="pro-gator-secure-session.webp"/></div>
+<div class="mascot-copy">
+<p>Remote transactions are conducted through Proof's online notarization platform. Proof uses encrypted data transmission and storage, layered identity-verification tools, electronic signing, and tamper-evident completed documents.</p>
+<p>Florida RON also creates an electronic journal and audio-video recording of the notarial session. These controls reduce risk and create a richer transaction record, but they do not guarantee that fraud will never occur.</p>
+<ul>
+<li>Credential analysis and identity-verification workflow</li>
+<li>Live audio-video session</li>
+<li>Electronic journal and recording</li>
+<li>Digitally signed, tamper-evident completed documents</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="block" id="repeat-work">
+<div class="kicker">Recurring Workflows</div>
+<h2 class="section-title">Repeat documents can become repeatable workflows</h2>
+<div class="mascot-accent" style="margin-bottom:0;">
+<div class="mascot-art"><img alt="" aria-hidden="true" loading="lazy" src="pro-gator-magnify.webp"/></div>
+<div class="mascot-copy">
+<p>If your organization repeatedly uses the same document format, a familiar assignment can require less setup the next time it comes through.</p>
+<p>When appropriate, Mario may be able to reuse an approved prior transaction setup or prepare a repeat workflow after your organization supplies or confirms the applicable document. The benefit is less repetitive preparation and a faster path from assignment to signing.</p>
+</div>
+</div>
+</section>
+<hr class="rule"/>
+<section class="block" id="service-choice">
+<div class="kicker">Remote or Physical</div>
+<h2 class="section-title">RON when it works. Mobile when it is needed.</h2>
+<div class="choice-grid">
+<div class="choice-card ron">
+<h3>Remote Online Notarization</h3>
+<p>Preferred for eligible professional assignments when the receiving party, underwriter, lender, recording requirements, and document requirements permit RON.</p>
+<ul>
+<li>No notary travel</li>
+<li>Remote signer convenience</li>
+<li>Electronic transaction workflow</li>
+<li>24/7 availability subject to availability</li>
+</ul>
+</div>
+<div class="choice-card mobile">
+<h3>Traditional Physical Signing</h3>
+<p>Available in Palm Bay, Melbourne, and surrounding Brevard areas when wet ink, physical presence, or the specific transaction requires it.</p>
+<ul>
+<li>Quoted based on assignment scope</li>
+<li>Travel and printing may apply</li>
+<li>Scan-back or shipping requirements may apply</li>
+<li>Confirmed before the assignment when known</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="block" id="local">
+<div class="kicker">Brevard Based</div>
+<h2 class="section-title">Brevard based. Your signer does not have to be.</h2>
+<div class="location-box">
+<h4>Brevard County</h4>
+<p>Mario remains physically in Florida for the online notarial act, while an eligible signer may participate from another location. That can let a Brevard-based closing team keep one Florida notary relationship instead of sourcing a new local notary wherever the signer happens to be. RON eligibility and acceptance still depend on the transaction, document, underwriter, lender, and receiving office requirements.</p>
+<h4>Orange County / Orlando</h4>
+<p>Orange County's published eRecording rules expressly address remotely notarized acknowledgments. Professional RON assignments can extend into Orange County and Orlando when the transaction requirements permit it.</p>
+</div>
+</section>
+<section class="block" id="credentials">
+<div class="kicker">Credentials &amp; Experience</div>
+<h2 class="section-title">Professional credentials you can verify</h2>
+<div class="credentials-panel">
+<p class="credentials-lede">Current NNA signing-agent credentials and background-screening status can be independently verified through Mario's public SigningAgent.com profile. The underlying background report is not published on this website.</p>
+<div class="credential-badges">
+<a aria-label="View Mario Atkins's NNA Signing Agent profile" href="https://www.signingagent.com/profile/160440444" rel="noopener noreferrer" target="_blank">
+<img alt="NNA signing agent credential badge" class="badge-screened" src="nna-background-screened-badge.png"/>
+</a>
+<a aria-label="Verify Mario Atkins's 2026 NNA Certified Notary Signing Agent status" href="https://www.signingagent.com/profile/160440444" rel="noopener noreferrer" target="_blank">
+<img alt="2026 NNA Certified Notary Signing Agent badge" class="badge-certified" src="nna-certified-2026-badge.png"/>
+</a>
+</div>
+<div class="credential-stats">
+<div class="credential-stat"><strong>1,500+</strong><span>Remote Online Notarizations Completed</span></div>
+<div class="credential-stat"><strong>$100,000</strong><span>Notary Errors &amp; Omissions Coverage</span></div>
+<div class="credential-stat"><strong>2026</strong><span>NNA Certified Notary Signing Agent</span></div>
+</div>
+<div class="credential-actions">
+<a class="btn-outline" data-goatcounter-click="click-nna-profile" href="https://www.signingagent.com/profile/160440444" rel="noopener noreferrer" target="_blank">View NNA Signing Agent Profile</a>
+<a class="btn-outline" data-goatcounter-click="click-eo-certificate" href="Mario-Atkins-100000-EO-Insurance-2026-2027.pdf" rel="noopener noreferrer" target="_blank">View $100,000 E&amp;O Certificate</a>
+</div>
+<p class="credential-note">Current E&amp;O policy term: July 2026 through July 2027. Certification and background-screening status should be verified through the linked NNA profile for the most current status.</p>
+</div>
+</section>
+<section class="block" id="scope">
+<div class="kicker">Scope</div>
+<h2 class="section-title">What Mario handles, and what stays with your team</h2>
+<p class="scope-note">Mario provides notarial and related signing services. He is not acting as the attorney, title agent, settlement agent, lender, or document preparer.</p>
+<div class="scope-cols">
+<div>
+<div class="col-title">Mario Can</div>
+<ul>
+<li>Coordinate the signing appointment</li>
+<li>Prepare transaction fields where appropriate</li>
+<li>Perform authorized Florida notarial acts</li>
+<li>Administer authorized oaths and affirmations</li>
+<li>Complete the notarial certificate</li>
+<li>Handle local mobile assignments when needed</li>
+</ul>
+</div>
+<div>
+<div class="col-title">Mario Does Not</div>
+<ul>
+<li>Choose the legal document for the signer</li>
+<li>Give legal advice</li>
+<li>Determine how a legal defect should be corrected</li>
+<li>Draft closing or legal documents</li>
+<li>Conduct a deposition or provide court reporting</li>
+<li>Guarantee that a receiving party will accept RON</li>
+</ul>
+</div>
+</div>
+</section>
+<hr class="rule tight"/>
+<section class="block" id="faq">
+<div class="kicker">Questions</div>
+<h2 class="section-title">Professional Assignment FAQ</h2>
+<details class="faq">
+<summary>Can I send the same document format to Mario repeatedly?</summary>
+<p>Yes. If your organization repeatedly supplies the same document format, a prior transaction setup may be reusable where appropriate. Your organization still supplies or confirms the applicable document. Mario does not choose a legal form for the signer.</p>
+</details>
+<details class="faq">
+<summary>Can Mario fix a closing error after the signer leaves?</summary>
+<p>Potentially. If your team supplies the corrected document or instructions and the transaction is eligible for RON, Mario may be able to perform the required notarial act remotely. The responsible title company, lender, attorney, or document issuer determines what correction is required.</p>
+</details>
+<details class="faq">
+<summary>Can a signer be outside Brevard County?</summary>
+<p>Yes for an eligible RON transaction. Mario performs the online notarial act while physically located in Florida. The signer may be elsewhere, including another state and, in some circumstances, abroad for a document intended for U.S. use. The transaction must still satisfy applicable Florida law, Proof requirements, and the receiving party's requirements.</p>
+</details>
+<details class="faq">
+<summary>Do you handle physical signing appointments?</summary>
+<p>Yes. Local professional mobile assignments are available when wet ink or physical presence is required or preferred. Pricing is quoted based on the assignment scope, travel, printing, scan-back, shipping, and other known requirements.</p>
+</details>
+<details class="faq">
+<summary>Are you available after normal business hours?</summary>
+<p>Remote assignments are available 24 hours a day, 7 days a week, subject to availability. For an urgent closing or correction, call or text Mario directly.</p>
+</details>
+</section>
+<section class="final-cta">
+<div class="kicker">Professional Assignment</div>
+<h3>Ready when your closing is.</h3>
+<p>Request the assignment, or contact Mario directly when the transaction is urgent or needs a quick second look at the notarial workflow.</p>
+<a class="btn-primary" data-goatcounter-click="click-professional-final" href="https://cal.com/the-florida-notaire-zy8tt2/professional-title-legal-ron-assignment">Request Professional Assignment</a>
+<p class="contact-line">Call or text <a href="tel:+13215372876">321-537-2876</a>  ·  <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p>
+</section>
+<section class="final-cta" style="margin-top:1.8rem;">
+<p class="contact-line">Need a personal notarization instead? <a href="notary.html">View General Notary Services</a>.<br/>Government or public-sector request? <a href="government.html">View Government &amp; Public-Sector Services</a>.</p>
+</section>
 </main>
-
 <footer>
-  Remote sessions are conducted through Proof's online notarization platform. Document, closing, recording, and RON eligibility remain subject to the applicable transaction and receiving-party requirements.<br>
+  Remote sessions are conducted through Proof's online notarization platform. Document, closing, recording, and RON eligibility remain subject to the applicable transaction and receiving-party requirements.<br/>
   Mario Atkins is a Florida Notary Public, not an attorney, and cannot provide legal advice.
 </footer>
-
 <script>
 (function(){
-  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const supportsIO = 'IntersectionObserver' in window;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var supportsIO = 'IntersectionObserver' in window;
 
-  /* Existing reveal elements plus the major content blocks on all three pages. */
-  const candidates = Array.from(document.querySelectorAll([
-    '.reveal',
-    '.mascot-feature',
-    '.mascot-accent',
-    '.action-box',
-    'section.block',
-    '.credentials-panel',
-    '.correction-box',
-    '.location-box',
-    '.info-box',
-    '.final-cta'
-  ].join(',')));
+  /* One observer now drives motion consistently on every service page. */
+  var selectors = [
+    'main > section',
+    'main > .action-box',
+    'main > .mascot-feature',
+    'main > .mascot-accent',
+    'main > .credentials-panel',
+    'main > .correction-box',
+    'main > .location-box',
+    'main > .info-box',
+    'main > .final-cta',
+    '.wrap > section',
+    '.wrap > .action-box',
+    '.wrap > .mascot-feature',
+    '.wrap > .mascot-accent',
+    '.wrap > .final-cta'
+  ];
 
-  /* Stagger grids so cards arrive in a short, readable cascade. */
-  document.querySelectorAll('.price-grid, .benefit-grid, .choice-grid, .service-links, .credential-stats').forEach(function(grid){
-    Array.from(grid.children).forEach(function(child, index){
-      child.classList.add('scroll-reveal');
-      child.style.setProperty('--reveal-delay', Math.min(index,5) * 70 + 'ms');
+  var candidates = Array.prototype.slice.call(document.querySelectorAll(selectors.join(',')));
+
+  /* Existing mascot rows get directional movement matching their layout. */
+  document.querySelectorAll('.mascot-accent').forEach(function(el){
+    el.classList.add(el.classList.contains('reverse') ? 'motion-from-right' : 'motion-from-left');
+  });
+  document.querySelectorAll('.mascot-feature').forEach(function(el){
+    el.classList.add('motion-scale');
+  });
+
+  /* Cards and rows arrive in a short stagger so the page feels layered, not busy. */
+  document.querySelectorAll('.price-grid, .benefit-grid, .choice-grid, .service-links, .credential-stats, .credential-badges, .credential-actions, .fast-grid, .scope-cols').forEach(function(grid){
+    Array.prototype.slice.call(grid.children).forEach(function(child,index){
+      child.classList.add('motion-item');
+      child.style.setProperty('--motion-delay', Math.min(index,6) * 75 + 'ms');
       candidates.push(child);
     });
   });
 
-  /* FAQ rows get a very light stagger, not a dramatic accordion animation. */
-  document.querySelectorAll('details.faq').forEach(function(row, index){
-    row.classList.add('scroll-reveal');
-    row.style.setProperty('--reveal-delay', Math.min(index,5) * 45 + 'ms');
+  document.querySelectorAll('table.fee-table tbody tr, table.fee-table tr:not(:first-child)').forEach(function(row,index){
+    row.classList.add('motion-item');
+    row.style.setProperty('--motion-delay', Math.min(index,8) * 38 + 'ms');
     candidates.push(row);
   });
 
-  const unique = Array.from(new Set(candidates));
+  document.querySelectorAll('details.faq').forEach(function(row,index){
+    row.classList.add('motion-item');
+    row.style.setProperty('--motion-delay', Math.min(index,7) * 48 + 'ms');
+    candidates.push(row);
+  });
+
+  var unique = Array.from(new Set(candidates));
+  unique.forEach(function(el,index){
+    el.classList.add('motion-item');
+    if (!el.style.getPropertyValue('--motion-delay') && !el.classList.contains('mascot-feature') && !el.classList.contains('mascot-accent')) {
+      el.style.setProperty('--motion-delay', (index % 3) * 35 + 'ms');
+    }
+  });
 
   if (reduce || !supportsIO) {
     unique.forEach(function(el){
-      el.classList.add('scroll-reveal','in-view');
-      el.classList.remove('is-pending');
+      el.classList.remove('motion-pending');
+      el.classList.add('motion-visible','in-view');
     });
     return;
   }
 
-  unique.forEach(function(el){
-    el.classList.add('scroll-reveal','is-pending');
-  });
+  unique.forEach(function(el){ el.classList.add('motion-pending'); });
 
-  const io = new IntersectionObserver(function(entries, observer){
+  var io = new IntersectionObserver(function(entries,observer){
     entries.forEach(function(entry){
       if (entry.isIntersecting) {
-        entry.target.classList.remove('is-pending');
-        entry.target.classList.add('in-view');
+        entry.target.classList.remove('motion-pending');
+        entry.target.classList.add('motion-visible','in-view');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold:0.13, rootMargin:'0px 0px -7% 0px' });
+  }, { threshold:0.08, rootMargin:'0px 0px -6% 0px' });
 
   unique.forEach(function(el){ io.observe(el); });
 })();
