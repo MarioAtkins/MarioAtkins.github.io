@@ -409,13 +409,26 @@
     header.hero .mark,.online-status .status-dot{animation:none!important}
   }
 
+
+  /* Preferred schedule -> confirm -> secure upload handoff */
+  .handoff-flow{max-width:680px;margin:1.15rem auto 1.2rem;padding:1rem 1rem .9rem;border:1px solid #000;border-radius:12px;background:#fff;text-align:left}
+  .handoff-flow h3{margin:.05rem 0 .65rem;font-size:1.05rem}
+  .handoff-flow p{margin:.45rem 0;font-size:.9rem;line-height:1.5}
+  .handoff-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.45rem;margin:.9rem 0}
+  .handoff-step{border-top:2px solid #000;padding:.45rem .2rem 0;font-size:.74rem;line-height:1.25;text-align:center}
+  .handoff-step strong{display:block;font-size:.76rem;margin-bottom:.12rem}
+  .handoff-note{font-size:.82rem!important;color:#2f2f2f}
+  .secondary-path{margin:.8rem auto 0;max-width:620px;font-size:.82rem;line-height:1.45}
+  .secondary-path a{font-weight:700;color:#000}
+  @media(max-width:620px){.handoff-steps{grid-template-columns:1fr}.handoff-step{text-align:left;border-top:1px solid #000;padding:.5rem 0}.handoff-step strong{display:inline;margin-right:.25rem}}
+
 </style>
 </head>
 <body>
 <div class="frame"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
 <div class="online-status" title="Remote Online Notarization available 24/7, subject to availability"><span aria-hidden="true" class="status-dot"></span><span>Online RON · 24/7</span></div>
 <nav aria-label="Services" class="topnav">
-<a href="notary.html">General Notary Services</a>
+<a href="notary.html">Everyday Notary Services</a>
 <a href="government.html">Government &amp; Public-Sector</a>
 <a class="current" href="closing-services.html">Professional Signing Services</a>
 </nav>
@@ -423,7 +436,7 @@
 <img alt="Mario Atkins, A Florida Notary" class="mark" src="logo-lockup.png"/>
 <p class="title-line">Florida Notary Public  |  Florida Online Notary Public</p>
 <p class="loc-line">Professional Signing Services  |  Brevard County &amp; Central Florida</p>
-<div class="proof-strip"><span class="proof-dot"></span>Remote Online Notarization powered by Proof (formerly Notarize)</div>
+<div class="proof-strip"><span class="proof-dot"></span>Remote Online Notarization through Proof, home of Notarize®</div>
 <p class="hero-contact">Call or text <a href="tel:+13215372876">321-537-2876</a>  ·  <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p>
 </header>
 <main class="wrap">
@@ -435,11 +448,7 @@
 <div class="mascot-feature">
 <img alt="" aria-hidden="true" src="pro-gator-stamp.webp"/>
 </div>
-<section class="action-box" id="pricing">
-<div class="kicker">Professional RON Assignment Rates</div>
-<h2>Closing-ready pricing without a marketplace handoff</h2>
-<p class="lede">You coordinate with Mario directly. Professional assignment pricing may include transaction setup, signer coordination, document preparation and tagging, technology expense, electronic transaction handling, and authorized notarial acts as applicable.</p>
-<div class="price-grid">
+<section class="action-box" id="pricing"><div class="kicker">Title, Lending &amp; Legal</div><h2>Need the package handled? Send it.</h2><p class="lede">Start the assignment, answer a few quick questions, and confirm. Then go to <strong>Where → Secure Package Upload</strong> and send the complete package right away. Mario reviews it, prepares the Proof transaction, and coordinates the signer when needed.</p><div class="handoff-steps" aria-label="Professional RON intake steps"><div class="handoff-step"><strong>1. Start</strong>Choose a time</div><div class="handoff-step"><strong>2. Answer</strong>Quick intake</div><div class="handoff-step"><strong>3. Confirm</strong>Finish booking</div><div class="handoff-step"><strong>4. Upload</strong>Where → Secure Package Upload</div><div class="handoff-step"><strong>5. Done</strong>Mario takes it from there</div></div><p class="handoff-note"><strong>Upload the package as soon as you book.</strong> The sooner it arrives, the sooner Mario can prepare and pre-tag the transaction before the signer joins.</p><a class="btn-primary" data-goatcounter-click="click-professional-schedule" href="https://cal.com/the-florida-notaire-zy8tt2/professional-title-legal-ron-assignment">Start RON Assignment</a><p class="urgent-inline"><strong>Closing issue today?</strong> <a href="tel:+13215372876">321-537-2876</a> · <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p><hr class="rule tight"/><div class="kicker">Professional RON Assignment Rates</div><h3 class="block-title">Clear package pricing</h3><div class="price-grid">
 <div class="price-card">
 <h3>Ancillary Documents / Loan Modification</h3>
 <div class="price">$30</div>
@@ -461,29 +470,17 @@
 <p>Designed for small corrective assignments, generally one to three affected documents when RON is appropriate.</p>
 </div>
 </div>
-<p class="pricing-note">These are professional assignment or transaction package rates, not a statement that the Florida notarial-act fee itself exceeds the statutory limit. Florida statutory limits continue to apply to the notarial-act component. Additional notarizations or seals beyond the included or quoted assignment scope are generally $10 each when applicable. Larger or unusual assignments are confirmed before the signing.</p>
-<a class="btn-primary" data-goatcounter-click="click-professional-schedule" href="https://cal.com/the-florida-notaire-zy8tt2/professional-title-legal-ron-assignment">Request Professional Assignment</a>
-<p class="urgent-inline"><strong>Closing issue today?</strong><a href="tel:+13215372876">321-537-2876</a><a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p>
-<p class="payment-quickline"><strong>Payment:</strong> Stripe payment is available by text or email. Established business clients may use an approved invoicing, check, or other company remittance arrangement agreed in advance.</p></section><section class="block" id="payment">
+<p class="pricing-note">These are professional assignment or transaction package rates, not a statement that the Florida notarial-act fee itself exceeds the statutory limit. Florida statutory limits continue to apply to the notarial-act component. Additional notarizations or seals beyond the included or quoted assignment scope are generally $10 each when applicable. Larger or unusual assignments are confirmed before the signing.</p><p class="payment-quickline"><strong>Payment:</strong> Stripe payment is available by text or email. Established business clients may use an approved invoicing, check, or other company remittance arrangement agreed in advance.</p></section><section class="block" id="payment">
 <div class="kicker">Payment &amp; Remittance</div>
 <h2 class="section-title">Fast electronic payment, with room for established business workflows</h2>
 <div class="location-box">
-<p>Payment for Mario's service is handled separately from Proof (formerly Notarize). Unless a different arrangement has been approved, Mario may send a Stripe payment link by text or email before or during the assignment.</p>
+<p>Payment for Mario's service is handled separately from Proof, home of Notarize®. Unless a different arrangement has been approved, Mario may send a Stripe payment link by text or email before or during the assignment.</p>
 <p>Stripe checkout may offer credit or debit card, Apple Pay, Google Pay, and ACH when available.</p>
 <p>Title companies, lenders, law firms, settlement professionals, and established business clients may use an approved invoicing, electronic or paper check, or other organizational remittance process when agreed in advance. Any delayed-payment or Net terms require prior approval and are not automatic.</p>
 <p>When no separate business-payment arrangement is in place, payment is expected in connection with the assignment before the completed transaction is closed and released through the Proof workflow.</p>
 </div>
 </section>
-<section class="block" id="workflow">
-<div class="kicker">Managed Workflow</div>
-<h2 class="section-title">What you hand off, and what I handle</h2>
-<ol class="steps">
-<li><strong>Your team supplies the assignment and applicable document package</strong> through the secure workflow we agree on. Your organization identifies the document to be used.</li>
-<li><strong>I coordinate the signer and prepare the transaction</strong> when the assignment workflow allows it, including document field preparation and notarial setup.</li>
-<li><strong>The signer completes Proof's identity-verification requirements</strong> and joins the live audio-video session.</li>
-<li><strong>I perform the authorized notarial acts</strong> and the completed electronic documents become available through the transaction workflow after completion and applicable payment requirements.</li>
-</ol>
-</section>
+<section class="block" id="workflow"><div class="kicker">Managed Workflow</div><h2 class="section-title">Send it. Confirm it. Upload it. I’ll take it from there.</h2><ol class="steps"><li><strong>Start the assignment.</strong> Choose the closest available time and answer the short booking questions.</li><li><strong>Confirm and upload.</strong> On the confirmation page, go to <strong>Where → Secure Package Upload</strong> and send the complete package and signing instructions immediately.</li><li><strong>Mario prepares and coordinates.</strong> Mario reviews the package, prepares and tags the Proof transaction, and contacts the signer when scheduling still needs to be coordinated.</li><li><strong>The signer completes RON.</strong> The signer completes Proof identity verification, joins the secure live audio-video session, and the completed electronic documents become available through the transaction workflow.</li></ol></section>
 <div class="mascot-accent">
 <div class="mascot-art"><img alt="" aria-hidden="true" loading="lazy" src="pro-gator-desk.webp"/></div>
 <div class="mascot-copy">
@@ -567,12 +564,12 @@
 </div>
 <div class="choice-card mobile">
 <h3>Traditional Physical Signing</h3>
-<p>Available in Palm Bay, Melbourne, and surrounding Brevard areas when wet ink, physical presence, or the specific transaction requires it.</p>
+<p>Available when wet ink, physical presence, or the transaction requires it.</p>
 <ul>
-<li>Quoted based on assignment scope</li>
-<li>Travel and printing may apply</li>
-<li>Scan-back or shipping requirements may apply</li>
-<li>Confirmed before the assignment when known</li>
+<li>$45 flat mobile / travel charge in Palm Bay or Melbourne</li>
+<li>Applicable assignment or notarial fees remain separate</li>
+<li>Outside Palm Bay / Melbourne: additional travel quoted first</li>
+<li>Printing, scan-back, or shipping may apply when requested</li>
 </ul>
 </div>
 </div>
@@ -659,7 +656,7 @@
 </details>
 <details class="faq">
 <summary>Do you handle physical signing appointments?</summary>
-<p>Yes. Local professional mobile assignments are available when wet ink or physical presence is required or preferred. Pricing is quoted based on the assignment scope, travel, printing, scan-back, shipping, and other known requirements.</p>
+<p>Yes. Local professional mobile assignments are available when wet ink or physical presence is required or preferred. Palm Bay and Melbourne use a $45 flat mobile / travel charge, with applicable assignment or notarial fees separate. Additional travel, printing, scan-back, shipping, or other known requirements are quoted before the assignment when possible.</p>
 </details>
 <details class="faq">
 <summary>Are you available after normal business hours?</summary>
@@ -669,12 +666,12 @@
 <section class="final-cta">
 <div class="kicker">Professional Assignment</div>
 <h3>Ready when your closing is.</h3>
-<p>Request the assignment, or contact Mario directly when the transaction is urgent or needs a quick second look at the notarial workflow.</p>
-<a class="btn-primary" data-goatcounter-click="click-professional-final" href="https://cal.com/the-florida-notaire-zy8tt2/professional-title-legal-ron-assignment">Request Professional Assignment</a>
+<p>Start the assignment, answer a few quick questions, then confirm. Your confirmation page will show <strong>Where → Secure Package Upload</strong>. Upload the package right away and Mario will take it from there.</p>
+<a class="btn-primary" data-goatcounter-click="click-professional-final" href="https://cal.com/the-florida-notaire-zy8tt2/professional-title-legal-ron-assignment">Start RON Assignment</a>
 <p class="contact-line">Call or text <a href="tel:+13215372876">321-537-2876</a>  ·  <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p>
 </section>
 <section class="final-cta" style="margin-top:1.8rem;">
-<p class="contact-line">Need a personal notarization instead? <a href="notary.html">View General Notary Services</a>.<br/>Government or public-sector request? <a href="government.html">View Government &amp; Public-Sector Services</a>.</p>
+<p class="contact-line">Need a personal notarization instead? <a href="notary.html">View Everyday Notary Services</a>.<br/>Government or public-sector request? <a href="government.html">View Government &amp; Public-Sector Services</a>.</p>
 </section>
 </main>
 <footer>
