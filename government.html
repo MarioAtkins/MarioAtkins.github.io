@@ -1,460 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Remote Online Notarization, remote oath/affirmation administration, and local mobile service for government agencies, schools, departments, and public-sector organizations in Florida.">
-<meta name="theme-color" content="#ffffff">
-<meta name="color-scheme" content="light only">
-<title>Mario Atkins | Government &amp; Public-Sector Services</title>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="light only"><meta name="theme-color" content="#ffffff">
+<title>Mario Atkins | Government &amp; Public-Sector Notary Services</title>
+<meta name="description" content="Government and public-sector Remote Online Notarization, remote oath and affirmation administration, and local physical-presence notary service in Florida.">
+
+<script data-goatcounter="https://marioatkins.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xbvggb3cfr");
+</script>
 <style>
-  :root{
-    --ink:#000000;
-    --muted:#8f8d82;
-    --line:#d8d8d8;
-    --border:#000000;
-    --bg:#ffffff;
-    --radius:16px;
-    --maxw:700px;
-    --serif: Georgia, "Times New Roman", Times, serif;
+  :root {
+    color-scheme:light only;
+    --ink:#000;
+    --muted:#5c5c5c;
+    --gray:#8a8a8a;
+    --hairline:#dedede;
+    --paper:#fff;
+    --maxw:760px;
   }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{ background:var(--bg); color:var(--ink); font-family:var(--serif); line-height:1.6; -webkit-font-smoothing:antialiased; }
-  a{color:var(--ink);}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
-
-  .topnav{text-align:center;padding:18px 0 0;font-size:0.72rem;letter-spacing:.1em;text-transform:uppercase;}
-  .topnav a{text-decoration:none;color:var(--ink);margin:0 12px;}
-  .topnav a.current{border-bottom:1px solid var(--ink);padding-bottom:2px;}
-
-  header.hero{text-align:center;padding:22px 0 8px;}
-  header.hero img{width:230px;max-width:80%;height:auto;display:block;margin:0 auto 12px;}
-  header.hero .title-line{font-size:0.78rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 4px;}
-  header.hero .locations{font-size:0.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);}
-
-  .rule{border:none;border-top:1px solid var(--line);width:140px;margin:30px auto;}
-
-  .eyebrow{ text-align:center;font-size:0.78rem;letter-spacing:.14em;text-transform:uppercase; margin:0 0 10px; }
-  h1.page-title, h2.section-title{ text-align:center;font-size:1.6rem;font-weight:700;margin:0 0 10px; }
-  p.subhead{text-align:center;font-style:italic;font-size:1.02rem;margin:0 0 22px;color:#333;}
-
-  section{padding:8px 0 30px;}
-
-  .lock-icon{ display:inline-block;width:13px;height:10px;border:2px solid currentColor;border-radius:2px; position:relative;margin-right:7px;vertical-align:middle;top:-1px; }
-  .lock-icon::before{ content:"";position:absolute;top:-7px;left:1px;width:7px;height:7px;border:2px solid currentColor; border-bottom:none;border-radius:7px 7px 0 0; }
-
-  .action-box{ border:2px solid var(--border);border-radius:var(--radius); padding:28px 24px 24px;margin:0 0 26px;text-align:center; }
-  .btn-primary{ display:inline-block;width:100%;padding:1rem 1rem;border-radius:8px; font-family:var(--serif);font-size:1.05rem;font-weight:700; text-decoration:none;text-align:center;background:var(--ink);color:#fff; }
-  .secure-note{ text-align:center;font-size:0.78rem;color:var(--muted);margin:0.9rem 0 0; }
-  .questions-line{ text-align:center;font-size:0.98rem;font-weight:700;margin:1rem 0 0.2rem; }
-  .questions-line a{ text-decoration:none;color:var(--ink);border-bottom:1px solid var(--ink); }
-  .email-line{ text-align:center;font-size:0.85rem;color:var(--muted);margin:0.3rem 0 0; }
-  .email-line a{ color:var(--muted); }
-
-  .cta-row{text-align:center;margin:14px 0 6px;}
-
-  .fast-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--border);}
-  .fa-item{border-bottom:1px solid var(--border);padding:16px 18px;}
-  .fa-item:nth-child(odd){border-right:1px solid var(--border);}
-  .fa-item .q{font-weight:700;margin-bottom:6px;}
-  .fa-item .a{margin:0;font-size:0.94rem;}
-
-  .services-col{max-width:560px;margin:0 auto;}
-  .service-block{text-align:center;margin-bottom:26px;}
-  .service-block h3{font-size:1.1rem;margin:0 0 8px;}
-  .service-block p{margin:0;}
-
-  .box{ border:1px solid var(--border);border-radius:var(--radius); padding:22px 24px;margin:0 0 20px; }
-  .box.centered{text-align:center;}
-
-  .scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:16px;}
-  .scope-grid h3{text-align:center;font-size:0.82rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 10px;}
-  .scope-grid ul{margin:0;padding-left:20px;}
-  .scope-grid li{margin-bottom:6px;}
-
-  ul.use-cases{max-width:560px;margin:0 auto;padding-left:22px;}
-  ul.use-cases li{margin-bottom:8px;}
-
-  table{width:100%;border-collapse:collapse;margin-top:6px;}
-  th{font-size:0.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted); text-align:left;font-weight:400;padding:8px 8px;border-bottom:1px solid var(--border);}
-  td{padding:9px 8px;border-bottom:1px solid var(--line);}
-  td.gov-price{font-weight:700;}
-  .price-note{font-size:0.85rem;color:var(--muted);margin-top:12px;text-align:center;}
-
-  .avail-line{text-align:center;margin-bottom:14px;}
-  .avail-line .label{font-size:0.8rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
-
-  .disclosure-box{border:1px solid var(--border);border-radius:var(--radius);padding:18px 22px;text-align:center;font-weight:700;font-size:0.92rem;}
-
-  .vendor-info p{font-size:0.92rem;text-align:center;max-width:600px;margin:0 auto 10px;}
-  .vendor-info .codes{font-size:0.8rem;color:var(--muted);text-align:center;letter-spacing:.04em;}
-
-  ol.steps{max-width:560px;margin:0 auto;padding-left:1.3rem;}
-  ol.steps li{margin-bottom:0.6rem;font-size:0.95rem;}
-  ol.steps li strong{letter-spacing:.03em;}
-
-  .alt-item{border:1px solid var(--line);border-radius:10px;padding:18px 20px;text-align:center;max-width:560px;margin:0 auto;}
-  .alt-item h4{font-size:0.85rem;letter-spacing:.05em;margin:0 0 8px;}
-  .alt-item p{font-size:0.9rem;margin:0 0 10px;}
-  .alt-item .contact{font-size:0.9rem;font-weight:700;}
-
-  .routes { display: flex; gap: 1.2rem; max-width:600px; margin: 0 auto 1rem; }
-  .routes .card { flex: 1 1 0; }
-  @media (max-width: 620px) { .routes { flex-direction: column; } }
-  .card { border-radius: 14px; padding: 1.5rem 1.2rem; text-align: center; }
-  .card.online { background: var(--ink); color: #ece7dc; }
-  .card.person { border: 1px solid var(--ink); color: var(--ink); }
-  .card h2 { font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.5rem; }
-  .card p.desc { font-size: 0.88rem; margin: 0 0 1rem; }
-  .card.online p.desc { color: #ffffff; }
-  .btn { display: inline-block; width: 100%; padding: 0.7rem 1rem; border-radius: 7px; font-family: var(--serif); font-size: 0.88rem; font-weight: 700; text-decoration: none; text-align: center; }
-  .card.online .btn { background: #ece7dc; color: var(--ink); }
-  .card.person .btn { background: var(--ink); color: #fff; }
-
-  footer.site{padding:26px 0 46px;text-align:center;}
-  footer.site p{font-size:0.8rem;color:var(--muted);max-width:560px;margin:8px auto 0;}
-
-  @media (max-width:560px){
-    .fast-grid{grid-template-columns:1fr;}
-    .fa-item:nth-child(odd){border-right:none;}
-    .scope-grid{grid-template-columns:1fr;gap:22px;}
-    h1.page-title, h2.section-title{font-size:1.3rem;}
-  }
-
-  .mascot-solo { margin: 1.4rem 0 1.8rem; }
-  .mascot-solo.right { text-align: right; }
-  .mascot-solo.left { text-align: left; }
-  .mascot-solo img {
-    width: 170px; max-width: 42%; height: auto;
-    opacity: 0; transform: translateY(14px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .mascot-solo img.in-view { opacity: 1; transform: translateY(0); }
-  @media (prefers-reduced-motion: reduce) {
-    .mascot-solo img { transition: none; opacity: 1; transform: none; }
-  }
-  @media (max-width: 640px) {
-    .mascot-solo.right, .mascot-solo.left { text-align: center; }
-    .mascot-solo img { max-width: 55%; }
-  }
-</style>
-</head>
-<body>
-
-<div class="topnav">
+  *{box-sizing:border-box}
+  html{background:#fff!important;color-scheme:light only;scroll-behavior:smooth}
+  body{margin:0;background:#fff!important;color:#000;font-family:"Georgia","Iowan Old Style",serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--ink)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem}
+  .frame{position:fixed;inset:0;pointer-events:none;z-index:5}
+  .frame span{position:absolute;width:22px;height:22px;border:1px solid var(--hairline)}
+  .frame .tl{top:18px;left:18px;border-right:none;border-bottom:none}.frame .tr{top:18px;right:18px;border-left:none;border-bottom:none}.frame .bl{bottom:18px;left:18px;border-right:none;border-top:none}.frame .br{bottom:18px;right:18px;border-left:none;border-top:none}
+  .topnav{display:flex;justify-content:center;flex-wrap:wrap;gap:.45rem 1.2rem;padding:18px 1rem 0;font-size:.70rem;letter-spacing:.085em;text-transform:uppercase;text-align:center}
+  .topnav a{text-decoration:none;color:var(--ink);padding-bottom:2px}.topnav a.current{border-bottom:1px solid var(--ink)}
+  header.hero{text-align:center;padding:2rem 1.25rem .9rem}.mark{width:230px;max-width:80%;height:auto;margin:0 auto 1rem;display:block}
+  .title-line,.loc-line{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;margin:0 0 .5rem}.loc-line{margin:0}
+  .proof-strip{display:inline-flex;align-items:center;gap:.5rem;margin:1rem auto 0;padding:.42rem .72rem;border:1px solid var(--hairline);border-radius:999px;font-size:.72rem;letter-spacing:.055em;text-transform:uppercase;background:#fff}
+  .proof-dot{width:7px;height:7px;border-radius:50%;background:#000;display:inline-block}
+  .rule{border:none;border-top:1px solid var(--hairline);width:260px;margin:2.2rem auto}.rule.tight{margin:1.65rem auto}
+  .kicker{text-align:center;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;margin:0 0 .6rem}
+  h1.headline{font-size:2.15rem;line-height:1.15;text-align:center;letter-spacing:-.01em;margin:0 0 .55rem}
+  h2.section-title,h3.block-title{text-align:center;font-size:1.35rem;margin:0 0 1.15rem}
+  p.subhead{text-align:center;font-size:1.04rem;font-style:italic;margin:0 auto 1.3rem;max-width:640px}.hero-note{max-width:620px;margin:0 auto 1.35rem;text-align:center;font-size:.91rem}
+  section.block{margin:0 auto 2.8rem}
+  .action-box{border:2px solid #000;border-radius:16px;padding:1.75rem 1.5rem 1.55rem;margin:0 auto 2.3rem;text-align:center}.action-box h2{font-size:1.42rem;margin:0 0 .65rem}.action-box .lede{font-size:.94rem;margin:0 auto 1.15rem;max-width:620px}
+  .btn-primary{display:inline-block;width:100%;padding:1rem;border-radius:8px;background:#000;color:#fff;text-decoration:none;font-family:Georgia,serif;font-size:1.03rem;font-weight:700}.btn-outline{display:inline-block;border:1px solid #000;border-radius:7px;padding:.7rem 1rem;text-decoration:none;font-weight:700;font-size:.82rem;background:#fff;color:#000}
+  .secure-note{font-size:.79rem;color:var(--muted);margin:.85rem auto 0}.urgent-inline{margin:.85rem 0 0;font-size:.82rem;color:var(--muted)}
+  .mascot-feature{display:flex;justify-content:center;margin:0 auto 1.55rem}.mascot-feature img{width:420px;max-width:86%;height:auto;display:block}
+  .mascot-accent{display:grid;grid-template-columns:minmax(180px,275px) 1fr;gap:1.55rem;align-items:center;margin:0 auto 2.55rem;max-width:700px}.mascot-accent.reverse{grid-template-columns:1fr minmax(180px,275px)}.mascot-accent.reverse .mascot-art{order:2}.mascot-accent.reverse .mascot-copy{order:1}.mascot-art img{width:100%;height:auto;display:block}.mascot-copy h3{font-size:1.18rem;margin:0 0 .55rem}.mascot-copy p{margin:.45rem 0;font-size:.92rem}.mascot-copy ul{margin:.55rem 0 0;padding-left:1.15rem;font-size:.9rem}.mascot-copy li{margin-bottom:.4rem}
+  .price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.25rem;text-align:left}.price-card{border:1px solid var(--hairline);border-radius:10px;padding:1.05rem 1rem}.price-card.featured{border:2px solid #000}.price-card h3{font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;margin:0 0 .35rem}.price{font-size:1.7rem;font-weight:700;line-height:1.1;margin:.2rem 0 .45rem}.price-card p{margin:0;font-size:.84rem}.pricing-note{font-size:.79rem;color:var(--muted);margin:1rem 0 0;text-align:left}
+  table.fee-table{width:100%;border-collapse:collapse;font-size:.88rem;margin:1.25rem 0 0;text-align:left}table.fee-table th,table.fee-table td{border-bottom:1px solid var(--hairline);padding:.48rem .4rem}table.fee-table th{font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700}table.fee-table td.price{text-align:right;font-weight:700;white-space:nowrap}
+  .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.15rem}.choice-card{border-radius:14px;padding:1.4rem}.choice-card.ron{background:#000;color:#fff}.choice-card.mobile{border:1px solid #000}.choice-card h3{margin:0 0 .5rem;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase}.choice-card p,.choice-card li{font-size:.86rem}.choice-card ul{margin:.55rem 0 0;padding-left:1.1rem}.choice-card li{margin-bottom:.35rem}
+  .steps{max-width:610px;margin:0 auto;padding-left:1.4rem}.steps li{margin-bottom:.75rem;font-size:.94rem}
+  .benefit-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.benefit{border:1px solid var(--hairline);border-radius:10px;padding:1.1rem}.benefit h4{margin:0 0 .4rem;font-size:.9rem}.benefit p{margin:0;font-size:.86rem}
+  .info-box{max-width:650px;margin:0 auto;border:1px solid var(--hairline);border-radius:10px;padding:1.2rem 1.25rem}.info-box p{margin:.45rem 0;font-size:.88rem}.info-box strong{font-weight:700}
+  .scope-cols{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}.scope-cols ul{margin:0;padding-left:1.1rem;font-size:.88rem}.scope-cols li{margin-bottom:.45rem}.col-title{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:.55rem}.scope-note{text-align:center;font-size:.86rem;margin:0 0 1.3rem}
+  details.faq{border-bottom:1px solid var(--hairline);padding:.9rem 0}details.faq summary{cursor:pointer;font-weight:700;font-size:.94rem;list-style:none;display:flex;justify-content:space-between;gap:1rem}details.faq summary::-webkit-details-marker{display:none}details.faq summary::after{content:"+";font-size:1.15rem;font-weight:400}details.faq[open] summary::after{content:"−"}details.faq p{font-size:.88rem;margin:.65rem 0 .15rem}
+  .service-links{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.service-link{border:1px solid var(--hairline);border-radius:10px;padding:1.1rem;text-align:center}.service-link h3{font-size:.94rem;margin:0 0 .4rem}.service-link p{font-size:.84rem;margin:0 0 .8rem}.service-link a{font-size:.82rem;font-weight:700;text-underline-offset:3px}
+  .contact-line{text-align:center;font-size:.86rem;color:var(--muted)}
+  .final-cta{text-align:center;margin:0 auto 2.5rem}.final-cta h3{font-size:1.35rem;margin:0 0 .55rem}.final-cta p{margin:.35rem auto 1rem;max-width:560px;font-size:.9rem}.final-cta .btn-primary{max-width:430px}
+  footer{text-align:center;padding:2rem 1.25rem 3.5rem;font-size:.76rem;font-style:italic;color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}.reveal.in-view{opacity:1;transform:none}
+  @media(max-width:620px){.topnav{font-size:.66rem}.price-grid,.choice-grid,.benefit-grid,.scope-cols,.service-links{grid-template-columns:1fr}.mascot-accent,.mascot-accent.reverse{grid-template-columns:1fr;gap:1rem}.mascot-accent.reverse .mascot-art,.mascot-accent.reverse .mascot-copy{order:initial}.mascot-art img{max-width:270px;margin:0 auto}.mascot-copy{text-align:left}h1.headline{font-size:1.8rem}.credential-stat{padding:.7rem .4rem}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1!important;transform:none!important;transition:none!important}}
+</style></head><body>
+<div class="frame"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
+<nav class="topnav" aria-label="Services">
   <a href="notary.html">General Notary Services</a>
   <a href="government.html" class="current">Government &amp; Public-Sector</a>
-</div>
+  <a href="closing-services.html">Professional Signing Services</a>
+</nav>
+<header class="hero"><img class="mark" src="logo-lockup.png" alt="Mario Atkins, A Florida Notary"><p class="title-line">Florida Notary Public&nbsp;&nbsp;|&nbsp;&nbsp;Florida Online Notary Public</p><p class="loc-line">Government &amp; Public-Sector Notary Services</p><div class="proof-strip"><span class="proof-dot"></span>Remote Online Notarization powered by Proof</div></header>
+<main class="wrap"><hr class="rule">
+<div class="kicker">Government &amp; Public-Sector</div><h1 class="headline">Notarial services built for public-sector workflows</h1><p class="subhead">Remote Online Notarization, remote oath and affirmation administration, and local service for agencies, schools, departments, courts, employees, contractors, vendors, and constituents.</p><p class="hero-note"><strong>RON available 24/7, subject to availability.</strong> One Florida notary can coordinate eligible signers across locations without requiring everyone to travel to the same office.</p>
+<div class="mascot-feature reveal"><img src="gator-stamp.webp" alt="" aria-hidden="true"></div>
 
-<header class="hero">
-  <img src="logo-lockup.png" alt="Mario Atkins, A Florida Notary">
-  <div class="title-line">FLORIDA NOTARY PUBLIC&nbsp;&nbsp;|&nbsp;&nbsp;FLORIDA ONLINE NOTARY PUBLIC</div>
-  <div class="locations">GOVERNMENT &amp; PUBLIC-SECTOR SERVICES</div>
-</header>
+<section class="action-box" id="start"><div class="kicker">Preferred Online Workflow</div><h2>Upload the document and start secure RON</h2><p class="lede">Upload the complete PDF or DOCX securely through Proof and complete the guided signer and identity-preparation steps before meeting Mario.</p><a class="btn-primary" href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx">Upload Document &amp; Start Government RON</a><p class="secure-note">Questions before you begin? Call <a href="tel:+13215372876">321-537-2876</a> or email <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a>.</p></section>
 
-<hr class="rule">
+<section class="block" id="pricing"><div class="kicker">Government Pricing</div><h2 class="section-title">Public-sector rates, shown before the transaction starts</h2><p class="subhead">Government and public-sector clients receive $5 off the comparable general-public RON rate.</p><table class="fee-table"><tr><th>Same Session</th><th class="price">General Public</th><th class="price">Government</th></tr>
+<tr><td>1 notarization</td><td class="price">$25</td><td class="price">$20</td></tr><tr><td>2 notarizations</td><td class="price">$35</td><td class="price">$30</td></tr><tr><td>3 notarizations</td><td class="price">$45</td><td class="price">$40</td></tr><tr><td>4 notarizations</td><td class="price">$55</td><td class="price">$50</td></tr><tr><td>5 notarizations</td><td class="price">$65</td><td class="price">$60</td></tr><tr><td>6 notarizations</td><td class="price">$75</td><td class="price">$70</td></tr><tr><td>7 notarizations</td><td class="price">$85</td><td class="price">$80</td></tr><tr><td>8 notarizations</td><td class="price">$95</td><td class="price">$90</td></tr><tr><td>9 notarizations</td><td class="price">$105</td><td class="price">$100</td></tr><tr><td>10 notarizations</td><td class="price">$115</td><td class="price">$110</td></tr><tr><td>11 or more</td><td class="price">Quote</td><td class="price">Quote</td></tr></table><p class="pricing-note">Arranged remote witnesses are $10 each when available and appropriate, up to two. Government pricing applies to Mario's service fee; platform, travel, printing, shipping, or other approved transaction costs remain separate when applicable.</p></section>
 
-<div class="wrap">
-  <h1 class="page-title">Notarial services built for public-sector workflows</h1>
-  <p class="subhead">Remote Online Notarization, remote oath and affirmation administration, and local mobile service for agencies, schools, departments, courts, employees, contractors, vendors, and other public-sector participants.</p>
+<section class="mascot-accent reveal" id="one-contact"><div class="mascot-art"><img src="gator-magnify.webp" alt="" aria-hidden="true" loading="lazy"></div><div class="mascot-copy"><div class="kicker" style="text-align:left">One Request, One Florida Notary</div><h3>Keep the assignment moving even when the participants are not in the same place</h3><p>A signer can be in another office, another Florida city, or another state for an eligible RON transaction. Your team keeps one Florida-based notary contact instead of sourcing a new local notary wherever the signer happens to be.</p><p>That can reduce coordination, travel, document routing, and repeat handoffs.</p></div></section>
 
-  <div class="mascot-solo right">
-    <img class="mascot-img" src="gator-stamp.png" alt="" loading="lazy" width="340" height="261">
-  </div>
+<section class="mascot-accent reverse reveal" id="cost"><div class="mascot-art"><img src="gator-briefcase.webp" alt="" aria-hidden="true" loading="lazy"></div><div class="mascot-copy"><div class="kicker" style="text-align:left">Total Transaction Cost</div><h3>The notarial fee is only one part of the workflow</h3><p>RON can reduce employee travel, mileage, parking, tolls, printing, scanning, postage, courier expense, physical document routing, scheduling friction, and time away from assigned duties.</p><p>RON is not represented as the lowest-cost option in every circumstance. The useful comparison is the complete transaction workflow.</p></div></section>
 
-  <div class="action-box">
-    <a class="btn-primary" href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx"
-       data-goatcounter-click="click-gov-upload-start">Upload Document &amp; Start Secure Notarization</a>
-    <p class="secure-note">Preferred online workflow. Upload the complete PDF or DOCX securely through Proof and follow the guided steps to prepare for the notarization.</p>
-    <p class="questions-line">Questions? Call <a href="tel:+13215372876">321-537-2876</a></p>
-    <p class="email-line"><a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p>
-    <p class="secure-note" style="margin-top:0.8rem;"><span class="lock-icon"></span>Secure online notarization through Proof</p>
-  </div>
-</div>
+<section class="mascot-accent reveal" id="security"><div class="mascot-art"><img src="gator-padlock.webp" alt="" aria-hidden="true" loading="lazy"></div><div class="mascot-copy"><div class="kicker" style="text-align:left">Security &amp; Records</div><h3>Secure online notarization through Proof</h3><p>Proof protects transaction data using encryption in transit and at rest and provides layered identity-verification and fraud-risk tools. Completed notarized documents are digitally signed and tamper-evident.</p><p>Florida RON creates an electronic journal and audio-video record retained for at least 10 years. These records add documentation to the notarial process if a transaction is later questioned.</p></div></section>
 
-<section class="wrap" id="pricing">
-  <div class="eyebrow">Pricing</div>
-  <h2 class="section-title">Government &amp; Public-Sector Rates</h2>
-  <p class="subhead" style="margin-bottom:14px;">Government and public-sector clients receive pricing $10 below the comparable general-public rate.</p>
-  <table>
-    <thead><tr><th>Same Session</th><th>General Public</th><th>Government / Public Sector</th></tr></thead>
-    <tbody>
-      <tr><td>1 notarization</td><td>$25</td><td class="gov-price">$15</td></tr>
-      <tr><td>2 notarizations</td><td>$35</td><td class="gov-price">$25</td></tr>
-      <tr><td>3 notarizations</td><td>$45</td><td class="gov-price">$35</td></tr>
-      <tr><td>4 notarizations</td><td>$55</td><td class="gov-price">$45</td></tr>
-      <tr><td>5 notarizations</td><td>$65</td><td class="gov-price">$55</td></tr>
-      <tr><td>6 notarizations</td><td>$75</td><td class="gov-price">$65</td></tr>
-      <tr><td>7 notarizations</td><td>$85</td><td class="gov-price">$75</td></tr>
-      <tr><td>8 notarizations</td><td>$95</td><td class="gov-price">$85</td></tr>
-      <tr><td>9 notarizations</td><td>$105</td><td class="gov-price">$95</td></tr>
-      <tr><td>10 notarizations</td><td>$115</td><td class="gov-price">$105</td></tr>
-      <tr><td>11 or more</td><td>Contact for quote</td><td class="gov-price">Contact for quote</td></tr>
-    </tbody>
-  </table>
-  <p class="price-note">
-    Same-session pricing: $25 (General Public) or $15 (Government/Public Sector) for the first notarization, plus $10 for each additional notarization in the same continuous session.<br>
-    <strong>Witnesses:</strong> Arranged remote witnesses (online sessions only) are $10 per witness. In-person witness arrangements for a traditional notarization are not a fixed $10 and are quoted separately based on availability.<br>
-    Local mobile appointments: quoted based on location and document requirements &mdash; contact for a government-rate quote.
-  </p>
-</section>
+<section class="block" id="workflow"><div class="kicker">How It Works</div><h2 class="section-title">A short online workflow</h2><ol class="steps"><li><strong>Upload.</strong> Upload the complete document securely through Proof.</li><li><strong>Prepare.</strong> Provide the required signer information and review the document.</li><li><strong>Verify.</strong> The signer completes Proof's identity-verification process.</li><li><strong>Meet.</strong> Join Mario by live audio-video to complete the notarization.</li><li><strong>Receive.</strong> The completed electronic document becomes available after completion and applicable payment requirements.</li></ol></section>
 
-<section class="wrap" id="payment">
-  <div class="eyebrow">Payment</div>
-  <div class="box centered">
-    Proof is the technology platform used to complete the online notarization. Payment for Mario's notarial service is handled separately from Proof.<br><br>
-    Government agencies, schools, departments, businesses, law firms, and other organizations may coordinate an approved organizational payment or invoicing arrangement when appropriate. Payment terms are confirmed before or in connection with the assignment.
-  </div>
-</section>
+<section class="block" id="service-choice"><div class="kicker">Remote or Physical</div><h2 class="section-title">RON when it works. Physical presence when it is needed.</h2><div class="choice-grid"><div class="choice-card ron"><h3>Government Remote Online Notarization</h3><p>Preferred when the document, receiving party, and agency workflow permit RON.</p><ul><li>24/7 subject to availability</li><li>$5 below comparable public RON pricing</li><li>Remote signer convenience</li><li>Electronic transaction workflow</li></ul></div><div class="choice-card mobile"><h3>Government Physical-Presence Notarization</h3><p>Local face-to-face service in Palm Bay and Melbourne.</p><ul><li>$5 per notarial act</li><li>$40 flat local mobile / travel charge</li><li>$10 printing for up to 20 pages when requested</li><li>Additional travel or larger print jobs quoted first</li></ul></div></div></section>
 
-<section class="wrap" id="workflow">
-  <div class="eyebrow">How It Works</div>
-  <h2 class="section-title">How the Online Workflow Works</h2>
-  <ol class="steps">
-    <li><strong>Upload.</strong> Upload the complete document securely through Proof.</li>
-    <li><strong>Prepare.</strong> Provide the required signer information and review the document through Proof's guided workflow.</li>
-    <li><strong>Verify.</strong> The signer completes Proof's identity-verification process.</li>
-    <li><strong>Meet.</strong> Join Mario by live audio-video session to complete the notarization.</li>
-    <li><strong>Receive.</strong> The completed electronic document becomes available through the Proof transaction workflow after completion and applicable payment requirements.</li>
-  </ol>
-</section>
+<section class="block" id="services"><div class="kicker">Core Services</div><h2 class="section-title">What I provide</h2><div class="benefit-grid"><div class="benefit"><h4>Remote Online Notarization</h4><p>Live audio-video notarization for eligible electronic documents.</p></div><div class="benefit"><h4>Remote Oath &amp; Affirmation Administration</h4><p>Available where legally permitted for hearings, testimony, depositions, investigations, and similar proceedings.</p></div><div class="benefit"><h4>Local Physical-Presence Notary</h4><p>Mobile service in Palm Bay and Melbourne when wet ink or face-to-face execution is required.</p></div><div class="benefit"><h4>Multiple Participants</h4><p>Eligible Proof meetings can support multiple connected participants, including up to two witnesses where appropriate.</p></div></div></section>
 
-<hr class="rule">
+<section class="mascot-accent reverse reveal" id="recurring"><div class="mascot-art"><img src="gator-walk.webp" alt="" aria-hidden="true" loading="lazy"></div><div class="mascot-copy"><div class="kicker" style="text-align:left">Recurring Workflows</div><h3>Repeat documents do not have to mean repeat setup from zero</h3><p>If your agency repeatedly supplies the same document format, Mario may be able to reuse a prior transaction setup or prepare a repeat workflow after your organization supplies or confirms the applicable document.</p><p>Your organization remains responsible for supplying or identifying the document to be used.</p></div></section>
 
-<section class="wrap" id="fast-answers">
-  <div class="mascot-solo left">
-    <img class="mascot-img" src="gator-magnify.png" alt="" loading="lazy" width="330" height="311">
-  </div>
-  <div class="eyebrow">Fast Answers</div>
-  <h2 class="section-title">What You Need to Know</h2>
-  <div class="fast-grid">
-    <div class="fa-item"><div class="q">What do you provide?</div><p class="a">Remote Online Notarization, remote administration of oaths and affirmations, and local mobile notary service.</p></div>
-    <div class="fa-item"><div class="q">Why would an agency use it?</div><p class="a">To avoid unnecessary travel, printing, and document routing when a signer or witness isn't in the same building &mdash; or the same state.</p></div>
-    <div class="fa-item"><div class="q">How fast?</div><p class="a">Most sessions complete in one live meeting; the completed document can be available electronically shortly after, subject to payment and platform completion.</p></div>
-    <div class="fa-item"><div class="q">Can the signer be elsewhere?</div><p class="a">Yes &mdash; anywhere in Florida, and in most cases outside Florida, subject to the receiving party's requirements.</p></div>
-    <div class="fa-item"><div class="q">What devices work?</div><p class="a">Smartphone, tablet, laptop, or desktop &mdash; camera, microphone, internet, and a supported browser.</p></div>
-    <div class="fa-item"><div class="q">How do we start?</div><p class="a">Upload the complete document securely through Proof and complete the guided preparation and identity-verification steps before meeting Mario.</p></div>
-    <div class="fa-item"><div class="q">How is the transaction protected?</div><p class="a"><span class="lock-icon"></span>Proof uses encrypted data transmission and storage, layered identity-verification technology, and digitally signed, tamper-evident notarized documents. Florida RON also creates an electronic journal and audio-video record of the notarial session.</p></div>
-    <div class="fa-item"><div class="q">What credentials support this?</div><p class="a">Florida Notary and Online Notary commission, RON training, bond, and E&amp;O insurance &mdash; see below.</p></div>
-  </div>
-</section>
+<section class="block" id="payment"><div class="kicker">Payment</div><h2 class="section-title">Consumer payment or organizational arrangements</h2><div class="info-box"><p>Proof is the technology platform used to complete the online notarization. Payment for Mario's service is handled separately from Proof.</p><p>Government agencies, schools, departments, businesses, and other organizations may coordinate an approved organizational payment or invoicing arrangement when appropriate. Terms are confirmed before or in connection with the assignment.</p></div></section>
 
-<hr class="rule">
+<section class="block" id="scope"><div class="kicker">Scope</div><h2 class="section-title">Notarial service, clearly bounded</h2><p class="scope-note">Mario is a notary, not an attorney, title agent, court reporter, or document preparer.</p><div class="scope-cols"><div><div class="col-title">Mario Can</div><ul><li>Perform authorized notarial acts</li><li>Administer authorized oaths and affirmations</li><li>Verify identity under the applicable notarial workflow</li><li>Maintain required RON records</li><li>Complete the notarial certificate when legally permitted</li></ul></div><div><div class="col-title">Mario Does Not</div><ul><li>Provide legal advice or representation</li><li>Select or draft legal documents</li><li>Conduct depositions or provide court reporting</li><li>Provide expert-witness testimony</li><li>Guarantee that a receiving party will accept RON</li></ul></div></div></section>
 
-<section class="wrap" id="core-services">
-  <div class="eyebrow">Core Services</div>
-  <h2 class="section-title">What I Provide</h2>
-  <div class="services-col">
-    <div class="service-block">
-      <h3>Remote Online Notarization (RON)</h3>
-      <p>Live audio-video notarization for eligible documents, available 24/7 subject to availability.</p>
-    </div>
-    <div class="service-block">
-      <h3>Remote Oath &amp; Affirmation Administration</h3>
-      <p>Remote administration of oaths and affirmations, where legally permitted and appropriate, for depositions, hearings, sworn testimony, investigations, sworn statements, affidavits, and similar administrative proceedings.</p>
-    </div>
-    <div class="service-block">
-      <h3>Local Mobile Notary</h3>
-      <p>In-person appointments in Palm Bay and Melbourne, Florida, when wet-ink signatures or in-person execution are required.</p>
-    </div>
-  </div>
-</section>
+<section class="block" id="vendor"><div class="kicker">Government Vendor Information</div><h2 class="section-title">Procurement classifications</h2><div class="info-box"><p><strong>Primary:</strong> NIGP 94667, Notary Public Services.</p><p>Additional classification families used for procurement discovery: NIGP 96150, NAICS 541199, and UNSPSC 80120000. These classifications do not mean legal representation, legal advice, court reporting, document drafting, deposition-conducting, or expert-witness services are offered.</p></div></section>
 
-<hr class="rule">
+<section class="block" id="schedule"><div class="kicker">Already Ready to Schedule?</div><h2 class="section-title">Reserve a time</h2><div class="choice-grid"><div class="choice-card ron"><h3>Remote Online</h3><p>Schedule the appointment and complete the Proof preparation steps before the meeting.</p><p><a style="color:#fff;font-weight:700" href="https://cal.com/the-florida-notaire-zy8tt2/30min">Schedule Online</a></p></div><div class="choice-card mobile"><h3>Physical Presence</h3><p>Local mobile service in Palm Bay and Melbourne.</p><p><a style="font-weight:700" href="https://cal.com/the-florida-notaire-zy8tt2/mobile-in-person-notary">Schedule Local Service</a></p></div></div></section>
 
-<section class="wrap" id="scope">
-  <div class="eyebrow">Scope</div>
-  <h2 class="section-title">What I Can and Can't Do</h2>
-  <p class="subhead" style="margin-bottom:4px;">I administer notarial acts. I am not your attorney.</p>
-  <div class="scope-grid">
-    <div>
-      <h3>I Do</h3>
-      <ul>
-        <li>Administer authorized notarial acts, oaths, and affirmations</li>
-        <li>Verify identity to Florida's RON and notarial standards</li>
-        <li>Maintain the electronic journal and recording required by law</li>
-        <li>Complete the correct notarial certificate when legally permitted</li>
-      </ul>
-    </div>
-    <div>
-      <h3>I Don't</h3>
-      <ul>
-        <li>Provide legal representation or legal advice</li>
-        <li>Conduct depositions or provide court-reporting services</li>
-        <li>Select or draft legal documents</li>
-        <li>Provide expert-witness testimony</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<hr class="rule">
-
-<section class="wrap" id="use-cases">
-  <div class="eyebrow">Public-Sector Use</div>
-  <h2 class="section-title">When This Helps</h2>
-  <ul class="use-cases">
-    <li>An employee or contractor is in another city or state</li>
-    <li>A parent, constituent, or vendor can't conveniently appear in person</li>
-    <li>Documents are moving between agencies, districts, or departments</li>
-    <li>Your internal notary is unavailable, off-duty, or restricted by policy or scheduling</li>
-    <li>After-hours or weekend service is needed</li>
-    <li>Multiple signers or witnesses need to be coordinated without everyone traveling</li>
-    <li>Electronic execution and return are acceptable for the document in question</li>
-  </ul>
-</section>
-
-<div class="wrap">
-  <div class="box centered">
-    <strong>The real comparison is total cost, not just the fee.</strong> A traditional in-person notarization can carry costs well beyond the notarial fee &mdash; employee travel, mileage, parking and tolls, printing, scanning, postage and courier costs, physical document routing, scheduling friction, and time away from assigned duties. RON is not always the cheaper option; the useful comparison is the complete transaction workflow.
-  </div>
-</div>
-
-<hr class="rule">
-
-<section class="wrap" id="availability">
-  <div class="eyebrow">Availability</div>
-  <h2 class="section-title">When You Can Reach Me</h2>
-  <div class="avail-line">
-    <div class="label">Remote Online Notarization, Oath &amp; Affirmation Services</div>
-    <div>Available 24 hours a day, 7 days a week, subject to availability.</div>
-  </div>
-  <div class="avail-line">
-    <div class="label">Local Mobile Service</div>
-    <div>Palm Bay and Melbourne, Florida, subject to scheduling and travel availability.</div>
-  </div>
-</section>
-
-<hr class="rule">
-
-<section class="wrap" id="recurring">
-  <div class="mascot-solo left">
-    <img class="mascot-img" src="gator-briefcase.png" alt="" loading="lazy" width="330" height="277">
-  </div>
-  <div class="eyebrow">Recurring Documents</div>
-  <div class="box centered">
-    If your agency or organization repeatedly uses the same document format, Mario may be able to reuse a prior Proof transaction setup or prepare a repeat workflow after your organization supplies or confirms the applicable document. This may reduce repetitive field preparation for recurring assignments.
-    <br><br>
-    <em style="font-size:0.88rem;">Mario does not select legal forms or determine which document an organization or signer should use. The agency, signer, issuer, attorney, or other responsible party must supply or identify the document to be used.</em>
-  </div>
-</section>
-
-<section class="wrap" id="oath-lane">
-  <div class="eyebrow">Separate Service</div>
-  <div class="alt-item">
-    <h4>NEED ONLY AN OATH OR AFFIRMATION?</h4>
-    <p>Remote administration of oaths and affirmations may be available where legally permitted for proceedings such as depositions, testimony, arbitration, hearings, investigations, and similar matters.</p>
-    <div class="contact">Call: 321-537-2876<br>Email: FloridaNotaire@gmail.com</div>
-  </div>
-</section>
-
-<hr class="rule">
-
-<section class="wrap" id="details">
-  <div class="mascot-solo right">
-    <img class="mascot-img" src="gator-padlock.png" alt="" loading="lazy" width="330" height="460">
-  </div>
-  <div class="eyebrow">The Details</div>
-  <h2 class="section-title">Technology &amp; Records</h2>
-  <div class="service-block">
-    <h3>Remote Witnesses &amp; Multiple Participants</h3>
-    <p>A single live meeting supports up to 10 connected devices total, including the notary and all participants. Up to 2 witnesses may participate in an eligible meeting. Signers may provide their own eligible witnesses, or arrange one through the platform for an additional fee.</p>
-  </div>
-  <div class="service-block">
-    <h3>Device Requirements</h3>
-    <p>A compatible smartphone, tablet, laptop, or desktop computer with a stable internet connection, camera, microphone, and supported browser. Most transactions require no app download.</p>
-  </div>
-  <div class="service-block">
-    <h3>Document Return</h3>
-    <p>Once an eligible transaction is complete and any applicable payment is satisfied, the completed document can become available electronically. Actual availability and timing depend on the transaction and platform completion; no specific completion time is guaranteed.</p>
-  </div>
-  <div class="service-block">
-    <h3>Interstate Use</h3>
-    <p>A Florida Online Notary Public physically located in Florida may perform an online notarization for a signer located elsewhere, subject to applicable law. This does not mean every recipient will accept a remotely notarized document &mdash; confirm acceptance with the receiving party before relying on RON for a specific matter.</p>
-  </div>
-  <div class="service-block">
-    <h3>Identity &amp; Security Technology</h3>
-    <p><span class="lock-icon"></span>Sessions are conducted through Proof's online notarization platform, which protects transaction data using encryption in transit and at rest, and advertises layered identity-verification and fraud-risk tools, including credential analysis, identity proofing, biometric comparison, and deepfake-indicator detection. These are risk-reduction tools, not guarantees.</p>
-  </div>
-  <div class="service-block">
-    <h3>Records &amp; Evidentiary Value</h3>
-    <p>Florida RON creates an electronic journal and audio-video record of every online notarization, retained for at least 10 years. A party to the electronic record has rights under Florida law to obtain pertinent journal information and a copy of the recording. These records do not determine the outcome of a dispute or guarantee that fraud did not occur.</p>
-  </div>
-  <div class="service-block">
-    <h3>Professional Safeguards</h3>
-    <p>$100,000 Notary Errors &amp; Omissions insurance. $25,000 Florida online notary bond. These are professional safeguards &mdash; they do not necessarily satisfy every insurance requirement a specific agency or contract may impose.</p>
-  </div>
-</section>
-
-<hr class="rule">
-
-<section class="wrap vendor-info" id="vendor-info">
-  <div class="eyebrow">Government Vendor Information</div>
-  <p>NIGP 94667 (Notary Public Services) is the primary classification for services offered. NIGP 96150, NAICS 541199, and UNSPSC 80120000 are also selected because notarial and oath-administration services are classified within broader legal-services procurement families by these systems. None of these selections represent that legal representation, legal advice, court reporting, deposition-conducting, document drafting, or expert-witness services are offered.</p>
-  <p class="codes">NIGP 94667 &middot; NIGP 96150 &middot; NAICS 541199 &middot; UNSPSC 80120000</p>
-</section>
-
-<div class="wrap">
-  <div class="disclosure-box">
-    I am not an attorney licensed to practice law in the State of Florida, and I may not give legal advice or accept fees for legal advice.
-  </div>
-</div>
-
-<hr class="rule">
-
-<section class="wrap" id="already-scheduling">
-  <div class="eyebrow">Already Ready to Schedule?</div>
-  <h2 class="section-title">Schedule an Appointment</h2>
-  <div class="routes">
-    <div class="card online">
-      <h2>Remote Online</h2>
-      <p class="desc">Meet with a Florida Remote Online Notary using your phone or computer.</p>
-      <a href="https://cal.com/the-florida-notaire-zy8tt2/30min" class="btn" data-goatcounter-click="click-gov-ron-schedule">Schedule Online</a>
-    </div>
-    <div class="card person">
-      <h2>In Person</h2>
-      <p class="desc">Local mobile appointments in Palm Bay and Melbourne.</p>
-      <a href="https://cal.com/the-florida-notaire-zy8tt2/mobile-in-person-notary" class="btn" data-goatcounter-click="click-gov-person-schedule">Schedule In Person</a>
-    </div>
-  </div>
-  <p class="price-note">For online appointments, complete the Proof document-upload and identity-preparation steps before the scheduled meeting. Starting at least 10 minutes before the appointment is recommended so technical or identity-verification issues do not consume the appointment time.</p>
-</section>
-
-<section class="wrap" style="text-align:center;" id="get-started">
-  <div class="eyebrow">Get Started</div>
-  <h2 class="section-title">Ready When You Are</h2>
-  <div class="cta-row">
-    <a class="btn-primary" style="max-width:420px;" href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx"
-       data-goatcounter-click="click-gov-upload-start-final">Upload Document &amp; Start Secure Notarization</a>
-  </div>
-  <p style="margin-top:12px;color:var(--muted);font-size:0.9rem;">Or schedule an appointment above &middot; 321-537-2876 &middot; FloridaNotaire@gmail.com</p>
-</section>
-
-<footer class="site">
-  <p><span class="lock-icon"></span>Secure online notarization through Proof. Proof protects transaction data using encryption in transit and at rest. Completed notarized documents are digitally signed and tamper-evident, and Florida Remote Online Notarization creates an electronic journal and audio-video record of the notarial session.</p>
-  <p>Mario Atkins is a Florida Notary Public, not an attorney, and cannot provide legal advice.</p>
-</footer>
-
+<section class="final-cta"><div class="kicker">Get Started</div><h3>Ready when your agency is.</h3><p>For the fastest online path, upload the complete document through Proof and complete the guided preparation steps.</p><a class="btn-primary" href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx">Upload Document &amp; Start Government RON</a><p class="contact-line">Questions? Call <a href="tel:+13215372876">321-537-2876</a> &nbsp;·&nbsp; <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p></section>
+<section class="final-cta" style="margin-top:1.7rem"><p class="contact-line">Personal notarization? <a href="notary.html">General Notary Services</a>.<br>Title, lender, legal, or closing assignment? <a href="closing-services.html">Professional Signing Services</a>.</p></section>
+</main>
+<footer>Remote Online Notarization powered by Proof. RON eligibility and receiving-party acceptance remain transaction specific.<br>Mario Atkins is a Florida Notary Public, not an attorney, and cannot provide legal advice.</footer>
 <script>
-(function () {
-  var imgs = document.querySelectorAll('.mascot-img');
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce || !('IntersectionObserver' in window)) {
-    imgs.forEach(function (img) { img.classList.add('in-view'); });
-    return;
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-  imgs.forEach(function (img) { io.observe(img); });
+(function(){
+  const items=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){items.forEach(el=>el.classList.add('in-view'));return;}
+  const io=new IntersectionObserver((entries,observer)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');observer.unobserve(entry.target);}});},{threshold:.18});
+  items.forEach(el=>io.observe(el));
 })();
 </script>
-
-</body>
-</html>
+</body></html>
