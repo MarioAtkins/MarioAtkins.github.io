@@ -237,6 +237,88 @@
     html { scroll-behavior:auto; }
     .reveal { opacity:1 !important; transform:none !important; transition:none !important; }
   }
+
+
+  /* ---------- shared motion system ---------- */
+  @keyframes heroRise {
+    from { opacity:0; transform:translateY(12px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  @keyframes proofPop {
+    0%   { transform:scale(.65); opacity:.35; }
+    70%  { transform:scale(1.25); opacity:1; }
+    100% { transform:scale(1); opacity:1; }
+  }
+
+  .topnav { animation:heroRise .48s ease-out both; }
+  header.hero .mark { animation:heroRise .58s cubic-bezier(.2,.7,.2,1) .06s both; }
+  header.hero .title-line { animation:heroRise .58s cubic-bezier(.2,.7,.2,1) .14s both; }
+  header.hero .loc-line { animation:heroRise .58s cubic-bezier(.2,.7,.2,1) .20s both; }
+  header.hero .proof-strip { animation:heroRise .58s cubic-bezier(.2,.7,.2,1) .27s both; }
+  header.hero .proof-dot { animation:proofPop .5s ease-out .62s both; }
+  main > .kicker:first-of-type { animation:heroRise .58s ease-out .30s both; }
+  main > h1.headline:first-of-type { animation:heroRise .62s cubic-bezier(.2,.7,.2,1) .36s both; }
+  main > p.subhead:first-of-type { animation:heroRise .62s cubic-bezier(.2,.7,.2,1) .43s both; }
+
+  .scroll-reveal.is-pending {
+    opacity:0;
+    transform:translateY(18px);
+  }
+  .scroll-reveal {
+    transition:opacity .62s cubic-bezier(.2,.7,.2,1), transform .62s cubic-bezier(.2,.7,.2,1);
+    transition-delay:var(--reveal-delay,0ms);
+    will-change:opacity,transform;
+  }
+  .scroll-reveal.in-view {
+    opacity:1;
+    transform:none;
+  }
+  .mascot-accent.scroll-reveal.is-pending { transform:translateX(-24px); }
+  .mascot-accent.reverse.scroll-reveal.is-pending { transform:translateX(24px); }
+  .mascot-feature.scroll-reveal.is-pending { transform:translateY(12px) scale(.975); }
+
+  .mascot-art img, .mascot-feature img {
+    transition:transform .28s ease;
+    transform-origin:center;
+  }
+  @media (hover:hover) {
+    .mascot-accent:hover .mascot-art img { transform:translateY(-3px) rotate(-.25deg); }
+    .mascot-accent.reverse:hover .mascot-art img { transform:translateY(-3px) rotate(.25deg); }
+    .mascot-feature:hover img { transform:translateY(-3px) scale(1.008); }
+  }
+
+  .btn-primary, .btn-outline, .btn, .service-link a, .choice-card a {
+    transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+  }
+  @media (hover:hover) {
+    .btn-primary:hover, .btn-outline:hover, .btn:hover {
+      transform:translateY(-2px);
+      box-shadow:0 7px 18px rgba(0,0,0,.10);
+    }
+    .service-link a:hover, .choice-card a:hover { opacity:.68; }
+  }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline:2px solid #000;
+    outline-offset:4px;
+  }
+
+  @media (prefers-reduced-motion:reduce) {
+    .topnav, header.hero .mark, header.hero .title-line, header.hero .loc-line,
+    header.hero .proof-strip, header.hero .proof-dot,
+    main > .kicker:first-of-type, main > h1.headline:first-of-type, main > p.subhead:first-of-type {
+      animation:none !important;
+    }
+    .scroll-reveal, .scroll-reveal.is-pending, .scroll-reveal.in-view {
+      opacity:1 !important;
+      transform:none !important;
+      transition:none !important;
+    }
+    .mascot-art img, .mascot-feature img, .btn-primary, .btn-outline, .btn, .service-link a, .choice-card a {
+      transition:none !important;
+      transform:none !important;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -532,22 +614,65 @@
 
 <script>
 (function(){
-  const items = document.querySelectorAll('.reveal');
-  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    items.forEach(el => el.classList.add('in-view'));
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const supportsIO = 'IntersectionObserver' in window;
+
+  /* Existing reveal elements plus the major content blocks on all three pages. */
+  const candidates = Array.from(document.querySelectorAll([
+    '.reveal',
+    '.mascot-feature',
+    '.mascot-accent',
+    '.action-box',
+    'section.block',
+    '.credentials-panel',
+    '.correction-box',
+    '.location-box',
+    '.info-box',
+    '.final-cta'
+  ].join(',')));
+
+  /* Stagger grids so cards arrive in a short, readable cascade. */
+  document.querySelectorAll('.price-grid, .benefit-grid, .choice-grid, .service-links, .credential-stats').forEach(function(grid){
+    Array.from(grid.children).forEach(function(child, index){
+      child.classList.add('scroll-reveal');
+      child.style.setProperty('--reveal-delay', Math.min(index,5) * 70 + 'ms');
+      candidates.push(child);
+    });
+  });
+
+  /* FAQ rows get a very light stagger, not a dramatic accordion animation. */
+  document.querySelectorAll('details.faq').forEach(function(row, index){
+    row.classList.add('scroll-reveal');
+    row.style.setProperty('--reveal-delay', Math.min(index,5) * 45 + 'ms');
+    candidates.push(row);
+  });
+
+  const unique = Array.from(new Set(candidates));
+
+  if (reduce || !supportsIO) {
+    unique.forEach(function(el){
+      el.classList.add('scroll-reveal','in-view');
+      el.classList.remove('is-pending');
+    });
     return;
   }
-  const io = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
+
+  unique.forEach(function(el){
+    el.classList.add('scroll-reveal','is-pending');
+  });
+
+  const io = new IntersectionObserver(function(entries, observer){
+    entries.forEach(function(entry){
       if (entry.isIntersecting) {
+        entry.target.classList.remove('is-pending');
         entry.target.classList.add('in-view');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.18 });
-  items.forEach(el => io.observe(el));
+  }, { threshold:0.13, rootMargin:'0px 0px -7% 0px' });
+
+  unique.forEach(function(el){ io.observe(el); });
 })();
 </script>
-
 </body>
 </html>
