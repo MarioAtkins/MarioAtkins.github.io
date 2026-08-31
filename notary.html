@@ -250,11 +250,24 @@
   .credential-actions{display:flex;justify-content:center;gap:.7rem;flex-wrap:wrap}
   .credential-note{max-width:590px;margin:.9rem auto 0;color:var(--muted);font-size:.76rem;font-style:italic}
 
+
+  /* Preferred schedule -> confirm -> secure upload handoff */
+  .handoff-flow{max-width:680px;margin:1.15rem auto 1.2rem;padding:1rem 1rem .9rem;border:1px solid #000;border-radius:12px;background:#fff;text-align:left}
+  .handoff-flow h3{margin:.05rem 0 .65rem;font-size:1.05rem}
+  .handoff-flow p{margin:.45rem 0;font-size:.9rem;line-height:1.5}
+  .handoff-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.45rem;margin:.9rem 0}
+  .handoff-step{border-top:2px solid #000;padding:.45rem .2rem 0;font-size:.74rem;line-height:1.25;text-align:center}
+  .handoff-step strong{display:block;font-size:.76rem;margin-bottom:.12rem}
+  .handoff-note{font-size:.82rem!important;color:#2f2f2f}
+  .secondary-path{margin:.8rem auto 0;max-width:620px;font-size:.82rem;line-height:1.45}
+  .secondary-path a{font-weight:700;color:#000}
+  @media(max-width:620px){.handoff-steps{grid-template-columns:1fr}.handoff-step{text-align:left;border-top:1px solid #000;padding:.5rem 0}.handoff-step strong{display:inline;margin-right:.25rem}}
+
 </style></head><body>
 <div class="frame"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
 <div class="online-status" title="Remote Online Notarization available 24/7, subject to availability"><span aria-hidden="true" class="status-dot"></span><span>Online RON · 24/7</span></div>
 <nav aria-label="Services" class="topnav">
-<a class="current" href="notary.html">General Notary Services</a>
+<a class="current" href="notary.html">Everyday Notary Services</a>
 <a href="government.html">Government &amp; Public-Sector</a>
 <a href="closing-services.html">Professional Signing Services</a>
 </nav>
@@ -262,45 +275,34 @@
 <img alt="Mario Atkins, A Florida Notary" class="mark" src="logo-lockup.png"/>
 <p class="title-line">Florida Notary Public  |  Florida Online Notary Public</p>
 <p class="loc-line">Palm Bay • Melbourne, Florida</p>
-<div class="proof-strip"><span class="proof-dot"></span>Remote Online Notarization powered by Proof (formerly Notarize)</div>
+<div class="proof-strip"><span class="proof-dot"></span>Remote Online Notarization through Proof, home of Notarize®</div>
 <p class="hero-contact">Call or text <a href="tel:+13215372876">321-537-2876</a>  ·  <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p>
 </header>
 <main class="wrap">
 <hr class="rule"/>
-<div class="kicker">General Notary Services</div>
-<h1 class="headline">Need something notarized?</h1>
-<p class="subhead">You may not need to leave home or the office.</p>
+<div class="kicker">Everyday Notary Services</div>
+<h1 class="headline">Just need something notarized?</h1>
+<p class="subhead">One document. A couple of signatures. Nothing complicated. Start here.</p>
 <p class="hero-note"><strong>Remote Online Notarization is available 24/7, subject to availability.</strong> Local physical-presence appointments are available in Palm Bay and Melbourne.</p>
 <div class="mascot-feature reveal"><img alt="" aria-hidden="true" src="gator-stamp.webp"/></div>
-<section class="action-box" id="start-online">
-<div class="kicker">Remote Online Notarization</div>
-<h2>Upload your document and start online</h2>
-<p class="lede">Upload the complete PDF or DOCX securely through Proof. Review the document, complete identity verification, and meet Mario by live audio-video to finish the notarization.</p>
-<a class="btn-primary" data-goatcounter-click="click-upload-start" href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx">Upload Document &amp; Start Remote Online Notarization</a>
-<p class="secure-note">Secure online transaction through Proof. No printing is required for an eligible electronic workflow.</p>
-<table aria-label="Remote Online Notarization same-session pricing" class="fee-table">
-<tr><th>Same Session RON</th><th class="price">Fee</th></tr>
-<tr><td>1 notarization</td><td class="price">$25</td></tr><tr><td>2 notarizations</td><td class="price">$35</td></tr><tr><td>3 notarizations</td><td class="price">$45</td></tr><tr><td>4 notarizations</td><td class="price">$55</td></tr><tr><td>5 notarizations</td><td class="price">$65</td></tr><tr><td>6 notarizations</td><td class="price">$75</td></tr><tr><td>7 notarizations</td><td class="price">$85</td></tr><tr><td>8 notarizations</td><td class="price">$95</td></tr><tr><td>9 notarizations</td><td class="price">$105</td></tr><tr><td>10 notarizations</td><td class="price">$115</td></tr><tr><td>11 or more</td><td class="price">Contact for quote</td></tr>
-</table>
-<p class="pricing-note">Same-session RON pricing begins at $25 for the first notarial act, plus $10 for each additional notarization in the same continuous session. Arranged remote witnesses are $10 each when available and appropriate, up to two.</p>
-<p class="payment-quickline"><strong>Payment:</strong> Expect a Stripe payment link by text or email after your document is uploaded and the transaction can be reviewed. Payment is generally completed before the live session ends.</p></section>
+<section class="action-box" id="start-online"><div class="kicker">Preferred RON Workflow</div><h2>Schedule first. Upload right after.</h2><p class="lede">Pick a time, answer a few quick questions, and confirm. Then go to <strong>Where → Secure Package Upload</strong> and send the document right away. Mario can prepare it before the live session.</p><div class="handoff-steps" aria-label="General RON intake steps"><div class="handoff-step"><strong>1. Schedule</strong>Pick a time</div><div class="handoff-step"><strong>2. Answer</strong>Quick questions</div><div class="handoff-step"><strong>3. Confirm</strong>Finish booking</div><div class="handoff-step"><strong>4. Upload</strong>Tap Secure Package Upload</div><div class="handoff-step"><strong>5. Sign</strong>Mario prepares your session</div></div><p class="handoff-note"><strong>Upload as soon as you book.</strong> The sooner Mario gets the document, the sooner he can review it and set up the signing fields.</p><a class="btn-primary link-placeholder" data-goatcounter-click="click-schedule-upload" href="__GENERAL_RON_CAL_URL__">Schedule RON &amp; Upload</a><p class="secondary-path">Want to jump straight into Proof instead? <a data-goatcounter-click="click-direct-proof" href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx">Start directly in Proof</a>. That route is available, but expect the live session to take longer because Mario will need to review and set up the document after you join.</p><div class="price-grid"><div class="price-card featured"><h3>Same-Session RON</h3><div class="price">$25</div><p>First notarization. Add <strong>$10</strong> for each additional notarization in the same continuous session.</p></div><div class="price-card"><h3>Remote Witnesses</h3><div class="price">$10 each</div><p>Arranged remote witnesses when available and appropriate, up to two.</p></div></div><p class="pricing-note">Questions about your document or pricing? Call or text Mario before you book.</p></section>
 <section class="block" id="service-choice">
 <div class="kicker">Choose Your Service</div><h2 class="section-title">Remote online or traditional physical presence</h2>
 <div class="choice-grid">
 <div class="choice-card ron"><h3>Remote Online Notarization</h3><p>Complete an eligible notarization from your phone or computer through Proof.</p><ul><li>24/7 subject to availability</li><li>Electronic document workflow</li><li>No local travel required</li><li>Signer may be outside Florida when requirements are met</li></ul></div>
-<div class="choice-card mobile"><h3>Traditional / Physical-Presence Notarization</h3><p>Mario travels to meet the signer face to face in Palm Bay or Melbourne.</p><ul><li>$10 per notarial act</li><li>$40 flat local mobile / travel charge</li><li>$10 printing for up to 20 pages when requested</li><li>More than 20 pages or travel outside the local area: quote first</li></ul></div>
+<div class="choice-card mobile"><h3>Traditional / Physical-Presence Notarization</h3><p>Mario travels to meet the signer face to face in Palm Bay or Melbourne.</p><ul><li>$10 per notarial act</li><li>$45 flat mobile / travel charge in Palm Bay or Melbourne</li><li>$10 printing for up to 20 pages when requested</li><li>Outside Palm Bay / Melbourne or larger print jobs: quote first</li></ul></div>
 </div>
-<p class="pricing-note">The $10 Florida notarial fee for a traditional physical-presence act is separate from travel, printing, and other requested non-notarial services. All known charges are disclosed before the appointment.</p>
+<p class="pricing-note">The $10 physical-presence notarial fee is separate from travel, printing, and other requested non-notarial services. Palm Bay and Melbourne are the flat-rate local travel area. Additional travel outside that area is quoted before booking.</p>
 </section>
 <section class="mascot-accent reveal" id="workflow">
 <div class="mascot-art"><img alt="" aria-hidden="true" loading="lazy" src="gator-magnify.webp"/></div>
-<div class="mascot-copy"><div class="kicker" style="text-align:left">What Happens Next</div><h3>Four steps from upload to completed document</h3><ol class="steps"><li><strong>Upload</strong> the complete PDF or DOCX.</li><li><strong>Review</strong> the document and provide the signer information requested by Proof.</li><li><strong>Verify</strong> identity through Proof's secure workflow.</li><li><strong>Meet</strong> Mario by live audio-video and complete the notarization.</li></ol><p>Have your government-issued photo ID, email address, and information for any additional participants ready.</p></div>
+<div class="mascot-copy"><div class="kicker" style="text-align:left">What Happens Next</div><h3>Book, upload, then sign</h3><ol class="steps"><li><strong>Schedule</strong> the closest available RON time.</li><li><strong>Confirm</strong> the booking and go to <strong>Where → Secure Package Upload</strong>.</li><li><strong>Upload</strong> the complete document as soon as possible so Mario can prepare it before the live session.</li><li><strong>Verify &amp; meet</strong> through Proof, home of Notarize®, to complete the notarization.</li></ol><p>Have your government-issued photo ID, email address, and information for any additional participants ready.</p></div>
 </section>
 <section class="mascot-accent reverse reveal" id="security">
 <div class="mascot-art"><img alt="" aria-hidden="true" loading="lazy" src="gator-padlock.webp"/></div>
 <div class="mascot-copy"><div class="kicker" style="text-align:left">Secure Online Notarization</div><h3>Proof handles the secure transaction environment</h3><p>Proof protects transaction data using encryption in transit and at rest and provides identity-verification tools for the online workflow. Completed notarized documents are digitally signed and tamper-evident.</p><p>Florida RON also creates an electronic journal and audio-video record of the notarial session, retained as required by Florida law.</p></div>
 </section>
-<section class="block" id="payment"><div class="kicker">Payment</div><h2 class="section-title">Expect a Stripe payment link before the session ends</h2><div class="info-box"><p>Payment for Mario's notarial service is handled separately from Proof (formerly Notarize). After your document is uploaded and the required notarizations can be reviewed, Mario may send a Stripe payment link by text or email before or during the transaction.</p><p>Stripe checkout may offer credit or debit card, Apple Pay, Google Pay, and ACH when available. If the actual number of notarizations or arranged witnesses changes during the live session, the final amount may be adjusted before completion.</p><p>For general-public transactions, payment is generally expected before Mario ends the completed session. Once the notarial work is complete and payment is confirmed, the completed electronic document is released through the Proof transaction workflow.</p></div></section>
+<section class="block" id="payment"><div class="kicker">Payment</div><h2 class="section-title">Expect a Stripe payment link before the session ends</h2><div class="info-box"><p>Payment for Mario's notarial service is handled separately from Proof, home of Notarize®. After your document is uploaded and the required notarizations can be reviewed, Mario may send a Stripe payment link by text or email before or during the transaction.</p><p>Stripe checkout may offer credit or debit card, Apple Pay, Google Pay, and ACH when available. If the actual number of notarizations or arranged witnesses changes during the live session, the final amount may be adjusted before completion.</p><p>For general-public transactions, payment is generally expected before Mario ends the completed session. Once the notarial work is complete and payment is confirmed, the completed electronic document is released through the Proof transaction workflow.</p></div></section>
 <section class="mascot-accent reveal" id="other-services">
 <div class="mascot-art"><img alt="" aria-hidden="true" loading="lazy" src="gator-briefcase.webp"/></div>
 <div class="mascot-copy"><div class="kicker" style="text-align:left">Need More Than a Personal Notarization?</div><h3>One site, three service lanes</h3><p>If you are coordinating an assignment for a business, title company, law office, lender, school, agency, or department, use the service page designed for that workflow.</p><div class="service-links" style="grid-template-columns:1fr;margin-top:.8rem"><div class="service-link"><h3>Professional Signing Services</h3><p>Title, lending, legal, settlement, HELOC, seller, purchase, refinance, ancillary, and correction workflows.</p><a href="closing-services.html">View Professional Signing Services</a></div><div class="service-link"><h3>Government &amp; Public-Sector</h3><p>Government-rate RON, remote oath and affirmation administration, and public-sector workflow support.</p><a href="government.html">View Government &amp; Public-Sector Services</a></div></div></div>
@@ -337,10 +339,10 @@
 <p class="credential-note">Current E&amp;O policy term: July 2026 through July 2027. Certification and background-screening status should be verified through the linked NNA profile for the most current status.</p>
 </div>
 </section>
-<section class="block" id="schedule"><div class="kicker">Already Ready to Schedule?</div><h2 class="section-title">Reserve a time</h2><div class="choice-grid"><div class="choice-card ron"><h3>Remote Online</h3><p>Schedule a remote appointment, then complete the Proof upload and identity-preparation steps before the appointment.</p><p><a href="https://cal.com/the-florida-notaire-zy8tt2/30min" style="color:#fff;font-weight:700">Schedule Online</a></p></div><div class="choice-card mobile"><h3>Physical Presence</h3><p>Schedule local mobile service in Palm Bay or Melbourne.</p><p><a href="https://cal.com/the-florida-notaire-zy8tt2/mobile-in-person-notary" style="font-weight:700">Schedule Local Service</a></p></div></div><p class="pricing-note">For RON, starting the Proof identity-preparation process at least 10 minutes before the appointment can reduce delays.</p></section>
-<section class="final-cta"><div class="kicker">Get Started</div><h3>Ready when you are.</h3><p>For the fastest online path, upload the document through Proof and follow the guided steps.</p><a class="btn-primary" href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx">Upload Document &amp; Start Remote Online Notarization</a><p class="contact-line">Call or text <a href="tel:+13215372876">321-537-2876</a>  ·  <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p></section>
+<section class="block" id="schedule"><div class="kicker">Already Ready to Schedule?</div><h2 class="section-title">Reserve a time</h2><div class="choice-grid"><div class="choice-card ron"><h3>Remote Online</h3><p>Schedule first. After confirmation, use <strong>Where → Secure Package Upload</strong> to send the document before the session.</p><p><a class="link-placeholder" href="__GENERAL_RON_CAL_URL__" style="color:#fff;font-weight:700">Schedule RON &amp; Upload</a></p></div><div class="choice-card mobile"><h3>Physical Presence</h3><p>Schedule local mobile service in Palm Bay or Melbourne.</p><p><a href="https://cal.com/the-florida-notaire-zy8tt2/mobile-in-person-notary" style="font-weight:700">Schedule Local Service</a></p></div></div><p class="pricing-note">For RON, starting the Proof identity-preparation process at least 10 minutes before the appointment can reduce delays.</p></section>
+<section class="final-cta"><div class="kicker">Get Started</div><h3>Schedule it. Upload it. I’ll prepare it.</h3><p>Confirm your booking, then go to <strong>Where → Secure Package Upload</strong>. Send the document right away so Mario can prepare it before you join.</p><a class="btn-primary link-placeholder" href="__GENERAL_RON_CAL_URL__">Schedule RON &amp; Upload</a><p class="secondary-path">Need the direct self-service route? <a href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx">Start directly in Proof</a>.</p><p class="contact-line">Call or text <a href="tel:+13215372876">321-537-2876</a>  ·  <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p></section>
 </main>
-<footer>Remote Online Notarization powered by Proof (formerly Notarize). Document eligibility and receiving-party acceptance remain transaction specific.<br/>Mario Atkins is a Florida Notary Public, not an attorney, and cannot provide legal advice.</footer>
+<footer>Remote Online Notarization through Proof, home of Notarize®. Document eligibility and receiving-party acceptance remain transaction specific.<br/>Mario Atkins is a Florida Notary Public, not an attorney, and cannot provide legal advice.</footer>
 <script>
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
