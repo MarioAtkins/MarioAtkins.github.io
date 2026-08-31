@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light only"><meta name="supported-color-schemes" content="light"><meta name="theme-color" content="#ffffff">
-<title>Mario Atkins | Florida Notary Public &amp; Remote Online Notary</title>
-<meta name="description" content="Florida Remote Online Notarization and local physical-presence notary service. Upload a PDF or DOCX to start RON through Proof, or schedule local service in Palm Bay and Melbourne.">
 
-<script data-goatcounter="https://marioatkins.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="light only" name="color-scheme"/><meta content="light" name="supported-color-schemes"/><meta content="#ffffff" name="theme-color"/>
+<title>Mario Atkins | Florida Notary Public &amp; Remote Online Notary</title>
+<meta content="Florida Remote Online Notarization and local physical-presence notary service. Upload a PDF or DOCX to start RON through Proof, or schedule local service in Palm Bay and Melbourne." name="description"/>
+<script async="" data-goatcounter="https://marioatkins.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xbvggb3cfr");
 </script>
@@ -61,64 +61,69 @@
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1!important;transform:none!important;transition:none!important}}
 
 
-  /* ---------- shared motion system ---------- */
+  /* ---------- unified motion system ---------- */
   @keyframes heroRise {
-    from { opacity:0; transform:translateY(12px); }
+    from { opacity:0; transform:translateY(14px); }
     to   { opacity:1; transform:translateY(0); }
   }
   @keyframes proofPop {
-    0%   { transform:scale(.65); opacity:.35; }
-    70%  { transform:scale(1.25); opacity:1; }
+    0%   { transform:scale(.72); opacity:.25; }
+    72%  { transform:scale(1.22); opacity:1; }
     100% { transform:scale(1); opacity:1; }
   }
 
-  .topnav { animation:heroRise .48s ease-out both; }
-  header.hero .mark { animation:heroRise .58s cubic-bezier(.2,.7,.2,1) .06s both; }
-  header.hero .title-line { animation:heroRise .58s cubic-bezier(.2,.7,.2,1) .14s both; }
-  header.hero .loc-line { animation:heroRise .58s cubic-bezier(.2,.7,.2,1) .20s both; }
-  header.hero .proof-strip { animation:heroRise .58s cubic-bezier(.2,.7,.2,1) .27s both; }
-  header.hero .proof-dot { animation:proofPop .5s ease-out .62s both; }
-  main > .kicker:first-of-type { animation:heroRise .58s ease-out .30s both; }
-  main > h1.headline:first-of-type { animation:heroRise .62s cubic-bezier(.2,.7,.2,1) .36s both; }
-  main > p.subhead:first-of-type { animation:heroRise .62s cubic-bezier(.2,.7,.2,1) .43s both; }
+  .topnav { animation:heroRise .50s ease-out both; }
+  header.hero .mark { animation:heroRise .62s cubic-bezier(.2,.72,.2,1) .06s both; }
+  header.hero .title-line { animation:heroRise .60s cubic-bezier(.2,.72,.2,1) .14s both; }
+  header.hero .loc-line { animation:heroRise .60s cubic-bezier(.2,.72,.2,1) .21s both; }
+  header.hero .proof-strip { animation:heroRise .60s cubic-bezier(.2,.72,.2,1) .28s both; }
+  header.hero .proof-dot { animation:proofPop .48s ease-out .66s both; }
+  main > .kicker:first-of-type { animation:heroRise .58s ease-out .31s both; }
+  main > h1.headline:first-of-type { animation:heroRise .64s cubic-bezier(.2,.72,.2,1) .37s both; }
+  main > p.subhead:first-of-type { animation:heroRise .64s cubic-bezier(.2,.72,.2,1) .44s both; }
+  main > .hero-note:first-of-type { animation:heroRise .64s cubic-bezier(.2,.72,.2,1) .50s both; }
 
-  .scroll-reveal.is-pending {
-    opacity:0;
-    transform:translateY(18px);
-  }
-  .scroll-reveal {
-    transition:opacity .62s cubic-bezier(.2,.7,.2,1), transform .62s cubic-bezier(.2,.7,.2,1);
-    transition-delay:var(--reveal-delay,0ms);
-    will-change:opacity,transform;
-  }
-  .scroll-reveal.in-view {
+  .motion-item {
     opacity:1;
     transform:none;
+    transition:
+      opacity .72s cubic-bezier(.2,.72,.2,1),
+      transform .72s cubic-bezier(.2,.72,.2,1);
+    transition-delay:var(--motion-delay,0ms);
+    will-change:opacity,transform;
   }
-  .mascot-accent.scroll-reveal.is-pending { transform:translateX(-24px); }
-  .mascot-accent.reverse.scroll-reveal.is-pending { transform:translateX(24px); }
-  .mascot-feature.scroll-reveal.is-pending { transform:translateY(12px) scale(.975); }
+  .motion-item.motion-pending { opacity:0; transform:translateY(22px); }
+  .motion-item.motion-from-left.motion-pending { transform:translateX(-30px); }
+  .motion-item.motion-from-right.motion-pending { transform:translateX(30px); }
+  .motion-item.motion-scale.motion-pending { transform:translateY(10px) scale(.965); }
+  .motion-item.motion-visible { opacity:1; transform:none; }
+
+  /* Legacy reveal classes stay compatible with the unified observer. */
+  .reveal.motion-visible { opacity:1; transform:none; }
 
   .mascot-art img, .mascot-feature img {
-    transition:transform .28s ease;
+    transition:transform .34s cubic-bezier(.2,.72,.2,1);
     transform-origin:center;
   }
   @media (hover:hover) {
-    .mascot-accent:hover .mascot-art img { transform:translateY(-3px) rotate(-.25deg); }
-    .mascot-accent.reverse:hover .mascot-art img { transform:translateY(-3px) rotate(.25deg); }
-    .mascot-feature:hover img { transform:translateY(-3px) scale(1.008); }
+    .mascot-accent:hover .mascot-art img { transform:translateY(-4px) rotate(-.3deg); }
+    .mascot-accent.reverse:hover .mascot-art img { transform:translateY(-4px) rotate(.3deg); }
+    .mascot-feature:hover img { transform:translateY(-4px) scale(1.01); }
   }
 
   .btn-primary, .btn-outline, .btn, .service-link a, .choice-card a {
-    transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+    transition:transform .22s ease, box-shadow .22s ease, opacity .22s ease;
   }
   @media (hover:hover) {
     .btn-primary:hover, .btn-outline:hover, .btn:hover {
       transform:translateY(-2px);
-      box-shadow:0 7px 18px rgba(0,0,0,.10);
+      box-shadow:0 8px 20px rgba(0,0,0,.11);
     }
     .service-link a:hover, .choice-card a:hover { opacity:.68; }
   }
+
+  details.faq[open] > p { animation:heroRise .28s ease-out both; }
+
   a:focus-visible, button:focus-visible, summary:focus-visible {
     outline:2px solid #000;
     outline-offset:4px;
@@ -127,154 +132,296 @@
   @media (prefers-reduced-motion:reduce) {
     .topnav, header.hero .mark, header.hero .title-line, header.hero .loc-line,
     header.hero .proof-strip, header.hero .proof-dot,
-    main > .kicker:first-of-type, main > h1.headline:first-of-type, main > p.subhead:first-of-type {
+    main > .kicker:first-of-type, main > h1.headline:first-of-type,
+    main > p.subhead:first-of-type, main > .hero-note:first-of-type,
+    details.faq[open] > p {
       animation:none !important;
     }
-    .scroll-reveal, .scroll-reveal.is-pending, .scroll-reveal.in-view {
+    .motion-item, .motion-item.motion-pending, .motion-item.motion-visible,
+    .reveal, .reveal.in-view, .reveal.motion-visible {
       opacity:1 !important;
       transform:none !important;
       transition:none !important;
     }
-    .mascot-art img, .mascot-feature img, .btn-primary, .btn-outline, .btn, .service-link a, .choice-card a {
+    .mascot-art img, .mascot-feature img, .btn-primary, .btn-outline, .btn,
+    .service-link a, .choice-card a {
       transition:none !important;
       transform:none !important;
     }
   }
 
+
+  /* ---------- 2026 shared polish ---------- */
+  :root{--online:#39ff14}
+  .proof-dot{
+    background:var(--online)!important;
+    box-shadow:0 0 0 2px rgba(57,255,20,.14),0 0 9px rgba(57,255,20,.48);
+  }
+  .hero-contact{
+    margin:.72rem auto 0;
+    text-align:center;
+    font-size:.82rem;
+    line-height:1.55;
+  }
+  .hero-contact a{
+    font-weight:700;
+    text-decoration:none;
+    border-bottom:1px solid var(--hairline);
+  }
+  .online-status{
+    position:fixed;
+    z-index:8;
+    top:14px;
+    right:16px;
+    display:inline-flex;
+    align-items:center;
+    gap:.48rem;
+    padding:.42rem .7rem;
+    border:1px solid var(--hairline);
+    border-radius:999px;
+    background:rgba(255,255,255,.96);
+    font-size:.66rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    box-shadow:0 4px 18px rgba(0,0,0,.06);
+    backdrop-filter:blur(6px);
+  }
+  .online-status .status-dot{
+    width:8px;height:8px;border-radius:50%;background:var(--online);
+    box-shadow:0 0 0 2px rgba(57,255,20,.15),0 0 9px rgba(57,255,20,.55);
+    animation:statusGlow 2.2s ease-in-out infinite;
+  }
+  @keyframes statusGlow{
+    0%,100%{box-shadow:0 0 0 2px rgba(57,255,20,.14),0 0 6px rgba(57,255,20,.34)}
+    50%{box-shadow:0 0 0 3px rgba(57,255,20,.12),0 0 12px rgba(57,255,20,.66)}
+  }
+  @keyframes stampLogo{
+    0%{opacity:0;transform:translateY(-8px) scale(1.28) rotate(-1.6deg);filter:blur(1.2px) contrast(1.05)}
+    62%{opacity:1;transform:translateY(1px) scale(.965) rotate(.35deg);filter:blur(0) contrast(1.12)}
+    78%{transform:translateY(0) scale(1.018) rotate(-.12deg)}
+    100%{opacity:1;transform:none;filter:none}
+  }
+  header.hero .mark{
+    animation:stampLogo .72s cubic-bezier(.17,.84,.25,1.08) .05s both!important;
+    transform-origin:center;
+  }
+  .price-card,.credential-badges a,.credential-actions a{
+    transition:transform .24s ease,box-shadow .24s ease,opacity .24s ease;
+  }
+  @media (hover:hover){
+    .price-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08)}
+    .credential-badges a:hover{transform:translateY(-3px) scale(1.025)}
+    .credential-actions a:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.10)}
+  }
+  .payment-quickline{
+    margin:.85rem auto 0;
+    max-width:650px;
+    font-size:.78rem;
+    color:var(--muted);
+    line-height:1.5;
+  }
+  .payment-quickline strong{color:var(--ink)}
+  @media(max-width:900px){
+    .online-status{position:static;width:max-content;max-width:calc(100% - 2.5rem);margin:.65rem auto 0}
+  }
+  @media(max-width:620px){
+    .credential-stats{grid-template-columns:1fr;gap:0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    header.hero .mark,.online-status .status-dot{animation:none!important}
+  }
+
+
+  /* ---------- shared verification / credential panel ---------- */
+  .credentials-panel{
+    max-width:700px;margin:0 auto;border:1px solid var(--hairline);border-radius:12px;
+    padding:1.45rem 1.35rem;text-align:center;background:#fff;
+  }
+  .credentials-lede{max-width:590px;margin:0 auto 1.15rem;font-size:.9rem}
+  .credential-badges{display:flex;justify-content:center;align-items:center;gap:1.45rem;flex-wrap:wrap;margin:0 auto 1.2rem}
+  .credential-badges a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+  .credential-badges img.badge-screened{width:118px;height:auto;display:block}
+  .credential-badges img.badge-certified{width:170px;height:auto;display:block}
+  .credential-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:1.05rem 0 1.15rem}
+  .credential-stat{border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:.85rem .45rem}
+  .credential-stat strong{display:block;font-size:1.35rem;line-height:1.1;margin-bottom:.25rem}
+  .credential-stat span{display:block;font-size:.72rem;letter-spacing:.055em;text-transform:uppercase;line-height:1.35}
+  .credential-actions{display:flex;justify-content:center;gap:.7rem;flex-wrap:wrap}
+  .credential-note{max-width:590px;margin:.9rem auto 0;color:var(--muted);font-size:.76rem;font-style:italic}
+
 </style></head><body>
 <div class="frame"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
-<nav class="topnav" aria-label="Services">
-  <a href="notary.html" class="current">General Notary Services</a>
-  <a href="government.html">Government &amp; Public-Sector</a>
-  <a href="closing-services.html">Professional Signing Services</a>
+<div class="online-status" title="Remote Online Notarization available 24/7, subject to availability"><span aria-hidden="true" class="status-dot"></span><span>Online RON · 24/7</span></div>
+<nav aria-label="Services" class="topnav">
+<a class="current" href="notary.html">General Notary Services</a>
+<a href="government.html">Government &amp; Public-Sector</a>
+<a href="closing-services.html">Professional Signing Services</a>
 </nav>
 <header class="hero">
-  <img class="mark" src="logo-lockup.png" alt="Mario Atkins, A Florida Notary">
-  <p class="title-line">Florida Notary Public&nbsp;&nbsp;|&nbsp;&nbsp;Florida Online Notary Public</p>
-  <p class="loc-line">Palm Bay &bull; Melbourne, Florida</p>
-  <div class="proof-strip"><span class="proof-dot"></span>Remote Online Notarization powered by Proof</div>
+<img alt="Mario Atkins, A Florida Notary" class="mark" src="logo-lockup.png"/>
+<p class="title-line">Florida Notary Public  |  Florida Online Notary Public</p>
+<p class="loc-line">Palm Bay • Melbourne, Florida</p>
+<div class="proof-strip"><span class="proof-dot"></span>Remote Online Notarization powered by Proof (formerly Notarize)</div>
+<p class="hero-contact">Call or text <a href="tel:+13215372876">321-537-2876</a>  ·  <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p>
 </header>
 <main class="wrap">
-<hr class="rule">
+<hr class="rule"/>
 <div class="kicker">General Notary Services</div>
 <h1 class="headline">Need something notarized?</h1>
 <p class="subhead">You may not need to leave home or the office.</p>
 <p class="hero-note"><strong>Remote Online Notarization is available 24/7, subject to availability.</strong> Local physical-presence appointments are available in Palm Bay and Melbourne.</p>
-<div class="mascot-feature reveal"><img src="gator-stamp.webp" alt="" aria-hidden="true"></div>
-
+<div class="mascot-feature reveal"><img alt="" aria-hidden="true" src="gator-stamp.webp"/></div>
 <section class="action-box" id="start-online">
-  <div class="kicker">Remote Online Notarization</div>
-  <h2>Upload your document and start online</h2>
-  <p class="lede">Upload the complete PDF or DOCX securely through Proof. Review the document, complete identity verification, and meet Mario by live audio-video to finish the notarization.</p>
-  <a class="btn-primary" href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx" data-goatcounter-click="click-upload-start">Upload Document &amp; Start Remote Online Notarization</a>
-  <p class="secure-note">Secure online transaction through Proof. No printing is required for an eligible electronic workflow.</p>
-  <table class="fee-table" aria-label="Remote Online Notarization same-session pricing">
-    <tr><th>Same Session RON</th><th class="price">Fee</th></tr>
-    <tr><td>1 notarization</td><td class="price">$25</td></tr><tr><td>2 notarizations</td><td class="price">$35</td></tr><tr><td>3 notarizations</td><td class="price">$45</td></tr><tr><td>4 notarizations</td><td class="price">$55</td></tr><tr><td>5 notarizations</td><td class="price">$65</td></tr><tr><td>6 notarizations</td><td class="price">$75</td></tr><tr><td>7 notarizations</td><td class="price">$85</td></tr><tr><td>8 notarizations</td><td class="price">$95</td></tr><tr><td>9 notarizations</td><td class="price">$105</td></tr><tr><td>10 notarizations</td><td class="price">$115</td></tr><tr><td>11 or more</td><td class="price">Contact for quote</td></tr>
-  </table>
-  <p class="pricing-note">Same-session RON pricing begins at $25 for the first notarial act, plus $10 for each additional notarization in the same continuous session. Arranged remote witnesses are $10 each when available and appropriate, up to two.</p>
-</section>
-
+<div class="kicker">Remote Online Notarization</div>
+<h2>Upload your document and start online</h2>
+<p class="lede">Upload the complete PDF or DOCX securely through Proof. Review the document, complete identity verification, and meet Mario by live audio-video to finish the notarization.</p>
+<a class="btn-primary" data-goatcounter-click="click-upload-start" href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx">Upload Document &amp; Start Remote Online Notarization</a>
+<p class="secure-note">Secure online transaction through Proof. No printing is required for an eligible electronic workflow.</p>
+<table aria-label="Remote Online Notarization same-session pricing" class="fee-table">
+<tr><th>Same Session RON</th><th class="price">Fee</th></tr>
+<tr><td>1 notarization</td><td class="price">$25</td></tr><tr><td>2 notarizations</td><td class="price">$35</td></tr><tr><td>3 notarizations</td><td class="price">$45</td></tr><tr><td>4 notarizations</td><td class="price">$55</td></tr><tr><td>5 notarizations</td><td class="price">$65</td></tr><tr><td>6 notarizations</td><td class="price">$75</td></tr><tr><td>7 notarizations</td><td class="price">$85</td></tr><tr><td>8 notarizations</td><td class="price">$95</td></tr><tr><td>9 notarizations</td><td class="price">$105</td></tr><tr><td>10 notarizations</td><td class="price">$115</td></tr><tr><td>11 or more</td><td class="price">Contact for quote</td></tr>
+</table>
+<p class="pricing-note">Same-session RON pricing begins at $25 for the first notarial act, plus $10 for each additional notarization in the same continuous session. Arranged remote witnesses are $10 each when available and appropriate, up to two.</p>
+<p class="payment-quickline"><strong>Payment:</strong> Expect a Stripe payment link by text or email after your document is uploaded and the transaction can be reviewed. Payment is generally completed before the live session ends.</p></section>
 <section class="block" id="service-choice">
-  <div class="kicker">Choose Your Service</div><h2 class="section-title">Remote online or traditional physical presence</h2>
-  <div class="choice-grid">
-    <div class="choice-card ron"><h3>Remote Online Notarization</h3><p>Complete an eligible notarization from your phone or computer through Proof.</p><ul><li>24/7 subject to availability</li><li>Electronic document workflow</li><li>No local travel required</li><li>Signer may be outside Florida when requirements are met</li></ul></div>
-    <div class="choice-card mobile"><h3>Traditional / Physical-Presence Notarization</h3><p>Mario travels to meet the signer face to face in Palm Bay or Melbourne.</p><ul><li>$10 per notarial act</li><li>$40 flat local mobile / travel charge</li><li>$10 printing for up to 20 pages when requested</li><li>More than 20 pages or travel outside the local area: quote first</li></ul></div>
-  </div>
-  <p class="pricing-note">The $10 Florida notarial fee for a traditional physical-presence act is separate from travel, printing, and other requested non-notarial services. All known charges are disclosed before the appointment.</p>
+<div class="kicker">Choose Your Service</div><h2 class="section-title">Remote online or traditional physical presence</h2>
+<div class="choice-grid">
+<div class="choice-card ron"><h3>Remote Online Notarization</h3><p>Complete an eligible notarization from your phone or computer through Proof.</p><ul><li>24/7 subject to availability</li><li>Electronic document workflow</li><li>No local travel required</li><li>Signer may be outside Florida when requirements are met</li></ul></div>
+<div class="choice-card mobile"><h3>Traditional / Physical-Presence Notarization</h3><p>Mario travels to meet the signer face to face in Palm Bay or Melbourne.</p><ul><li>$10 per notarial act</li><li>$40 flat local mobile / travel charge</li><li>$10 printing for up to 20 pages when requested</li><li>More than 20 pages or travel outside the local area: quote first</li></ul></div>
+</div>
+<p class="pricing-note">The $10 Florida notarial fee for a traditional physical-presence act is separate from travel, printing, and other requested non-notarial services. All known charges are disclosed before the appointment.</p>
 </section>
-
 <section class="mascot-accent reveal" id="workflow">
-  <div class="mascot-art"><img src="gator-magnify.webp" alt="" aria-hidden="true" loading="lazy"></div>
-  <div class="mascot-copy"><div class="kicker" style="text-align:left">What Happens Next</div><h3>Four steps from upload to completed document</h3><ol class="steps"><li><strong>Upload</strong> the complete PDF or DOCX.</li><li><strong>Review</strong> the document and provide the signer information requested by Proof.</li><li><strong>Verify</strong> identity through Proof's secure workflow.</li><li><strong>Meet</strong> Mario by live audio-video and complete the notarization.</li></ol><p>Have your government-issued photo ID, email address, and information for any additional participants ready.</p></div>
+<div class="mascot-art"><img alt="" aria-hidden="true" loading="lazy" src="gator-magnify.webp"/></div>
+<div class="mascot-copy"><div class="kicker" style="text-align:left">What Happens Next</div><h3>Four steps from upload to completed document</h3><ol class="steps"><li><strong>Upload</strong> the complete PDF or DOCX.</li><li><strong>Review</strong> the document and provide the signer information requested by Proof.</li><li><strong>Verify</strong> identity through Proof's secure workflow.</li><li><strong>Meet</strong> Mario by live audio-video and complete the notarization.</li></ol><p>Have your government-issued photo ID, email address, and information for any additional participants ready.</p></div>
 </section>
-
 <section class="mascot-accent reverse reveal" id="security">
-  <div class="mascot-art"><img src="gator-padlock.webp" alt="" aria-hidden="true" loading="lazy"></div>
-  <div class="mascot-copy"><div class="kicker" style="text-align:left">Secure Online Notarization</div><h3>Proof handles the secure transaction environment</h3><p>Proof protects transaction data using encryption in transit and at rest and provides identity-verification tools for the online workflow. Completed notarized documents are digitally signed and tamper-evident.</p><p>Florida RON also creates an electronic journal and audio-video record of the notarial session, retained as required by Florida law.</p></div>
+<div class="mascot-art"><img alt="" aria-hidden="true" loading="lazy" src="gator-padlock.webp"/></div>
+<div class="mascot-copy"><div class="kicker" style="text-align:left">Secure Online Notarization</div><h3>Proof handles the secure transaction environment</h3><p>Proof protects transaction data using encryption in transit and at rest and provides identity-verification tools for the online workflow. Completed notarized documents are digitally signed and tamper-evident.</p><p>Florida RON also creates an electronic journal and audio-video record of the notarial session, retained as required by Florida law.</p></div>
 </section>
-
-<section class="block" id="payment"><div class="kicker">Payment</div><h2 class="section-title">Simple payment before the session closes</h2><div class="info-box"><p>Payment for Mario's notarial service is handled separately from Proof. Mario may send a Stripe payment link by text or email during the transaction. Available electronic payment methods may include credit or debit card, Apple Pay, Google Pay, and ACH when available.</p><p>The completed document is released through the transaction workflow after payment is confirmed and the notarization is completed.</p></div></section>
-
+<section class="block" id="payment"><div class="kicker">Payment</div><h2 class="section-title">Expect a Stripe payment link before the session ends</h2><div class="info-box"><p>Payment for Mario's notarial service is handled separately from Proof (formerly Notarize). After your document is uploaded and the required notarizations can be reviewed, Mario may send a Stripe payment link by text or email before or during the transaction.</p><p>Stripe checkout may offer credit or debit card, Apple Pay, Google Pay, and ACH when available. If the actual number of notarizations or arranged witnesses changes during the live session, the final amount may be adjusted before completion.</p><p>For general-public transactions, payment is generally expected before Mario ends the completed session. Once the notarial work is complete and payment is confirmed, the completed electronic document is released through the Proof transaction workflow.</p></div></section>
 <section class="mascot-accent reveal" id="other-services">
-  <div class="mascot-art"><img src="gator-briefcase.webp" alt="" aria-hidden="true" loading="lazy"></div>
-  <div class="mascot-copy"><div class="kicker" style="text-align:left">Need More Than a Personal Notarization?</div><h3>One site, three service lanes</h3><p>If you are coordinating an assignment for a business, title company, law office, lender, school, agency, or department, use the service page designed for that workflow.</p><div class="service-links" style="grid-template-columns:1fr;margin-top:.8rem"><div class="service-link"><h3>Professional Signing Services</h3><p>Title, lending, legal, settlement, HELOC, seller, purchase, refinance, ancillary, and correction workflows.</p><a href="closing-services.html">View Professional Signing Services</a></div><div class="service-link"><h3>Government &amp; Public-Sector</h3><p>Government-rate RON, remote oath and affirmation administration, and public-sector workflow support.</p><a href="government.html">View Government &amp; Public-Sector Services</a></div></div></div>
+<div class="mascot-art"><img alt="" aria-hidden="true" loading="lazy" src="gator-briefcase.webp"/></div>
+<div class="mascot-copy"><div class="kicker" style="text-align:left">Need More Than a Personal Notarization?</div><h3>One site, three service lanes</h3><p>If you are coordinating an assignment for a business, title company, law office, lender, school, agency, or department, use the service page designed for that workflow.</p><div class="service-links" style="grid-template-columns:1fr;margin-top:.8rem"><div class="service-link"><h3>Professional Signing Services</h3><p>Title, lending, legal, settlement, HELOC, seller, purchase, refinance, ancillary, and correction workflows.</p><a href="closing-services.html">View Professional Signing Services</a></div><div class="service-link"><h3>Government &amp; Public-Sector</h3><p>Government-rate RON, remote oath and affirmation administration, and public-sector workflow support.</p><a href="government.html">View Government &amp; Public-Sector Services</a></div></div></div>
 </section>
-
-<hr class="rule">
+<hr class="rule"/>
 <section class="block" id="before"><div class="kicker">Before You Start</div><h2 class="section-title">Bring the document and identification</h2><div class="benefit-grid"><div class="benefit"><h4>Identification</h4><p>Have valid government-issued photo identification that satisfies the identity-verification requirements for the transaction.</p></div><div class="benefit"><h4>Your Document</h4><p>Upload the document you need notarized. Mario does not select legal documents or provide legal advice.</p></div></div></section>
-
 <section class="block" id="faq"><div class="kicker">Questions</div><h2 class="section-title">Frequently Asked</h2>
 <details class="faq"><summary>What is Remote Online Notarization?</summary><p>A live audio-video notarization completed through an authorized online workflow while Mario, the Florida online notary, is physically located in Florida.</p></details>
 <details class="faq"><summary>Can my signer be outside Florida?</summary><p>Yes for an eligible Florida RON transaction. The signer may be elsewhere, subject to Florida law, Proof requirements, and the receiving party's acceptance of RON.</p></details>
 <details class="faq"><summary>What if I only need an oath or affirmation?</summary><p>Contact Mario directly. Remote administration may be available where legally permitted. Call or text 321-537-2876 or email FloridaNotaire@gmail.com.</p></details>
 <details class="faq"><summary>Can you tell me which document I need?</summary><p>No. Mario can notarize eligible prepared documents, but cannot choose a legal document or provide legal advice.</p></details>
+</section><section class="block" id="credentials">
+<div class="kicker">Credentials &amp; Experience</div>
+<h2 class="section-title">Professional credentials you can verify</h2>
+<div class="credentials-panel">
+<p class="credentials-lede">Want to verify who you are hiring? Mario's current NNA signing-agent credentials and background-screening status can be independently verified through the public SigningAgent.com profile. The underlying background report is not published here.</p>
+<div class="credential-badges">
+<a aria-label="View Mario Atkins's NNA Signing Agent profile" href="https://www.signingagent.com/profile/160440444" rel="noopener noreferrer" target="_blank">
+<img alt="NNA signing agent credential and background-screening badge" class="badge-screened" src="nna-background-screened-badge.png"/>
+</a>
+<a aria-label="Verify Mario Atkins's 2026 NNA Certified Notary Signing Agent status" href="https://www.signingagent.com/profile/160440444" rel="noopener noreferrer" target="_blank">
+<img alt="2026 NNA Certified Notary Signing Agent badge" class="badge-certified" src="nna-certified-2026-badge.png"/>
+</a>
+</div>
+<div class="credential-stats">
+<div class="credential-stat"><strong>1,500+</strong><span>Remote Online Notarizations Completed</span></div>
+<div class="credential-stat"><strong>$100,000</strong><span>Notary Errors &amp; Omissions Coverage</span></div>
+<div class="credential-stat"><strong>2026</strong><span>NNA Certified Notary Signing Agent</span></div>
+</div>
+<div class="credential-actions">
+<a class="btn-outline" data-goatcounter-click="click-nna-profile" href="https://www.signingagent.com/profile/160440444" rel="noopener noreferrer" target="_blank">View NNA Signing Agent Profile</a>
+<a class="btn-outline" data-goatcounter-click="click-eo-certificate" href="Mario-Atkins-100000-EO-Insurance-2026-2027.pdf" rel="noopener noreferrer" target="_blank">View $100,000 E&amp;O Certificate</a>
+</div>
+<p class="credential-note">Current E&amp;O policy term: July 2026 through July 2027. Certification and background-screening status should be verified through the linked NNA profile for the most current status.</p>
+</div>
 </section>
-
-<section class="block" id="schedule"><div class="kicker">Already Ready to Schedule?</div><h2 class="section-title">Reserve a time</h2><div class="choice-grid"><div class="choice-card ron"><h3>Remote Online</h3><p>Schedule a remote appointment, then complete the Proof upload and identity-preparation steps before the appointment.</p><p><a style="color:#fff;font-weight:700" href="https://cal.com/the-florida-notaire-zy8tt2/30min">Schedule Online</a></p></div><div class="choice-card mobile"><h3>Physical Presence</h3><p>Schedule local mobile service in Palm Bay or Melbourne.</p><p><a style="font-weight:700" href="https://cal.com/the-florida-notaire-zy8tt2/mobile-in-person-notary">Schedule Local Service</a></p></div></div><p class="pricing-note">For RON, starting the Proof identity-preparation process at least 10 minutes before the appointment can reduce delays.</p></section>
-
-<section class="final-cta"><div class="kicker">Get Started</div><h3>Ready when you are.</h3><p>For the fastest online path, upload the document through Proof and follow the guided steps.</p><a class="btn-primary" href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx">Upload Document &amp; Start Remote Online Notarization</a><p class="contact-line">Call or text <a href="tel:+13215372876">321-537-2876</a> &nbsp;·&nbsp; <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p></section>
+<section class="block" id="schedule"><div class="kicker">Already Ready to Schedule?</div><h2 class="section-title">Reserve a time</h2><div class="choice-grid"><div class="choice-card ron"><h3>Remote Online</h3><p>Schedule a remote appointment, then complete the Proof upload and identity-preparation steps before the appointment.</p><p><a href="https://cal.com/the-florida-notaire-zy8tt2/30min" style="color:#fff;font-weight:700">Schedule Online</a></p></div><div class="choice-card mobile"><h3>Physical Presence</h3><p>Schedule local mobile service in Palm Bay or Melbourne.</p><p><a href="https://cal.com/the-florida-notaire-zy8tt2/mobile-in-person-notary" style="font-weight:700">Schedule Local Service</a></p></div></div><p class="pricing-note">For RON, starting the Proof identity-preparation process at least 10 minutes before the appointment can reduce delays.</p></section>
+<section class="final-cta"><div class="kicker">Get Started</div><h3>Ready when you are.</h3><p>For the fastest online path, upload the document through Proof and follow the guided steps.</p><a class="btn-primary" href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx">Upload Document &amp; Start Remote Online Notarization</a><p class="contact-line">Call or text <a href="tel:+13215372876">321-537-2876</a>  ·  <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p></section>
 </main>
-<footer>Remote Online Notarization powered by Proof. Document eligibility and receiving-party acceptance remain transaction specific.<br>Mario Atkins is a Florida Notary Public, not an attorney, and cannot provide legal advice.</footer>
-
+<footer>Remote Online Notarization powered by Proof (formerly Notarize). Document eligibility and receiving-party acceptance remain transaction specific.<br/>Mario Atkins is a Florida Notary Public, not an attorney, and cannot provide legal advice.</footer>
 <script>
 (function(){
-  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const supportsIO = 'IntersectionObserver' in window;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var supportsIO = 'IntersectionObserver' in window;
 
-  /* Existing reveal elements plus the major content blocks on all three pages. */
-  const candidates = Array.from(document.querySelectorAll([
-    '.reveal',
-    '.mascot-feature',
-    '.mascot-accent',
-    '.action-box',
-    'section.block',
-    '.credentials-panel',
-    '.correction-box',
-    '.location-box',
-    '.info-box',
-    '.final-cta'
-  ].join(',')));
+  /* One observer now drives motion consistently on every service page. */
+  var selectors = [
+    'main > section',
+    'main > .action-box',
+    'main > .mascot-feature',
+    'main > .mascot-accent',
+    'main > .credentials-panel',
+    'main > .correction-box',
+    'main > .location-box',
+    'main > .info-box',
+    'main > .final-cta',
+    '.wrap > section',
+    '.wrap > .action-box',
+    '.wrap > .mascot-feature',
+    '.wrap > .mascot-accent',
+    '.wrap > .final-cta'
+  ];
 
-  /* Stagger grids so cards arrive in a short, readable cascade. */
-  document.querySelectorAll('.price-grid, .benefit-grid, .choice-grid, .service-links, .credential-stats').forEach(function(grid){
-    Array.from(grid.children).forEach(function(child, index){
-      child.classList.add('scroll-reveal');
-      child.style.setProperty('--reveal-delay', Math.min(index,5) * 70 + 'ms');
+  var candidates = Array.prototype.slice.call(document.querySelectorAll(selectors.join(',')));
+
+  /* Existing mascot rows get directional movement matching their layout. */
+  document.querySelectorAll('.mascot-accent').forEach(function(el){
+    el.classList.add(el.classList.contains('reverse') ? 'motion-from-right' : 'motion-from-left');
+  });
+  document.querySelectorAll('.mascot-feature').forEach(function(el){
+    el.classList.add('motion-scale');
+  });
+
+  /* Cards and rows arrive in a short stagger so the page feels layered, not busy. */
+  document.querySelectorAll('.price-grid, .benefit-grid, .choice-grid, .service-links, .credential-stats, .credential-badges, .credential-actions, .fast-grid, .scope-cols').forEach(function(grid){
+    Array.prototype.slice.call(grid.children).forEach(function(child,index){
+      child.classList.add('motion-item');
+      child.style.setProperty('--motion-delay', Math.min(index,6) * 75 + 'ms');
       candidates.push(child);
     });
   });
 
-  /* FAQ rows get a very light stagger, not a dramatic accordion animation. */
-  document.querySelectorAll('details.faq').forEach(function(row, index){
-    row.classList.add('scroll-reveal');
-    row.style.setProperty('--reveal-delay', Math.min(index,5) * 45 + 'ms');
+  document.querySelectorAll('table.fee-table tbody tr, table.fee-table tr:not(:first-child)').forEach(function(row,index){
+    row.classList.add('motion-item');
+    row.style.setProperty('--motion-delay', Math.min(index,8) * 38 + 'ms');
     candidates.push(row);
   });
 
-  const unique = Array.from(new Set(candidates));
+  document.querySelectorAll('details.faq').forEach(function(row,index){
+    row.classList.add('motion-item');
+    row.style.setProperty('--motion-delay', Math.min(index,7) * 48 + 'ms');
+    candidates.push(row);
+  });
+
+  var unique = Array.from(new Set(candidates));
+  unique.forEach(function(el,index){
+    el.classList.add('motion-item');
+    if (!el.style.getPropertyValue('--motion-delay') && !el.classList.contains('mascot-feature') && !el.classList.contains('mascot-accent')) {
+      el.style.setProperty('--motion-delay', (index % 3) * 35 + 'ms');
+    }
+  });
 
   if (reduce || !supportsIO) {
     unique.forEach(function(el){
-      el.classList.add('scroll-reveal','in-view');
-      el.classList.remove('is-pending');
+      el.classList.remove('motion-pending');
+      el.classList.add('motion-visible','in-view');
     });
     return;
   }
 
-  unique.forEach(function(el){
-    el.classList.add('scroll-reveal','is-pending');
-  });
+  unique.forEach(function(el){ el.classList.add('motion-pending'); });
 
-  const io = new IntersectionObserver(function(entries, observer){
+  var io = new IntersectionObserver(function(entries,observer){
     entries.forEach(function(entry){
       if (entry.isIntersecting) {
-        entry.target.classList.remove('is-pending');
-        entry.target.classList.add('in-view');
+        entry.target.classList.remove('motion-pending');
+        entry.target.classList.add('motion-visible','in-view');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold:0.13, rootMargin:'0px 0px -7% 0px' });
+  }, { threshold:0.08, rootMargin:'0px 0px -6% 0px' });
 
   unique.forEach(function(el){ io.observe(el); });
 })();
