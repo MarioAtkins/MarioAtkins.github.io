@@ -261,8 +261,62 @@
   .handoff-note{font-size:.82rem!important;color:#2f2f2f}
   .secondary-path{margin:.8rem auto 0;max-width:620px;font-size:.82rem;line-height:1.45}
   .secondary-path a{font-weight:700;color:#000}
-  @media(max-width:620px){.handoff-steps{grid-template-columns:1fr}.handoff-step{text-align:left;border-top:1px solid #000;padding:.5rem 0}.handoff-step strong{display:inline;margin-right:.25rem}}
+  @media(max-width:620px){
+    .handoff-steps{grid-template-columns:repeat(5,minmax(0,1fr));gap:.2rem}
+    .handoff-step{font-size:.62rem;line-height:1.18;text-align:center;padding:.4rem .08rem 0}
+    .handoff-step strong{display:block;font-size:.64rem;margin:0 0 .1rem}
+  }
 
+
+
+  /* ---------- professional handoff sequence — matches Everyday Notary ---------- */
+  @keyframes workflowPulse {
+    0% { opacity:.22; transform:translateY(0); border-top-color:#cfcfcf; }
+    18% { opacity:1; transform:translateY(-2px); border-top-color:#000; }
+    42% { opacity:.38; transform:translateY(0); border-top-color:#8a8a8a; }
+    68% { opacity:1; transform:translateY(-2px); border-top-color:#000; }
+    100% { opacity:1; transform:translateY(0); border-top-color:#000; }
+  }
+  @keyframes arrowNudge {
+    0%,100% { transform:translateY(0); opacity:.45; }
+    50% { transform:translateY(5px); opacity:1; }
+  }
+  @keyframes ctaPulse {
+    0%,100% { transform:translateY(0); box-shadow:none; }
+    45% { transform:translateY(-2px); box-shadow:0 9px 24px rgba(0,0,0,.18); }
+  }
+  .handoff-steps.sequence-ready .handoff-step{
+    border-top:2px solid #000;
+    border-radius:0;
+    padding:.45rem .2rem 0;
+    opacity:.22;
+    transition:opacity .2s ease,transform .2s ease,border-color .2s ease;
+  }
+  .handoff-steps.sequence-run .handoff-step:nth-child(1){animation:workflowPulse 1.55s ease 0s 1 both}
+  .handoff-steps.sequence-run .handoff-step:nth-child(2){animation:workflowPulse 1.55s ease 1.15s 1 both}
+  .handoff-steps.sequence-run .handoff-step:nth-child(3){animation:workflowPulse 1.55s ease 2.3s 1 both}
+  .handoff-steps.sequence-run .handoff-step:nth-child(4){animation:workflowPulse 1.55s ease 3.45s 1 both}
+  .handoff-steps.sequence-run .handoff-step:nth-child(5){animation:workflowPulse 1.55s ease 4.6s 1 both}
+  .handoff-arrow{
+    display:flex;align-items:center;justify-content:center;
+    height:28px;margin:.05rem auto .35rem;font-size:1.35rem;line-height:1;
+    animation:arrowNudge 1.05s ease-in-out infinite;
+  }
+  .professional-start-btn.sequence-cta{animation:ctaPulse .95s ease 5.95s 2}
+  .ron-assignment-label{
+    margin:.45rem auto .15rem;
+    font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--muted);font-weight:700;text-align:center;
+  }
+  @media(max-width:620px){
+    .handoff-steps.sequence-ready .handoff-step{padding:.6rem .08rem}
+    .handoff-arrow{height:24px;margin:.05rem auto .25rem}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .handoff-steps.sequence-ready .handoff-step{opacity:1!important}
+    .handoff-steps.sequence-run .handoff-step,
+    .handoff-arrow,.professional-start-btn.sequence-cta{animation:none!important}
+  }
 
 
   /* ---------- completion mascot ---------- */
@@ -390,7 +444,7 @@
 <div class="online-status" title="Remote Online Notarization available 24/7, subject to availability"><span aria-hidden="true" class="status-dot"></span><span>Online RON · 24/7</span></div>
 <nav aria-label="Services" class="topnav">
 <a href="notary.html">Everyday Notary Services</a>
-<a href="government.html">Government &amp; Public-Sector</a>
+<a href="government.html?v=20260910-3">Government &amp; Public-Sector</a>
 <a class="current" href="closing-services.html">Professional Signing Services</a>
 </nav>
 <header class="hero">
@@ -413,7 +467,7 @@
   <div class="kicker">Title, Lending &amp; Legal</div>
   <h2>Need the package handled? Send it.</h2>
   <p class="lede">Start the assignment, answer a few quick questions, and confirm. Then go to <strong>Where → Secure Package Upload</strong> and send the complete package right away. Mario reviews it, prepares the Proof transaction, and coordinates the signer when needed.</p>
-  <div class="handoff-steps" aria-label="Professional RON intake steps">
+  <div class="handoff-steps sequence-ready" aria-label="Professional RON intake steps">
     <div class="handoff-step"><strong>1. Start</strong>Choose a time</div>
     <div class="handoff-step"><strong>2. Answer</strong>Quick intake</div>
     <div class="handoff-step"><strong>3. Confirm</strong>Finish booking</div>
@@ -421,7 +475,9 @@
     <div class="handoff-step"><strong>5. Done</strong>Mario takes it from there</div>
   </div>
   <p class="handoff-note"><strong>Upload the package as soon as you book.</strong> The sooner it arrives, the sooner Mario can prepare and pre-tag the transaction before the signer joins.</p>
-  <a class="btn-primary" data-goatcounter-click="click-professional-schedule" href="https://cal.com/the-florida-notaire-zy8tt2/professional-title-legal-ron-assignment">Start RON Assignment</a>
+  <div class="handoff-arrow" aria-hidden="true">↓</div>
+  <a class="btn-primary professional-start-btn" data-goatcounter-click="click-professional-schedule" href="https://cal.com/the-florida-notaire-zy8tt2/professional-title-legal-ron-assignment">Start RON Assignment</a>
+  <p class="ron-assignment-label">Remote Online Notarization Assignment</p>
   <p class="urgent-inline"><strong>Closing issue today?</strong> <a href="tel:+13215372876">321-537-2876</a> · <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p>
   <hr class="rule tight"/>
   <div class="kicker">Professional RON Assignment Rates</div>
@@ -596,7 +652,7 @@
 
 <section class="final-cta completion-cta"><div class="completion-copy"><div class="kicker">Professional Assignment</div><h3>Ready when your closing is.</h3><p>Start the assignment, answer a few quick questions, then confirm. Your confirmation page will show <strong>Where → Secure Package Upload</strong>. Upload the package right away and Mario will take it from there.</p><a class="btn-primary" data-goatcounter-click="click-professional-final" href="https://cal.com/the-florida-notaire-zy8tt2/professional-title-legal-ron-assignment">Start RON Assignment</a><p class="contact-line">Call or text <a href="tel:+13215372876">321-537-2876</a> &nbsp;·&nbsp; <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p></div><div class="completion-art"><img alt="" aria-hidden="true" loading="lazy" src="Gator-Work-Complete.png"/></div></section>
 
-<section class="final-cta" style="margin-top:1.8rem;"><p class="contact-line">Attorney or law firm? <a href="attorney-services.html">View Attorney Partner Services</a>.<br/>Need a personal notarization instead? <a href="notary.html">View Everyday Notary Services</a>.<br/>Government or public-sector request? <a href="government.html">View Government &amp; Public-Sector Services</a>.</p></section>
+<section class="final-cta" style="margin-top:1.8rem;"><p class="contact-line">Attorney or law firm? <a href="attorney-services.html">View Attorney Partner Services</a>.<br/>Need a personal notarization instead? <a href="notary.html">View Everyday Notary Services</a>.<br/>Government or public-sector request? <a href="government.html?v=20260910-3">View Government &amp; Public-Sector Services</a>.</p></section>
 </main>
 <footer>Remote sessions are conducted through Proof's online notarization platform. Document, closing, recording, and RON eligibility remain subject to the applicable transaction and receiving-party requirements.<br/>Mario Atkins is a Florida Notary Public, not an attorney, and cannot provide legal advice.</footer>
 
@@ -658,6 +714,32 @@
     var emailBody=['What stood out most: '+theme,'','Review:',review,'','Display name: '+displayName,'','Permission to share on website: '+permissionText].join('\n');
     window.location.href='mailto:FloridaNotaire@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(emailBody);
   });
+})();
+</script>
+
+<script>
+(function(){
+  var flow = document.querySelector('#pricing .handoff-steps.sequence-ready');
+  if (!flow) return;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+  function runSequence(){
+    if (flow.dataset.sequencePlayed === 'true') return;
+    flow.dataset.sequencePlayed = 'true';
+    flow.classList.add('sequence-run');
+    var cta = document.querySelector('#pricing .professional-start-btn');
+    if (cta) cta.classList.add('sequence-cta');
+  }
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { runSequence(); observer.disconnect(); }
+      });
+    }, {threshold:.35});
+    observer.observe(flow);
+  } else {
+    runSequence();
+  }
 })();
 </script>
 </body></html>
