@@ -290,7 +290,82 @@
     .completion-copy,.completion-copy .kicker,.completion-copy .contact-line{text-align:center;}
     .completion-art img{max-width:280px;}
   }
-</style></head><body>
+
+
+  /* ---------- articles & client feedback ---------- */
+  .article-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.2rem 0 1rem}
+  .article-card{border:1px solid var(--hairline);border-radius:12px;padding:1.05rem 1rem;display:flex;flex-direction:column;min-height:220px;background:#fff}
+  .article-card .article-tag{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.55rem}
+  .article-card h3{font-size:1rem;line-height:1.3;margin:0 0 .55rem}
+  .article-card p{font-size:.84rem;margin:0 0 .8rem;flex:1}
+  .article-card a{font-size:.8rem;font-weight:700;text-underline-offset:3px}
+  .article-actions{text-align:center;margin-top:1rem}
+  .article-actions .btn-outline{min-width:220px}
+  .reviews-panel{max-width:700px;margin:0 auto;border:1px solid var(--hairline);border-radius:12px;padding:1.35rem;background:#fff}
+  .reviews-panel .reviews-lede{max-width:590px;margin:0 auto 1rem;text-align:center;font-size:.9rem}
+  .review-form{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+  .review-field{display:flex;flex-direction:column;gap:.35rem}
+  .review-field.full{grid-column:1 / -1}
+  .review-field label{font-size:.74rem;font-weight:700;letter-spacing:.045em;text-transform:uppercase}
+  .review-field input,.review-field select,.review-field textarea{width:100%;border:1px solid #bdbdbd;border-radius:8px;padding:.75rem .8rem;background:#fff;color:#000;font:inherit;font-size:.88rem}
+  .review-field textarea{min-height:125px;resize:vertical}
+  .review-submit{grid-column:1 / -1;margin-top:.15rem}
+  .review-submit button{border:0;cursor:pointer}
+  .review-note{text-align:center;font-size:.75rem;color:var(--muted);margin:.8rem auto 0;max-width:590px}
+  @media(max-width:760px){.article-grid{grid-template-columns:1fr}.article-card{min-height:0}}
+  @media(max-width:620px){.review-form{grid-template-columns:1fr}.review-field.full,.review-submit{grid-column:auto}}
+
+
+
+  /* ---------- clickable articles / published reviews / quick links ---------- */
+  .hero-shortcuts{display:flex;justify-content:center;align-items:center;gap:.55rem;flex-wrap:wrap;margin:.85rem auto 0}
+  .hero-shortcuts a{display:inline-flex;align-items:center;justify-content:center;padding:.38rem .68rem;border:1px solid var(--hairline);border-radius:999px;text-decoration:none;font-size:.68rem;font-weight:700;letter-spacing:.045em;background:#fff;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+  @media(hover:hover){.hero-shortcuts a:hover{transform:translateY(-2px);border-color:#000;box-shadow:0 7px 18px rgba(0,0,0,.08)}}
+
+  .article-card-link{position:relative;color:var(--ink);text-decoration:none;cursor:pointer;overflow:hidden;transition:transform .28s cubic-bezier(.2,.72,.2,1),box-shadow .28s ease,border-color .28s ease}
+  .article-card-link::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:#000;transform:scaleX(0);transform-origin:left;transition:transform .28s ease}
+  .article-card-link .article-open{display:flex;align-items:center;justify-content:space-between;gap:.65rem;margin-top:.35rem;padding-top:.7rem;border-top:1px solid var(--hairline);font-size:.75rem;font-weight:700;letter-spacing:.02em}
+  .article-card-link .article-arrow{font-size:1rem;transition:transform .22s ease}
+  @media(hover:hover){
+    .article-card-link:hover{transform:translateY(-5px);border-color:#000;box-shadow:0 13px 28px rgba(0,0,0,.10)}
+    .article-card-link:hover::before{transform:scaleX(1)}
+    .article-card-link:hover .article-arrow{transform:translateX(4px)}
+  }
+  .article-card-link:active{transform:translateY(-2px) scale(.992)}
+  .article-card-link:focus-visible{outline:2px solid #000;outline-offset:4px}
+
+  .published-reviews{margin:0 auto 1.15rem}
+  .published-reviews-head{text-align:center;margin-bottom:.85rem}
+  .published-reviews-head h3{font-size:1.08rem;margin:0 0 .3rem}
+  .published-reviews-head p{font-size:.82rem;color:var(--muted);margin:0 auto;max-width:570px}
+  .published-reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+  .published-review-card{position:relative;border:1px solid var(--hairline);border-left:4px solid #000;border-radius:10px;padding:1rem 1rem .9rem;background:#fff;min-height:150px;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+  .published-review-theme{font-size:.66rem;letter-spacing:.095em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:.5rem}
+  .published-review-quote{font-size:.9rem;line-height:1.5;margin:0 0 .75rem}
+  .published-review-byline{font-size:.76rem;font-weight:700;margin:0}
+  .published-review-context{display:block;color:var(--muted);font-weight:400;margin-top:.12rem}
+  @media(hover:hover){.published-review-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08);border-color:#b8b8b8;border-left-color:#000}}
+  .reviews-empty{border:1px dashed #bdbdbd;border-radius:10px;padding:1rem;text-align:center;font-size:.82rem;color:var(--muted);margin:.3rem 0 1rem}
+
+  details.leave-review{border:1px solid var(--hairline);border-radius:10px;padding:0;background:#fff;overflow:hidden}
+  details.leave-review summary{cursor:pointer;list-style:none;padding:.9rem 1rem;font-weight:700;font-size:.88rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  details.leave-review summary::-webkit-details-marker{display:none}
+  details.leave-review summary::after{content:"+";font-size:1.1rem;font-weight:400}
+  details.leave-review[open] summary::after{content:"−"}
+  .leave-review-body{border-top:1px solid var(--hairline);padding:1rem}
+  .review-name-grid{display:grid;grid-template-columns:120px 1fr;gap:.85rem;grid-column:1 / -1}
+  .review-field[hidden],.review-name-grid[hidden]{display:none!important}
+  .review-helper{font-size:.72rem;color:var(--muted);margin:.2rem 0 0}
+  .review-form .field-error{border-color:#000!important;box-shadow:0 0 0 1px #000}
+  .review-form-status{grid-column:1 / -1;font-size:.76rem;color:var(--muted);margin:0;text-align:center}
+  @media(max-width:620px){.published-reviews-grid{grid-template-columns:1fr}.review-name-grid{grid-template-columns:1fr}}
+
+  .partner-callout{border:1px solid #000;border-radius:12px;padding:1.1rem 1.15rem;margin:1rem 0 0;text-align:left;background:#fff}
+  .partner-callout h4{margin:0 0 .35rem;font-size:.9rem}
+  .partner-callout p{margin:.25rem 0 .7rem;font-size:.82rem}
+  .partner-callout .btn-outline{display:inline-block;text-align:center}
+
+</style></head><body data-review-page="notary">
 <div class="frame"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
 <div class="online-status" title="Remote Online Notarization available 24/7, subject to availability"><span aria-hidden="true" class="status-dot"></span><span>Online RON · 24/7</span></div>
 <nav aria-label="Services" class="topnav">
@@ -304,6 +379,7 @@
 <p class="loc-line">Palm Bay • Melbourne, Florida</p>
 <div class="proof-strip"><span class="proof-dot"></span>Remote Online Notarization through Proof, home of Notarize®</div>
 <p class="hero-contact">Call or text <a href="tel:+13215372876">321-537-2876</a>  ·  <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p>
+<div class="hero-shortcuts" aria-label="Quick links"><a href="#articles">Articles</a><a href="#reviews">Client Reviews</a><a href="attorney-services.html">Attorney Partners</a></div>
 </header>
 <main class="wrap">
 <hr class="rule"/>
@@ -332,7 +408,7 @@
 <section class="block" id="payment"><div class="kicker">Payment</div><h2 class="section-title">Expect a Stripe payment link before the session ends</h2><div class="info-box"><p>Payment for Mario's notarial service is handled separately from Proof, home of Notarize®. After your document is uploaded and the required notarizations can be reviewed, Mario may send a Stripe payment link by text or email before or during the transaction.</p><p>Stripe checkout may offer credit or debit card, Apple Pay, Google Pay, and ACH when available. If the actual number of notarizations or arranged witnesses changes during the live session, the final amount may be adjusted before completion.</p><p>For general-public transactions, payment is generally expected before Mario ends the completed session. Once the notarial work is complete and payment is confirmed, the completed electronic document is released through the Proof transaction workflow.</p></div></section>
 <section class="mascot-accent reveal" id="other-services">
 <div class="mascot-art"><img alt="" aria-hidden="true" loading="lazy" src="gator-briefcase.webp"/></div>
-<div class="mascot-copy"><div class="kicker" style="text-align:left">Need More Than a Personal Notarization?</div><h3>One site, three service lanes</h3><p>If you are coordinating an assignment for a business, title company, law office, lender, school, agency, or department, use the service page designed for that workflow.</p><div class="service-links" style="grid-template-columns:1fr;margin-top:.8rem"><div class="service-link"><h3>Professional Signing Services</h3><p>Title, lending, legal, settlement, HELOC, seller, purchase, refinance, ancillary, and correction workflows.</p><a href="closing-services.html">View Professional Signing Services</a></div><div class="service-link"><h3>Government &amp; Public-Sector</h3><p>Government-rate RON, remote oath and affirmation administration, and public-sector workflow support.</p><a href="government.html">View Government &amp; Public-Sector Services</a></div></div></div>
+<div class="mascot-copy"><div class="kicker" style="text-align:left">Need More Than a Personal Notarization?</div><h3>One site, specialized service lanes</h3><p>If you are coordinating an assignment for a business, title company, law office, lender, school, agency, or department, use the service page designed for that workflow.</p><div class="service-links" style="grid-template-columns:1fr;margin-top:.8rem"><div class="service-link"><h3>Professional Signing Services</h3><p>Title, lending, legal, settlement, HELOC, seller, purchase, refinance, ancillary, and correction workflows.</p><a href="closing-services.html">View Professional Signing Services</a></div><div class="service-link"><h3>Government &amp; Public-Sector</h3><p>Government-rate RON, remote oath and affirmation administration, and public-sector workflow support.</p><a href="government.html">View Government &amp; Public-Sector Services</a></div><div class="service-link"><h3>Attorney Partner Services</h3><p>Prepared legal documents, repeat workflows, remote clients, counsel participation, and completed-document routing.</p><a href="attorney-services.html">View Attorney Partner Services</a></div></div></div>
 </section>
 <hr class="rule"/>
 <section class="block" id="before"><div class="kicker">Before You Start</div><h2 class="section-title">Bring the document and identification</h2><div class="benefit-grid"><div class="benefit"><h4>Identification</h4><p>Have valid government-issued photo identification that satisfies the identity-verification requirements for the transaction.</p></div><div class="benefit"><h4>Your Document</h4><p>Upload the document you need notarized. Mario does not select legal documents or provide legal advice.</p></div></div></section>
@@ -366,6 +442,106 @@
 <p class="credential-note">Current E&amp;O policy term: July 2026 through July 2027. Certification and background-screening status should be verified through the linked NNA profile for the most current status.</p>
 </div>
 </section>
+
+<section class="block" id="articles">
+  <div class="kicker">Articles by Mario</div>
+  <h2 class="section-title">Trust, fraud, notarization, and better processes</h2>
+  <p class="subhead">I write about the problems behind the transaction: identity, risk, customer experience, public policy, and how better workflows can make legitimate business easier to complete.</p>
+  <div class="article-grid">
+    <a class="article-card article-card-link" data-goatcounter-click="click-article-trust" href="https://www.linkedin.com/in/mario-atkins-07013a50/recent-activity/articles/" rel="noopener noreferrer" target="_blank" aria-label="Read LinkedIn Can Verify Who You Are on LinkedIn">
+      <div class="article-tag">Digital Trust</div>
+      <h3>LinkedIn Can Verify Who You Are. The Next Trust Layer Should Show What You’re Willing to Put on the Record.</h3>
+      <p>A proposal for moving from a verification signal to stronger professional accountability, live human interaction, and a durable record.</p>
+      <span class="article-open">Open article on LinkedIn <span class="article-arrow" aria-hidden="true">→</span></span>
+    </a>
+    <a class="article-card article-card-link" data-goatcounter-click="click-article-who-controls" href="https://www.linkedin.com/pulse/who-controls-notary-floridas-25-year-old-opinion-line-mario-atkins-wglgc/" rel="noopener noreferrer" target="_blank" aria-label="Read Who Controls the Notary on LinkedIn">
+      <div class="article-tag">Florida Notary Policy</div>
+      <h3>Who Controls the Notary?</h3>
+      <p>A sourced examination of Florida employer restrictions, notarial independence, journals, policy, and the legal line that still has not been clearly drawn.</p>
+      <span class="article-open">Open article on LinkedIn <span class="article-arrow" aria-hidden="true">→</span></span>
+    </a>
+    <a class="article-card article-card-link" data-goatcounter-click="click-article-passport" href="https://www.linkedin.com/pulse/127-million-passport-applications-nearly-18-hours-public-mario-atkins-oqulc" rel="noopener noreferrer" target="_blank" aria-label="Read Mario Atkins's passport modernization article on LinkedIn">
+      <div class="article-tag">Process Improvement</div>
+      <h3>12.7 Million Passport Applications. Nearly 18 Million Hours of Public Burden.</h3>
+      <p>A workflow and economics look at where existing digital notarization infrastructure could reduce friction in a public-facing process.</p>
+      <span class="article-open">Open article on LinkedIn <span class="article-arrow" aria-hidden="true">→</span></span>
+    </a>
+  </div>
+  <div class="article-actions">
+    <a class="btn-outline" data-goatcounter-click="click-linkedin-articles" href="https://www.linkedin.com/in/mario-atkins-07013a50/recent-activity/articles/" rel="noopener noreferrer" target="_blank">Read All Articles on LinkedIn</a>
+  </div>
+</section>
+
+
+<section class="block" id="reviews">
+  <div class="kicker">Client Reviews</div>
+  <h2 class="section-title">What clients say</h2>
+  <div class="reviews-panel">
+    <div class="published-reviews">
+      <div class="published-reviews-head">
+        <h3>Client-authorized feedback</h3>
+        <p>Only feedback the client has authorized for publication appears here.</p>
+      </div>
+      <div class="published-reviews-grid" id="published-reviews" aria-live="polite"></div>
+      <p class="reviews-empty" id="reviews-empty">Approved client reviews will appear here as they are added.</p>
+    </div>
+
+    <details class="leave-review">
+      <summary>Leave a review</summary>
+      <div class="leave-review-body">
+        <p class="reviews-lede">If the process made something easier, I’d like to hear what stood out. Share as much or as little as you want. Feedback is only published with your permission.</p>
+        <form class="review-form" id="review-form" novalidate>
+          <div class="review-field">
+            <label for="review-theme">What stood out most?</label>
+            <select id="review-theme" name="theme">
+              <option value="">Choose one (optional)</option>
+              <option>Quick and convenient</option>
+              <option>Clear communication</option>
+              <option>Easy remote process</option>
+              <option>Professional</option>
+              <option>Helpful and informative</option>
+              <option>Responsive</option>
+              <option>Secure process</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="review-field">
+            <label for="review-permission">May I share this on the website?</label>
+            <select id="review-permission" name="permission" required>
+              <option value="">Choose one</option>
+              <option value="named">Yes, with the name information I provide</option>
+              <option value="anonymous">Yes, but anonymously</option>
+              <option value="private">No, keep this feedback private</option>
+            </select>
+          </div>
+
+          <div class="review-name-grid" id="review-name-fields">
+            <div class="review-field">
+              <label for="review-first-initial">First initial</label>
+              <input id="review-first-initial" name="firstInitial" type="text" maxlength="1" inputmode="text" autocomplete="off" placeholder="J" pattern="[A-Za-z]"/>
+            </div>
+            <div class="review-field">
+              <label for="review-last-name">Last name or initial</label>
+              <input id="review-last-name" name="lastName" type="text" maxlength="40" autocomplete="family-name" placeholder="Smith or S"/>
+              <p class="review-helper">Use your last name, one last initial, or leave it blank.</p>
+            </div>
+          </div>
+
+          <div class="review-field full">
+            <label for="review-text">Your review</label>
+            <textarea id="review-text" name="review" required maxlength="1800" placeholder="What was your experience like?"></textarea>
+          </div>
+          <p class="review-form-status" id="review-form-status" role="status"></p>
+          <div class="review-submit">
+            <button class="btn-primary" type="submit">Prepare Review Email</button>
+          </div>
+        </form>
+        <p class="review-note">This no-account form opens your email app with the feedback prepared for you to send. No review is posted automatically.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
 <section class="block" id="schedule"><div class="kicker">Already Ready to Schedule?</div><h2 class="section-title">Reserve a time</h2><div class="choice-grid"><div class="choice-card ron"><h3>Remote Online</h3><p>Schedule first. After confirmation, use <strong>Where → Secure Package Upload</strong> to send the document before the session.</p><p><a class="link-placeholder" href="https://cal.com/the-florida-notaire-zy8tt2/everyday-notary-services-ron-assignment?overlayCalendar=true&month=2026-09" style="color:#fff;font-weight:700">Schedule RON &amp; Upload</a></p></div><div class="choice-card mobile"><h3>Physical Presence</h3><p>Schedule local mobile service in Palm Bay or Melbourne.</p><p><a href="https://cal.com/the-florida-notaire-zy8tt2/mobile-in-person-notary" style="font-weight:700">Schedule Local Service</a></p></div></div><p class="pricing-note">For RON, starting the Proof identity-preparation process at least 10 minutes before the appointment can reduce delays.</p></section>
 <section class="final-cta completion-cta"><div class="completion-copy"><div class="kicker">Get Started</div><h3>Schedule it. Upload it. I’ll prepare it.</h3><p>Confirm your booking, then go to <strong>Where → Secure Package Upload</strong>. Send the document right away so Mario can prepare it before you join.</p><a class="btn-primary link-placeholder" href="https://cal.com/the-florida-notaire-zy8tt2/everyday-notary-services-ron-assignment?overlayCalendar=true&month=2026-09">Schedule RON &amp; Upload</a><p class="secondary-path">Need the direct self-service route? <a href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx">Start directly in Proof</a>.</p><p class="contact-line">Call or text <a href="tel:+13215372876">321-537-2876</a>  ·  <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a></p></div><div class="completion-art"><img alt="" aria-hidden="true" loading="lazy" src="Gator-Work-Complete.png"/></div></section>
 </main>
@@ -404,7 +580,7 @@
   });
 
   /* Cards and rows arrive in a short stagger so the page feels layered, not busy. */
-  document.querySelectorAll('.price-grid, .benefit-grid, .choice-grid, .service-links, .credential-stats, .credential-badges, .credential-actions, .fast-grid, .scope-cols').forEach(function(grid){
+  document.querySelectorAll('.price-grid, .benefit-grid, .choice-grid, .service-links, .credential-stats, .credential-badges, .credential-actions, .fast-grid, .scope-cols, .article-grid, .published-reviews-grid').forEach(function(grid){
     Array.prototype.slice.call(grid.children).forEach(function(child,index){
       child.classList.add('motion-item');
       child.style.setProperty('--motion-delay', Math.min(index,6) * 75 + 'ms');
@@ -455,4 +631,131 @@
   unique.forEach(function(el){ io.observe(el); });
 })();
 </script>
+
+<script src="reviews-data.js"></script>
+<script>
+(function(){
+  /* Approved reviews live in one small file: reviews-data.js */
+  var grid = document.getElementById('published-reviews');
+  var empty = document.getElementById('reviews-empty');
+  var page = document.body.getAttribute('data-review-page') || 'all';
+  var reviews = Array.isArray(window.APPROVED_REVIEWS) ? window.APPROVED_REVIEWS : [];
+  var visible = reviews.filter(function(item){
+    if (!item || !item.quote) return false;
+    if (!Array.isArray(item.pages) || !item.pages.length) return true;
+    return item.pages.indexOf('all') !== -1 || item.pages.indexOf(page) !== -1;
+  });
+
+  if (grid && visible.length) {
+    empty.hidden = true;
+    visible.forEach(function(item){
+      var card = document.createElement('article');
+      card.className = 'published-review-card motion-item';
+
+      if (item.theme) {
+        var theme = document.createElement('div');
+        theme.className = 'published-review-theme';
+        theme.textContent = item.theme;
+        card.appendChild(theme);
+      }
+
+      var quote = document.createElement('p');
+      quote.className = 'published-review-quote';
+      quote.textContent = '“' + item.quote + '”';
+      card.appendChild(quote);
+
+      var byline = document.createElement('p');
+      byline.className = 'published-review-byline';
+      byline.textContent = item.displayName || 'Anonymous client';
+      if (item.context) {
+        var context = document.createElement('span');
+        context.className = 'published-review-context';
+        context.textContent = item.context;
+        byline.appendChild(context);
+      }
+      card.appendChild(byline);
+      grid.appendChild(card);
+    });
+  }
+
+  var form = document.getElementById('review-form');
+  if (!form) return;
+  var permission = document.getElementById('review-permission');
+  var nameFields = document.getElementById('review-name-fields');
+  var firstInitial = document.getElementById('review-first-initial');
+  var lastName = document.getElementById('review-last-name');
+  var status = document.getElementById('review-form-status');
+
+  function updateNameCondition(){
+    var isAnonymous = permission.value === 'anonymous';
+    nameFields.hidden = isAnonymous;
+    firstInitial.required = permission.value === 'named';
+    if (isAnonymous) {
+      firstInitial.value = '';
+      lastName.value = '';
+    }
+  }
+  permission.addEventListener('change', updateNameCondition);
+  updateNameCondition();
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.textContent = '';
+    form.querySelectorAll('.field-error').forEach(function(el){el.classList.remove('field-error')});
+
+    var theme = document.getElementById('review-theme').value || 'Not specified';
+    var perm = permission.value;
+    var review = document.getElementById('review-text').value.trim();
+    var initial = firstInitial.value.trim().toUpperCase();
+    var last = lastName.value.trim();
+
+    if (!perm) {
+      permission.classList.add('field-error');
+      status.textContent = 'Please choose whether the feedback may be published.';
+      permission.focus();
+      return;
+    }
+    if (perm === 'named' && !/^[A-Z]$/.test(initial)) {
+      firstInitial.classList.add('field-error');
+      status.textContent = 'Please enter one first initial if you want your name shown.';
+      firstInitial.focus();
+      return;
+    }
+    if (!review) {
+      document.getElementById('review-text').classList.add('field-error');
+      status.textContent = 'Please enter your review.';
+      document.getElementById('review-text').focus();
+      return;
+    }
+
+    var displayName = 'Not provided';
+    if (perm === 'anonymous') displayName = 'Anonymous';
+    else if (initial) {
+      var lastDisplay = last;
+      if (lastDisplay.length === 1) lastDisplay = lastDisplay.toUpperCase() + '.';
+      displayName = initial + '.' + (lastDisplay ? ' ' + lastDisplay : '');
+    }
+
+    var permissionText = perm === 'named' ? 'Yes, publish with the display name provided' :
+                         perm === 'anonymous' ? 'Yes, publish anonymously' :
+                         'No, keep private';
+
+    var subject = 'Website Review for Mario Atkins';
+    var body = [
+      'What stood out most: ' + theme,
+      '',
+      'Review:',
+      review,
+      '',
+      'Display name: ' + displayName,
+      '',
+      'Permission to share on website: ' + permissionText
+    ].join('
+');
+
+    window.location.href = 'mailto:FloridaNotaire@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
+})();
+</script>
+
 </body></html>
