@@ -263,6 +263,34 @@
   @media(max-width:620px){.handoff-steps{grid-template-columns:1fr}.handoff-step{text-align:left;border-top:1px solid #000;padding:.5rem 0}.handoff-step strong{display:inline;margin-right:.25rem}}
 
 
+  /* ---------- government handoff sequence — matches Professional Signing Services ---------- */
+  @keyframes workflowPulse {
+    0% { opacity:.22; transform:translateY(0); border-top-color:#cfcfcf; }
+    18% { opacity:1; transform:translateY(-2px); border-top-color:#000; }
+    42% { opacity:.38; transform:translateY(0); border-top-color:#8a8a8a; }
+    68% { opacity:1; transform:translateY(-2px); border-top-color:#000; }
+    100% { opacity:1; transform:translateY(0); border-top-color:#000; }
+  }
+  @keyframes ctaPulse {
+    0%,100% { transform:translateY(0); box-shadow:none; }
+    45% { transform:translateY(-2px); box-shadow:0 9px 24px rgba(0,0,0,.18); }
+  }
+  .handoff-steps.sequence-ready .handoff-step{
+    opacity:.22;
+    transition:opacity .2s ease,transform .2s ease,border-color .2s ease;
+  }
+  .handoff-steps.sequence-run .handoff-step:nth-child(1){animation:workflowPulse 1.55s ease 0s 1 both}
+  .handoff-steps.sequence-run .handoff-step:nth-child(2){animation:workflowPulse 1.55s ease 1.15s 1 both}
+  .handoff-steps.sequence-run .handoff-step:nth-child(3){animation:workflowPulse 1.55s ease 2.3s 1 both}
+  .handoff-steps.sequence-run .handoff-step:nth-child(4){animation:workflowPulse 1.55s ease 3.45s 1 both}
+  .handoff-steps.sequence-run .handoff-step:nth-child(5){animation:workflowPulse 1.55s ease 4.6s 1 both}
+  .government-start-btn.sequence-cta{animation:ctaPulse .95s ease 5.95s 2}
+  @media(prefers-reduced-motion:reduce){
+    .handoff-steps.sequence-ready .handoff-step{opacity:1!important}
+    .handoff-steps.sequence-run .handoff-step,.government-start-btn.sequence-cta{animation:none!important}
+  }
+
+
 
   /* ---------- completion mascot ---------- */
   .final-cta.completion-cta{
@@ -378,7 +406,7 @@
 <main class="wrap"><hr class="rule"/>
 <div class="kicker">Government &amp; Public-Sector</div><h1 class="headline">Notarial services built for public-sector workflows</h1><p class="subhead">Remote Online Notarization, remote oath and affirmation administration, and local service for agencies, schools, departments, courts, employees, contractors, vendors, and constituents.</p><p class="hero-note"><strong>RON available 24/7, subject to availability.</strong> One Florida notary can coordinate eligible signers across locations without requiring everyone to travel to the same office.</p>
 <div class="mascot-feature reveal"><img alt="" aria-hidden="true" src="gator-stamp.webp"/></div>
-<section class="action-box" id="start"><div class="kicker">Preferred Public-Sector RON Workflow</div><h2>Need a document handled for your agency or public-sector workflow? Start here.</h2><p class="lede">Choose the closest available time, answer a few quick questions, and confirm. Then go to <strong>Where → Secure Package Upload</strong> and send the complete document and instructions right away.</p><div class="handoff-steps" aria-label="Government RON intake steps"><div class="handoff-step"><strong>1. Start</strong>Choose a time</div><div class="handoff-step"><strong>2. Answer</strong>Quick intake</div><div class="handoff-step"><strong>3. Confirm</strong>Finish booking</div><div class="handoff-step"><strong>4. Upload</strong>Tap Secure Package Upload</div><div class="handoff-step"><strong>5. Done</strong>Mario prepares &amp; coordinates</div></div><p class="handoff-note"><strong>Upload as soon as the request is booked.</strong> Early delivery gives Mario time to prepare the transaction before the signer joins.</p><a class="btn-primary link-placeholder" href="https://cal.com/the-florida-notaire-zy8tt2/government-public-sector-ron-assignment">Start Government RON Request</a><p class="secondary-path">Need the signer-driven route instead? <a href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx">Start directly in Proof</a>. Advance scheduling and upload is preferred because document setup can be completed before the live session.</p><p class="secure-note">Questions before you begin? Call <a href="tel:+13215372876">321-537-2876</a> or email <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a>.</p><p class="payment-quickline"><strong>Payment:</strong> A Stripe payment link can be sent by text or email. Agencies may also use an approved invoicing, check, purchasing-card, or other organizational payment arrangement agreed in advance.</p></section>
+<section class="action-box" id="start"><div class="kicker">Preferred Public-Sector RON Workflow</div><h2>Need a document handled for your agency or public-sector workflow? Start here.</h2><p class="lede">Choose the closest available time, answer a few quick questions, and confirm. Then go to <strong>Where → Secure Package Upload</strong> and send the complete document and instructions right away.</p><div class="handoff-steps sequence-ready" aria-label="Government RON intake steps"><div class="handoff-step"><strong>1. Start</strong>Choose a time</div><div class="handoff-step"><strong>2. Answer</strong>Quick intake</div><div class="handoff-step"><strong>3. Confirm</strong>Finish booking</div><div class="handoff-step"><strong>4. Upload</strong>Tap Secure Package Upload</div><div class="handoff-step"><strong>5. Done</strong>Mario prepares &amp; coordinates</div></div><p class="handoff-note"><strong>Upload as soon as the request is booked.</strong> Early delivery gives Mario time to prepare the transaction before the signer joins.</p><a class="btn-primary link-placeholder government-start-btn" href="https://cal.com/the-florida-notaire-zy8tt2/government-public-sector-ron-assignment">Start Government RON Request</a><p class="secondary-path">Need the signer-driven route instead? <a href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx">Start directly in Proof</a>. Advance scheduling and upload is preferred because document setup can be completed before the live session.</p><p class="secure-note">Questions before you begin? Call <a href="tel:+13215372876">321-537-2876</a> or email <a href="mailto:FloridaNotaire@gmail.com">FloridaNotaire@gmail.com</a>.</p><p class="payment-quickline"><strong>Payment:</strong> A Stripe payment link can be sent by text or email. Agencies may also use an approved invoicing, check, purchasing-card, or other organizational payment arrangement agreed in advance.</p></section>
 <section class="block" id="pricing"><div class="kicker">Government Pricing</div><h2 class="section-title">Simple public-sector pricing</h2><p class="subhead">Government and public-sector clients receive $5 off the comparable general-public first notarization and local travel rate.</p><div class="price-grid"><div class="price-card featured"><h3>Same-Session Government RON</h3><div class="price">$20</div><p>First notarization. Add <strong>$10</strong> for each additional notarization in the same continuous session.</p></div><div class="price-card"><h3>Remote Witnesses</h3><div class="price">$10 each</div><p>Arranged remote witnesses when available and appropriate, up to two.</p></div></div><p class="pricing-note">Platform, travel, printing, shipping, or other approved transaction costs remain separate when applicable.</p></section>
 <section class="mascot-accent reveal" id="one-contact"><div class="mascot-art"><img alt="" aria-hidden="true" loading="lazy" src="gator-magnify.webp"/></div><div class="mascot-copy"><div class="kicker" style="text-align:left">One Request, One Florida Notary</div><h3>Keep the assignment moving even when the participants are not in the same place</h3><p>A signer can be in another office, another Florida city, or another state for an eligible RON transaction. Your team keeps one Florida-based notary contact instead of sourcing a new local notary wherever the signer happens to be.</p><p>That can reduce coordination, travel, document routing, and repeat handoffs.</p></div></section>
 <section class="mascot-accent reverse reveal" id="cost"><div class="mascot-art"><img alt="" aria-hidden="true" loading="lazy" src="gator-briefcase.webp"/></div><div class="mascot-copy"><div class="kicker" style="text-align:left">Total Transaction Cost</div><h3>The notarial fee is only one part of the workflow</h3><p>RON can reduce employee travel, mileage, parking, tolls, printing, scanning, postage, courier expense, physical document routing, scheduling friction, and time away from assigned duties.</p><p>RON is not represented as the lowest-cost option in every circumstance. The useful comparison is the complete transaction workflow.</p></div></section>
@@ -728,6 +756,33 @@
 
     window.location.href = 'mailto:FloridaNotaire@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   });
+})();
+</script>
+
+
+<script>
+(function(){
+  var flow = document.querySelector('#start .handoff-steps.sequence-ready');
+  if (!flow) return;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+  function runSequence(){
+    if (flow.dataset.sequencePlayed === 'true') return;
+    flow.dataset.sequencePlayed = 'true';
+    flow.classList.add('sequence-run');
+    var cta = document.querySelector('#start .government-start-btn');
+    if (cta) cta.classList.add('sequence-cta');
+  }
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { runSequence(); observer.disconnect(); }
+      });
+    }, {threshold:.35});
+    observer.observe(flow);
+  } else {
+    runSequence();
+  }
 })();
 </script>
 
