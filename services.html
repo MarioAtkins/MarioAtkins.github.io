@@ -3,18 +3,49 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Mario Atkins | Professional Services</title>
-<meta name="description" content="Process improvement, project support, operational analysis, and trust-sensitive workflow services from Mario Atkins.">
+
+<meta
+  name="description"
+  content="Mario Atkins helps organizations untangle broken processes, organize complex projects, analyze operational problems, and strengthen trust-sensitive workflows."
+>
+
+<meta name="theme-color" content="#0a0c0b">
+
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mario Atkins | Professional Services">
-<meta property="og:description" content="I find where work gets stuck and help move it through.">
+<meta
+  property="og:description"
+  content="I find where work gets stuck and help move it through."
+>
 <meta property="og:url" content="https://marioatkins.github.io/services.html">
-<meta property="og:image" content="https://marioatkins.github.io/mario-atkins-headshot.jpeg">
+<meta
+  property="og:image"
+  content="https://marioatkins.github.io/mario-atkins-services-preview.png"
+>
+<meta
+  property="og:image:secure_url"
+  content="https://marioatkins.github.io/mario-atkins-services-preview.png"
+>
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1731">
+<meta property="og:image:height" content="909">
+<meta
+  property="og:image:alt"
+  content="Mario Atkins - Process, Projects, Analysis"
+>
+
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mario Atkins | Professional Services">
-<meta name="twitter:description" content="I find where work gets stuck and help move it through.">
-<meta name="twitter:image" content="https://marioatkins.github.io/mario-atkins-headshot.jpeg">
-<meta name="theme-color" content="#0a0c0b">
+<meta
+  name="twitter:description"
+  content="I find where work gets stuck and help move it through."
+>
+<meta
+  name="twitter:image"
+  content="https://marioatkins.github.io/mario-atkins-services-preview.png"
+>
 
 <style>
 :root{
@@ -32,9 +63,13 @@
   --max:1180px;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
@@ -44,92 +79,68 @@ body{
   line-height:1.55;
 }
 
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-button{font:inherit}
+img{
+  max-width:100%;
+  display:block;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
 
 .wrap{
   width:min(var(--max),calc(100% - 40px));
   margin:0 auto;
 }
 
-/* Header */
+/* =========================
+   HEADER
+   ========================= */
 
 header{
   position:sticky;
   top:0;
   z-index:60;
-  background:rgba(255,255,255,.95);
+  background:rgba(255,255,255,.96);
   backdrop-filter:blur(16px);
   border-bottom:1px solid rgba(20,30,24,.10);
-  transition:box-shadow .25s ease;
+  transition:box-shadow .25s ease,background .25s ease;
 }
 
 header.scrolled{
   box-shadow:0 8px 30px rgba(0,0,0,.06);
+  background:rgba(255,255,255,.98);
 }
 
 .nav{
-  min-height:96px;
+  min-height:124px;
   display:flex;
   align-items:center;
   gap:24px;
-}
-
-.service-brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-right:auto;
-  min-width:0;
-}
-
-.service-mark{
-  width:48px;
-  height:48px;
-  border-radius:14px;
-  background:var(--black);
-  color:#fff;
-  display:grid;
-  place-items:center;
-  font-weight:900;
-  letter-spacing:-.06em;
   position:relative;
-  overflow:hidden;
+}
+
+.service-brand-header{
+  display:block;
+  width:clamp(285px,31vw,405px);
+  margin-right:auto;
   flex:0 0 auto;
+  border-radius:18px;
+  overflow:visible;
+  position:relative;
+  z-index:2;
 }
 
-.service-mark:before{
-  content:"";
-  position:absolute;
-  right:-11px;
-  bottom:-11px;
-  width:31px;
-  height:31px;
-  border:3px solid #7ed2b1;
-  border-left:0;
-  border-bottom:0;
-  transform:rotate(45deg);
-}
-
-.service-brand-copy{
-  display:grid;
-  line-height:1.05;
-}
-
-.service-brand-copy strong{
-  font-size:1rem;
-  letter-spacing:-.02em;
-}
-
-.service-brand-copy small{
-  margin-top:5px;
-  color:var(--muted);
-  font-size:.68rem;
-  font-weight:760;
-  letter-spacing:.05em;
-  text-transform:uppercase;
-  white-space:nowrap;
+.service-brand-header img{
+  width:100%;
+  height:auto;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(5,15,10,.15);
 }
 
 .navlinks{
@@ -185,7 +196,11 @@ header.scrolled{
   padding:12px 19px;
   font-weight:800;
   border:1px solid transparent;
-  transition:transform .2s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease;
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease;
 }
 
 .navcta,
@@ -222,7 +237,9 @@ header.scrolled{
   padding:6px;
 }
 
-/* Hero */
+/* =========================
+   HERO
+   ========================= */
 
 .hero{
   background:var(--black);
@@ -240,7 +257,12 @@ header.scrolled{
   width:700px;
   height:700px;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(21,122,91,.25),rgba(21,122,91,0) 67%);
+  background:
+    radial-gradient(
+      circle,
+      rgba(21,122,91,.25),
+      rgba(21,122,91,0) 67%
+    );
 }
 
 .hero-grid{
@@ -341,7 +363,9 @@ header.scrolled{
   font-size:.76rem;
 }
 
-/* General */
+/* =========================
+   GENERAL
+   ========================= */
 
 section{
   padding:82px 0;
@@ -380,7 +404,10 @@ section{
   border-radius:var(--radius);
   padding:25px;
   background:#fff;
-  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease;
 }
 
 .service-card:hover{
@@ -409,7 +436,9 @@ section{
   font-size:.92rem;
 }
 
-/* How */
+/* =========================
+   APPROACH
+   ========================= */
 
 .band{
   background:var(--soft);
@@ -445,7 +474,9 @@ section{
   color:var(--muted);
 }
 
-/* Selected work */
+/* =========================
+   SELECTED WORK
+   ========================= */
 
 .work-grid{
   display:grid;
@@ -483,23 +514,6 @@ section{
   color:var(--muted);
 }
 
-.archive{
-  background:var(--black);
-  padding:18px;
-  min-height:260px;
-  display:grid;
-  place-items:center;
-  overflow:visible;
-}
-
-.archive img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  border-radius:16px;
-  box-shadow:0 18px 40px rgba(0,0,0,.24);
-}
-
 .proof-chip-row{
   display:flex;
   flex-wrap:wrap;
@@ -517,34 +531,9 @@ section{
   background:#fff;
 }
 
-.credential-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-top:18px;
-}
-
-.credential-link{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid #b8c8c0;
-  border-radius:999px;
-  padding:9px 12px;
-  background:#fff;
-  color:var(--green2);
-  font-size:.78rem;
-  font-weight:820;
-  transition:transform .2s ease,border-color .2s ease,background .2s ease;
-}
-
-.credential-link:hover{
-  transform:translateY(-2px);
-  border-color:var(--green);
-  background:var(--green-soft);
-}
-
-/* Credentials & verification */
+/* =========================
+   CREDENTIALS
+   ========================= */
 
 .credentials{
   padding:78px 0;
@@ -565,7 +554,10 @@ section{
   display:flex;
   flex-direction:column;
   min-height:210px;
-  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease;
 }
 
 .credential-card:hover{
@@ -693,7 +685,9 @@ section{
   background:var(--green-soft);
 }
 
-/* About */
+/* =========================
+   ABOUT
+   ========================= */
 
 .about{
   background:var(--black);
@@ -759,7 +753,9 @@ section{
   border-color:#68706c;
 }
 
-/* Principles */
+/* =========================
+   PRINCIPLES
+   ========================= */
 
 .principles{
   padding:62px 0;
@@ -794,7 +790,9 @@ section{
   letter-spacing:-.025em;
 }
 
-/* CTA */
+/* =========================
+   CTA
+   ========================= */
 
 .cta-section{
   padding:72px 0;
@@ -823,7 +821,9 @@ section{
   max-width:710px;
 }
 
-/* Footer */
+/* =========================
+   FOOTER
+   ========================= */
 
 footer{
   border-top:1px solid var(--line);
@@ -849,32 +849,63 @@ footer{
   font-size:.84rem;
 }
 
-/* Pointer tilt */
+/* =========================
+   TILT
+   ========================= */
 
 .tilt-card{
   transform-style:preserve-3d;
   will-change:transform;
-  transition:transform .2s cubic-bezier(.2,.75,.2,1),box-shadow .2s ease;
+  transition:
+    transform .2s cubic-bezier(.2,.75,.2,1),
+    box-shadow .2s ease;
   position:relative;
   z-index:2;
 }
 
 .tilt-card.tilting{
   z-index:20;
-  box-shadow:0 38px 82px rgba(7,18,12,.24);
+  box-shadow:0 34px 76px rgba(7,18,12,.22);
 }
 
-/* Responsive */
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media(max-width:1120px){
+
+  .service-brand-header{
+    width:clamp(260px,29vw,340px);
+  }
+
+  .navlinks{
+    gap:16px;
+    font-size:.84rem;
+  }
+}
 
 @media(max-width:1020px){
-  .navlinks{display:none}
-  .menu{display:block}
-  .navcta{display:none}
+
+  .nav{
+    min-height:112px;
+  }
+
+  .navlinks{
+    display:none;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .navcta{
+    display:none;
+  }
 
   .nav.open .navlinks{
     display:flex;
     position:absolute;
-    top:96px;
+    top:112px;
     left:0;
     right:0;
     background:#fff;
@@ -903,9 +934,31 @@ footer{
   .headshot-wrap{
     max-width:480px;
   }
+
+  .service-brand-header{
+    width:min(355px,68vw);
+  }
 }
 
 @media(max-width:720px){
+
+  .nav{
+    min-height:88px;
+  }
+
+  .nav.open .navlinks{
+    top:88px;
+  }
+
+  .service-brand-header{
+    width:min(270px,68vw);
+    border-radius:14px;
+  }
+
+  .service-brand-header img{
+    border-radius:14px;
+  }
+
   .grid4,
   .work-grid,
   .credential-grid,
@@ -927,35 +980,28 @@ footer{
   .ctabox{
     padding:32px;
   }
-
-  .archive img{
-    height:235px;
-  }
 }
 
-@media(max-width:520px){
-  .service-brand-copy small{
-    display:none;
+@media(max-width:480px){
+
+  .wrap{
+    width:min(var(--max),calc(100% - 28px));
   }
 
-  .service-mark{
-    width:44px;
-    height:44px;
+  .service-brand-header{
+    width:min(235px,66vw);
   }
 
-  .nav{
-    min-height:82px;
-  }
-
-  .nav.open .navlinks{
-    top:82px;
+  .hero h1{
+    font-size:clamp(2.65rem,13vw,4rem);
   }
 }
 
 @media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){
+
   .tilt-card{
-    transform:none!important;
-    transition:none!important;
+    transform:none !important;
+    transition:none !important;
   }
 }
 </style>
@@ -966,17 +1012,30 @@ footer{
 <header>
   <div class="wrap nav">
 
-    <a class="service-brand" href="services.html" aria-label="Mario Atkins professional services">
-      <span class="service-mark" aria-hidden="true">MA</span>
-      <span class="service-brand-copy">
-        <strong>Mario Atkins</strong>
-        <small>Process • Projects • Analysis</small>
-      </span>
+    <a
+      class="service-brand-header tilt-card"
+      data-scale="1.035"
+      href="services.html"
+      aria-label="Mario Atkins professional services"
+    >
+      <img
+        src="mario-atkins-services-header.png"
+        alt="Mario Atkins - Process, Projects, Analysis"
+      >
     </a>
 
-    <button class="menu" aria-label="Open navigation">☰</button>
+    <button
+      class="menu"
+      type="button"
+      aria-label="Open navigation"
+    >
+      ☰
+    </button>
 
-    <nav class="navlinks" aria-label="Primary navigation">
+    <nav
+      class="navlinks"
+      aria-label="Primary navigation"
+    >
       <a href="notary.html">Everyday</a>
       <a href="closing-services.html">Professional</a>
       <a href="government.html">Government</a>
@@ -985,7 +1044,12 @@ footer{
       <a href="notary.html#articles">Articles</a>
     </nav>
 
-    <a class="navcta" href="mailto:mario.data.leader@gmail.com">Discuss a project</a>
+    <a
+      class="navcta"
+      href="mailto:mario.data.leader@gmail.com"
+    >
+      Discuss a project
+    </a>
 
   </div>
 </header>
@@ -996,26 +1060,50 @@ footer{
   <div class="wrap hero-grid">
 
     <div>
-      <div class="eyebrow">Process • Projects • Analysis • Trust</div>
 
-      <h1>I find where work gets stuck and help move it through.</h1>
+      <div class="eyebrow">
+        Process • Projects • Analysis • Trust
+      </div>
+
+      <h1>
+        I find where work gets stuck and help move it through.
+      </h1>
 
       <p class="positioning">
         I turn unresolved complexity into defensible action.
       </p>
 
       <p class="lead">
-        Mario Atkins supports organizations with process improvement, project coordination, operational analysis, and trust-sensitive workflows.
+        Mario Atkins supports organizations with process improvement,
+        project coordination, operational analysis, and trust-sensitive
+        workflows.
       </p>
 
       <div class="actions">
-        <a class="btn primary" href="mailto:mario.data.leader@gmail.com">Discuss a project</a>
-        <a class="btn secondary" href="#work">See selected work</a>
+
+        <a
+          class="btn primary"
+          href="mailto:mario.data.leader@gmail.com"
+        >
+          Discuss a project
+        </a>
+
+        <a
+          class="btn secondary"
+          href="#work"
+        >
+          See selected work
+        </a>
+
       </div>
+
     </div>
 
     <aside class="hero-panel">
-      <div class="label">Where Mario is useful</div>
+
+      <div class="label">
+        Where Mario is useful
+      </div>
 
       <h2>
         When the problem is real, but ownership, process, or next steps are not.
@@ -1025,25 +1113,34 @@ footer{
 
         <div class="problem">
           <b>01</b>
-          <span>A handoff keeps failing between teams, systems, or people.</span>
+          <span>
+            A handoff keeps failing between teams, systems, or people.
+          </span>
         </div>
 
         <div class="problem">
           <b>02</b>
-          <span>Data exists, but it is not producing a clear decision.</span>
+          <span>
+            Data exists, but it is not producing a clear decision.
+          </span>
         </div>
 
         <div class="problem">
           <b>03</b>
-          <span>A policy or workflow creates unnecessary friction for the customer.</span>
+          <span>
+            A policy or workflow creates unnecessary friction for the customer.
+          </span>
         </div>
 
         <div class="problem">
           <b>04</b>
-          <span>A transaction needs stronger identity, trust, or completion controls.</span>
+          <span>
+            A transaction needs stronger identity, trust, or completion controls.
+          </span>
         </div>
 
       </div>
+
     </aside>
 
   </div>
@@ -1053,48 +1150,89 @@ footer{
   <div class="wrap">
 
     <div class="sectionhead">
-      <div class="kicker">Services</div>
-      <h2>Practical support from problem to completion.</h2>
+
+      <div class="kicker">
+        Services
+      </div>
+
+      <h2>
+        Practical support from problem to completion.
+      </h2>
+
       <p>
         Engagements can be project-based, short-term, remote, or focused on one operational problem.
       </p>
+
     </div>
 
     <div class="grid4">
 
       <article class="service-card">
-        <div class="num">01</div>
-        <h3>Process Improvement</h3>
+
+        <div class="num">
+          01
+        </div>
+
+        <h3>
+          Process Improvement
+        </h3>
+
         <p>
           Map the work, locate friction, clarify ownership, and remove steps that do not help the outcome.
         </p>
+
       </article>
 
       <article class="service-card">
-        <div class="num">02</div>
-        <h3>Project Support</h3>
+
+        <div class="num">
+          02
+        </div>
+
+        <h3>
+          Project Support
+        </h3>
+
         <p>
           Bring structure, follow-through, documentation, and visibility to work with multiple moving pieces.
         </p>
+
       </article>
 
       <article class="service-card">
-        <div class="num">03</div>
-        <h3>Operational Analysis</h3>
+
+        <div class="num">
+          03
+        </div>
+
+        <h3>
+          Operational Analysis
+        </h3>
+
         <p>
           Turn reporting, patterns, and customer signals into a clearer problem statement and next action.
         </p>
+
       </article>
 
       <article class="service-card">
-        <div class="num">04</div>
-        <h3>Trust-Sensitive Workflows</h3>
+
+        <div class="num">
+          04
+        </div>
+
+        <h3>
+          Trust-Sensitive Workflows
+        </h3>
+
         <p>
           Strengthen identity, document execution, handoffs, and completion where trust matters to the transaction.
         </p>
+
       </article>
 
     </div>
+
   </div>
 </section>
 
@@ -1102,37 +1240,63 @@ footer{
   <div class="wrap">
 
     <div class="sectionhead">
-      <div class="kicker">Approach</div>
-      <h2>Understand it. Simplify it. Finish it.</h2>
+
+      <div class="kicker">
+        Approach
+      </div>
+
+      <h2>
+        Understand it. Simplify it. Finish it.
+      </h2>
+
     </div>
 
     <div class="steps">
 
       <div class="step">
+
         <b>01</b>
-        <h3>See the workflow</h3>
+
+        <h3>
+          See the workflow
+        </h3>
+
         <p>
           Compare what is supposed to happen with what actually happens.
         </p>
+
       </div>
 
       <div class="step">
+
         <b>02</b>
-        <h3>Find the friction</h3>
+
+        <h3>
+          Find the friction
+        </h3>
+
         <p>
           Trace the delay, ambiguity, policy gap, failure point, or unnecessary handoff.
         </p>
+
       </div>
 
       <div class="step">
+
         <b>03</b>
-        <h3>Move it through</h3>
+
+        <h3>
+          Move it through
+        </h3>
+
         <p>
           Define a defensible next action and help carry the work toward completion.
         </p>
+
       </div>
 
     </div>
+
   </div>
 </section>
 
@@ -1140,24 +1304,39 @@ footer{
   <div class="wrap">
 
     <div class="sectionhead">
-      <div class="kicker">Selected work & proof</div>
-      <h2>Different settings. Same pattern.</h2>
+
+      <div class="kicker">
+        Selected work & proof
+      </div>
+
+      <h2>
+        Different settings. Same pattern.
+      </h2>
+
       <p>
         Find the problem, understand the people affected by it, and build a clearer path forward.
       </p>
+
     </div>
 
     <div class="work-grid">
 
       <article class="work-card">
+
         <div class="work-copy">
 
-          <div class="work-year">2011–2026</div>
+          <div class="work-year">
+            2011–2026
+          </div>
 
-          <h3>Financial services & member experience</h3>
+          <h3>
+            Financial services & member experience
+          </h3>
 
           <p>
-            Nearly 15 years across frontline operations and leadership, with recurring work around member experience, fraud, process breakdowns, financial guidance, and operational decisions.
+            Nearly 15 years across frontline operations and leadership,
+            with recurring work around member experience, fraud, process
+            breakdowns, financial guidance, and operational decisions.
           </p>
 
           <div class="proof-chip-row">
@@ -1167,14 +1346,20 @@ footer{
           </div>
 
         </div>
+
       </article>
 
       <article class="work-card">
+
         <div class="work-copy">
 
-          <div class="work-year">Gulfport, Mississippi • 2007</div>
+          <div class="work-year">
+            Gulfport, Mississippi • 2007
+          </div>
 
-          <h3>Gulf Coast rebuilding project</h3>
+          <h3>
+            Gulf Coast rebuilding project
+          </h3>
 
           <p>
             Contributed to a post-Katrina rebuilding effort in the Mississippi Gulf Coast area as part of a team restoring housing and supporting community recovery.
@@ -1187,14 +1372,20 @@ footer{
           </div>
 
         </div>
+
       </article>
 
       <article class="work-card">
+
         <div class="work-copy">
 
-          <div class="work-year">Current practice</div>
+          <div class="work-year">
+            Current practice
+          </div>
 
-          <h3>Process, projects & secure transactions</h3>
+          <h3>
+            Process, projects & secure transactions
+          </h3>
 
           <p>
             Lean Six Sigma, data analysis, project coordination, and remote document execution come together around one question: where can this process fail, and what makes the next action defensible?
@@ -1207,9 +1398,11 @@ footer{
           </div>
 
         </div>
+
       </article>
 
     </div>
+
   </div>
 </section>
 
@@ -1218,14 +1411,18 @@ footer{
 
     <div class="sectionhead">
 
-      <div class="kicker">Credentials & verification</div>
+      <div class="kicker">
+        Credentials & verification
+      </div>
 
       <h2>
         Enough proof to support the work. Not a wall of certificates.
       </h2>
 
       <p>
-        Selected credentials that reinforce the way Mario approaches process, analysis, leadership, and trust-sensitive work. The full credential history remains on LinkedIn.
+        Selected credentials that reinforce the way Mario approaches process,
+        analysis, leadership, and trust-sensitive work. The full credential
+        history remains on LinkedIn.
       </p>
 
     </div>
@@ -1234,12 +1431,17 @@ footer{
 
       <article class="credential-card">
 
-        <div class="credential-badge">SS</div>
+        <div class="credential-badge">
+          SS
+        </div>
 
-        <h3>Six Sigma Black Belt</h3>
+        <h3>
+          Six Sigma Black Belt
+        </h3>
 
         <p>
-          Management and Strategy Institute. Process improvement, root-cause analysis, and disciplined problem solving.
+          Management and Strategy Institute. Process improvement,
+          root-cause analysis, and disciplined problem solving.
         </p>
 
         <a
@@ -1254,12 +1456,17 @@ footer{
 
       <article class="credential-card">
 
-        <div class="credential-badge">EM</div>
+        <div class="credential-badge">
+          EM
+        </div>
 
-        <h3>Executive Management Certified</h3>
+        <h3>
+          Executive Management Certified
+        </h3>
 
         <p>
-          Management and Strategy Institute. Leadership, management systems, and organizational decision making.
+          Management and Strategy Institute. Leadership, management systems,
+          and organizational decision making.
         </p>
 
         <a
@@ -1274,12 +1481,17 @@ footer{
 
       <article class="credential-card">
 
-        <div class="credential-badge">FA</div>
+        <div class="credential-badge">
+          FA
+        </div>
 
-        <h3>Introduction to Financial Analysis</h3>
+        <h3>
+          Introduction to Financial Analysis
+        </h3>
 
         <p>
-          University of Illinois Urbana-Champaign through Coursera. Financial statements, organizational performance, and analytical context.
+          University of Illinois Urbana-Champaign through Coursera.
+          Financial statements, organizational performance, and analytical context.
         </p>
 
         <a
@@ -1294,9 +1506,13 @@ footer{
 
       <article class="credential-card">
 
-        <div class="credential-badge">P</div>
+        <div class="credential-badge">
+          P
+        </div>
 
-        <h3>Proof Academy Certificate</h3>
+        <h3>
+          Proof Academy Certificate
+        </h3>
 
         <p>
           Credential connected to Mario's work with secure remote document and identity-sensitive workflows.
@@ -1361,7 +1577,11 @@ footer{
         </h3>
 
         <p>
-          Appointed for a four-year term beginning October 28, 2024. This appointment is presented as a credential, not as general legal authority. Florida Statute §721.97 limits the role to acknowledgments, proofs of execution, and oaths connected to specified timeshare-related instruments executed outside the United States.
+          Appointed for a four-year term beginning October 28, 2024.
+          This appointment is presented as a credential, not as general legal authority.
+          Florida Statute §721.97 limits the role to acknowledgments, proofs of execution,
+          and oaths connected to specified timeshare-related instruments executed outside
+          the United States.
         </p>
 
         <div class="appointment-actions">
@@ -1421,15 +1641,20 @@ footer{
       </h2>
 
       <p>
-        Mario Atkins works at the intersection of operations, customer experience, financial services, data, and trust-sensitive workflows.
+        Mario Atkins works at the intersection of operations, customer experience,
+        financial services, data, and trust-sensitive workflows.
       </p>
 
       <p>
-        He is especially interested in the places where policy, technology, process, and people stop lining up, because those gaps are often where customers lose time, trust, access, or money.
+        He is especially interested in the places where policy, technology,
+        process, and people stop lining up, because those gaps are often where
+        customers lose time, trust, access, or money.
       </p>
 
       <p>
-        Notarization is one application of that larger focus: identity, trust, secure execution, and reducing friction between the people and systems required to complete a transaction.
+        Notarization is one application of that larger focus: identity, trust,
+        secure execution, and reducing friction between the people and systems
+        required to complete a transaction.
       </p>
 
       <div class="about-links">
@@ -1463,17 +1688,27 @@ footer{
     <div class="principles-grid">
 
       <div class="principle">
-        <span>Mission</span>
+
+        <span>
+          Mission
+        </span>
+
         <strong>
           Make the process worthy of trust.
         </strong>
+
       </div>
 
       <div class="principle">
-        <span>Philosophy</span>
+
+        <span>
+          Philosophy
+        </span>
+
         <strong>
           Make the process the easy process.
         </strong>
+
       </div>
 
     </div>
@@ -1558,8 +1793,8 @@ footer{
 
 <script>
 
-const menu=document.querySelector('.menu');
-const nav=document.querySelector('.nav');
+const menu = document.querySelector('.menu');
+const nav = document.querySelector('.nav');
 
 if(menu){
   menu.addEventListener('click',()=>{
@@ -1567,17 +1802,23 @@ if(menu){
   });
 }
 
-const header=document.querySelector('header');
+const header = document.querySelector('header');
 
-const setHeader=()=>{
-  header&&header.classList.toggle('scrolled',window.scrollY>8);
+const setHeader = ()=>{
+  if(header){
+    header.classList.toggle('scrolled',window.scrollY > 8);
+  }
 };
 
 setHeader();
 
-window.addEventListener('scroll',setHeader,{passive:true});
+window.addEventListener(
+  'scroll',
+  setHeader,
+  {passive:true}
+);
 
-const canTilt=
+const canTilt =
   window.matchMedia('(hover:hover) and (pointer:fine)').matches &&
   !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -1585,35 +1826,52 @@ if(canTilt){
 
   document.querySelectorAll('.tilt-card').forEach(card=>{
 
-    const scale=parseFloat(card.dataset.scale||'1.06');
+    const scale = parseFloat(
+      card.dataset.scale || '1.04'
+    );
 
-    card.addEventListener('pointerenter',()=>{
-      card.classList.add('tilting');
-    });
+    card.addEventListener(
+      'pointerenter',
+      ()=>{
+        card.classList.add('tilting');
+      }
+    );
 
-    card.addEventListener('pointermove',e=>{
+    card.addEventListener(
+      'pointermove',
+      e=>{
 
-      const r=card.getBoundingClientRect();
+        const r = card.getBoundingClientRect();
 
-      const x=((e.clientX-r.left)/r.width-.5)*2;
-      const y=((e.clientY-r.top)/r.height-.5)*2;
+        const x =
+          ((e.clientX - r.left) / r.width - .5) * 2;
 
-      const rotateY=x*7;
-      const rotateX=-y*5;
+        const y =
+          ((e.clientY - r.top) / r.height - .5) * 2;
 
-      card.style.transform=
-        `perspective(1100px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
+        const rotateY = x * 6;
+        const rotateX = -y * 4.5;
 
-    });
+        card.style.transform =
+          `perspective(1100px)
+           rotateX(${rotateX}deg)
+           rotateY(${rotateY}deg)
+           scale(${scale})`;
 
-    card.addEventListener('pointerleave',()=>{
+      }
+    );
 
-      card.classList.remove('tilting');
+    card.addEventListener(
+      'pointerleave',
+      ()=>{
 
-      card.style.transform=
-        'perspective(1100px) rotateX(0deg) rotateY(0deg) scale(1)';
+        card.classList.remove('tilting');
 
-    });
+        card.style.transform =
+          'perspective(1100px) rotateX(0deg) rotateY(0deg) scale(1)';
+
+      }
+    );
 
   });
 
