@@ -98,6 +98,29 @@ section{padding:82px 0}
 .credential-link{display:inline-flex;align-items:center;justify-content:center;border:1px solid #b8c8c0;border-radius:999px;padding:9px 12px;background:#fff;color:var(--green2);font-size:.78rem;font-weight:820;transition:transform .2s ease,border-color .2s ease,background .2s ease}
 .credential-link:hover{transform:translateY(-2px);border-color:var(--green);background:var(--green-soft)}
 
+
+/* Credentials & verification */
+.credentials{padding:78px 0;background:#fff}
+.credential-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.credential-card{border:1px solid var(--line);border-radius:22px;padding:23px;background:#fff;display:flex;flex-direction:column;min-height:210px;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.credential-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#c5d2cb}
+.credential-badge{width:42px;height:42px;border-radius:12px;background:var(--green-soft);color:var(--green2);display:grid;place-items:center;font-size:.76rem;font-weight:900;letter-spacing:.04em;margin-bottom:17px}
+.credential-card h3{font-size:1.08rem;line-height:1.2;margin:0 0 7px;letter-spacing:-.02em}
+.credential-card p{margin:0;color:var(--muted);font-size:.87rem}
+.credential-card a{margin-top:auto;padding-top:18px;color:var(--green);font-size:.82rem;font-weight:850}
+.credential-card a:after{content:" ↗"}
+.credentials-more{margin-top:18px;color:var(--muted);font-size:.88rem}
+.credentials-more a{color:var(--green);font-weight:800}
+.appointment{margin-top:28px;border:1px solid var(--line);border-radius:28px;background:var(--soft);padding:28px;display:grid;grid-template-columns:.64fr 1.36fr;gap:32px;align-items:center;overflow:visible}
+.appointment-preview{max-width:310px;margin:auto}
+.appointment-preview img{width:100%;border-radius:16px;box-shadow:0 20px 48px rgba(8,15,11,.16)}
+.appointment-copy .mini{font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--green);font-weight:850}
+.appointment-copy h3{font-size:clamp(1.55rem,2.6vw,2.25rem);line-height:1.08;letter-spacing:-.035em;margin:9px 0 12px}
+.appointment-copy p{margin:0;color:var(--muted)}
+.appointment-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:19px}
+.appointment-actions a{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:10px 14px;font-size:.8rem;font-weight:830;border:1px solid #bdc9c2;background:#fff;color:var(--green2)}
+.appointment-actions a:hover{border-color:var(--green);background:var(--green-soft)}
+
 /* About */
 .about{background:var(--black);color:#fff;overflow:visible}
 .about-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:54px;align-items:center}
@@ -138,12 +161,12 @@ footer{border-top:1px solid var(--line);padding:36px 0 46px}
   .navlinks{display:none}.menu{display:block}.navcta{display:none}
   .nav.open .navlinks{display:flex;position:absolute;top:96px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);padding:20px;flex-direction:column;align-items:flex-start;gap:16px}
   .hero-grid,.about-grid{grid-template-columns:1fr}
-  .grid4,.work-grid{grid-template-columns:1fr 1fr}
+  .grid4,.work-grid,.credential-grid{grid-template-columns:1fr 1fr}
   .hero-panel{max-width:720px}
   .headshot-wrap{max-width:480px}
 }
 @media(max-width:720px){
-  .grid4,.work-grid,.steps,.principles-grid,.ctabox{grid-template-columns:1fr}
+  .grid4,.work-grid,.credential-grid,.steps,.principles-grid,.ctabox,.appointment{grid-template-columns:1fr}
   .hero{padding:70px 0 58px}
   .cta-section{padding:54px 0}.ctabox{padding:32px}
   .archive img{height:235px}
@@ -311,20 +334,81 @@ footer{border-top:1px solid var(--line);padding:36px 0 46px}
             <span class="proof-chip">Data analysis</span>
             <span class="proof-chip">RON workflows</span>
           </div>
-          <div class="credential-links">
-            <a class="credential-link"
-               href="mario-atkins-six-sigma-black-belt-certificate.pdf"
-               target="_blank" rel="noopener">
-              View Six Sigma credential
-            </a>
-            <a class="credential-link"
-               href="https://www.linkedin.com/in/mario-atkins-07013a50"
-               target="_blank" rel="noopener">
-              View LinkedIn
-            </a>
-          </div>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+
+<section class="credentials" id="credentials">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div class="kicker">Credentials & verification</div>
+      <h2>Enough proof to support the work. Not a wall of certificates.</h2>
+      <p>Selected credentials that reinforce the way Mario approaches process, analysis, leadership, and trust-sensitive work. The full credential history remains on LinkedIn.</p>
+    </div>
+
+    <div class="credential-grid">
+      <article class="credential-card">
+        <div class="credential-badge">SS</div>
+        <h3>Six Sigma Black Belt</h3>
+        <p>Management and Strategy Institute. Process improvement, root-cause analysis, and disciplined problem solving.</p>
+        <a href="mario-atkins-six-sigma-black-belt-certificate.pdf" target="_blank" rel="noopener">View credential</a>
+      </article>
+
+      <article class="credential-card">
+        <div class="credential-badge">EM</div>
+        <h3>Executive Management Certified</h3>
+        <p>Management and Strategy Institute. Leadership, management systems, and organizational decision making.</p>
+        <a href="mario-atkins-executive-management-certificate.pdf" target="_blank" rel="noopener">View credential</a>
+      </article>
+
+      <article class="credential-card">
+        <div class="credential-badge">FA</div>
+        <h3>Introduction to Financial Analysis</h3>
+        <p>University of Illinois Urbana-Champaign through Coursera. Financial statements, organizational performance, and analytical context.</p>
+        <a href="https://coursera.org/verify/RG6YUAC8FCSJ" target="_blank" rel="noopener">Verify on Coursera</a>
+      </article>
+
+      <article class="credential-card">
+        <div class="credential-badge">P</div>
+        <h3>Proof Academy Certificate</h3>
+        <p>Credential connected to Mario's work with secure remote document and identity-sensitive workflows.</p>
+        <a href="https://proofacademy.workramp.io/certificate/0Z84Dlplkw" target="_blank" rel="noopener">Verify at Proof Academy</a>
+      </article>
+    </div>
+
+    <p class="credentials-more">
+      Additional project-management, analytics, and professional-development credentials are available on
+      <a href="https://www.linkedin.com/in/mario-atkins-07013a50" target="_blank" rel="noopener">Mario's LinkedIn profile</a>.
+    </p>
+
+    <div class="appointment">
+      <div class="appointment-preview">
+        <a class="tilt-card" data-scale="1.05"
+           href="mario-atkins-commissioner-of-deeds-appointment.pdf"
+           target="_blank" rel="noopener"
+           aria-label="View Mario Atkins Commissioner of Deeds appointment">
+          <img src="mario-atkins-commissioner-of-deeds-preview.jpg"
+               alt="State of Florida appointment certificate naming Mario Atkins Commissioner of Deeds">
+        </a>
+      </div>
+
+      <div class="appointment-copy">
+        <div class="mini">State appointment • limited statutory scope</div>
+        <h3>Commissioner of Deeds for the State of Florida</h3>
+        <p>
+          Appointed for a four-year term beginning October 28, 2024. This appointment is presented as a credential,
+          not as general legal authority. Florida Statute §721.97 limits the role to acknowledgments, proofs of execution,
+          and oaths connected to specified timeshare-related instruments executed outside the United States.
+        </p>
+        <div class="appointment-actions">
+          <a href="mario-atkins-commissioner-of-deeds-appointment.pdf" target="_blank" rel="noopener">View state appointment</a>
+          <a href="https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&Search_String=&URL=0700-0799/0721/Sections/0721.97.html"
+             target="_blank" rel="noopener">Read statutory scope</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
