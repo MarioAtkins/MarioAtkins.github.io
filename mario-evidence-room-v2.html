@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mario D. Atkins — investigative portfolio. Fraud analysis, risk operations, root cause analysis, and trust-sensitive systems.">
+<title>Mario D. Atkins — Evidence Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300;1,500&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#071019;
+  --bg2:#0a1622;
+  --panel:#0d1c2a;
+  --panel2:#102333;
+  --cyan:#56c8e8;
+  --cyan2:#2f9fbd;
+  --cyanDim:#1e6178;
+  --gold:#c8a84b;
+  --gold2:#e0c66e;
+  --white:#eef6fa;
+  --off:#b8ced8;
+  --steel:#6f92a4;
+  --dim:#345365;
+  --danger:#df6d6d;
+  --serif:'Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --sans:'Inter',system-ui,sans-serif;
+  --max:1180px;
+  --shadow:0 30px 90px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+  background:
+    radial-gradient(circle at 76% 16%,rgba(86,200,232,.08),transparent 24%),
+    radial-gradient(circle at 22% 72%,rgba(200,168,75,.05),transparent 26%),
+    var(--bg);
+  color:var(--off);
+  font-family:var(--mono);
+  line-height:1.72;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+  background-size:54px 54px;
+  mask-image:linear-gradient(to bottom,black,transparent 85%);
+}
+#network{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.42}
+.spotlight{position:fixed;width:560px;height:560px;border-radius:50%;pointer-events:none;z-index:0;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(86,200,232,.08),rgba(86,200,232,.025) 28%,transparent 68%);mix-blend-mode:screen}
+.progress{position:fixed;left:0;top:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--gold));width:0;z-index:999}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 28px;border-bottom:1px solid rgba(86,200,232,.12);
+  background:rgba(7,16,25,.78);backdrop-filter:blur(18px);
+}
+.brand{font-family:var(--serif);font-size:18px;color:var(--white);letter-spacing:.02em}.brand em{color:var(--cyan);font-weight:300}
+.navlinks{display:flex;gap:22px;align-items:center}.navlinks a{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--steel);text-decoration:none}.navlinks a:hover{color:var(--cyan)}
+.navlinks .gold{color:var(--gold)}
+.wrap{position:relative;z-index:2;width:min(var(--max),calc(100% - 44px));margin:auto}
+section{position:relative;padding:110px 0}
+.eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--cyanDim);margin-bottom:12px}
+.section-title{font-family:var(--serif);font-weight:300;color:var(--white);font-size:clamp(42px,6vw,72px);line-height:.98;letter-spacing:-.02em}.section-title em{color:var(--cyan);font-weight:300}.section-deck{max-width:760px;color:var(--steel);font-size:12px;margin-top:24px}
+.rule{height:1px;background:linear-gradient(90deg,rgba(86,200,232,.45),rgba(86,200,232,.05),transparent);margin-top:42px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:150px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:60px;align-items:center;width:100%}
+.hero-kicker{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cyanDim);margin-bottom:24px}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(68px,10vw,126px);line-height:.82;color:var(--white);letter-spacing:-.04em}.hero h1 em{color:var(--cyan);font-weight:300}.hero-tag{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--off);font-size:clamp(24px,3vw,38px);line-height:1.2;margin:30px 0 22px;max-width:760px}
+.hero-sub{font-size:11px;letter-spacing:.11em;color:var(--steel);max-width:760px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 18px;border:1px solid rgba(86,200,232,.35);text-decoration:none;color:var(--cyan);font-size:9px;letter-spacing:.17em;text-transform:uppercase;background:rgba(7,16,25,.45);transition:.25s ease;cursor:pointer}.btn:hover{background:var(--cyan);color:var(--bg);transform:translateY(-2px)}.btn.gold{border-color:rgba(200,168,75,.5);color:var(--gold)}.btn.gold:hover{background:var(--gold);color:var(--bg)}
+.hero-console{position:relative;min-height:520px;display:grid;place-items:center}
+.orbit{position:absolute;border:1px solid rgba(86,200,232,.18);border-radius:50%;animation:spin 18s linear infinite}.orbit.o1{width:420px;height:420px}.orbit.o2{width:310px;height:310px;animation-direction:reverse;animation-duration:14s}.orbit.o3{width:190px;height:190px;animation-duration:10s}
+.orbit::after{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 20px var(--cyan);left:50%;top:-4px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.core{position:relative;width:250px;height:250px;border:1px solid rgba(200,168,75,.38);background:radial-gradient(circle at 50% 40%,rgba(86,200,232,.12),rgba(7,16,25,.92) 68%);display:grid;place-items:center;clip-path:polygon(15% 0,85% 0,100% 15%,100% 85%,85% 100%,15% 100%,0 85%,0 15%);box-shadow:0 0 80px rgba(86,200,232,.08)}
+.core-text{text-align:center}.core-label{font-size:9px;color:var(--gold);letter-spacing:.2em;text-transform:uppercase}.core-main{font-family:var(--serif);font-size:34px;line-height:1;color:var(--white);margin:8px 0}.core-small{font-size:9px;color:var(--steel);letter-spacing:.12em}
+.signal{position:absolute;padding:8px 11px;border:1px solid rgba(86,200,232,.18);background:rgba(10,22,34,.75);font-size:9px;letter-spacing:.12em;color:var(--steel);text-transform:uppercase;backdrop-filter:blur(12px)}
+.s1{top:28px;left:0}.s2{right:4px;top:120px}.s3{left:8px;bottom:78px}.s4{right:30px;bottom:18px}.signal b{color:var(--cyan);font-weight:400}
+.hero-method{margin-top:38px;display:flex;gap:9px;align-items:center;flex-wrap:wrap}.hero-method span{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan)}.hero-method i{font-style:normal;color:var(--dim)}
+.scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:8px;letter-spacing:.25em;color:var(--dim);text-transform:uppercase}.scroll-cue::after{content:"";display:block;width:1px;height:42px;margin:10px auto 0;background:linear-gradient(var(--cyan),transparent);animation:pulse 1.8s ease-in-out infinite}@keyframes pulse{50%{opacity:.25;transform:scaleY(.7)}}
+
+/* PROBLEM NAV */
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:48px}
+.problem{position:relative;text-align:left;padding:24px;min-height:150px;border:1px solid rgba(86,200,232,.12);background:linear-gradient(145deg,rgba(13,28,42,.92),rgba(8,18,28,.82));color:var(--off);cursor:pointer;overflow:hidden;transition:.28s ease}.problem:hover,.problem.active{border-color:rgba(86,200,232,.5);transform:translateY(-4px);box-shadow:var(--shadow)}.problem.active{background:linear-gradient(145deg,rgba(17,45,60,.95),rgba(9,23,35,.95))}.problem::before{content:"";position:absolute;inset:auto -30% -70% auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(86,200,232,.12),transparent 70%);transition:.3s ease}.problem:hover::before{transform:scale(1.35)}
+.problem-num{font-size:9px;color:var(--cyanDim);letter-spacing:.2em}.problem h3{font-family:var(--serif);font-weight:300;color:var(--white);font-size:26px;line-height:1.08;margin-top:30px}.problem p{font-size:10px;color:var(--steel);margin-top:10px}.problem.active .problem-num{color:var(--gold)}
+.problem-output{margin-top:18px;border:1px solid rgba(200,168,75,.18);background:rgba(9,19,29,.74);padding:28px;display:grid;grid-template-columns:.68fr 1.32fr;gap:30px;min-height:260px}
+.output-intro{border-right:1px solid rgba(86,200,232,.12);padding-right:28px}.output-label{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}.output-intro h3{font-family:var(--serif);font-size:34px;font-weight:300;color:var(--white);line-height:1.05;margin:12px 0}.output-intro p{font-size:11px;color:var(--steel)}
+.output-cases{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.mini-case{border:1px solid rgba(86,200,232,.12);padding:16px;background:var(--bg2);cursor:pointer;transition:.22s ease}.mini-case:hover{border-color:rgba(86,200,232,.42);transform:translateY(-2px)}.mini-case .tag{font-size:8px;color:var(--cyan);letter-spacing:.14em;text-transform:uppercase}.mini-case h4{font-family:var(--serif);font-weight:300;color:var(--white);font-size:19px;line-height:1.05;margin-top:7px}.mini-case p{font-size:9px;color:var(--steel);margin-top:8px}
+
+/* OPERATING SYSTEM */
+.os-stage{margin-top:56px;position:relative;padding:50px 24px;border:1px solid rgba(86,200,232,.12);background:rgba(8,18,28,.58);overflow:hidden}.os-line{position:absolute;height:1px;left:9%;right:9%;top:50%;background:linear-gradient(90deg,transparent,var(--cyanDim),var(--gold),var(--cyanDim),transparent)}
+.os-steps{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}.os-step{text-align:center}.os-dot{width:20px;height:20px;border:1px solid var(--cyan);background:var(--bg);border-radius:50%;margin:0 auto 18px;position:relative;box-shadow:0 0 0 7px rgba(86,200,232,.04)}.os-step:nth-child(5) .os-dot{border-color:var(--gold);box-shadow:0 0 0 7px rgba(200,168,75,.05)}.os-step b{display:block;font-size:9px;letter-spacing:.16em;color:var(--cyan);text-transform:uppercase;font-weight:400}.os-step:last-child b{color:var(--gold)}.os-step p{font-size:9px;color:var(--steel);margin-top:8px}
+
+/* EVIDENCE METRICS */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:50px}.metric{position:relative;border:1px solid rgba(86,200,232,.12);background:linear-gradient(160deg,var(--panel),rgba(7,16,25,.88));padding:26px 22px;min-height:175px;cursor:pointer;transition:.25s ease;overflow:hidden}.metric:hover{border-color:rgba(200,168,75,.45);transform:translateY(-4px)}.metric::after{content:"+";position:absolute;right:16px;bottom:9px;color:var(--dim);font-size:18px}.metric-value{font-family:var(--serif);font-size:52px;color:var(--gold);line-height:.95}.metric-label{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel);margin-top:18px}.metric-note{font-size:9px;color:var(--dim);margin-top:10px}
+
+/* SAME BRAIN */
+.room-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:52px;background:rgba(86,200,232,.12);border:1px solid rgba(86,200,232,.12)}.room{background:var(--bg2);padding:32px 22px;min-height:260px;transition:.35s ease;position:relative;overflow:hidden}.room-grid:hover .room{opacity:.32}.room-grid .room:hover{opacity:1;background:var(--panel2);transform:scale(1.02);z-index:2}.room .n{font-size:9px;color:var(--cyanDim);letter-spacing:.16em}.room h3{font-family:var(--serif);font-size:29px;line-height:1.02;color:var(--white);font-weight:300;margin:52px 0 15px}.room p{font-size:10px;color:var(--steel)}.room .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:20px}.chip{font-size:8px;color:var(--cyan);border:1px solid rgba(86,200,232,.18);padding:4px 6px;letter-spacing:.1em;text-transform:uppercase}.same-brain-line{font-family:var(--serif);font-style:italic;font-size:clamp(28px,4vw,48px);color:var(--white);text-align:center;margin-top:48px}.same-brain-line em{color:var(--gold)}
+
+/* CASE LIBRARY */
+.case-toolbar{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-top:45px}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid rgba(86,200,232,.18);background:transparent;color:var(--steel);padding:8px 10px;font-family:var(--mono);font-size:8px;letter-spacing:.13em;text-transform:uppercase;cursor:pointer}.filter.active,.filter:hover{color:var(--bg);background:var(--cyan);border-color:var(--cyan)}
+.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}.case{border:1px solid rgba(86,200,232,.12);background:linear-gradient(155deg,var(--panel),rgba(7,16,25,.94));padding:24px;min-height:260px;cursor:pointer;transition:.25s ease;position:relative;overflow:hidden}.case:hover{border-color:rgba(86,200,232,.44);transform:translateY(-4px)}.case.hidden{display:none}.case .meta{font-size:8px;letter-spacing:.14em;color:var(--cyan);text-transform:uppercase}.case h3{font-family:var(--serif);font-size:30px;line-height:1;color:var(--white);font-weight:300;margin:30px 0 16px}.case p{font-size:10px;color:var(--steel)}.case .open{position:absolute;bottom:18px;right:20px;color:var(--gold);font-size:9px;letter-spacing:.12em;text-transform:uppercase}.case.featured{grid-column:1/-1;min-height:320px;background:linear-gradient(130deg,#0e2230,#08131e)}.case.featured h3{font-size:clamp(36px,5vw,58px);max-width:760px}.case.featured p{max-width:780px}
+
+
+
+/* SIGNATURE RECONSTRUCTION */
+.recon-shell{margin-top:52px;display:grid;grid-template-columns:.9fr 1.1fr;gap:18px;align-items:stretch}
+.recon-steps{display:grid;gap:8px}.recon-step{position:relative;text-align:left;border:1px solid rgba(86,200,232,.12);background:rgba(8,18,28,.7);padding:18px 18px 18px 54px;color:var(--off);cursor:pointer;transition:.28s ease;min-height:92px}.recon-step:hover,.recon-step.active{border-color:rgba(86,200,232,.45);background:rgba(13,34,48,.9);transform:translateX(4px)}.recon-step.active{box-shadow:inset 2px 0 0 var(--gold)}.recon-step .step-num{position:absolute;left:17px;top:18px;font-size:9px;color:var(--cyanDim);letter-spacing:.16em}.recon-step.active .step-num{color:var(--gold)}.recon-step b{display:block;font-family:var(--serif);font-size:22px;font-weight:300;color:var(--white);line-height:1.05}.recon-step span{display:block;margin-top:7px;font-size:9px;color:var(--steel)}
+.recon-display{position:relative;overflow:hidden;border:1px solid rgba(200,168,75,.2);background:radial-gradient(circle at 74% 45%,rgba(86,200,232,.09),transparent 29%),linear-gradient(145deg,#0d1d2a,#071019);padding:36px;min-height:492px}.recon-display::before,.recon-display::after{content:"";position:absolute;border:1px solid rgba(86,200,232,.13);border-radius:50%;right:-80px;top:50%;transform:translateY(-50%);width:380px;height:380px}.recon-display::after{width:260px;height:260px;right:-20px;border-color:rgba(200,168,75,.17);animation:reconPulse 5s ease-in-out infinite}@keyframes reconPulse{50%{transform:translateY(-50%) scale(1.05);opacity:.45}}
+.recon-kicker{position:relative;font-size:8px;color:var(--gold);letter-spacing:.2em;text-transform:uppercase}.recon-display h3{position:relative;font-family:var(--serif);font-size:clamp(34px,4vw,54px);font-weight:300;line-height:.98;color:var(--white);max-width:620px;margin:14px 0 20px}.recon-display p{position:relative;max-width:670px;font-size:11px;color:var(--steel)}.recon-proof{position:relative;margin-top:30px;display:flex;gap:8px;flex-wrap:wrap}.recon-proof span{font-size:8px;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(86,200,232,.2);color:var(--cyan);padding:6px 8px;background:rgba(7,16,25,.5)}.recon-question{position:relative;margin-top:38px;padding-top:18px;border-top:1px solid rgba(86,200,232,.12);font-family:var(--serif);font-style:italic;font-size:22px;color:var(--off);max-width:620px}
+
+/* TRUST MODEL */
+.trust-lab{margin-top:54px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;border:1px solid rgba(86,200,232,.12);background:rgba(8,18,28,.55);padding:34px;overflow:hidden}.trust-map{position:relative;min-height:520px;display:grid;place-items:center}.trust-ring{position:absolute;border:1px solid rgba(86,200,232,.16);border-radius:50%;width:390px;height:390px}.trust-ring.r2{width:270px;height:270px;border-color:rgba(200,168,75,.16);animation:spin 30s linear infinite reverse}.trust-center{position:relative;width:170px;height:170px;border:1px solid rgba(200,168,75,.4);border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle,rgba(200,168,75,.08),rgba(7,16,25,.96) 67%);z-index:2}.trust-center strong{font-family:var(--serif);font-size:28px;font-weight:300;color:var(--white);line-height:1}.trust-center small{display:block;font-size:8px;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-top:9px}.trust-node{position:absolute;width:116px;min-height:62px;border:1px solid rgba(86,200,232,.2);background:rgba(7,16,25,.88);color:var(--off);font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.25s;z-index:3}.trust-node:hover,.trust-node.active{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 30px rgba(86,200,232,.08)}.trust-node.active{background:rgba(18,47,62,.88)}.trust-node[data-trust="identity"]{top:18px;left:50%;transform:translateX(-50%)}.trust-node[data-trust="authority"]{right:3px;top:34%}.trust-node[data-trust="intent"]{right:13%;bottom:12px}.trust-node[data-trust="evidence"]{left:13%;bottom:12px}.trust-node[data-trust="accountability"]{left:3px;top:34%}.trust-node::after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 13px rgba(86,200,232,.8);left:50%;bottom:-31px}.trust-node[data-trust="authority"]::after,.trust-node[data-trust="accountability"]::after{bottom:auto;top:50%}.trust-node[data-trust="authority"]::after{left:-31px}.trust-node[data-trust="accountability"]::after{left:auto;right:-31px}.trust-node[data-trust="intent"]::after,.trust-node[data-trust="evidence"]::after{bottom:auto;top:-31px}
+.trust-readout{min-height:360px;padding:14px 10px}.trust-readout .micro{font-size:8px;color:var(--cyan);letter-spacing:.18em;text-transform:uppercase}.trust-readout h3{font-family:var(--serif);font-size:46px;line-height:.98;font-weight:300;color:var(--white);margin:14px 0}.trust-readout .question{font-family:var(--serif);font-size:25px;font-style:italic;color:var(--gold);line-height:1.15;margin-bottom:20px}.trust-readout p{font-size:11px;color:var(--steel);max-width:520px}.trust-failure{margin-top:26px;padding:16px;border-left:2px solid var(--cyanDim);background:rgba(6,14,22,.55)}.trust-failure b{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);font-weight:400}.trust-failure span{display:block;margin-top:7px;font-size:10px;color:var(--off)}
+
+/* WORK PRODUCT */
+.shelf{margin-top:50px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.artifact{position:relative;display:flex;flex-direction:column;min-height:300px;padding:24px;border:1px solid rgba(86,200,232,.12);background:linear-gradient(155deg,var(--panel),rgba(7,16,25,.92));text-decoration:none;color:inherit;overflow:hidden;transition:.28s ease}.artifact:hover{border-color:rgba(200,168,75,.45);transform:translateY(-5px)}.artifact::after{content:"";position:absolute;left:0;right:0;top:-20%;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:0;transition:.2s}.artifact:hover::after{opacity:.8;animation:scan 1.8s linear infinite}@keyframes scan{to{top:115%}}.artifact-type{font-size:8px;color:var(--cyan);letter-spacing:.17em;text-transform:uppercase}.artifact h3{font-family:var(--serif);font-size:29px;line-height:1;color:var(--white);font-weight:300;margin:46px 0 14px}.artifact p{font-size:10px;color:var(--steel)}.artifact-foot{margin-top:auto;padding-top:22px;display:flex;justify-content:space-between;gap:10px;align-items:end}.artifact-foot span{font-size:8px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase}.artifact-foot b{font-size:15px;color:var(--gold);font-weight:300}.artifact.feature{grid-column:span 2;background:linear-gradient(145deg,#102635,#08131d)}
+
+/* LIVE INVESTIGATION */
+.desk{margin-top:50px;display:grid;grid-template-columns:.78fr 1.22fr;border:1px solid rgba(86,200,232,.14);background:rgba(7,16,25,.72);min-height:450px}.desk-side{padding:30px;border-right:1px solid rgba(86,200,232,.12);position:relative;overflow:hidden}.desk-side::after{content:"30";position:absolute;right:-14px;bottom:-52px;font-family:var(--serif);font-size:190px;color:rgba(86,200,232,.035)}.desk-status{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}.desk-side h3{font-family:var(--serif);font-size:38px;line-height:1.02;font-weight:300;color:var(--white);margin:26px 0 18px}.desk-side p{font-size:10px;color:var(--steel)}.file-count{margin-top:34px;display:flex;align-items:baseline;gap:10px}.file-count strong{font-family:var(--serif);font-size:72px;font-weight:300;color:var(--cyan);line-height:1}.file-count span{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--steel)}.desk-main{padding:30px}.desk-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px}.desk-tab{border:1px solid rgba(86,200,232,.18);background:transparent;color:var(--steel);font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:9px 12px;cursor:pointer}.desk-tab.active,.desk-tab:hover{background:var(--cyan);border-color:var(--cyan);color:var(--bg)}.desk-readout .label{font-size:8px;color:var(--cyan);letter-spacing:.17em;text-transform:uppercase}.desk-readout h4{font-family:var(--serif);font-size:35px;font-weight:300;color:var(--white);line-height:1.04;margin:10px 0 18px}.desk-readout p{font-size:11px;color:var(--steel);max-width:710px}.desk-why{margin-top:30px;padding-top:22px;border-top:1px solid rgba(86,200,232,.12)}.desk-why b{display:block;font-size:8px;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;font-weight:400}.desk-why p{margin-top:9px;color:var(--off)}
+
+/* RECRUITER LENS */
+.lens{margin-top:50px;border:1px solid rgba(200,168,75,.2);background:linear-gradient(145deg,rgba(13,28,42,.84),rgba(7,16,25,.95));padding:30px}.lens-controls{display:flex;gap:8px;flex-wrap:wrap}.lens-btn{border:1px solid rgba(86,200,232,.18);background:transparent;color:var(--steel);font:8px var(--mono);letter-spacing:.13em;text-transform:uppercase;padding:10px 13px;cursor:pointer}.lens-btn.active,.lens-btn:hover{color:var(--bg);background:var(--gold);border-color:var(--gold)}.lens-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:34px;margin-top:34px}.lens-copy .micro{font-size:8px;color:var(--cyan);letter-spacing:.17em;text-transform:uppercase}.lens-copy h3{font-family:var(--serif);font-size:42px;font-weight:300;line-height:1;color:var(--white);margin:12px 0 18px}.lens-copy p{font-size:11px;color:var(--steel)}.lens-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.lens-case{border:1px solid rgba(86,200,232,.12);background:rgba(7,16,25,.65);padding:16px;text-align:left;color:inherit;cursor:pointer;min-height:165px;transition:.22s}.lens-case:hover{border-color:var(--cyan);transform:translateY(-3px)}.lens-case span{font-size:8px;color:var(--cyan);letter-spacing:.12em;text-transform:uppercase}.lens-case b{display:block;font-family:var(--serif);font-size:19px;line-height:1.02;font-weight:300;color:var(--white);margin-top:24px}.lens-case small{display:block;color:var(--steel);font-size:8px;margin-top:8px}
+
+/* EXPLORE */
+.explore-shell{margin-top:48px;border:1px solid rgba(86,200,232,.18);background:rgba(5,13,21,.76);box-shadow:var(--shadow)}.explore-top{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid rgba(86,200,232,.12)}.lights{display:flex;gap:6px}.lights i{width:7px;height:7px;border-radius:50%;background:var(--dim)}.explore-title{font-size:8px;color:var(--steel);letter-spacing:.17em;text-transform:uppercase}.prompt{font-family:var(--serif);font-size:clamp(30px,4vw,48px);color:var(--white);padding:34px 24px 24px;font-weight:300}.prompt::before{content:">";font-family:var(--mono);font-size:18px;color:var(--cyan);margin-right:12px}.questions{display:flex;flex-wrap:wrap;gap:8px;padding:0 24px 26px}.q{border:1px solid rgba(86,200,232,.18);background:rgba(13,28,42,.6);color:var(--off);font-family:var(--mono);font-size:9px;padding:9px 11px;cursor:pointer}.q:hover,.q.active{border-color:var(--gold);color:var(--gold)}.answer{margin:0 24px 24px;padding:22px;border-top:1px solid rgba(86,200,232,.12);min-height:150px}.answer .answer-label{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan)}.answer h3{font-family:var(--serif);font-size:31px;font-weight:300;color:var(--white);margin:8px 0}.answer p{font-size:11px;color:var(--steel);max-width:850px}.answer-links{margin-top:15px;display:flex;gap:8px;flex-wrap:wrap}.answer-links span{font-size:8px;border:1px solid rgba(200,168,75,.25);color:var(--gold);padding:5px 7px;letter-spacing:.1em;text-transform:uppercase}
+
+/* CTA */
+.cta{padding-bottom:150px;text-align:center}.cta-card{position:relative;border:1px solid rgba(200,168,75,.25);background:linear-gradient(155deg,rgba(13,28,42,.9),rgba(7,16,25,.94));padding:70px 30px;overflow:hidden}.cta-card::before{content:"";position:absolute;width:480px;height:480px;border:1px solid rgba(86,200,232,.12);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}.cta h2{position:relative;font-family:var(--serif);font-size:clamp(44px,7vw,80px);font-weight:300;line-height:.95;color:var(--white)}.cta h2 em{color:var(--gold)}.cta p{position:relative;max-width:650px;margin:24px auto;color:var(--steel);font-size:11px}.cta-actions{position:relative;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:32px}
+footer{position:relative;z-index:2;border-top:1px solid rgba(86,200,232,.1);padding:24px;text-align:center;color:var(--dim);font-size:8px;letter-spacing:.13em;text-transform:uppercase}
+
+/* DRAWER */
+.drawer{position:fixed;top:0;right:0;width:min(650px,94vw);height:100vh;z-index:400;background:#08131e;border-left:1px solid rgba(86,200,232,.25);box-shadow:-30px 0 80px rgba(0,0,0,.5);transform:translateX(103%);transition:transform .4s cubic-bezier(.2,.8,.2,1);overflow-y:auto}.drawer.open{transform:none}.drawer-head{position:sticky;top:0;background:rgba(8,19,30,.95);backdrop-filter:blur(15px);display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid rgba(86,200,232,.12);z-index:2}.drawer-head span{font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:var(--cyan)}.drawer-close{border:0;background:none;color:var(--off);font-size:24px;cursor:pointer}.drawer-body{padding:36px 28px 80px}.drawer-kicker{font-size:9px;color:var(--gold);letter-spacing:.15em;text-transform:uppercase}.drawer h2{font-family:var(--serif);font-size:48px;line-height:.98;color:var(--white);font-weight:300;margin:12px 0 28px}.drawer-block{padding:20px 0;border-top:1px solid rgba(86,200,232,.12)}.drawer-block b{display:block;font-size:8px;letter-spacing:.17em;text-transform:uppercase;color:var(--cyan);margin-bottom:9px;font-weight:400}.drawer-block p{font-size:11px;color:var(--steel)}.drawer .evidence{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.3;color:var(--white)}
+.backdrop{position:fixed;inset:0;background:rgba(0,0,0,.56);z-index:350;opacity:0;pointer-events:none;transition:.3s}.backdrop.open{opacity:1;pointer-events:auto}
+
+/* METRIC MODAL */
+.metric-modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-45%) scale(.96);width:min(560px,calc(100% - 36px));z-index:500;background:#0a1723;border:1px solid rgba(200,168,75,.35);padding:34px;opacity:0;pointer-events:none;transition:.25s}.metric-modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}.metric-modal .x{position:absolute;right:17px;top:12px;background:none;border:0;color:var(--off);font-size:22px;cursor:pointer}.metric-modal .big{font-family:var(--serif);font-size:68px;color:var(--gold);line-height:1}.metric-modal h3{font-family:var(--serif);font-size:30px;color:var(--white);font-weight:300;margin:8px 0 15px}.metric-modal p{font-size:11px;color:var(--steel)}
+
+@media(max-width:950px){
+ .hero-grid{grid-template-columns:1fr}.hero-console{min-height:420px}.problem-grid{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.room-grid{grid-template-columns:1fr 1fr}.os-steps{grid-template-columns:1fr}.os-line{display:none}.os-step{text-align:left;display:grid;grid-template-columns:40px 160px 1fr;align-items:center}.os-dot{margin:0}.os-step p{margin:0}.cases{grid-template-columns:1fr}.case.featured{grid-column:auto}.problem-output{grid-template-columns:1fr}.output-intro{border-right:0;border-bottom:1px solid rgba(86,200,232,.12);padding:0 0 22px}}
+@media(max-width:640px){
+ nav{padding:13px 17px}.navlinks a:not(.gold){display:none}.wrap{width:min(var(--max),calc(100% - 28px))}section{padding:80px 0}.hero{padding-top:110px}.hero h1{font-size:70px}.hero-console{min-height:350px}.orbit.o1{width:310px;height:310px}.orbit.o2{width:240px;height:240px}.orbit.o3{width:150px;height:150px}.core{width:190px;height:190px}.signal{font-size:7px}.s1{left:2px}.s2{right:0}.problem-grid{grid-template-columns:1fr}.output-cases{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}.room-grid{grid-template-columns:1fr}.room-grid:hover .room{opacity:1}.case-toolbar{display:block}.filters{margin-top:18px}.os-step{grid-template-columns:32px 120px 1fr}.metric-value{font-size:42px}.prompt{font-size:31px}.drawer h2{font-size:38px}}
+
+@media(max-width:900px){.recon-shell,.trust-lab,.desk,.lens-grid{grid-template-columns:1fr}.trust-map{min-height:470px}.shelf{grid-template-columns:1fr 1fr}.artifact.feature{grid-column:span 2}.desk-side{border-right:0;border-bottom:1px solid rgba(86,200,232,.12)}.lens-cases{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.recon-display{min-height:430px;padding:26px}.trust-lab{padding:18px}.trust-map{min-height:390px;transform:scale(.88);margin:-20px}.trust-ring{width:330px;height:330px}.trust-ring.r2{width:225px;height:225px}.trust-node{width:96px;font-size:7px}.shelf{grid-template-columns:1fr}.artifact.feature{grid-column:auto}.lens-cases{grid-template-columns:1fr}.desk{min-height:0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="network"></canvas>
+<div class="spotlight" id="spotlight"></div>
+<div class="progress" id="progress"></div>
+
+<nav>
+  <div class="brand">Mario D. <em>Atkins</em></div>
+  <div class="navlinks">
+    <a href="#problems">Problems</a>
+    <a href="#reconstruction">Reconstruction</a>
+    <a href="#trust">Trust</a>
+    <a href="#work">Work</a>
+    <a href="#explore">Explore</a>
+    <a class="gold" href="portfolio.html">Portfolio ↗</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hero-kicker">Fraud Analysis · Risk Operations · Root Cause Analysis</p>
+      <h1>Mario D.<br><em>Atkins</em></h1>
+      <p class="hero-tag">I turn unresolved complexity into defensible action.</p>
+      <p class="hero-sub">Fifteen years in regulated financial environments. A cross-domain portfolio built around one repeatable method: finding the gap between what the record says happened and what actually happened.</p>
+      <div class="hero-method" aria-label="Operating method">
+        <span>Ambiguity</span><i>→</i><span>Investigation</span><i>→</i><span>Pattern</span><i>→</i><span>Projection</span><i>→</i><span style="color:var(--gold)">Action</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn" href="#problems">Give me a problem ↓</a>
+        <a class="btn gold" href="portfolio.html">Open investigative portfolio ↗</a>
+      </div>
+    </div>
+    <div class="hero-console" aria-hidden="true">
+      <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+      <div class="core"><div class="core-text"><div class="core-label">Operating system</div><div class="core-main">Pattern<br>→ Action</div><div class="core-small">same method · different room</div></div></div>
+      <div class="signal s1"><b>Fraud</b> / identity</div>
+      <div class="signal s2"><b>Process</b> / friction</div>
+      <div class="signal s3"><b>Trust</b> / evidence</div>
+      <div class="signal s4"><b>Behavior</b> / pattern</div>
+    </div>
+  </div>
+  <div class="scroll-cue">enter the evidence room</div>
+</section>
+
+<section id="problems">
+  <div class="wrap">
+    <p class="eyebrow reveal">Start with the problem</p>
+    <h2 class="section-title reveal">Don’t infer what I can do.<br><em>Choose what is broken.</em></h2>
+    <p class="section-deck reveal">Most portfolios make you translate a job title into capability. This one does the translation for you. Pick the kind of problem in front of you and the evidence reorganizes around it.</p>
+    <div class="problem-grid reveal" id="problemGrid"></div>
+    <div class="problem-output reveal" id="problemOutput" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <p class="eyebrow reveal">The operating system</p>
+    <h2 class="section-title reveal">Different domains.<br><em>Same process.</em></h2>
+    <div class="os-stage reveal">
+      <div class="os-line"></div>
+      <div class="os-steps">
+        <div class="os-step"><div class="os-dot"></div><b>Ambiguity</b><p>Something does not reconcile. The answer is not on the surface.</p></div>
+        <div class="os-step"><div class="os-dot"></div><b>Investigation</b><p>Reconstruct the chronology, evidence, behavior, policy and competing explanations.</p></div>
+        <div class="os-step"><div class="os-dot"></div><b>Pattern</b><p>Identify the repeatable structure beneath what initially looked isolated.</p></div>
+        <div class="os-step"><div class="os-dot"></div><b>Projection</b><p>Ask what the pattern means if it continues, scales or appears elsewhere.</p></div>
+        <div class="os-step"><div class="os-dot"></div><b>Defensible Action</b><p>Convert analysis into a decision someone can explain, support and act on.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="evidence">
+  <div class="wrap">
+    <p class="eyebrow reveal">Mario, in evidence</p>
+    <h2 class="section-title reveal">The résumé says what I did.<br><em>The record shows scale.</em></h2>
+    <p class="section-deck reveal">Every number opens. The point is not decoration. It is to expose the kind of judgment, stakes and repetition behind the metric.</p>
+    <div class="metrics reveal" id="metrics"></div>
+  </div>
+</section>
+
+<section id="rooms">
+  <div class="wrap">
+    <p class="eyebrow reveal">Same brain. Different room.</p>
+    <h2 class="section-title reveal">The domain changes.<br><em>The investigation doesn’t.</em></h2>
+    <div class="room-grid reveal">
+      <article class="room"><span class="n">01 / FINANCIAL SERVICES</span><h3>Fraud.<br>Risk.<br>Operations.</h3><p>Transactions, identity, vulnerable members, controls, documentation and institutional decisions.</p><div class="chips"><span class="chip">fraud</span><span class="chip">risk</span><span class="chip">evidence</span></div></article>
+      <article class="room"><span class="n">02 / PROCESS + PROJECTS</span><h3>Root cause.<br>Workflow.<br>Implementation.</h3><p>Find where work gets stuck, identify why, redesign the sequence and measure what changes.</p><div class="chips"><span class="chip">six sigma</span><span class="chip">process</span><span class="chip">systems</span></div></article>
+      <article class="room"><span class="n">03 / TRUST INFRASTRUCTURE</span><h3>Identity.<br>Notarization.<br>Proof.</h3><p>Recorded identity-sensitive processes where authenticity, coercion and evidence all matter.</p><div class="chips"><span class="chip">RON</span><span class="chip">identity</span><span class="chip">trust</span></div></article>
+      <article class="room"><span class="n">04 / CREATIVE ANALYSIS</span><h3>Character.<br>Subtext.<br>Narrative.</h3><p>The same habit of looking beneath the stated version of events also appears in character and narrative analysis.</p><div class="chips"><span class="chip">behavior</span><span class="chip">subtext</span><span class="chip">pattern</span></div></article>
+    </div>
+    <p class="same-brain-line reveal">Four rooms. <em>One operating system.</em></p>
+  </div>
+</section>
+
+
+<section id="reconstruction">
+  <div class="wrap">
+    <p class="eyebrow reveal">Signature reconstruction</p>
+    <h2 class="section-title reveal">A fraud problem is often<br><em>a trust problem hiding in a process.</em></h2>
+    <p class="section-deck reveal">One case, slowed down. Click through the decision path and watch the problem change shape from authentication friction into a control-design question.</p>
+    <div class="recon-shell reveal">
+      <div class="recon-steps" id="reconSteps"></div>
+      <div class="recon-display" id="reconDisplay" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="trust">
+  <div class="wrap">
+    <p class="eyebrow reveal">The trust model</p>
+    <h2 class="section-title reveal">Trust is not a feeling.<br><em>It is a system of questions.</em></h2>
+    <p class="section-deck reveal">This is the connective tissue across fraud, operations, notarization and process work. Click a control point to see the question I am actually testing.</p>
+    <div class="trust-lab reveal">
+      <div class="trust-map" aria-label="Interactive trust model">
+        <div class="trust-ring"></div><div class="trust-ring r2"></div>
+        <div class="trust-center"><div><strong>Worthy<br>of trust</strong><small>the process</small></div></div>
+        <button class="trust-node active" data-trust="identity" type="button">Identity</button>
+        <button class="trust-node" data-trust="authority" type="button">Authority</button>
+        <button class="trust-node" data-trust="intent" type="button">Intent</button>
+        <button class="trust-node" data-trust="evidence" type="button">Evidence</button>
+        <button class="trust-node" data-trust="accountability" type="button">Accountability</button>
+      </div>
+      <div class="trust-readout" id="trustReadout" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="wrap">
+    <p class="eyebrow reveal">Evidence library</p>
+    <h2 class="section-title reveal">Open the case.<br><em>See the thinking.</em></h2>
+    <div class="case-toolbar reveal">
+      <p class="section-deck" style="margin:0">Filter by capability, then open a case for the signal, question, work and demonstrated capability.</p>
+      <div class="filters" id="filters"></div>
+    </div>
+    <div class="cases reveal" id="casesGrid"></div>
+  </div>
+</section>
+
+
+<section id="work">
+  <div class="wrap">
+    <p class="eyebrow reveal">Work product</p>
+    <h2 class="section-title reveal">Don’t take the claim.<br><em>Inspect the artifact.</em></h2>
+    <p class="section-deck reveal">The portfolio gets stronger when the evidence leaves the card and becomes something you can actually open, read and challenge.</p>
+    <div class="shelf reveal">
+      <a class="artifact feature" href="Wire_Fraud_Framework_Carousel.pdf" target="_blank" rel="noopener"><span class="artifact-type">Framework · Fraud prevention</span><h3>Remote Wire Authorization Framework</h3><p>The trust-control proposal behind the signature reconstruction: identity assurance added to a high-risk remote transaction without requiring branch presence.</p><div class="artifact-foot"><span>PDF · Open evidence</span><b>↗</b></div></a>
+      <a class="artifact feature" href="Mario_Atkins_Pattern_Library.pdf" target="_blank" rel="noopener"><span class="artifact-type">Library · Cross-domain analysis</span><h3>Pattern Library</h3><p>A documented collection of cases showing the same operating method across fraud, process, trust, behavior and operations.</p><div class="artifact-foot"><span>PDF · Open evidence</span><b>↗</b></div></a>
+      <a class="artifact" href="The_Idea_That_Never_Made_It_Out.pdf" target="_blank" rel="noopener"><span class="artifact-type">Essay · Systems</span><h3>The Idea That Never Made It Out</h3><p>Where the wire-control idea came from, what the institution taught me about advancing it, and why the gap still matters.</p><div class="artifact-foot"><span>PDF · Read</span><b>↗</b></div></a>
+      <a class="artifact" href="portfolio.html" target="_blank" rel="noopener"><span class="artifact-type">Portfolio · Case evidence</span><h3>Investigative Portfolio</h3><p>The recruiter-facing record: outcomes, case work, competencies and role-specific resumes.</p><div class="artifact-foot"><span>HTML · Open</span><b>↗</b></div></a>
+      <a class="artifact" href="safe-deposit-box.html" target="_blank" rel="noopener"><span class="artifact-type">Case narrative · Trust</span><h3>Safe Deposit Box Review</h3><p>A trust-sensitive problem where procedure, evidence and the assumptions surrounding notarization become part of the analysis.</p><div class="artifact-foot"><span>HTML · Open</span><b>↗</b></div></a>
+      <a class="artifact" href="Senior_Fraud_Investigator_Resume.pdf" target="_blank" rel="noopener"><span class="artifact-type">Resume · Investigative analyst</span><h3>Role Translation</h3><p>The conventional document for the recruiter who needs the same evidence translated back into the language of a job requisition.</p><div class="artifact-foot"><span>PDF · Open</span><b>↗</b></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="desk-now">
+  <div class="wrap">
+    <p class="eyebrow reveal">On the desk now</p>
+    <h2 class="section-title reveal">The operating system<br><em>is still running.</em></h2>
+    <p class="section-deck reveal">A portfolio should show finished work. It should also show what happens when I encounter a question that is not finished yet.</p>
+    <div class="desk reveal">
+      <div class="desk-side">
+        <span class="desk-status">Research in progress · Florida notarization</span>
+        <h3>What evidence supported replacing notarization requirements in family-law forms?</h3>
+        <p>The public record gives the stated policy rationale. The investigation asks what evidence, deliberation and tradeoff analysis sat underneath it.</p>
+        <div class="file-count"><strong>30</strong><span>committee records<br>produced for review</span></div>
+      </div>
+      <div class="desk-main">
+        <div class="desk-tabs" id="deskTabs"></div>
+        <div class="desk-readout" id="deskReadout" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="role-lens">
+  <div class="wrap">
+    <p class="eyebrow reveal">Recruiter lens</p>
+    <h2 class="section-title reveal">Tell me what you are hiring for.<br><em>I’ll translate the evidence.</em></h2>
+    <p class="section-deck reveal">The title on the old org chart is not the useful unit of analysis. Pick the role family and the portfolio reorganizes around the capability you need to verify.</p>
+    <div class="lens reveal">
+      <div class="lens-controls" id="lensControls"></div>
+      <div class="lens-grid"><div class="lens-copy" id="lensCopy"></div><div class="lens-cases" id="lensCases"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="explore">
+  <div class="wrap">
+    <p class="eyebrow reveal">Explore Mario</p>
+    <h2 class="section-title reveal">Ask the portfolio<br><em>what you actually care about.</em></h2>
+    <p class="section-deck reveal">This looks conversational, but it is deliberately not fake AI. Every answer is authored, deterministic and tied to evidence already in the portfolio. Zero API. Zero backend. GitHub Pages.</p>
+    <div class="explore-shell reveal">
+      <div class="explore-top"><span class="lights"><i></i><i></i><i></i></span><span class="explore-title">evidence query / local</span></div>
+      <div class="prompt">What are you trying to understand?</div>
+      <div class="questions" id="questions"></div>
+      <div class="answer" id="answer"></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <h2>Different problem?<br><em>Good.</em></h2>
+      <p>I am most useful when the answer is not obvious, the evidence is scattered, or the process has been accepted for so long that nobody remembers why it works the way it does.</p>
+      <div class="cta-actions">
+        <a class="btn" href="mailto:mario.data.leader@gmail.com">Start a conversation</a>
+        <a class="btn gold" href="portfolio.html">Investigative portfolio ↗</a>
+        <a class="btn" href="services.html">Professional services ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>Mario D. Atkins · Ambiguity → Investigation → Pattern → Projection → Defensible Action</footer>
+
+<div class="backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head"><span>Case reconstruction</span><button class="drawer-close" id="drawerClose" aria-label="Close">×</button></div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+<div class="metric-modal" id="metricModal"><button class="x" id="metricClose" aria-label="Close">×</button><div id="metricModalBody"></div></div>
+
+<script>
+const caseData = [
+  {
+    id:'wire', title:'Remote Wire Authorization Gap',
+    tag:'Fraud prevention framework · identity · controls',
+    categories:['fraud','process','trust'],
+    signal:'The remote wire process could validate credentials and documents without conclusively establishing that the person operating the session was the account owner.',
+    question:'How do you add stronger identity assurance to a high-risk remote transaction without forcing the member into a branch?',
+    work:'Mapped the authentication chain, identified the identity gap, then designed a framework embedding Remote Online Notarization above a defined threshold with credential analysis, recorded live identity verification, a sworn jurat and a bonded recovery mechanism.',
+    result:'A formal fraud-prevention framework submitted to CEO, COO and VP leadership.',
+    demonstrates:'Control-gap identification · fraud prevention · process design · executive communication'
+  },
+  {
+    id:'elder', title:'$500,000 Elder Exploitation Intervention',
+    tag:'Elder financial exploitation · emergency response',
+    categories:['fraud','trust'],
+    signal:'A high-value check had already been issued to a suspected fraudster, creating the risk of an irreversible loss for a vulnerable member.',
+    question:'What action can still interrupt the loss when the transaction is already in motion?',
+    work:'Coordinated emergency payment restrictions over a weekend, obtained executive approval and worked across the institution to hold the instrument.',
+    result:'The institution held the instrument and the member was protected from the loss.',
+    demonstrates:'Urgent judgment · escalation · vulnerable-person protection · cross-functional coordination'
+  },
+  {
+    id:'withdrawal', title:'$48,705 Unauthorized Withdrawal',
+    tag:'Fraud investigation · three-day resolution',
+    categories:['fraud','analysis'],
+    signal:'A significant unauthorized withdrawal required reconstruction across access patterns, account behavior and transaction chronology.',
+    question:'What actually happened, and which evidence can support escalation?',
+    work:'Reconstructed access patterns, account behavior and transaction sequences, then assembled the case documentation for escalation and law-enforcement coordination.',
+    result:'Closed within three business days.',
+    demonstrates:'Chronology reconstruction · multi-source analysis · case development · documentation'
+  },
+  {
+    id:'property', title:'Property Fraud & Notarial Misconduct',
+    tag:'Independent investigation · regulatory complaint',
+    categories:['fraud','trust','analysis'],
+    signal:'A fraudulent deed transfer targeting an elderly homeowner contained procedural inconsistencies across the deed history and notarization process.',
+    question:'Could the record support a defensible regulatory complaint?',
+    work:'Reviewed deed history, isolated procedural inconsistencies and assembled an evidence package for the state complaint process.',
+    result:'The complaint resulted in the maximum available surety bond recovery.',
+    demonstrates:'Independent investigation · document analysis · regulatory navigation · evidence assembly'
+  },
+  {
+    id:'video', title:'Multi-Camera Transaction Correlation',
+    tag:'Video-assisted forensic reconstruction',
+    categories:['fraud','analysis'],
+    signal:'Observable cash activity and recorded transactions did not appear to tell the same story.',
+    question:'Where, exactly, did physical events diverge from the transaction record?',
+    work:'Correlated 360-degree dome cameras, ATM feeds and teller-line footage against transaction journals timestamped to the millisecond, rotating across camera angles to reconstruct the event.',
+    result:'Identified the precise moment observable cash activity diverged from the recorded transaction sequence.',
+    demonstrates:'Forensic reconstruction · temporal correlation · multi-source evidence · pattern detection'
+  },
+  {
+    id:'estate', title:'Competing Family Claims & Account Modifications',
+    tag:'Post-death asset dispute · evidence evaluation',
+    categories:['trust','analysis'],
+    signal:'Competing family claims, suspicious timing of account changes and conflicting documents complicated a post-death asset dispute.',
+    question:'Which facts survive when emotion, timing, policy and documentation collide?',
+    work:'Evaluated the evidence against policy and regulatory standards and reconstructed the sequence of account modifications and claims.',
+    result:'Reached defensible conclusions from conflicting documentation and competing narratives.',
+    demonstrates:'Evidence evaluation · policy analysis · capacity questions · defensible decision-making'
+  },
+  {
+    id:'ron', title:'1,500+ Remote Authenticity Assessments',
+    tag:'Identity verification · recorded environments',
+    categories:['trust','fraud','process'],
+    signal:'Every remote notarization requires a judgment about whether the person, identity evidence and signing environment are trustworthy enough to proceed.',
+    question:'Is the signer who they claim to be, acting independently, and presenting a transaction that can safely continue?',
+    work:'Conducted more than 1,500 recorded remote identity and authenticity assessments, evaluating sessions for impersonation, off-camera coaching, coercion and document irregularities.',
+    result:'Exercised independent authority to stop sessions when fraud or unacceptable irregularity became apparent, with decisions documented.',
+    demonstrates:'Identity assessment · behavioral detection · trust-sensitive judgment · documentation'
+  }
+];
+
+const problems = [
+  {title:'A transaction doesn’t make sense.',sub:'Reconstruct it from the evidence.',cases:['withdrawal','video','estate']},
+  {title:'A process keeps failing.',sub:'Find the control gap beneath the workflow.',cases:['wire','ron']},
+  {title:'The policy and reality disagree.',sub:'Test what the rule says against what actually happens.',cases:['estate','property','ron']},
+  {title:'Someone may be exploiting the system.',sub:'Follow identity, behavior and opportunity.',cases:['elder','property','wire']},
+  {title:'Customers keep experiencing friction.',sub:'Separate necessary controls from inherited obstacles.',cases:['wire','ron']},
+  {title:'Nobody can explain why this keeps happening.',sub:'Stop treating repetition as coincidence.',cases:['video','withdrawal','wire']}
+];
+
+const metrics = [
+  {value:'15+',label:'Years in regulated financial environments',note:'Repeated exposure to financial operations, fraud, compliance and member-facing decisions.',title:'Fifteen years is not the point. Repetition is.',body:'The value is the number of times the same structural problems appeared in different clothing: identity questions, control failures, conflicting records, vulnerable members, process friction and decisions that had to be documented.'},
+  {value:'$300K+',label:'Fraud cases investigated and resolved',note:'Documented investigative work across significant financial-loss events.',title:'Material stakes. Defensible conclusions.',body:'The portfolio is built around actual investigative decisions, not classroom scenarios. Casework included reconstruction, escalation, member protection, evidence assembly and coordination for further action.'},
+  {value:'$500K',label:'Elder exploitation emergency intervention',note:'High-value check held after weekend escalation.',title:'The window for action was already closing.',body:'A suspected fraudster already had a high-value instrument. The response required fast judgment, executive escalation and operational intervention before the loss became irreversible.'},
+  {value:'1,500+',label:'Recorded identity & authenticity assessments',note:'Remote Online Notarization sessions in trust-sensitive environments.',title:'Identity is not a checkbox.',body:'Each session required evaluation of identity evidence, behavior, signing conditions and document irregularities, with independent authority to stop the transaction when the evidence no longer supported proceeding.'},
+  {value:'3×',label:'Six Sigma certified',note:'Black, Green and Yellow Belt credentials.',title:'Pattern recognition with a process language.',body:'Six Sigma supplies a formal structure for a habit already visible across the portfolio: define the problem, isolate root causes, redesign the workflow and measure what changes.'},
+  {value:'$20K+',label:'Projected annual process savings',note:'Savings identified through process redesign.',title:'Analysis should eventually move something.',body:'The point of root-cause work is not simply to describe why a system is inefficient. It is to convert the diagnosis into a redesign with a measurable operational consequence.'},
+  {value:'3 days',label:'Unauthorized-withdrawal case resolution',note:'$48,705 case closed within three business days.',title:'Speed without sacrificing reconstruction.',body:'The case required access-pattern analysis, behavioral review, transaction chronology and documentation suitable for escalation and law-enforcement coordination.'},
+  {value:'1 method',label:'Across multiple domains',note:'Fraud, process, trust, operations and narrative analysis.',title:'Different room. Same brain.',body:'The portfolio is deliberately cross-domain because the transferable capability is not a title. It is a method for moving from ambiguity to a defensible action.'}
+];
+
+const explore = [
+  {q:'Can he investigate fraud?',title:'Yes. Start with reconstruction, not suspicion.',body:'The strongest evidence is the combination of financial-fraud investigations, elder-exploitation intervention, multi-camera transaction reconstruction, unauthorized-withdrawal casework and independent property-fraud analysis.',links:['$48,705 withdrawal','multi-camera reconstruction','$500K intervention','property fraud']},
+  {q:'Can he improve a process?',title:'He treats process failure as evidence.',body:'The portfolio combines Six Sigma methodology with operational experience. The wire-authorization framework is the clearest example: identify a control gap, redesign the sequence, then articulate the operational and fraud-prevention consequence.',links:['wire authorization','Six Sigma','process savings']},
+  {q:'What has he actually built?',title:'Frameworks, evidence packages and operating logic.',body:'Examples include a Remote Online Notarization wire-authorization framework, regulatory evidence packages, a cross-domain Pattern Library and process redesigns tied to measurable savings.',links:['wire framework','Pattern Library','regulatory complaint']},
+  {q:'How does notarization fit?',title:'As trust infrastructure, not a side hustle.',body:'Remote notarization provides repeated experience with identity evidence, impersonation risk, coercion, off-camera influence, document irregularity and recorded decision-making. That makes it directly relevant to fraud, controls and trust-sensitive workflows.',links:['1,500+ assessments','identity','fraud prevention']},
+  {q:'Why is acting in here?',title:'Because behavior is also evidence.',body:'Character analysis and acting are not presented as a substitute for professional analysis. They expose the same intellectual habit from another angle: reading subtext, motive, contradiction and the gap between a stated story and observable behavior.',links:['behavior','subtext','narrative architecture']},
+  {q:'Show me measurable results.',title:'Open the record.',body:'The portfolio surfaces documented scale: 15+ years in regulated environments, $300K+ in fraud cases investigated and resolved, a $500K elder-exploitation intervention, 1,500+ recorded authenticity assessments and $20K+ in projected annual process savings.',links:['15+ years','$300K+','$500K','1,500+','$20K+']}
+];
+
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function getCase(id){return caseData.find(c=>c.id===id)}
+
+// problem navigator
+const pg=document.getElementById('problemGrid'), po=document.getElementById('problemOutput');
+problems.forEach((p,i)=>{const b=document.createElement('button');b.className='problem'+(i===0?' active':'');b.innerHTML=`<span class="problem-num">0${i+1}</span><h3>${esc(p.title)}</h3><p>${esc(p.sub)}</p>`;b.addEventListener('click',()=>{document.querySelectorAll('.problem').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderProblem(i)});pg.appendChild(b)});
+function renderProblem(i){const p=problems[i];po.innerHTML=`<div class="output-intro"><div class="output-label">Selected problem</div><h3>${esc(p.title)}</h3><p>${esc(p.sub)} These are the closest evidence patterns in the portfolio.</p></div><div class="output-cases">${p.cases.map(id=>{const c=getCase(id);return `<article class="mini-case" data-case="${c.id}"><span class="tag">${esc(c.tag)}</span><h4>${esc(c.title)}</h4><p>${esc(c.demonstrates)}</p></article>`}).join('')}</div>`;po.querySelectorAll('[data-case]').forEach(el=>el.addEventListener('click',()=>openCase(el.dataset.case)))}
+renderProblem(0);
+
+// metrics
+const metricEl=document.getElementById('metrics');metrics.forEach((m,i)=>{const el=document.createElement('article');el.className='metric';el.innerHTML=`<div class="metric-value">${esc(m.value)}</div><div class="metric-label">${esc(m.label)}</div><div class="metric-note">${esc(m.note)}</div>`;el.addEventListener('click',()=>openMetric(i));metricEl.appendChild(el)});
+const metricModal=document.getElementById('metricModal'), backdrop=document.getElementById('backdrop');
+function openMetric(i){const m=metrics[i];document.getElementById('metricModalBody').innerHTML=`<div class="big">${esc(m.value)}</div><h3>${esc(m.title)}</h3><p>${esc(m.body)}</p>`;metricModal.classList.add('open');backdrop.classList.add('open')}
+function closeMetric(){metricModal.classList.remove('open');if(!document.getElementById('drawer').classList.contains('open'))backdrop.classList.remove('open')}
+document.getElementById('metricClose').onclick=closeMetric;
+
+// case library + drawer
+const categories=['all','fraud','analysis','process','trust'];const filters=document.getElementById('filters');categories.forEach((c,i)=>{const b=document.createElement('button');b.className='filter'+(i===0?' active':'');b.textContent=c;b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.case').forEach(el=>el.classList.toggle('hidden',c!=='all'&&!el.dataset.categories.split(',').includes(c))) });filters.appendChild(b)});
+const cg=document.getElementById('casesGrid');caseData.forEach((c,i)=>{const el=document.createElement('article');el.className='case'+(i===0?' featured':'');el.dataset.categories=c.categories.join(',');el.innerHTML=`<span class="meta">${esc(c.tag)}</span><h3>${esc(c.title)}</h3><p>${esc(c.signal)}</p><span class="open">open case →</span>`;el.onclick=()=>openCase(c.id);cg.appendChild(el)});
+const drawer=document.getElementById('drawer'), drawerBody=document.getElementById('drawerBody');
+function openCase(id){const c=getCase(id);drawerBody.innerHTML=`<div class="drawer-kicker">${esc(c.tag)}</div><h2>${esc(c.title)}</h2><div class="drawer-block"><b>The signal</b><p class="evidence">${esc(c.signal)}</p></div><div class="drawer-block"><b>The question</b><p>${esc(c.question)}</p></div><div class="drawer-block"><b>The work</b><p>${esc(c.work)}</p></div><div class="drawer-block"><b>The result</b><p>${esc(c.result)}</p></div><div class="drawer-block"><b>What this demonstrates</b><p>${esc(c.demonstrates)}</p></div>`;drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');backdrop.classList.add('open');document.body.style.overflow='hidden'}
+function closeDrawer(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');if(!metricModal.classList.contains('open'))backdrop.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('drawerClose').onclick=closeDrawer;backdrop.addEventListener('click',()=>{closeDrawer();closeMetric()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();closeMetric()}})
+
+
+
+// signature reconstruction
+const reconData=[
+  {label:'The existing chain',title:'Access was being authenticated. Identity was not being conclusively established.',body:'Online credentials, knowledge-based questions and uploaded documents can establish access to information and a process. The control question is whether they conclusively establish who is operating the session.',proof:['credentials','KBA','document upload'],question:'What exactly does this control prove, and what are we merely assuming?'},
+  {label:'The threat model',title:'The fraudster may already possess the same information the process treats as proof.',body:'A remote fraud event often begins after personal information, credentials or device access have already been compromised. Repeating possession-based checks can validate the compromise rather than defeat it.',proof:['identity theft','impersonation','remote access'],question:'If the attacker owns the answers, where does the control get new information?'},
+  {label:'The design question',title:'Add a human accountability checkpoint without sending the member into a branch.',body:'The useful constraint was not “make it harder.” It was stronger identity assurance with remote accessibility preserved. That reframes the problem from friction to architecture.',proof:['remote','identity','accessibility'],question:'What control adds evidence instead of simply adding steps?'},
+  {label:'The intervention',title:'Use Remote Online Notarization as a trust checkpoint, not as paperwork.',body:'The framework introduced credential analysis, live recorded appearance, a sworn act and an accountable third party above a defined risk threshold. Notarization is one mechanism inside the control design, not the business objective.',proof:['credential analysis','recorded session','sworn act','accountability'],question:'Can an existing trust mechanism be repositioned as fraud-control infrastructure?'},
+  {label:'The action',title:'Convert the pattern into something leadership can evaluate.',body:'The result was a formal fraud-prevention framework submitted to CEO, COO and VP leadership. The artifact is available below so the claim can be inspected rather than merely repeated.',proof:['framework','executive communication','defensible proposal'],question:'Could another institution challenge, test or adapt the design from the record provided?'}
+];
+const reconSteps=document.getElementById('reconSteps'),reconDisplay=document.getElementById('reconDisplay');
+function renderRecon(i){const r=reconData[i];reconDisplay.innerHTML=`<div class="recon-kicker">0${i+1} / case reconstruction</div><h3>${esc(r.title)}</h3><p>${esc(r.body)}</p><div class="recon-proof">${r.proof.map(x=>`<span>${esc(x)}</span>`).join('')}</div><div class="recon-question">${esc(r.question)}</div>`;document.querySelectorAll('.recon-step').forEach((x,n)=>x.classList.toggle('active',n===i))}
+reconData.forEach((r,i)=>{const b=document.createElement('button');b.type='button';b.className='recon-step'+(i===0?' active':'');b.innerHTML=`<span class="step-num">0${i+1}</span><b>${esc(r.label)}</b><span>${esc(r.title)}</span>`;b.addEventListener('click',()=>renderRecon(i));reconSteps.appendChild(b)});renderRecon(0);
+
+// trust model
+const trustData={
+ identity:{title:'Identity',question:'Who is actually here?',body:'Before evaluating the transaction or document, establish whether the person in the process is the person the record says they are.',failure:'Failure mode: possession of credentials is mistaken for proof of identity.'},
+ authority:{title:'Authority',question:'Can this person do this?',body:'Identity alone is insufficient. The process must establish whether the identified person has the legal, organizational or account authority to take the action.',failure:'Failure mode: the right person is present, but the authority being exercised is assumed rather than established.'},
+ intent:{title:'Intent',question:'Are they knowingly choosing to do it?',body:'A valid-looking action can still be compromised by coercion, manipulation, misunderstanding or off-camera influence. Intent is a separate control question.',failure:'Failure mode: a signature or click is treated as proof of voluntary, informed action.'},
+ evidence:{title:'Evidence',question:'What survives afterward?',body:'A defensible process leaves enough reliable evidence to reconstruct what happened, who participated, what controls ran and why a decision was made.',failure:'Failure mode: the process succeeds operationally but leaves too little evidence to defend the decision later.'},
+ accountability:{title:'Accountability',question:'Who owns the decision if the system fails?',body:'Trust strengthens when responsibility is visible. Someone or some control must have authority to stop the process and be accountable for that judgment.',failure:'Failure mode: every participant completes a task, but nobody owns the integrity of the whole event.'}
+};
+const trustReadout=document.getElementById('trustReadout');function renderTrust(k){const t=trustData[k];trustReadout.innerHTML=`<div class="micro">Trust control / ${esc(t.title)}</div><h3>${esc(t.title)}</h3><div class="question">${esc(t.question)}</div><p>${esc(t.body)}</p><div class="trust-failure"><b>Control failure</b><span>${esc(t.failure)}</span></div>`;document.querySelectorAll('.trust-node').forEach(b=>b.classList.toggle('active',b.dataset.trust===k))}document.querySelectorAll('.trust-node').forEach(b=>b.addEventListener('click',()=>renderTrust(b.dataset.trust)));renderTrust('identity');
+
+// live investigation
+const deskData=[
+ {tab:'What is known',label:'Established record',title:'The public explanation is not the same thing as the evidentiary basis.',body:'The public materials identify electronic filing and access for self-represented litigants as reasons for replacing notarization requirements. The newly produced committee record gives a path to reconstruct how that rationale developed.',why:'Separate the stated conclusion from the evidence and deliberation that produced it.'},
+ {tab:'What I am testing',label:'Research question',title:'Was the burden of notarization measured, documented or mainly inferred?',body:'The review is looking for discussion of cost, time, accessibility, electronic collection, convenience, stakeholder feedback, voting and any research or statistics considered by the committee.',why:'A defensible conclusion should distinguish empirical support, professional judgment and policy preference.'},
+ {tab:'What would change my view',label:'Falsification',title:'Strong contrary evidence belongs in the model, not outside it.',body:'If the committee record contains substantial data, stakeholder evidence or analysis showing the notarization requirement created measurable access barriers, that evidence should materially change the interpretation.',why:'The goal is not to prove a prior belief. It is to produce an account that survives contrary evidence.'},
+ {tab:'Why a recruiter should care',label:'Transferable method',title:'This is investigative work before it becomes a job title.',body:'The same method applies to fraud and operational questions: define the claim, reconstruct the chronology, retrieve primary records, separate rationale from evidence, test alternative explanations and document what the record actually supports.',why:'The artifact being produced is a defensible decision trail, not an opinion.'}
+];
+const deskTabs=document.getElementById('deskTabs'),deskReadout=document.getElementById('deskReadout');function renderDesk(i){const d=deskData[i];deskReadout.innerHTML=`<div class="label">${esc(d.label)}</div><h4>${esc(d.title)}</h4><p>${esc(d.body)}</p><div class="desk-why"><b>Why it matters</b><p>${esc(d.why)}</p></div>`;document.querySelectorAll('.desk-tab').forEach((x,n)=>x.classList.toggle('active',n===i))}deskData.forEach((d,i)=>{const b=document.createElement('button');b.type='button';b.className='desk-tab'+(i===0?' active':'');b.textContent=d.tab;b.addEventListener('click',()=>renderDesk(i));deskTabs.appendChild(b)});renderDesk(0);
+
+// recruiter role lens
+const lensData=[
+ {name:'Fraud investigation',title:'Reconstruction under pressure',body:'The strongest evidence is not the old title. It is the repeated work: transaction chronology, elder exploitation intervention, identity questions, multi-source evidence and case documentation.',cases:['withdrawal','elder','video']},
+ {name:'Risk + controls',title:'Find the gap before the loss repeats',body:'The portfolio shows control-gap analysis across remote wire authorization, identity-sensitive workflows and trust failures where policy compliance alone is not enough.',cases:['wire','ron','property']},
+ {name:'Process improvement',title:'Treat friction and failure as evidence',body:'Six Sigma is useful here because the work moves beyond describing pain. It isolates the failure point, redesigns the sequence and ties the change to an operational consequence.',cases:['wire','video','withdrawal']},
+ {name:'Operations leadership',title:'Judgment inside the workflow',body:'Fifteen years in regulated financial environments means the analysis is grounded in what front-line processes, members, controls and escalation actually look like when they collide.',cases:['elder','estate','wire']}
+];
+const lensControls=document.getElementById('lensControls'),lensCopy=document.getElementById('lensCopy'),lensCases=document.getElementById('lensCases');function renderLens(i){const l=lensData[i];lensCopy.innerHTML=`<div class="micro">Role translation</div><h3>${esc(l.title)}</h3><p>${esc(l.body)}</p>`;lensCases.innerHTML=l.cases.map(id=>{const c=getCase(id);return `<button type="button" class="lens-case" data-case="${c.id}"><span>${esc(c.tag)}</span><b>${esc(c.title)}</b><small>${esc(c.demonstrates)}</small></button>`}).join('');lensCases.querySelectorAll('[data-case]').forEach(b=>b.addEventListener('click',()=>openCase(b.dataset.case)));document.querySelectorAll('.lens-btn').forEach((x,n)=>x.classList.toggle('active',n===i))}lensData.forEach((l,i)=>{const b=document.createElement('button');b.type='button';b.className='lens-btn'+(i===0?' active':'');b.textContent=l.name;b.addEventListener('click',()=>renderLens(i));lensControls.appendChild(b)});renderLens(0);
+
+// explore
+const qs=document.getElementById('questions'), ans=document.getElementById('answer');explore.forEach((x,i)=>{const b=document.createElement('button');b.className='q'+(i===0?' active':'');b.textContent=x.q;b.addEventListener('click',()=>{document.querySelectorAll('.q').forEach(z=>z.classList.remove('active'));b.classList.add('active');renderAnswer(i)});qs.appendChild(b)});
+function renderAnswer(i){const a=explore[i];ans.innerHTML=`<div class="answer-label">Evidence answer</div><h3>${esc(a.title)}</h3><p>${esc(a.body)}</p><div class="answer-links">${a.links.map(x=>`<span>${esc(x)}</span>`).join('')}</div>`}renderAnswer(0);
+
+// reveal
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// progress + spotlight
+const prog=document.getElementById('progress');addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;prog.style.width=((scrollY/max)*100)+'%'});const spot=document.getElementById('spotlight');addEventListener('pointermove',e=>{spot.style.left=e.clientX+'px';spot.style.top=e.clientY+'px'});
+
+// animated network canvas
+const canvas=document.getElementById('network'),ctx=canvas.getContext('2d');let W,H,nodes=[];function resize(){W=canvas.width=innerWidth*devicePixelRatio;H=canvas.height=innerHeight*devicePixelRatio;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);nodes=Array.from({length:Math.min(42,Math.floor(innerWidth/28))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.16,vy:(Math.random()-.5)*.16,r:Math.random()*1.6+.6}))}addEventListener('resize',resize);resize();
+function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);for(const n of nodes){n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>innerWidth)n.vx*=-1;if(n.y<0||n.y>innerHeight)n.vy*=-1}for(let i=0;i<nodes.length;i++){for(let j=i+1;j<nodes.length;j++){const a=nodes[i],b=nodes[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);if(d<150){ctx.strokeStyle=`rgba(86,200,232,${(1-d/150)*.11})`;ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}}for(const n of nodes){ctx.fillStyle='rgba(86,200,232,.24)';ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fill()}requestAnimationFrame(draw)}if(!matchMedia('(prefers-reduced-motion: reduce)').matches)draw();
+</script>
+</body>
+</html>
