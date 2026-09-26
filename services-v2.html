@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mario D. Atkins | Services</title>
+<meta name="description" content="Mario Atkins helps organizations untangle broken processes, organize complex work, analyze operational problems, and strengthen trust-sensitive workflows.">
+<meta name="theme-color" content="#07111a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07111a;
+  --bg2:#0a1722;
+  --bg3:#0d1d29;
+  --panel:rgba(11,28,40,.72);
+  --cyan:#60c8e8;
+  --cyan2:#2e8eaa;
+  --gold:#c8a84b;
+  --gold2:#e2c971;
+  --white:#edf5f8;
+  --off:#b9c9d1;
+  --steel:#7793a1;
+  --dim:#38505d;
+  --line:rgba(96,200,232,.15);
+  --line2:rgba(200,168,75,.22);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'DM Mono',monospace;
+  --sans:'Inter',system-ui,sans-serif;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 80% 10%,rgba(46,142,170,.09),transparent 32%),
+  radial-gradient(circle at 10% 70%,rgba(200,168,75,.045),transparent 28%),
+  var(--bg);
+  color:var(--white);font-family:var(--sans);line-height:1.6;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+.noise{position:fixed;inset:0;pointer-events:none;opacity:.022;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.spotlight{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(96,200,232,.06),transparent 65%);transform:translate(-50%,-50%);left:70%;top:25%;transition:left .15s linear,top .15s linear}
+.progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--gold));width:0;z-index:1000}
+
+header{position:sticky;top:0;z-index:50;background:rgba(7,17,26,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{height:64px;display:flex;align-items:center;gap:28px}
+.brand{font-family:var(--serif);font-size:20px;letter-spacing:.02em;margin-right:auto}
+.brand span{color:var(--gold)}
+.navlinks{display:flex;gap:22px;align-items:center;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel)}
+.navlinks a:hover{color:var(--white)}
+.navlinks .notary{color:var(--gold);border:1px solid rgba(200,168,75,.35);padding:8px 12px;border-radius:999px}
+.menu{display:none;background:none;border:0;color:var(--white);font-size:22px}
+
+.hero{position:relative;min-height:760px;padding:110px 0 90px;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;z-index:3}
+.eyebrow,.label{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan)}
+h1,h2,h3,p{margin-top:0}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(58px,8vw,104px);line-height:.88;letter-spacing:-.045em;margin:18px 0 26px}
+.hero h1 em{color:var(--gold);font-weight:400}
+.hero-lead{font-family:var(--serif);font-size:clamp(20px,2.2vw,28px);line-height:1.45;color:var(--off);max-width:720px;font-weight:300}
+.hero-tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--steel);margin-top:28px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 17px;border-radius:3px;border:1px solid var(--cyan2);color:var(--cyan);font:500 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;transition:.2s;background:transparent;cursor:pointer}
+.btn:hover{background:rgba(96,200,232,.08);border-color:var(--cyan);transform:translateY(-1px)}
+.btn.gold{border-color:rgba(200,168,75,.55);color:var(--gold)}
+.btn.gold:hover{background:rgba(200,168,75,.08)}
+
+.orbit{position:absolute;right:-150px;top:20px;width:760px;height:760px;opacity:.46;pointer-events:none;z-index:1}
+.orbit .ring{transform-origin:380px 380px;animation:spin 42s linear infinite}
+.orbit .ring.r2{animation-duration:67s;animation-direction:reverse}
+.orbit .ring.r3{animation-duration:95s}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.audience-panel{border:1px solid var(--line);background:rgba(8,23,34,.74);backdrop-filter:blur(12px);padding:26px;border-radius:18px;box-shadow:0 28px 80px rgba(0,0,0,.22)}
+.audience-panel h3{font-family:var(--serif);font-size:28px;font-weight:400;margin:5px 0 18px}
+.audience-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.audience-tab{border:1px solid var(--line);background:transparent;color:var(--steel);padding:12px 10px;min-height:50px;cursor:pointer;font:500 10px var(--mono);letter-spacing:.07em;text-transform:uppercase;border-radius:4px;transition:.2s}
+.audience-tab.active{border-color:var(--cyan);color:var(--white);background:rgba(96,200,232,.07)}
+.audience-tab.notary-tab.active{border-color:var(--gold);background:rgba(200,168,75,.07)}
+.audience-output{margin-top:22px;border-top:1px solid var(--line);padding-top:22px;min-height:228px}
+.audience-output .k{font:400 10px var(--mono);letter-spacing:.17em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
+.audience-output h4{font:400 26px var(--serif);margin:0 0 9px}
+.audience-output p{color:var(--off);font-size:14px}
+.quicklinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.quicklinks a{font:500 9px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--line);padding:8px 10px;border-radius:999px}
+
+section{position:relative;z-index:2;padding:100px 0;border-bottom:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:.72fr 1.28fr;gap:60px;margin-bottom:46px}
+.section-head h2{font-family:var(--serif);font-size:clamp(42px,5vw,64px);font-weight:300;line-height:1.02;margin:0}
+.section-head h2 em{color:var(--gold)}
+.section-head p{color:var(--off);max-width:700px;margin:8px 0 0}
+
+.desk-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:24px}
+.problem-rail{display:grid;gap:10px}
+.problem-btn{text-align:left;padding:18px 18px;border:1px solid var(--line);background:rgba(9,25,36,.48);color:var(--off);border-radius:8px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:14px}
+.problem-btn:hover,.problem-btn.active{border-color:rgba(96,200,232,.5);background:rgba(96,200,232,.055);color:var(--white)}
+.problem-btn .n{font:400 10px var(--mono);color:var(--cyan)}
+.diagnostic{border:1px solid var(--line);background:linear-gradient(145deg,rgba(10,29,42,.82),rgba(7,18,27,.66));border-radius:14px;padding:30px;min-height:386px;position:relative;overflow:hidden}
+.diagnostic:after{content:"";position:absolute;right:-80px;bottom:-80px;width:280px;height:280px;border:1px solid rgba(96,200,232,.08);border-radius:50%;box-shadow:0 0 0 36px rgba(96,200,232,.025),0 0 0 74px rgba(200,168,75,.018)}
+.diag-k{font:400 9px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--cyan)}
+.diagnostic h3{font-family:var(--serif);font-size:36px;font-weight:300;line-height:1.1;margin:12px 0 12px;position:relative;z-index:2}
+.diag-summary{color:var(--off);max-width:700px;position:relative;z-index:2}
+.diag-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;position:relative;z-index:2}
+.diag-cols h4{font:500 9px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.diag-cols ul{margin:0;padding-left:18px;color:var(--steel);font-size:13px}
+
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.service{position:relative;min-height:250px;border:1px solid var(--line);background:rgba(9,24,35,.55);border-radius:10px;padding:26px;overflow:hidden;transition:.25s}
+.service:hover{border-color:rgba(96,200,232,.4);transform:translateY(-3px);background:rgba(11,29,42,.72)}
+.service .num{font:500 9px var(--mono);letter-spacing:.18em;color:var(--cyan);text-transform:uppercase}
+.service h3{font-family:var(--serif);font-size:30px;font-weight:300;margin:15px 0 10px}
+.service p{color:var(--steel);font-size:14px;max-width:520px}
+.service .micro{position:absolute;right:20px;bottom:16px;font:400 9px var(--mono);letter-spacing:.12em;color:var(--dim);text-transform:uppercase}
+.service:before{content:"";position:absolute;right:-55px;top:-55px;width:150px;height:150px;border-radius:50%;border:1px solid rgba(96,200,232,.08)}
+
+.trust-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.trust-map{height:430px;position:relative;display:grid;place-items:center}
+.trust-center{width:150px;height:150px;border-radius:50%;border:1px solid rgba(200,168,75,.45);display:grid;place-items:center;text-align:center;font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);box-shadow:0 0 0 35px rgba(200,168,75,.02),0 0 0 70px rgba(96,200,232,.018)}
+.trust-node{position:absolute;border:1px solid var(--line);background:var(--bg);color:var(--off);font:500 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:10px 12px;border-radius:999px;cursor:pointer;transition:.2s}
+.trust-node.active,.trust-node:hover{border-color:var(--cyan);color:var(--white);box-shadow:0 0 22px rgba(96,200,232,.09)}
+.t1{top:30px;left:44%}.t2{top:130px;right:12px}.t3{bottom:70px;right:60px}.t4{bottom:40px;left:18%}.t5{top:150px;left:0}
+.trust-line{position:absolute;width:1px;height:140px;background:linear-gradient(var(--cyan2),transparent);opacity:.25;left:50%;top:76px;transform-origin:bottom}
+.l2{transform:rotate(70deg)}.l3{transform:rotate(140deg)}.l4{transform:rotate(215deg)}.l5{transform:rotate(290deg)}
+.trust-copy{border-left:1px solid var(--line2);padding-left:32px}
+.trust-copy .q{font-family:var(--serif);font-size:34px;font-weight:300;line-height:1.2;margin:10px 0 16px}
+.trust-copy p{color:var(--off)}
+.trust-copy .failure{font:400 10px var(--mono);color:var(--gold);letter-spacing:.08em;margin-top:22px}
+
+.notary-bridge{background:linear-gradient(180deg,rgba(200,168,75,.025),transparent)}
+.notary-box{display:grid;grid-template-columns:1.08fr .92fr;gap:40px;align-items:center;border:1px solid var(--line2);border-radius:14px;padding:36px;background:rgba(16,25,27,.55)}
+.notary-box h2{font-family:var(--serif);font-size:48px;font-weight:300;line-height:1.03;margin:0 0 15px}
+.notary-box h2 em{color:var(--gold)}
+.notary-box p{color:var(--off)}
+.notary-paths{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.notary-path{border:1px solid rgba(200,168,75,.22);padding:16px;border-radius:7px;color:var(--off);transition:.2s}
+.notary-path:hover{border-color:var(--gold);background:rgba(200,168,75,.05);color:var(--white)}
+.notary-path span{display:block;font:500 9px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.notary-path strong{font-family:var(--serif);font-size:20px;font-weight:400}
+
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.proof{border:1px solid var(--line);padding:24px;background:rgba(8,22,32,.55);border-radius:8px;cursor:pointer;min-height:170px;transition:.2s}
+.proof:hover,.proof.active{border-color:rgba(96,200,232,.42);background:rgba(96,200,232,.045)}
+.proof .value{font:500 40px var(--serif);color:var(--gold)}
+.proof .cap{font:400 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin-top:6px}
+.proof-detail{margin-top:18px;border-left:1px solid var(--cyan2);padding:16px 20px;color:var(--off);min-height:82px}
+
+.engage-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:26px}
+.engage-tabs{display:grid;gap:10px}
+.engage-tab{border:1px solid var(--line);background:transparent;color:var(--steel);text-align:left;padding:18px;cursor:pointer;border-radius:7px}
+.engage-tab.active{border-color:var(--cyan);color:var(--white);background:rgba(96,200,232,.05)}
+.engage-tab span{display:block;font:500 9px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
+.engage-output{border:1px solid var(--line);border-radius:12px;padding:30px;background:rgba(9,25,36,.52);min-height:300px}
+.engage-output h3{font:400 34px var(--serif);margin-bottom:10px}
+.engage-output p{color:var(--off)}
+.engage-output ul{padding-left:18px;color:var(--steel)}
+.engage-output .best{margin-top:20px;font:400 10px var(--mono);letter-spacing:.08em;color:var(--gold)}
+
+.cta{padding:110px 0}
+.cta-inner{text-align:center;max-width:860px;margin:auto}
+.cta-inner h2{font:300 clamp(48px,7vw,82px)/.96 var(--serif);margin-bottom:22px}
+.cta-inner p{color:var(--off);max-width:680px;margin:0 auto 28px}
+.contact-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+footer{border-top:1px solid var(--line);padding:34px 0 44px;color:var(--dim);font:400 9px var(--mono);letter-spacing:.1em}
+.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.footlinks{display:flex;gap:16px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(14px);transition:.65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero{min-height:auto}
+  .hero-grid,.section-head,.desk-grid,.trust-wrap,.notary-box,.engage-grid{grid-template-columns:1fr}
+  .orbit{right:-330px;opacity:.24}
+  .audience-panel{max-width:680px}
+  .proof-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  .wrap{width:min(var(--max),calc(100% - 28px))}
+  .navlinks{display:none}
+  .menu{display:block}
+  .nav.open .navlinks{display:flex;position:absolute;top:64px;left:0;right:0;background:#07111a;border-bottom:1px solid var(--line);padding:18px;flex-direction:column;align-items:flex-start}
+  .hero{padding:78px 0 64px}
+  .hero h1{font-size:62px}
+  .audience-tabs,.services-grid,.notary-paths,.proof-grid,.diag-cols{grid-template-columns:1fr}
+  section{padding:76px 0}
+  .trust-map{height:380px;transform:scale(.9)}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+  .spotlight{display:none}
+}
+</style>
+</head>
+<body>
+<div class="noise"></div><div class="spotlight" id="spot"></div><div class="progress" id="progress"></div>
+
+<header>
+  <div class="wrap nav" id="nav">
+    <a class="brand" href="index.html">Mario D. <span>Atkins</span></a>
+    <button class="menu" id="menu" aria-label="Open menu">☰</button>
+    <nav class="navlinks">
+      <a href="mario-evidence-room-v2.html">Evidence Room</a>
+      <a href="#services">Services</a>
+      <a href="#trust">Trust Model</a>
+      <a href="#contact">Contact</a>
+      <a class="notary" href="notary.html">Notary Services</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+<svg class="orbit" viewBox="0 0 760 760" aria-hidden="true">
+  <g class="ring">
+    <circle cx="380" cy="380" r="225" fill="none" stroke="#60c8e8" stroke-width=".7"/>
+    <circle cx="380" cy="380" r="165" fill="none" stroke="#c8a84b" stroke-width=".45" stroke-dasharray="4 8"/>
+    <circle cx="380" cy="380" r="285" fill="none" stroke="#2e8eaa" stroke-width=".4" stroke-dasharray="2 10"/>
+    <circle cx="380" cy="155" r="7" fill="#60c8e8"/><circle cx="575" cy="492" r="5" fill="#c8a84b"/><circle cx="205" cy="495" r="4" fill="#60c8e8"/>
+  </g>
+  <g class="ring r2">
+    <ellipse cx="380" cy="380" rx="320" ry="125" fill="none" stroke="#60c8e8" stroke-width=".45"/>
+    <ellipse cx="380" cy="380" rx="270" ry="90" fill="none" stroke="#c8a84b" stroke-width=".35" transform="rotate(35 380 380)"/>
+  </g>
+  <g class="ring r3">
+    <line x1="90" y1="380" x2="670" y2="380" stroke="#60c8e8" stroke-width=".3"/>
+    <line x1="380" y1="90" x2="380" y2="670" stroke="#c8a84b" stroke-width=".3"/>
+  </g>
+  <circle cx="380" cy="380" r="9" fill="#c8a84b"/><circle cx="380" cy="380" r="24" fill="none" stroke="#c8a84b" stroke-width=".5"/>
+</svg>
+
+<div class="wrap hero-grid">
+  <div>
+    <div class="eyebrow">Professional services · process · projects · analysis · trust</div>
+    <h1>Bring me<br><em>the problem.</em></h1>
+    <p class="hero-lead">I help organizations untangle broken processes, organize complex work, investigate operational friction, and strengthen trust-sensitive workflows.</p>
+    <p class="hero-tag">I turn unresolved complexity into defensible action.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#desk">Start with the problem</a>
+      <a class="btn gold" href="notary.html">I need a notary</a>
+    </div>
+  </div>
+
+  <aside class="audience-panel">
+    <div class="label">What brought you here?</div>
+    <h3>Use the page your way.</h3>
+    <div class="audience-tabs">
+      <button class="audience-tab active" data-audience="project">Problem / project</button>
+      <button class="audience-tab" data-audience="hiring">I'm hiring</button>
+      <button class="audience-tab notary-tab" data-audience="notary">I need a notary</button>
+    </div>
+    <div class="audience-output" id="audienceOutput" aria-live="polite"></div>
+  </aside>
+</div>
+</section>
+
+<section id="desk">
+<div class="wrap">
+  <div class="section-head reveal">
+    <div><div class="label">Diagnostic desk</div><h2>Start where<br><em>it hurts.</em></h2></div>
+    <p>You do not need to arrive with a perfect scope of work. Pick the closest problem. The page will show what I would examine, what I would produce, and when notarization is actually relevant.</p>
+  </div>
+  <div class="desk-grid">
+    <div class="problem-rail reveal">
+      <button class="problem-btn active" data-problem="stuck"><span class="n">01</span> Work is stuck between people, teams, or systems.</button>
+      <button class="problem-btn" data-problem="failure"><span class="n">02</span> The same process keeps failing.</button>
+      <button class="problem-btn" data-problem="decision"><span class="n">03</span> The evidence exists, but the decision is unclear.</button>
+      <button class="problem-btn" data-problem="trust"><span class="n">04</span> A transaction needs stronger trust or completion controls.</button>
+    </div>
+    <div class="diagnostic reveal" id="diagnostic" aria-live="polite"></div>
+  </div>
+</div>
+</section>
+
+<section id="services">
+<div class="wrap">
+  <div class="section-head reveal">
+    <div><div class="label">Services</div><h2>Different work.<br><em>Same operating system.</em></h2></div>
+    <p>The services are intentionally broad enough to follow the problem, but narrow enough to produce something concrete. Each engagement should end with clearer ownership, evidence, or action than it started with.</p>
+  </div>
+  <div class="services-grid">
+    <article class="service reveal"><div class="num">01 · Process improvement</div><h3>Find the failure point.</h3><p>Map the real workflow, identify friction and rework, clarify ownership, and redesign what is not serving the outcome.</p><div class="micro">Root cause · workflow · controls</div></article>
+    <article class="service reveal"><div class="num">02 · Project support</div><h3>Give moving work a spine.</h3><p>Bring structure, dependencies, documentation, visibility, and follow-through to work that has too many moving parts and no clean center.</p><div class="micro">Scope · coordination · execution</div></article>
+    <article class="service reveal"><div class="num">03 · Operational analysis</div><h3>Turn signals into a decision.</h3><p>Reconstruct what happened, organize evidence, detect patterns, and convert observations into a defensible next action.</p><div class="micro">Evidence · pattern · decision</div></article>
+    <article class="service reveal"><div class="num">04 · Trust-sensitive workflows</div><h3>Strengthen the checkpoint.</h3><p>Examine identity, authority, intent, evidence, and accountability where the process depends on knowing who did what and why.</p><div class="micro">Identity · fraud · execution</div></article>
+  </div>
+</div>
+</section>
+
+<section id="trust">
+<div class="wrap">
+  <div class="section-head reveal">
+    <div><div class="label">Trust model</div><h2>Trust is not a feeling.<br><em>It is a system.</em></h2></div>
+    <p>This is the connective tissue between financial services, fraud work, process design, identity verification, and remote online notarization. Click a node.</p>
+  </div>
+  <div class="trust-wrap">
+    <div class="trust-map reveal">
+      <div class="trust-line"></div><div class="trust-line l2"></div><div class="trust-line l3"></div><div class="trust-line l4"></div><div class="trust-line l5"></div>
+      <div class="trust-center">Defensible<br>Action</div>
+      <button class="trust-node t1 active" data-trust="identity">Identity</button>
+      <button class="trust-node t2" data-trust="authority">Authority</button>
+      <button class="trust-node t3" data-trust="intent">Intent</button>
+      <button class="trust-node t4" data-trust="evidence">Evidence</button>
+      <button class="trust-node t5" data-trust="accountability">Accountability</button>
+    </div>
+    <div class="trust-copy reveal" id="trustCopy" aria-live="polite"></div>
+  </div>
+</div>
+</section>
+
+<section class="notary-bridge">
+<div class="wrap">
+  <div class="notary-box reveal">
+    <div>
+      <div class="label" style="color:var(--gold)">Florida Notaire</div>
+      <h2>Notarization is one application of <em>trust infrastructure.</em></h2>
+      <p>If what you actually need is a notarization, you should not have to wade through a consulting page to get one. Use the dedicated service path for the transaction in front of you.</p>
+      <a class="btn gold" href="notary.html">Go to Notary Services</a>
+    </div>
+    <div class="notary-paths">
+      <a class="notary-path" href="notary.html"><span>Everyday</span><strong>Personal documents</strong></a>
+      <a class="notary-path" href="closing-services.html"><span>Professional</span><strong>Closings & title work</strong></a>
+      <a class="notary-path" href="government.html"><span>Government</span><strong>Public-sector workflows</strong></a>
+      <a class="notary-path" href="attorney-services.html"><span>Attorneys</span><strong>Legal support</strong></a>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <div class="section-head reveal">
+    <div><div class="label">Proof</div><h2>Enough evidence<br><em>to inspect.</em></h2></div>
+    <p>No certificate wall. No pile of adjectives. Click the numbers for the context behind them, then go deeper in the Evidence Room if the work is relevant to what you are solving.</p>
+  </div>
+  <div class="proof-grid reveal">
+    <button class="proof active" data-proof="years"><div class="value">15+</div><div class="cap">Years in regulated financial environments</div></button>
+    <button class="proof" data-proof="sigma"><div class="value">3×</div><div class="cap">Six Sigma certified</div></button>
+    <button class="proof" data-proof="ron"><div class="value">1,500+</div><div class="cap">Identity & authenticity assessments</div></button>
+    <button class="proof" data-proof="savings"><div class="value">$20K+</div><div class="cap">Projected annual process savings</div></button>
+  </div>
+  <div class="proof-detail reveal" id="proofDetail"></div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <div class="section-head reveal">
+    <div><div class="label">Engagement</div><h2>Diagnose.<br>Design.<br><em>Drive.</em></h2></div>
+    <p>You may need a second set of eyes for a week, a structured redesign, or someone to carry the work through implementation. The engagement should fit the problem, not the other way around.</p>
+  </div>
+  <div class="engage-grid">
+    <div class="engage-tabs reveal">
+      <button class="engage-tab active" data-engage="diagnose"><span>01</span>Diagnose the problem</button>
+      <button class="engage-tab" data-engage="design"><span>02</span>Design the solution</button>
+      <button class="engage-tab" data-engage="drive"><span>03</span>Drive it through</button>
+    </div>
+    <div class="engage-output reveal" id="engageOutput"></div>
+  </div>
+</div>
+</section>
+
+<section class="cta" id="contact">
+<div class="wrap cta-inner reveal">
+  <div class="label">Next step</div>
+  <h2>Start with the problem.</h2>
+  <p>Tell me where the process is breaking, what decision is stuck, or what transaction needs stronger trust. We can determine whether I am the right fit from there.</p>
+  <div class="contact-row">
+    <a class="btn" href="mailto:mario.data.leader@gmail.com?subject=Project%20or%20Operational%20Problem">Discuss a project</a>
+    <a class="btn gold" href="notary.html">Notary Services</a>
+    <a class="btn" href="mario-evidence-room-v2.html">Evidence Room</a>
+  </div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap foot">
+  <span>Mario D. Atkins · Professional Services · 2026</span>
+  <div class="footlinks"><a href="mario-evidence-room-v2.html">Evidence Room</a><a href="notary.html">Everyday Notary</a><a href="closing-services.html">Professional Notary</a><a href="attorney-services.html">Attorneys</a></div>
+</div>
+</footer>
+
+<script>
+const audienceData={
+ project:{k:"Project / operational problem",title:"Start with the friction.",p:"Bring the broken handoff, unclear ownership, recurring failure, messy evidence, or process nobody can quite explain. We can define the problem before we define the engagement.",links:[["Use the diagnostic desk","#desk"],["See services","#services"],["How I work","mario-evidence-room-v2.html"]]},
+ hiring:{k:"Hiring / role fit",title:"Do not infer from the title. Inspect the work.",p:"Use the Evidence Room to see fraud investigation, risk analysis, process improvement, operational leadership, identity work, and documented outcomes organized by problem rather than job title.",links:[["Open Evidence Room","mario-evidence-room-v2.html"],["Investigative portfolio","portfolio.html"],["Financial crimes resume","Freddie_Mac_Fraud_Senior_Resume.pdf"]]},
+ notary:{k:"Notary / transaction",title:"Get the transaction completed.",p:"If you need a Florida notary, remote online notarization, closing support, attorney support, or government-facing service, go directly to the dedicated Florida Notaire path.",links:[["Everyday notary","notary.html"],["Professional / title","closing-services.html"],["Attorney support","attorney-services.html"],["Government","government.html"]]}
+};
+function renderAudience(key){
+ const d=audienceData[key], o=document.getElementById('audienceOutput');
+ o.innerHTML=`<div class="k">${d.k}</div><h4>${d.title}</h4><p>${d.p}</p><div class="quicklinks">${d.links.map(x=>`<a href="${x[1]}">${x[0]}</a>`).join('')}</div>`;
+}
+document.querySelectorAll('.audience-tab').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('.audience-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderAudience(b.dataset.audience);
+}));
+renderAudience('project');
+
+const problemData={
+ stuck:{k:"Handoff / ownership",title:"Make the invisible workflow visible.",summary:"When work is stuck, the first task is usually not to add pressure. It is to see where ownership, information, timing, and dependencies stop lining up.",do:["Map actual vs. intended workflow","Identify ownership gaps and repeated handoffs","Separate policy requirements from inherited habits"],leave:["Current-state process map","Failure / friction points","Prioritized next-action plan"]},
+ failure:{k:"Recurring process failure",title:"Stop treating the symptom as the process.",summary:"Repeated exceptions usually signal variation, a broken control, or a workflow designed around ideal behavior instead of real behavior.",do:["Reconstruct failure pattern","Apply root-cause analysis","Test control and handoff assumptions"],leave:["Root-cause statement","Redesigned workflow or control","Measurement plan"]},
+ decision:{k:"Evidence / analysis",title:"Turn scattered facts into a defensible decision.",summary:"The evidence can all be present and still fail to produce clarity. The job is to reconstruct chronology, weigh contradictions, and identify what the record actually supports.",do:["Build chronology and evidence map","Separate fact, allegation, inference, and gap","Identify decision criteria"],leave:["Evidence summary","Decision framework","Defensible recommendation"]},
+ trust:{k:"Trust-sensitive transaction",title:"Strengthen the checkpoint, not just the paperwork.",summary:"Where identity, authority, intent, or proof matters, the process should produce more than completion. It should produce a record that can survive scrutiny.",do:["Review identity and authority controls","Examine evidence and accountability","Determine whether notarization is actually the right control"],leave:["Control-gap map","Trust checkpoint design","Notary path when appropriate"]}
+};
+function renderProblem(key){
+ const d=problemData[key],o=document.getElementById('diagnostic');
+ o.innerHTML=`<div class="diag-k">${d.k}</div><h3>${d.title}</h3><p class="diag-summary">${d.summary}</p><div class="diag-cols"><div><h4>What I examine</h4><ul>${d.do.map(x=>`<li>${x}</li>`).join('')}</ul></div><div><h4>What you leave with</h4><ul>${d.leave.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`;
+}
+document.querySelectorAll('.problem-btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.problem-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderProblem(b.dataset.problem)}));
+renderProblem('stuck');
+
+const trustData={
+ identity:["Who is actually here?","A process can verify possession of information without verifying the person using it.","Failure mode: credentials are accepted as identity."],
+ authority:["Are they allowed to do this?","Identity is not the same as authority. A defensible process verifies the person's relationship to the action.","Failure mode: the right person takes an action they were not authorized to take."],
+ intent:["Are they knowingly choosing to do it?","Completion is weaker when the process cannot distinguish informed intent from coaching, coercion, confusion, or automation.","Failure mode: execution is recorded, but intent is not meaningfully established."],
+ evidence:["What survives afterward?","A trustworthy process leaves enough evidence to reconstruct who did what, when, and under what controls.","Failure mode: the decision cannot be defended because the record is too thin."],
+ accountability:["Who owns the decision if it fails?","Controls become real when responsibility is visible. Accountability connects the checkpoint to consequences and recovery.","Failure mode: everyone touched the process, but nobody owns the outcome."]
+};
+function renderTrust(key){
+ const d=trustData[key];document.getElementById('trustCopy').innerHTML=`<div class="label">${key}</div><div class="q">${d[0]}</div><p>${d[1]}</p><div class="failure">${d[2]}</div>`;
+}
+document.querySelectorAll('.trust-node').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.trust-node').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderTrust(b.dataset.trust)}));
+renderTrust('identity');
+
+const proofData={
+ years:"Nearly fifteen years across regulated financial-service environments, including frontline operations, leadership, fraud escalation, compliance-sensitive decisions, and member experience.",
+ sigma:"Six Sigma Black, Green, and Yellow Belt credentials support the process-improvement and root-cause work shown throughout the portfolio.",
+ ron:"More than 1,500 remote identity and authenticity assessments in recorded environments, evaluating identity, irregularities, coercion signals, and execution quality.",
+ savings:"Process redesign work documented a projected annual savings opportunity above $20,000, tying process analysis to measurable operational impact."
+};
+function renderProof(key){document.getElementById('proofDetail').textContent=proofData[key]}
+document.querySelectorAll('.proof').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.proof').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderProof(b.dataset.proof)}));
+renderProof('years');
+
+const engageData={
+ diagnose:["Diagnose the problem","A focused engagement to understand what is actually happening before anyone commits to a redesign.",["Interviews / workflow review","Evidence and chronology mapping","Root-cause or control-gap analysis","Concise findings and next actions"],"Best when: the organization knows something is wrong but does not yet trust the problem statement."],
+ design:["Design the solution","Translate the diagnosis into a workflow, control, project structure, or implementation path people can actually use.",["Future-state process design","Roles and ownership","Controls and evidence requirements","Implementation roadmap"],"Best when: the problem is understood, but the solution still exists as conversation instead of structure."],
+ drive:["Drive it through","Stay with the work through coordination, documentation, testing, and completion rather than handing over a diagram and disappearing.",["Project coordination","Dependency tracking","Stakeholder follow-through","Testing, iteration, and closeout"],"Best when: the design is sound but execution is where the work keeps dying."]
+};
+function renderEngage(key){
+ const d=engageData[key];document.getElementById('engageOutput').innerHTML=`<div class="label">${key}</div><h3>${d[0]}</h3><p>${d[1]}</p><ul>${d[2].map(x=>`<li>${x}</li>`).join('')}</ul><div class="best">${d[3]}</div>`;
+}
+document.querySelectorAll('.engage-tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.engage-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderEngage(b.dataset.engage)}));
+renderEngage('diagnose');
+
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+window.addEventListener('scroll',()=>{
+ const h=document.documentElement.scrollHeight-innerHeight;
+ document.getElementById('progress').style.width=(h>0?(scrollY/h)*100:0)+'%';
+});
+if(matchMedia('(pointer:fine)').matches){
+ document.addEventListener('pointermove',e=>{const s=document.getElementById('spot');s.style.left=e.clientX+'px';s.style.top=e.clientY+'px'});
+}
+document.getElementById('menu').addEventListener('click',()=>document.getElementById('nav').classList.toggle('open'));
+</script>
+
+<script async data-goatcounter="https://marioatkins.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xbvggb3cfr");</script>
+</body>
+</html>
