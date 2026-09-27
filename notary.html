@@ -194,6 +194,68 @@ footer{border-top:1px solid var(--line);padding:38px 0 50px;background:#fff}.foo
   .ron-stage-wrap{transform:none!important;transition:none!important}
 }
 
+
+/* ---------- embedded scheduling ---------- */
+.schedule-section{padding:76px 0;background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.schedule-shell{border:1px solid #d9e4de;border-radius:30px;background:#fff;box-shadow:var(--shadow);overflow:hidden}
+.schedule-head{padding:34px 38px 20px}
+.schedule-head .kicker{margin-bottom:8px}
+.schedule-head h2{font-size:clamp(2rem,4vw,3.35rem);line-height:1.04;letter-spacing:-.043em;margin:0 0 12px}
+.schedule-head p{margin:0;color:var(--muted);font-size:1rem;max-width:720px}
+.cal-embed-wrap{width:100%;min-height:720px;overflow:hidden}
+#my-cal-inline-everyday-notary-services-ron-assignment{width:100%;height:720px;overflow:auto}
+@media(max-width:620px){
+  .schedule-section{padding:54px 0}
+  .schedule-head{padding:28px 22px 14px}
+  .schedule-shell{border-radius:22px}
+  .cal-embed-wrap{min-height:680px}
+  #my-cal-inline-everyday-notary-services-ron-assignment{height:680px}
+}
+
+
+/* ---------- live availability treatment ---------- */
+.schedule-shell{
+  position:relative;
+  transform-style:preserve-3d;
+  transform:perspective(1400px) rotateX(.35deg) rotateY(-.55deg);
+  transition:transform .28s cubic-bezier(.2,.75,.2,1),box-shadow .28s ease;
+  box-shadow:0 34px 80px rgba(10,26,18,.13);
+}
+.schedule-shell:hover{
+  transform:perspective(1400px) rotateX(-.25deg) rotateY(.7deg) translateY(-3px);
+  box-shadow:0 42px 92px rgba(10,26,18,.18);
+}
+.schedule-livebar{
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:18px 38px 0;
+}
+.schedule-status{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid #cfe1d9;background:#f6fbf8;border-radius:999px;
+  padding:8px 12px;font-size:.76rem;font-weight:840;letter-spacing:.035em;
+  color:var(--green2);box-shadow:0 8px 24px rgba(21,122,91,.08)
+}
+.schedule-status-dot{
+  width:9px;height:9px;border-radius:50%;background:#20a36f;
+  box-shadow:0 0 0 5px rgba(32,163,111,.11);
+}
+.schedule-status[data-status="offline"]{color:#666f6a;background:#f5f6f5;border-color:#d9ddda}
+.schedule-status[data-status="offline"] .schedule-status-dot{background:#89918d;box-shadow:0 0 0 5px rgba(137,145,141,.10)}
+.schedule-owner{
+  display:none;border:1px solid #c7d2cc;background:#fff;color:var(--ink);
+  border-radius:999px;padding:7px 11px;font:inherit;font-size:.72rem;font-weight:800;
+  cursor:pointer
+}
+body.operator-mode .schedule-owner{display:inline-flex}
+@media(max-width:620px){
+  .schedule-shell,.schedule-shell:hover{transform:none}
+  .schedule-livebar{padding:18px 22px 0;align-items:flex-start}
+  .schedule-status{font-size:.72rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .schedule-shell,.schedule-shell:hover{transform:none!important;transition:none!important}
+}
+
 </style>
 <!-- Analytics: GoatCounter + Microsoft Clarity -->
 <script async data-goatcounter="https://marioatkins.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
@@ -228,6 +290,27 @@ footer{border-top:1px solid var(--line);padding:38px 0 50px;background:#fff}.foo
 <div class="trustitem"><strong>RON through Proof</strong>home of Notarize®</div>
 </div></div>
 <section class="signature-band"><div class="wrap signature-row"><div><div class="name">Mario Atkins</div><div class="role">Florida Notary Public · Palm Bay / Melbourne · Remote statewide and beyond when eligible</div></div><div class="stamp-line"><span class="stamp-dot">MA</span>Identity · Verification · Notarial process</div></div></section>
+
+<section class="schedule-section" id="availability"><div class="wrap">
+  <div class="schedule-shell">
+    <div class="schedule-livebar">
+      <div class="schedule-status" id="schedule-status" data-status="online" aria-live="polite">
+        <span class="schedule-status-dot" aria-hidden="true"></span>
+        <span class="schedule-status-text">Online · Appointments available</span>
+      </div>
+      <button class="schedule-owner" id="schedule-owner-toggle" type="button" aria-label="Toggle displayed availability status">Owner: toggle status</button>
+    </div>
+    <div class="schedule-head">
+      <div class="kicker">See my availability</div>
+      <h2>Choose a time that works for you.</h2>
+      <p>Book your online notarization directly here. You’ll receive the appointment details after you schedule.</p>
+    </div>
+    <div class="cal-embed-wrap">
+      <div id="my-cal-inline-everyday-notary-services-ron-assignment"></div>
+    </div>
+  </div>
+</div></section>
+
 <section class="ron-demo"><div class="wrap"><div class="ron-shell"><div class="ron-copy"><div class="eyebrow2">RON process</div><h2>See the completed online notarization workspace clearly.</h2><p>The signer signs, the notarial seal is applied, the notary signs, and the completed document is ready to return electronically.</p><ul class="ron-points"><li><b>1</b><div><strong>Signer signs</strong><span>The signer completes the designated signature field.</span></div></li><li><b>2</b><div><strong>Notary applies the seal</strong><span>The notarial seal is placed in the certificate area.</span></div></li><li><b>3</b><div><strong>Notary signs</strong><span>The notary completes the certificate and signature.</span></div></li><li><b>4</b><div><strong>Document is complete</strong><span>The completed electronic document is ready to return.</span></div></li></ul></div><div class="ron-stage-wrap"><div class="ron-stage"><img alt="Completed remote online notarization workspace showing signer signature, notarial seal, and notary signature" class="ron-final" src="ron-frame-4.png"/></div><div class="ron-note">Illustrative workflow view. Actual platform layout may vary by transaction.</div></div></div></div></section>
 <section><div class="wrap"><div class="sectionhead"><div class="kicker">Two simple paths</div><h2>Online or in person. Pick what fits.</h2><p>You do not need to learn notary terminology before you start. Bring the document you were given and choose the path that works for the transaction.</p></div>
 <div class="grid2">
@@ -354,6 +437,93 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     });
   });
 })();
+</script>
+
+
+
+<script>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var owner=params.get('operator')==='1';
+  if(owner)document.body.classList.add('operator-mode');
+
+  var badge=document.getElementById('schedule-status');
+  var textEl=badge&&badge.querySelector('.schedule-status-text');
+  var toggle=document.getElementById('schedule-owner-toggle');
+  if(!badge||!textEl)return;
+
+  /* Public default. Change this one value in the file to "offline" when desired. */
+  var publicStatus='online';
+
+  function paint(status){
+    badge.dataset.status=status;
+    textEl.textContent=status==='online'
+      ? 'Online · Appointments available'
+      : 'Offline · Schedule for later';
+  }
+  paint(publicStatus);
+
+  /* Owner preview only. This intentionally does not pretend to publish a global change. */
+  if(toggle){
+    toggle.addEventListener('click',function(){
+      var next=badge.dataset.status==='online'?'offline':'online';
+      paint(next);
+      toggle.textContent='Owner preview: '+next;
+    });
+  }
+})();
+</script>
+
+<!-- Cal.com inline scheduling embed -->
+<script type="text/javascript">
+(function (C, A, L) {
+  let p = function (a, ar) { a.q.push(ar); };
+  let d = C.document;
+  C.Cal = C.Cal || function () {
+    let cal = C.Cal;
+    let ar = arguments;
+    if (!cal.loaded) {
+      cal.ns = {};
+      cal.q = cal.q || [];
+      d.head.appendChild(d.createElement("script")).src = A;
+      cal.loaded = true;
+    }
+    if (ar[0] === L) {
+      const api = function () { p(api, arguments); };
+      const namespace = ar[1];
+      api.q = api.q || [];
+      if (typeof namespace === "string") {
+        cal.ns[namespace] = cal.ns[namespace] || api;
+        p(cal.ns[namespace], ar);
+        p(cal, ["initNamespace", namespace]);
+      } else {
+        p(cal, ar);
+      }
+      return;
+    }
+    p(cal, ar);
+  };
+})(window, "https://app.cal.com/embed/embed.js", "init");
+
+Cal("init", "everyday-notary-services-ron-assignment", {origin:"https://app.cal.com"});
+Cal.config = Cal.config || {};
+Cal.config.forwardQueryParams = true;
+
+Cal.ns["everyday-notary-services-ron-assignment"]("inline", {
+  elementOrSelector:"#my-cal-inline-everyday-notary-services-ron-assignment",
+  config: {
+    "layout":"month_view",
+    "useSlotsViewOnSmallScreen":"true",
+    "theme":"auto"
+  },
+  calLink:"the-florida-notaire-zy8tt2/everyday-notary-services-ron-assignment"
+});
+
+Cal.ns["everyday-notary-services-ron-assignment"]("ui", {
+  "hideEventTypeDetails":true,
+  "layout":"month_view",
+  "styles":{"branding":{"brandColor":"#157a5b"}}
+});
 </script>
 
 </body></html>
