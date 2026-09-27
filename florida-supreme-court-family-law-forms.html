@@ -33,17 +33,134 @@ section{padding:72px 0}.sectionhead{max-width:820px;margin-bottom:30px}.kicker{f
 .path{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}.path-step{padding:25px 23px;position:relative}.path-step+.path-step{border-left:1px solid var(--line)}.path-step b{font-size:.7rem;letter-spacing:.13em;color:var(--green);display:block;margin-bottom:7px}.path-step strong{display:block;margin-bottom:5px}.path-step span{font-size:.84rem;color:var(--muted)}
 .forms-section{background:#fff}.forms-toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:0 0 14px}.search{min-width:min(100%,420px);flex:1}.search input{width:100%;border:1px solid #bfc8c3;border-radius:10px;padding:12px 14px;background:#fff}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid #c9d2cd;background:#fff;border-radius:999px;padding:8px 11px;font-size:.78rem;font-weight:780;cursor:pointer}.chip.active{background:var(--green-soft);border-color:#9fc8b7;color:var(--green2)}
 .table-shell{overflow-x:auto;border:1px solid #cfd4d8;border-radius:10px}.forms-table{border-collapse:collapse;width:100%;min-width:950px;font-size:13px}.forms-table th,.forms-table td{padding:11px 12px;border-right:1px solid #cfd4d8;border-bottom:1px solid #cfd4d8;vertical-align:middle}.forms-table th:last-child,.forms-table td:last-child{border-right:0}.forms-table tr:last-child td{border-bottom:0}.forms-table th{text-align:left;background:var(--court-head);font-size:12px}.forms-table tbody tr:nth-child(odd){background:var(--court-alt)}.forms-table tbody tr:nth-child(even){background:var(--court-row)}.forms-table a.official{color:var(--court-blue);text-decoration:underline;text-underline-offset:2px}.format-links{display:flex;gap:6px;white-space:nowrap}.format-link{display:inline-flex;align-items:center;justify-content:center;min-width:48px;border:1px solid #c5cbd0;border-radius:5px;background:#fff;padding:6px 7px;color:var(--court-blue);font-weight:750;font-size:11px}.format-link:hover{border-color:#8fa4b6}
-.online-link{display:inline-flex;align-items:center;justify-content:center;border:1px solid #91c3ad;border-radius:999px;background:#f1f8f5;color:var(--green2);padding:7px 10px;font-size:11px;font-weight:850;cursor:pointer}.online-link:hover{background:var(--green-soft);border-color:var(--green)}.status-ready{color:var(--green2);font-weight:780}.status-build{color:#6f756f}
+.online-link{border:0;background:transparent;padding:0;color:inherit}.status-ready{color:var(--green2);font-weight:780}.status-build{color:#6f756f}
 .form-count{font-size:.82rem;color:var(--muted);margin-top:10px}.official-source{margin-top:18px;padding:18px;border:1px solid #ccd5d0;background:var(--soft);border-radius:14px;display:flex;gap:18px;align-items:center;justify-content:space-between}.official-source p{margin:0;color:var(--muted);font-size:.9rem}
 .selection{display:none;margin-bottom:18px;border:1px solid #b9d7ca;background:var(--green-soft);border-radius:14px;padding:14px 16px}.selection.show{display:flex;justify-content:space-between;align-items:center;gap:14px}.selection strong{color:var(--green2)}.selection button{border:0;background:transparent;color:var(--green2);font-weight:800;cursor:pointer}
 .upload-panel{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}.upload-card{border:1px solid var(--line);border-radius:24px;padding:28px;background:#fff}.upload-card.soft{background:var(--soft)}.upload-card h3{margin:0 0 8px;font-size:1.35rem}.upload-card p{margin:0;color:var(--muted)}.upload-card .btn{margin-top:18px}
-.schedule-section{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:visible}.schedule-shell{position:relative;transform-style:preserve-3d;transform-origin:center;will-change:transform;background:#fff;border:1px solid #d9e4de;border-radius:30px;box-shadow:0 34px 80px rgba(10,26,18,.13);overflow:hidden}.schedule-shell.schedule-tilting{z-index:20;box-shadow:0 50px 110px rgba(10,26,18,.21)}.schedule-livebar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:19px 36px 0}.schedule-status{display:inline-flex;align-items:center;gap:9px;border:1px solid #cfe1d9;background:#f6fbf8;border-radius:999px;padding:8px 12px;font-size:.76rem;font-weight:840;color:var(--green2)}.schedule-status-dot{width:9px;height:9px;border-radius:50%;background:#20a36f;box-shadow:0 0 0 5px rgba(32,163,111,.11)}.schedule-status[data-status="offline"]{color:#666f6a;background:#f5f6f5;border-color:#d9ddda}.schedule-status[data-status="offline"] .schedule-status-dot{background:#89918d;box-shadow:0 0 0 5px rgba(137,145,141,.10)}.schedule-owner{display:none;border:1px solid #c7d2cc;background:#fff;border-radius:999px;padding:7px 11px;font-size:.72rem;font-weight:800;cursor:pointer}body.operator-mode .schedule-owner{display:inline-flex}.schedule-head{padding:26px 36px 18px}.schedule-head h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.04;letter-spacing:-.043em;margin:0 0 10px}.schedule-head p{margin:0;color:var(--muted);max-width:780px}.cal-embed{width:100%;height:720px;overflow:auto}
+.schedule-section{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:visible}.schedule-shell{
+  position:relative;
+  background:#fff;
+  border:1px solid #d9e4de;
+  border-radius:30px;
+  box-shadow:0 34px 80px rgba(10,26,18,.13);
+  overflow:hidden;
+  isolation:isolate;
+}
+.schedule-shell:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:30px;
+  padding:2px;
+  background:conic-gradient(
+    from var(--seal-angle,0deg),
+    transparent 0deg 250deg,
+    rgba(43,255,153,0) 250deg,
+    rgba(43,255,153,.92) 285deg,
+    rgba(126,210,177,.25) 310deg,
+    transparent 340deg 360deg
+  );
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+  z-index:5;
+  animation:sealEdgeOrbit 8s linear infinite;
+}
+.schedule-seal{
+  position:absolute;
+  right:30px;
+  top:16px;
+  z-index:7;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  border:2px solid rgba(21,122,91,.55);
+  background:rgba(255,255,255,.96);
+  box-shadow:0 8px 24px rgba(10,26,18,.10),0 0 0 5px rgba(21,122,91,.055);
+  display:grid;
+  place-items:center;
+  text-align:center;
+  transform:rotate(-7deg);
+  pointer-events:none;
+  animation:sealBreathe 3.2s ease-in-out infinite;
+}
+.schedule-seal strong{display:block;font-size:.76rem;line-height:1;color:var(--green2);letter-spacing:.04em}
+.schedule-seal span{display:block;font-size:.46rem;line-height:1.1;color:#6d7771;font-weight:850;letter-spacing:.08em;margin-top:3px}
+@keyframes sealEdgeOrbit{to{--seal-angle:360deg}}
+@property --seal-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
+@keyframes sealBreathe{0%,100%{box-shadow:0 8px 24px rgba(10,26,18,.10),0 0 0 5px rgba(21,122,91,.055)}50%{box-shadow:0 10px 30px rgba(10,26,18,.13),0 0 0 8px rgba(43,255,153,.07)}}.schedule-livebar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:19px 36px 0}.schedule-status{display:inline-flex;align-items:center;gap:10px;padding:0;font-size:.78rem;font-weight:830;color:var(--green2)}
+.schedule-status-dot{width:10px;height:10px;border-radius:50%;background:#2bff99;box-shadow:0 0 7px #2bff99,0 0 16px rgba(43,255,153,.85),0 0 27px rgba(43,255,153,.36)}
+.schedule-status[data-status="offline"]{color:#777f7a}
+.schedule-status[data-status="offline"] .schedule-status-dot{background:#89918d;box-shadow:none}.schedule-owner{display:none;border:1px solid #c7d2cc;background:#fff;border-radius:999px;padding:7px 11px;font-size:.72rem;font-weight:800;cursor:pointer}body.operator-mode .schedule-owner{display:inline-flex}.schedule-head{padding:26px 36px 18px}.schedule-head h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.04;letter-spacing:-.043em;margin:0 0 10px}.schedule-head p{margin:0;color:var(--muted);max-width:780px}.cal-embed{width:100%;height:720px;overflow:auto}
 .disclaimer{background:var(--black);color:#fff}.disclaimer-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}.disclaimer h2{font-size:clamp(1.9rem,3.5vw,3rem);line-height:1.04;margin:0 0 12px}.disclaimer p,.disclaimer li{color:#c2cac5}.disclaimer ul{margin:0;padding-left:18px}.disclaimer li{margin:8px 0}
 footer{border-top:1px solid var(--line);padding:34px 0 46px}.foot{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;flex-wrap:wrap}.legal{font-size:.77rem;color:var(--muted);max-width:830px}.footlinks{display:flex;gap:10px;flex-wrap:wrap}.footlinks a{border:1px solid #c7d2cc;border-radius:999px;padding:8px 12px;font-size:.8rem}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(18px);background:#16241b;color:#fff;padding:10px 14px;border-radius:8px;font-size:13px;opacity:0;pointer-events:none;transition:.18s ease;z-index:200}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(max-width:930px){.navlinks{display:none}.hero-grid{grid-template-columns:1fr}.hero-art{min-height:220px}.path{grid-template-columns:1fr 1fr}.path-step:nth-child(3){border-left:0;border-top:1px solid var(--line)}.path-step:nth-child(4){border-top:1px solid var(--line)}.upload-panel,.disclaimer-grid{grid-template-columns:1fr}}
-@media(max-width:620px){.wrap{width:min(var(--max),calc(100% - 28px))}.nav{min-height:88px}.brand-lockup{padding-right:24px}.brandimg{width:185px}.brand-scribble{width:52px;top:21px}.navcta{display:none}.hero{padding:50px 0 42px}.hero-art{display:none}.path{grid-template-columns:1fr}.path-step+.path-step{border-left:0;border-top:1px solid var(--line)}section{padding:56px 0}.official-source,.selection.show{align-items:flex-start;flex-direction:column}.schedule-livebar{padding:18px 22px 0}.schedule-head{padding:24px 22px 14px}.cal-embed{height:680px}.schedule-shell{transform:none!important}}
-@media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.schedule-shell{transform:none!important;transition:none!important}}
+@media(max-width:620px){.wrap{width:min(var(--max),calc(100% - 28px))}.nav{min-height:88px}.brand-lockup{padding-right:24px}.brandimg{width:185px}.brand-scribble{width:52px;top:21px}.navcta{display:none}.hero{padding:50px 0 42px}.hero-art{display:none}.path{grid-template-columns:1fr}.path-step+.path-step{border-left:0;border-top:1px solid var(--line)}section{padding:56px 0}.official-source,.selection.show{align-items:flex-start;flex-direction:column}.schedule-livebar{padding:18px 22px 0}.schedule-head{padding:24px 22px 14px}.cal-embed{height:680px}.schedule-shell{transform:none}}
+@media(prefers-reduced-motion:reduce){.schedule-shell:before,.schedule-seal{animation:none!important}}
+
+.independence-banner{
+  margin:0 0 18px;
+  border:2px solid var(--ink);
+  border-left:7px solid var(--green);
+  border-radius:12px;
+  background:#fff;
+  padding:14px 16px;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+.independence-banner strong{
+  flex:0 0 auto;
+  font-size:.74rem;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  color:var(--green2);
+}
+.independence-banner span{font-size:.86rem;font-weight:760;color:var(--ink)}
+.asset-icon-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:0;
+  padding:0;
+  background:transparent;
+  cursor:pointer;
+  border-radius:8px;
+}
+.asset-icon-button img{display:block;width:38px;height:48px;object-fit:contain}
+.asset-icon-button:hover img{filter:drop-shadow(0 5px 8px rgba(21,122,91,.24));transform:translateY(-1px)}
+.asset-icon-button img{transition:transform .18s ease,filter .18s ease}
+.upload-asset-link{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  margin-top:18px;
+  color:var(--green2);
+  font-weight:820;
+}
+.upload-asset-link img{width:86px;height:102px;object-fit:contain;display:block}
+.upload-asset-link span{max-width:180px}
+.file-badge{
+  position:relative;
+  width:34px;height:44px;
+  display:inline-flex;align-items:flex-end;justify-content:center;
+  border:1px solid #bcc5c1;border-radius:4px;
+  background:linear-gradient(#fff,#f2f4f3);
+  padding:0 2px 5px;
+  font-size:8px;font-weight:900;letter-spacing:.03em;
+  color:#fff;
+  overflow:hidden;
+}
+.file-badge:after{
+  content:"";position:absolute;right:0;top:0;width:9px;height:9px;
+  background:#dfe3e1;clip-path:polygon(0 0,100% 100%,100% 0);
+}
+.file-badge.pdf{background:linear-gradient(#fff 0 68%,#aa2e2e 68% 100%)}
+.file-badge.word{background:linear-gradient(#fff 0 68%,#245caa 68% 100%)}
+.format-link{padding:0;border:0;background:transparent;min-width:34px}
+
 </style>
 </head>
 <body>
@@ -114,6 +231,11 @@ footer{border-top:1px solid var(--line);padding:34px 0 46px}.foot{display:flex;j
       <p>This is a service index, not a form-selection tool. Titles, form numbers, and dates below follow the Florida Courts source. The prepared online-notary library will expand as each template finishes QA.</p>
     </div>
 
+    <div class="independence-banner" role="note">
+      <strong>Independent service</strong>
+      <span>NOT AFFILIATED WITH, ENDORSED BY, SPONSORED BY, OR OPERATED BY THE FLORIDA COURTS OR THE SUPREME COURT OF FLORIDA. Official forms open from Florida Courts; the notarization service is separate.</span>
+    </div>
+
     <div class="forms-toolbar">
       <div class="search"><input id="formSearch" type="search" placeholder="Search form number or title, e.g. 12.983(c) or paternity" aria-label="Search forms"></div>
       <div class="chips" id="chips">
@@ -163,7 +285,10 @@ footer{border-top:1px solid var(--line);padding:34px 0 46px}.foot{display:flex;j
       <div class="upload-card">
         <h3>Upload a completed document</h3>
         <p>Use the secure Proof upload path for a document you have already completed yourself.</p>
-        <a class="btn primary" id="genericUpload" href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx" target="_blank" rel="noopener">Upload to Proof</a>
+        <a class="upload-asset-link" id="genericUpload" href="https://app.proof.com/easy-link?ApiKey=fhZTH45zdtNaWhWw6FF7ehNx" target="_blank" rel="noopener" aria-label="Upload one or more completed documents to Proof">
+          <img src="upload-docs.png" alt="Upload Docs">
+          <span>Securely upload your completed document</span>
+        </a>
       </div>
       <div class="upload-card soft">
         <h3>Prefer to schedule first?</h3>
@@ -177,6 +302,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 46px}.foot{display:flex;j
 <section class="schedule-section" id="schedule">
   <div class="wrap">
     <div class="schedule-shell">
+      <div class="schedule-seal" aria-hidden="true"><div><strong>MA</strong><span>FL NOTARY</span></div></div>
       <div class="schedule-livebar">
         <div class="schedule-status" id="scheduleStatus" data-status="online" aria-live="polite">
           <span class="schedule-status-dot" aria-hidden="true"></span>
@@ -237,7 +363,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 46px}.foot{display:flex;j
    Replace FAMILY_CAL_LINK when the dedicated family-forms
    Cal.com event is duplicated and ready.
    ========================================================= */
-const FAMILY_CAL_LINK = "the-florida-notaire-zy8tt2/everyday-notary-services-ron-assignment";
+const FAMILY_CAL_LINK = "the-florida-notaire-zy8tt2/everyday-notary-services-ron-assignment-copy";
 
 /*
   Form-specific Proof EasyLinks can be added in proofLink as each
@@ -326,14 +452,14 @@ function renderForms(){
     const tr=document.createElement("tr");
     tr.innerHTML=`
       <td><div class="format-links">
-        <a class="format-link" href="${f.pdf}" target="_blank" rel="noopener">PDF</a>
-        <a class="format-link" href="${f.word}" target="_blank" rel="noopener">DOCX/RTF</a>
+        <a class="format-link" href="${f.pdf}" target="_blank" rel="noopener" aria-label="Open official PDF for ${f.no}" title="Official PDF"><span class="file-badge pdf">PDF</span></a>
+        <a class="format-link" href="${f.word}" target="_blank" rel="noopener" aria-label="Open official editable file for ${f.no}" title="Official Word or RTF file"><span class="file-badge word">WORD</span></a>
       </div></td>
       <td><strong>${f.no}</strong></td>
       <td><a class="official" href="${f.word}" target="_blank" rel="noopener">${f.title}</a></td>
       <td>${f.type}</td>
       <td>${f.date}</td>
-      <td><button class="online-link" type="button" data-form="${f.no}">Return to notarize</button></td>`;
+      <td><button class="asset-icon-button online-link" type="button" data-form="${f.no}" aria-label="Return to notarize ${f.no}" title="E-Notary"><img src="e-notary.png" alt="E-Notary"></button></td>`;
     body.appendChild(tr);
   });
   count.textContent=`Showing ${visible.length} of ${forms.length} forms currently loaded into this page.`;
@@ -373,31 +499,6 @@ renderForms();
     status=status==="online"?"offline":"online";paint();
     toggle.textContent=`Owner preview: ${status}`;
   });
-})();
-
-/* Fluid pointer-following tilt for the scheduler. */
-(function(){
-  const shell=document.querySelector(".schedule-shell");
-  const zone=document.querySelector(".schedule-section");
-  if(!shell||!zone)return;
-  const canTilt=matchMedia("(hover:hover) and (pointer:fine)").matches&&!matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if(!canTilt)return;
-  const maxX=5.5,maxY=7.5,pop=1.028,moveXMax=4,moveYMax=3;
-  let tx=0,ty=0,ts=1,cx=0,cy=0,cs=1,active=false,raf=0;
-  function render(){
-    cx+=(tx-cx)*.16;cy+=(ty-cy)*.16;cs+=(ts-cs)*.14;
-    shell.style.transform=`perspective(1250px) translate3d(${cx*moveXMax}px,${cy*moveYMax}px,0) rotateX(${-cy*maxX}deg) rotateY(${cx*maxY}deg) scale(${cs})`;
-    if(active||Math.abs(tx-cx)>.002||Math.abs(ty-cy)>.002||Math.abs(ts-cs)>.001)raf=requestAnimationFrame(render);else raf=0;
-  }
-  const wake=()=>{if(!raf)raf=requestAnimationFrame(render)};
-  zone.addEventListener("pointerenter",()=>{active=true;ts=pop;shell.classList.add("schedule-tilting");wake()});
-  zone.addEventListener("pointermove",e=>{
-    const r=shell.getBoundingClientRect();
-    tx=(Math.max(0,Math.min(1,(e.clientX-r.left)/r.width))-.5)*2;
-    ty=(Math.max(0,Math.min(1,(e.clientY-r.top)/r.height))-.5)*2;
-    ts=pop;wake();
-  });
-  zone.addEventListener("pointerleave",()=>{active=false;tx=0;ty=0;ts=1;shell.classList.remove("schedule-tilting");wake()});
 })();
 
 /* Cal.com inline embed */
