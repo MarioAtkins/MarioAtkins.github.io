@@ -217,13 +217,15 @@ footer{border-top:1px solid var(--line);padding:38px 0 50px;background:#fff}.foo
 .schedule-shell{
   position:relative;
   transform-style:preserve-3d;
-  transform:perspective(1400px) rotateX(.35deg) rotateY(-.55deg);
-  transition:transform .28s cubic-bezier(.2,.75,.2,1),box-shadow .28s ease;
+  transform-origin:center center;
+  will-change:transform;
+  transform:perspective(1250px) translate3d(0,0,0) rotateX(0deg) rotateY(0deg) scale(1);
+  transition:box-shadow .22s ease;
   box-shadow:0 34px 80px rgba(10,26,18,.13);
 }
-.schedule-shell:hover{
-  transform:perspective(1400px) rotateX(-.25deg) rotateY(.7deg) translateY(-3px);
-  box-shadow:0 42px 92px rgba(10,26,18,.18);
+.schedule-shell.schedule-tilting{
+  z-index:20;
+  box-shadow:0 48px 105px rgba(10,26,18,.21);
 }
 .schedule-livebar{
   display:flex;align-items:center;justify-content:space-between;gap:18px;
@@ -248,12 +250,11 @@ footer{border-top:1px solid var(--line);padding:38px 0 50px;background:#fff}.foo
 }
 body.operator-mode .schedule-owner{display:inline-flex}
 @media(max-width:620px){
-  .schedule-shell,.schedule-shell:hover{transform:none}
   .schedule-livebar{padding:18px 22px 0;align-items:flex-start}
   .schedule-status{font-size:.72rem}
 }
-@media(prefers-reduced-motion:reduce){
-  .schedule-shell,.schedule-shell:hover{transform:none!important;transition:none!important}
+@media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){
+  .schedule-shell{transform:none!important;transition:none!important}
 }
 
 </style>
@@ -440,6 +441,82 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
 </script>
 
 
+
+
+<script>
+(function(){
+  const shell=document.querySelector('.schedule-shell');
+  const zone=document.querySelector('.schedule-section');
+  if(!shell||!zone) return;
+
+  const canTilt=window.matchMedia('(hover:hover) and (pointer:fine)').matches &&
+                !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!canTilt) return;
+
+  /* Same directional behavior as the ron-frame-4 card, but scaled for a full calendar. */
+  const maxX=5.5;      // up/down tilt
+  const maxY=7.5;      // left/right rotation
+  const pop=1.028;     // slight lift, not the RON frame's large 1.35 scale
+  const moveXMax=4;
+  const moveYMax=3;
+
+  let tx=0, ty=0, tScale=1;
+  let cx=0, cy=0, cScale=1;
+  let active=false;
+  let raf=0;
+
+  function render(){
+    /* Soft interpolation keeps the motion liquid instead of snapping to the pointer. */
+    cx += (tx-cx)*0.16;
+    cy += (ty-cy)*0.16;
+    cScale += (tScale-cScale)*0.14;
+
+    const rotateY=cx*maxY;
+    const rotateX=-cy*maxX;
+    const moveX=cx*moveXMax;
+    const moveY=cy*moveYMax;
+
+    shell.style.transform=
+      `perspective(1250px) translate3d(${moveX}px,${moveY}px,0) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${cScale})`;
+
+    if(active || Math.abs(tx-cx)>.002 || Math.abs(ty-cy)>.002 || Math.abs(tScale-cScale)>.001){
+      raf=requestAnimationFrame(render);
+    }else{
+      raf=0;
+    }
+  }
+
+  function wake(){
+    if(!raf) raf=requestAnimationFrame(render);
+  }
+
+  zone.addEventListener('pointerenter',()=>{
+    active=true;
+    tScale=pop;
+    shell.classList.add('schedule-tilting');
+    wake();
+  });
+
+  zone.addEventListener('pointermove',e=>{
+    const r=shell.getBoundingClientRect();
+    const px=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
+    const py=Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));
+    tx=(px-.5)*2;
+    ty=(py-.5)*2;
+    tScale=pop;
+    wake();
+  });
+
+  zone.addEventListener('pointerleave',()=>{
+    active=false;
+    tx=0;
+    ty=0;
+    tScale=1;
+    shell.classList.remove('schedule-tilting');
+    wake();
+  });
+})();
+</script>
 
 <script>
 (function(){
