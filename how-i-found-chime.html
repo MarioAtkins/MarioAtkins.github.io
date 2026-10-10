@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f7f8f5">
+  <meta name="author" content="Mario D. Atkins">
+  <meta name="description" content="How Mario Atkins found Chime’s Senior Instructional Designer, Learning Operations role, followed by a brief and interactive personal introduction.">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <title>How I Found Chime | Mario Atkins</title>
+  <style>
+    :root { --ink:#15221d; --muted:#5c6962; --green:#12784e; --green-dark:#0b5739; --acid:#bbefbd; --paper:#f7f8f5; --border:#dbe2da; --tile:#ffffff; --dark:#182820; --shadow:0 16px 45px rgba(20,40,27,.07); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.58 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+    ::selection {background:var(--acid); color:var(--ink)}
+    a { color:inherit; text-underline-offset:4px; }
+    a:focus-visible, button:focus-visible { outline:3px solid #0c8153; outline-offset:4px; }
+    .shell { width:min(1130px,calc(100% - 82px)); margin:0 auto; }
+    .smallcap { text-transform:uppercase; font-size:11px; letter-spacing:.18em; font-weight:750; color:var(--green-dark); }
+    header { border-bottom:1px solid var(--border); background:rgba(247,248,245,.95); }
+    .headrow { display:flex; align-items:center; justify-content:space-between; padding:25px 0; gap:20px; }
+    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); font-weight:750; letter-spacing:-.035em; }
+    .mark { width:40px; height:40px; display:grid; place-items:center; background:#182821; color:#fff; border-radius:12px; flex-shrink:0; }
+    .mark svg { width:24px; height:24px; }
+    nav { display:flex; flex-wrap:wrap; gap:28px; color:#4a5b51; font-size:13px; font-weight:650; }
+    nav a {text-decoration:none} nav a:hover {color:var(--green)}
+    .answerband {background:#e9f1e9;border-bottom:1px solid #d3e1d5;padding:65px 0 66px;}
+    .answerwrap {display:grid;grid-template-columns:205px minmax(0,1fr);gap:63px;align-items:start;}
+    .answer-rail {display:flex;flex-direction:column;gap:17px;padding-top:9px;}
+    .answer-rail .mark {width:46px;height:46px;}
+    .answer-rail .rail-line {width:1px;height:51px;background:#c0d7c5;margin-left:23px;}
+    .answer-rail .rail-note {font-size:12px;line-height:1.6;color:#607467;max-width:175px;}
+    .answertext h1 {font-size:clamp(43px,4.8vw,67px);line-height:1.08;letter-spacing:-.061em;max-width:900px;margin:12px 0 17px;}
+    .answertext h1 span {color:var(--green-dark);}
+    .answertext .source-details {font-size:clamp(16px,1.48vw,19px);color:#344e3d;line-height:1.72;max-width:820px;margin:0;}
+    .answertext .honest {border-left:3px solid #54af79;padding:13px 23px;margin:27px 0 0;background:rgba(255,255,255,.42);max-width:800px;color:#445f4f;font-size:14px;line-height:1.72;}
+    .honest strong{color:#173f2b;}
+    .hero { padding:84px 0 87px; display:grid; grid-template-columns:minmax(0,1.32fr) minmax(315px,.68fr); column-gap:84px; align-items:center; }
+    .eyebrow { display:flex; align-items:center; gap:13px; margin-bottom:28px; }
+    .eyebrow .line {width:36px;height:1px;background:#9bb2a2}
+    h1 { font-weight:680; font-size:clamp(46px,5.3vw,76px); line-height:1.06; letter-spacing:-.065em; max-width:790px; margin:0 0 28px; }
+    h1 span { color:var(--green); }
+    .lead { font-size:clamp(17px,1.6vw,21px); line-height:1.65; color:#374b40; max-width:650px; margin:0 0 28px; letter-spacing:-.016em; }
+    .intro {max-width:600px; font-size:16px; color:var(--muted); margin:0 0 32px; }
+    .actions {display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+    .primary, .secondary {display:inline-flex; align-items:center; justify-content:center; gap:13px; padding:13px 19px; min-height:48px; border-radius:10px; text-decoration:none; font-size:13px; font-weight:750; transition:transform .18s ease,background .18s ease; }
+    .primary {background:var(--green-dark); color:white; border:1px solid var(--green-dark)}
+    .secondary {background:transparent; color:var(--ink); border:1px solid #b9cabd;}
+    .primary:hover, .secondary:hover {transform:translateY(-2px)} .primary:hover {background:#08422d}
+    .arrow {font-size:18px;line-height:1;}
+    .heroart { border:1px solid #d5ded4; border-radius:21px; background:#ebf1eb; min-height:475px; padding:29px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; box-shadow:var(--shadow); }
+    .heroart::after {content:"";position:absolute;right:-70px;top:-100px;width:315px;height:315px;border-radius:50%;border:1px solid rgba(20,104,68,.12); box-shadow:0 0 0 54px rgba(20,104,68,.035),0 0 0 108px rgba(20,104,68,.025);pointer-events:none;}
+    .art-top {font-size:12px;letter-spacing:.12em;text-transform:uppercase; color:#4b6856;font-weight:700;z-index:1}
+    .process {display:flex;flex-direction:column; gap:14px; position:relative; z-index:1;}
+    .step { display:flex; align-items:center; gap:14px; width:100%; padding:14px 16px; background:rgba(255,255,255,.85); border:1px solid #dae4d9; border-radius:10px;box-shadow:0 4px 10px rgba(20,50,30,.02); }
+    .step-number { font-size:12px; font-weight:750; color:#649278; font-variant-numeric:tabular-nums; }
+    .step-title {font-size:14px; font-weight:680; flex:1;}
+    .step-icon {color:#277d52;font-size:18px}
+    .step.last {background:var(--dark);color:white; border-color:var(--dark)} .step.last .step-number{color:#bad9bb}.step.last .step-icon{color:#a6dcb6}
+    .art-caption {font-size:12px;color:#486451; z-index:1;}
+    .ribbon { border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:#fff;}
+    .ribbon-inner {display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+    .fact {padding:24px 19px 24px 0;display:flex;align-items:center;gap:13px;color:#345346;font-size:13px;font-weight:650;line-height:1.4;}
+    .fact + .fact {border-left:1px solid var(--border);padding-left:25px}
+    .fact .dot {width:7px;height:7px;border-radius:100%;background:var(--green);flex-shrink:0;}
+    section.panel { padding:102px 0 92px;}
+    .panelhead {max-width:750px;margin-bottom:38px;}
+    h2 {font-size:clamp(34px,3.25vw,48px);font-weight:690;letter-spacing:-.056em;line-height:1.14;margin:12px 0 13px;}
+    .under {color:var(--muted); max-width:710px; font-size:16px;line-height:1.68;margin:0;}
+    .evidence {display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:17px;}
+    .card {background:var(--tile);border:1px solid var(--border);border-radius:15px;padding:30px 27px 27px;min-height:265px;display:flex;flex-direction:column;gap:14px;}
+    .card .index {color:var(--green);font-weight:750;font-size:12px;letter-spacing:.09em;}
+    .card h3 {font-size:24px;line-height:1.2;letter-spacing:-.043em;margin:0;font-weight:700;}
+    .card p {margin:0;color:var(--muted);font-size:14px;line-height:1.72;}
+    .card .signal {font-size:11px;color:var(--green-dark);text-transform:uppercase;letter-spacing:.1em;font-weight:740;margin-top:auto;padding-top:14px;}
+    .think {display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center; padding:84px 0 108px;border-top:1px solid var(--border);}
+    .think p {font-size:17px;color:var(--muted);max-width:520px;}
+    .quote {border-left:3px solid #78bf8b;padding:0 0 0 27px;font-weight:650;font-size:clamp(23px,2.25vw,32px);line-height:1.35;letter-spacing:-.037em;margin:25px 0;}
+    .scenario {background:#162920;border-radius:19px;color:white;padding:33px;box-shadow:var(--shadow);}
+    .scenario .smallcap{color:#9ad9af}
+    .scenario h3{font-size:23px;line-height:1.3;letter-spacing:-.04em;margin:18px 0 17px;font-weight:650;}
+    .scenario p{font-size:14px;color:#d5e5da;line-height:1.65;margin:0 0 16px}
+    .options{display:flex;gap:8px;flex-wrap:wrap;margin:25px 0 12px}
+    .option{background:#223f30;border:1px solid #4b7458;border-radius:9px;padding:11px 13px;color:#eaffed;cursor:pointer;font:700 12px -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;}
+    .option[aria-pressed="true"]{background:#d0efcf;color:#102d1b;border-color:#d0efcf}
+    .response {border-top:1px solid #385443;margin-top:18px;padding-top:18px;font-size:13px;line-height:1.6;color:#e5f2e7;min-height:95px}
+    .bottom { background:#e9f1e9;border-top:1px solid #d2e0d5;padding:66px 0 62px; }
+    .closerow{display:flex;align-items:end;justify-content:space-between;gap:35px;}
+    .closing h2{font-size:clamp(32px,3.4vw,50px);max-width:620px;margin:9px 0 15px;}
+    .closing p{color:#416052;max-width:670px;margin:0;}
+    .links{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:flex-start}
+    .links a {background:white;border:1px solid #bcd0c0;border-radius:9px;padding:13px 15px;white-space:nowrap;text-decoration:none;font-weight:700;font-size:13px;}
+    .links a:hover {border-color:var(--green);}
+    footer {background:#14241c;color:#d7e7dc;padding:25px 0;font-size:12px;}
+    .footrow {display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .footrow .footnav{display:flex;gap:18px;align-items:center;}
+    .footrow button{border:0;background:none;text-decoration:underline;text-underline-offset:3px;color:inherit;cursor:pointer;font:inherit;padding:0}
+    #privacyPanel {display:none;position:fixed;bottom:22px;right:22px;max-width:435px;width:calc(100% - 44px);z-index:20;background:#fff;border:1px solid #bfcfc1;box-shadow:0 18px 60px rgba(0,0,0,.18);padding:24px;border-radius:14px;}
+    #privacyPanel.show{display:block}
+    #privacyPanel h3{font-size:17px;margin:0 0 9px;letter-spacing:-.035em}
+    #privacyPanel p{margin:0 0 16px;font-size:13px;color:#46584c;line-height:1.55}
+    #privacyPanel .buttons{display:flex;gap:9px;flex-wrap:wrap}
+    #privacyPanel button{cursor:pointer;border-radius:8px;padding:10px 13px;font:700 12px -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;border:1px solid #acc5b2;background:white;color:var(--ink);}
+    #privacyPanel button.allow{background:var(--green-dark);color:#fff;border-color:var(--green-dark)}
+    .visually-hidden {position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:920px){.answerwrap{grid-template-columns:140px minmax(0,1fr);gap:28px}.shell{width:min(100% - 48px,720px)}.hero{grid-template-columns:1fr;gap:50px;padding:76px 0 68px}.heroart{min-height:330px}.process{display:grid;grid-template-columns:1fr 1fr}.ribbon-inner{grid-template-columns:repeat(2,1fr)}.fact:nth-child(3){border-left:0;padding-left:0}.fact:nth-child(n+3){border-top:1px solid var(--border)}.evidence{grid-template-columns:1fr 1fr}.card:last-child{grid-column:1/-1;min-height:unset}.think{grid-template-columns:1fr;gap:28px}.closerow{flex-direction:column;align-items:stretch;}}
+    @media(max-width:600px){.answerband{padding:41px 0 47px}.answerwrap{grid-template-columns:1fr;gap:12px}.answer-rail{flex-direction:row;gap:13px;align-items:center;padding:0}.answer-rail .mark{width:37px;height:37px;border-radius:11px}.answer-rail .rail-line{display:none}.answer-rail .rail-note{max-width:none;font-size:11px}.answertext h1{font-size:clamp(40px,10vw,55px);margin:8px 0 17px}.answertext .source-details{font-size:16px;line-height:1.64}.answertext .honest{padding:12px 15px;margin-top:21px;font-size:13px;line-height:1.65}.hero .statement{font-size:clamp(41px,10vw,50px)}.shell{width:calc(100% - 40px)}.headrow{padding:18px 0}.brand{font-size:14px}.headrow nav{gap:14px;font-size:12px}.headrow nav a:last-child{display:none}.mark{width:35px;height:35px}.hero{padding:61px 0 56px;gap:36px}h1{font-size:47px}.lead{font-size:18px}.heroart{padding:19px;min-height:365px}.process{grid-template-columns:1fr;gap:8px}.step{padding:10px 13px}.fact{padding:17px 10px 17px 0}.fact+.fact{padding-left:14px}.fact:nth-child(3){padding-left:0}.fact{font-size:11px}section.panel{padding:72px 0}.evidence{grid-template-columns:1fr}.card{min-height:unset;padding:25px}.card:last-child{grid-column:auto}.think{padding:60px 0 80px}.scenario{padding:24px 20px}.bottom{padding:56px 0}.links{gap:8px}.links a{white-space:normal}.footrow{align-items:flex-start;flex-direction:column}.art-caption{font-size:11px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.primary,.secondary{transition:none}}
+    @media print {.answerband{padding:26px 0}.answerwrap{grid-template-columns:130px 1fr;gap:24px}.answer-rail .rail-line{display:none}body{background:white}.heroart{box-shadow:none}.shell{width:94%}.headrow{padding:9px 0}section.panel{padding:30px 0}.hero{padding:30px 0}.think{padding:25px 0}.bottom{padding:25px 0}#privacyPanel{display:none!important}.card{break-inside:avoid}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="shell headrow">
+    <a class="brand" href="#top" aria-label="Mario Atkins, back to top">
+      <span class="mark" aria-hidden="true"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18v-5m5 5V9m5 9V12m5 6V5"/><path d="m3 9 6-4 5 2 6-5"/></svg></span>
+      Mario Atkins
+    </a>
+    <nav aria-label="Section navigation"><a href="#answer">The answer</a><a href="#experience">Why Chime</a><a href="#evidence">My work</a><a href="#thinking">How I think</a></nav>
+  </div>
+</header>
+<main id="top">
+  <section class="answerband" id="answer" aria-labelledby="how-found-title">
+    <div class="shell answerwrap">
+      <div class="answer-rail" aria-hidden="true">
+        <span class="mark"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18v-5m5 5V9m5 9V12m5 6V5"/><path d="m3 9 6-4 5 2 6-5"/></svg></span>
+        <span class="rail-line"></span>
+        <span class="rail-note">A direct answer to the question on my Chime application.</span>
+      </div>
+      <div class="answertext">
+        <div class="smallcap">How did you hear about this job?</div>
+        <h1 id="how-found-title">I found it through <span>Chime's careers page.</span></h1>
+        <p class="source-details">I'd heard about Chime from colleagues in financial services over the years. I was exploring Chime and its open roles when I came across <strong>Senior Instructional Designer, Learning Operations</strong>. That led me to take a closer look at the company and experience the product as a new member.</p>
+        <p class="honest"><strong>That's the answer.</strong> The rest of this page is extra, and I know you didn't ask for it. I built it because I wanted to make an impression and show a little of how I think. Applying for a learning-design role seemed like a good reason to make something instead of writing one more paragraph in a form.</p>
+      </div>
+    </div>
+  </section>
+  <div class="shell hero" id="experience">
+    <div>
+      <div class="eyebrow"><span class="smallcap">If you have another minute · A little about me</span><span class="line" aria-hidden="true"></span></div>
+      <h2 class="statement">Good design gives people <span>fewer things to work around.</span></h2>
+      <p class="lead">I've spent most of my career noticing the things that slow people down. A confusing process, a missing explanation, or a workaround everybody accepts because it's always been there.</p>
+      <p class="intro">After joining Chime, I went through onboarding, identity verification, mobile check deposit, and support. So far, the steps have felt thoughtfully connected. I haven't had to learn a trick to make something work. After nearly 15 years in financial services, I appreciate how much thinking goes into that kind of simplicity.</p>
+      <div class="actions"><a href="#evidence" class="primary">Here's how I could contribute <span class="arrow" aria-hidden="true">↗</span></a><a href="Mario%20Atkins%20Resume.pdf" class="secondary" data-track="resume">My resume <span class="arrow" aria-hidden="true">↗</span></a></div>
+    </div>
+    <aside class="heroart" aria-label="A model for learning and operational improvement">
+      <div class="art-top">The work behind the work</div>
+      <div class="process">
+        <div class="step"><span class="step-number">01</span><span class="step-title">Listen to the experience</span><span class="step-icon" aria-hidden="true">◌</span></div>
+        <div class="step"><span class="step-number">02</span><span class="step-title">Find the actual friction</span><span class="step-icon" aria-hidden="true">⌁</span></div>
+        <div class="step"><span class="step-number">03</span><span class="step-title">Design the right response</span><span class="step-icon" aria-hidden="true">↗</span></div>
+        <div class="step last"><span class="step-number">04</span><span class="step-title">Learn from the result</span><span class="step-icon" aria-hidden="true">✓</span></div>
+      </div>
+      <div class="art-caption">A working philosophy, not a proprietary Chime process.</div>
+    </aside>
+  </div>
+  <div class="ribbon"><div class="shell ribbon-inner" aria-label="Relevant experience"><div class="fact"><span class="dot"></span>Nearly 15 years in financial services</div><div class="fact"><span class="dot"></span>Qualtrics and Excel analysis</div><div class="fact"><span class="dot"></span>Hands-on employee learning</div><div class="fact"><span class="dot"></span>Human-reviewed applied AI</div></div></div>
+  <section class="panel shell" id="evidence">
+    <div class="panelhead"><div class="smallcap">Relevant experience</div><h2>I already know the work your learners do.</h2><p class="under">My route into learning design has been through the operations themselves. I've coached the people doing the work, studied what customers say about it, and tried to make complicated steps easier to understand.</p></div>
+    <div class="evidence">
+      <article class="card"><div class="index">01 / ANALYZE</div><h3>Find the real problem.</h3><p>At Space Coast Credit Union, I used Qualtrics feedback and Excel exports to categorize complaints and investigate recurring patterns. I separated knowledge gaps from workflow and policy problems before recommending a response.</p><div class="signal">Feedback → root cause → action</div></article>
+      <article class="card"><div class="index">02 / EXPLAIN</div><h3>Make complexity legible.</h3><p>I designed a visual wire-transfer process in Visio and participated in cross-functional work to make online wire instructions clearer. I like translating a process into something people can examine and discuss.</p><div class="signal">Operations → visual explanation</div></article>
+      <article class="card"><div class="index">03 / DEVELOP</div><h3>Give learning a job.</h3><p>I mentored employees, built knowledge quizzes and JeopardyLabs activities, and created procedural job aids. More recently, I've directed AI-assisted workflow and documentation projects, checking outputs against source material and actual system behavior.</p><div class="signal">Learning → application → review</div></article>
+    </div>
+  </section>
+  <section class="shell think" id="thinking">
+    <div>
+      <div class="smallcap">How I think</div>
+      <h2>Before the lesson, ask better questions.</h2>
+      <p>When an agent makes the same mistake repeatedly, I'd want to examine the evidence before deciding that another course will fix it.</p>
+      <div class="quote">Is this a knowledge gap, or is the process itself getting in the way?</div>
+      <p>That question guides the work I enjoy. It's also why Chime's Disputes Experience learning role feels so closely connected to my background.</p>
+    </div>
+    <div class="scenario" aria-label="Interactive example of a learning-needs assessment">
+      <div class="smallcap">A small thought experiment</div>
+      <h3>An agent keeps missing a verification step. What do we examine?</h3>
+      <p>Choose a possible response. This is a fictional learning-design example, not a Chime procedure.</p>
+      <div class="options" role="group" aria-label="Choose a response">
+        <button type="button" class="option" data-choice="learning" aria-pressed="false">Review knowledge & coaching</button>
+        <button type="button" class="option" data-choice="process" aria-pressed="false">Map the workflow</button>
+      </div>
+      <div class="response" id="scenarioResponse" aria-live="polite">Both may be relevant. I'd check the complaint patterns and observe the actual work before choosing where to invest in training.</div>
+    </div>
+  </section>
+  <section class="bottom"><div class="shell closerow"><div class="closing"><div class="smallcap">Senior Instructional Designer · Learning Operations</div><h2>I'd like to help make the experience better from the inside.</h2><p>I bring frontline financial-services judgment, learner-centered coaching, operational analysis, visual thinking, and a habit of asking questions before prescribing solutions.</p></div><div class="links"><a href="Mario%20Atkins%20Resume.pdf" data-track="resume">View resume ↗</a><a href="https://www.linkedin.com/in/mario-atkins-07013a50/" target="_blank" rel="noopener noreferrer" data-track="linkedin">LinkedIn ↗</a></div></div></section>
+</main>
+<footer><div class="shell footrow"><span>© <span id="year">2026</span> Mario D. Atkins · Personal application page · Not affiliated with or endorsed by Chime</span><div class="footnav"><button id="privacyOpen" type="button">Privacy & analytics</button><a href="https://coursera.org/verify/RG6YUAC8FCSJ" target="_blank" rel="noopener noreferrer" data-track="cert-finance">Financial analysis ↗</a><a href="https://coursera.org/verify/PQ49CEXY4X9B" target="_blank" rel="noopener noreferrer" data-track="cert-data">Data foundations ↗</a></div></div></footer>
+<section id="privacyPanel" role="dialog" aria-modal="false" aria-labelledby="privacyTitle" aria-describedby="privacyDesc">
+  <h3 id="privacyTitle">Your privacy matters</h3>
+  <p id="privacyDesc">This optional analytics setup may use GoatCounter for visit counts and Microsoft Clarity for page-interaction analytics, including session replay. No tracking tools load unless you agree. You can browse this page without analytics.</p>
+  <div class="buttons"><button type="button" class="allow" id="privacyAccept">Allow analytics</button><button type="button" id="privacyDecline">Continue without tracking</button></div>
+</section>
+<script>
+  'use strict';
+  // Add real values before publishing; leave empty to disable that provider.
+  const ANALYTICS = {
+    goatCounterEndpoint: '', // Example: https://YOURCODE.goatcounter.com/count
+    clarityProjectId: ''      // Example: the project ID in your Clarity tracking code
+  };
+  const KEY = 'mario-portfolio-analytics-consent-v1';
+  const $ = (sel) => document.querySelector(sel);
+  const panel = $('#privacyPanel');
+  const activeButtons = Array.from(document.querySelectorAll('[data-choice]'));
+  const answers = {
+    learning: 'If agents know the correct step but apply it inconsistently, targeted coaching, realistic practice, and a quality check may help. I would measure whether behavior changes.',
+    process: 'If the verification step is buried, unclear, or difficult to complete, a clearer workflow may help more than another lesson. I would test the process and check whether errors decline.'
+  };
+  activeButtons.forEach(button => button.addEventListener('click', () => {
+    activeButtons.forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+    $('#scenarioResponse').textContent = answers[button.dataset.choice];
+    track('example-' + button.dataset.choice);
+  }));
+  const storedConsent = (() => { try { return localStorage.getItem(KEY); } catch { return null; } })();
+  function recordConsent(val) {try {localStorage.setItem(KEY,val);} catch {} }
+  function showPrivacy() { panel.classList.add('show'); }
+  function hidePrivacy() { panel.classList.remove('show'); }
+  function track(name) {
+    // Never identify an individual visitor or assume a visit came from Chime.
+    if (storedAllowed && window.goatcounter && typeof window.goatcounter.count === 'function') {
+      window.goatcounter.count({path:'event/' + name,event:true});
+    }
+    if (storedAllowed && typeof window.clarity === 'function') window.clarity('event', name);
+  }
+  let storedAllowed = storedConsent === 'yes';
+  function enableAnalytics() {
+    if (ANALYTICS.goatCounterEndpoint && /^https:\/\/[a-z0-9.-]+\.goatcounter\.com\/count$/i.test(ANALYTICS.goatCounterEndpoint)) {
+      const script = document.createElement('script');
+      script.setAttribute('data-goatcounter', ANALYTICS.goatCounterEndpoint);
+      script.async = true;
+      script.src = 'https://gc.zgo.at/count.js';
+      document.head.appendChild(script);
+    }
+    if (ANALYTICS.clarityProjectId && /^[a-z0-9]+$/i.test(ANALYTICS.clarityProjectId)) {
+      (function(c,l,a,r,i,t,y){ c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}; t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i; y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',ANALYTICS.clarityProjectId);
+      window.clarity('consentv2',{ad_Storage:'denied', analytics_Storage:'granted'});
+    }
+  }
+  if (storedAllowed) enableAnalytics();
+  if (storedConsent === null) showPrivacy();
+  $('#privacyOpen').addEventListener('click',showPrivacy);
+  $('#privacyDecline').addEventListener('click',()=>{storedAllowed=false;recordConsent('no');hidePrivacy();});
+  $('#privacyAccept').addEventListener('click',()=>{const already=storedAllowed;storedAllowed=true;recordConsent('yes');hidePrivacy();if (!already) enableAnalytics();});
+  document.querySelectorAll('[data-track]').forEach(link=>link.addEventListener('click',()=>track(link.dataset.track)));
+  $('#year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
