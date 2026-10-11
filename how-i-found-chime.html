@@ -109,6 +109,24 @@
     @media(max-width:600px){.answerband{padding:41px 0 47px}.answerwrap{grid-template-columns:1fr;gap:12px}.answer-rail{flex-direction:row;gap:13px;align-items:center;padding:0}.answer-rail .mark{width:37px;height:37px;border-radius:11px}.answer-rail .rail-line{display:none}.answer-rail .rail-note{max-width:none;font-size:11px}.answertext h1{font-size:clamp(40px,10vw,55px);margin:8px 0 17px}.answertext .source-details{font-size:16px;line-height:1.64}.answertext .honest{padding:12px 15px;margin-top:21px;font-size:13px;line-height:1.65}.hero .statement{font-size:clamp(41px,10vw,50px)}.shell{width:calc(100% - 40px)}.headrow{padding:18px 0}.brand{font-size:14px}.headrow nav{gap:14px;font-size:12px}.headrow nav a:last-child{display:none}.mark{width:35px;height:35px}.hero{padding:61px 0 56px;gap:36px}h1{font-size:47px}.lead{font-size:18px}.heroart{padding:19px;min-height:365px}.process{grid-template-columns:1fr;gap:8px}.step{padding:10px 13px}.fact{padding:17px 10px 17px 0}.fact+.fact{padding-left:14px}.fact:nth-child(3){padding-left:0}.fact{font-size:11px}section.panel{padding:72px 0}.evidence{grid-template-columns:1fr}.card{min-height:unset;padding:25px}.card:last-child{grid-column:auto}.think{padding:60px 0 80px}.scenario{padding:24px 20px}.bottom{padding:56px 0}.links{gap:8px}.links a{white-space:normal}.footrow{align-items:flex-start;flex-direction:column}.art-caption{font-size:11px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.primary,.secondary{transition:none}}
     @media print {.answerband{padding:26px 0}.answerwrap{grid-template-columns:130px 1fr;gap:24px}.answer-rail .rail-line{display:none}body{background:white}.heroart{box-shadow:none}.shell{width:94%}.headrow{padding:9px 0}section.panel{padding:30px 0}.hero{padding:30px 0}.think{padding:25px 0}.bottom{padding:25px 0}#privacyPanel{display:none!important}.card{break-inside:avoid}}
+
+    /* The soundtrack is strictly optional, and never loads until someone opens it. */
+    .jazz-dock{position:fixed;z-index:12;bottom:22px;left:24px;max-width:calc(100vw - 40px);}
+    .jazz-trigger{display:inline-flex;gap:9px;align-items:center;background:#1b3025;color:#f5faf4;border:1px solid #4b6a55;border-radius:100px;padding:10px 14px;min-height:43px;box-shadow:0 7px 24px rgba(13,36,20,.15);font:650 12px/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;cursor:pointer;}
+    .jazz-trigger:hover,.jazz-trigger[aria-expanded="true"]{background:#315740;}
+    .jazz-trigger .jazz-note{font-size:18px;line-height:1;color:#c2e9c6;}
+    .jazz-trigger .jazz-muted{font-size:10px;font-weight:500;opacity:.72;}
+    .jazz-popover{position:absolute;bottom:55px;left:0;width:min(345px,calc(100vw - 40px));padding:17px;background:#fff;border:1px solid #cddacf;border-radius:15px;box-shadow:0 12px 45px rgba(13,36,20,.19);}
+    .jazz-popover[hidden]{display:none;}
+    .jazz-popover__head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:11px;}
+    .jazz-popover__title{font-size:13px;font-weight:780;color:#23382a;line-height:1.3;margin:0 0 4px;}
+    .jazz-popover__artist{font-size:11px;color:#5c6962;line-height:1.5;margin:0;}
+    .jazz-close{border:1px solid #e0e7df;border-radius:9px;background:#f4f7f3;color:#334c3b;min-width:30px;height:30px;cursor:pointer;font-size:17px;line-height:1;}
+    .jazz-player{width:100%;height:152px;border:0;border-radius:12px;display:block;background:#eef2ee;}
+    .jazz-hint{font-size:11px;color:#5c6962;line-height:1.5;margin:10px 0 0;}
+    .jazz-hint a{color:#206546;}
+    @media(max-width:600px){.jazz-dock{left:14px;bottom:calc(12px + env(safe-area-inset-bottom,0px));}.jazz-trigger{padding:9px 12px;}.jazz-popover{width:min(335px,calc(100vw - 28px));}}
+    @media print{.jazz-dock{display:none!important;}}
   </style>
 </head>
 <body>
@@ -186,6 +204,27 @@
   </section>
   <section class="bottom"><div class="shell closerow"><div class="closing"><div class="smallcap">Senior Instructional Designer · Learning Operations</div><h2>I'd like to help make the experience better from the inside.</h2><p>I bring frontline financial-services judgment, learner-centered coaching, operational analysis, visual thinking, and a habit of asking questions before prescribing solutions.</p></div><div class="links"><a href="Mario%20Atkins%20Resume.pdf" data-track="resume">View resume ↗</a><a href="https://www.linkedin.com/in/mario-atkins-07013a50/" target="_blank" rel="noopener noreferrer" data-track="linkedin">LinkedIn ↗</a></div></div></section>
 </main>
+
+<!-- Optional soundtrack. The official Apple Music player loads only after a visitor asks for it. -->
+<aside class="jazz-dock" aria-label="Optional jazz soundtrack">
+  <div id="jazzPopover" class="jazz-popover" hidden>
+    <div class="jazz-popover__head">
+      <div>
+        <p class="jazz-popover__title">Cotton Tail <span style="font-weight:500">· 1990 Remaster</span></p>
+        <p class="jazz-popover__artist">Louis Armstrong &amp; Duke Ellington</p>
+      </div>
+      <button id="jazzClose" class="jazz-close" type="button" aria-label="Close music player and stop playback">×</button>
+    </div>
+    <div id="jazzEmbed" aria-label="Apple Music player"></div>
+    <p class="jazz-hint">Press play in the Apple Music player. Sound is off until you choose it, and you control the volume. <a href="https://music.apple.com/us/album/the-great-summit-complete-sessions-deluxe-edition/695988623?i=695989411" target="_blank" rel="noopener noreferrer">Open in Music ↗</a></p>
+  </div>
+  <button id="jazzToggle" class="jazz-trigger" type="button" aria-expanded="false" aria-controls="jazzPopover" aria-label="Open optional jazz soundtrack">
+    <span class="jazz-note" aria-hidden="true">♫</span>
+    <span>A little jazz?</span>
+    <span class="jazz-muted">Optional</span>
+  </button>
+</aside>
+
 <footer><div class="shell footrow"><span>© <span id="year">2026</span> Mario D. Atkins · Personal application page · Not affiliated with or endorsed by Chime</span><div class="footnav"><button id="privacyOpen" type="button">Privacy & analytics</button><a href="https://coursera.org/verify/RG6YUAC8FCSJ" target="_blank" rel="noopener noreferrer" data-track="cert-finance">Financial analysis ↗</a><a href="https://coursera.org/verify/PQ49CEXY4X9B" target="_blank" rel="noopener noreferrer" data-track="cert-data">Data foundations ↗</a></div></div></footer>
 <section id="privacyPanel" role="dialog" aria-modal="false" aria-labelledby="privacyTitle" aria-describedby="privacyDesc">
   <h3 id="privacyTitle">Your privacy matters</h3>
@@ -194,10 +233,11 @@
 </section>
 <script>
   'use strict';
-  // Add real values before publishing; leave empty to disable that provider.
+  // Tracking properties belong to Mario D. Atkins, sourced from services(4).html.
+  // Both providers are loaded only after visitor approval through the existing privacy controls.
   const ANALYTICS = {
-    goatCounterEndpoint: '', // Example: https://YOURCODE.goatcounter.com/count
-    clarityProjectId: ''      // Example: the project ID in your Clarity tracking code
+    goatCounterEndpoint: 'https://marioatkins.goatcounter.com/count',
+    clarityProjectId: 'xbvggb3cfr'
   };
   const KEY = 'mario-portfolio-analytics-consent-v1';
   const $ = (sel) => document.querySelector(sel);
@@ -240,9 +280,41 @@
   if (storedAllowed) enableAnalytics();
   if (storedConsent === null) showPrivacy();
   $('#privacyOpen').addEventListener('click',showPrivacy);
-  $('#privacyDecline').addEventListener('click',()=>{storedAllowed=false;recordConsent('no');hidePrivacy();});
+  $('#privacyDecline').addEventListener('click',()=>{const previouslyEnabled=storedAllowed;storedAllowed=false;recordConsent('no');hidePrivacy();if(previouslyEnabled) window.location.reload();});
   $('#privacyAccept').addEventListener('click',()=>{const already=storedAllowed;storedAllowed=true;recordConsent('yes');hidePrivacy();if (!already) enableAnalytics();});
   document.querySelectorAll('[data-track]').forEach(link=>link.addEventListener('click',()=>track(link.dataset.track)));
+
+  // Apple Music is the licensed provider; a visitor must choose to open it and press play.
+  // Closing this panel unloads the embed and stops its audio.
+  const jazzToggle = $('#jazzToggle');
+  const jazzPopover = $('#jazzPopover');
+  const jazzClose = $('#jazzClose');
+  const jazzEmbed = $('#jazzEmbed');
+  function closeJazz() {
+    jazzPopover.hidden = true;
+    jazzToggle.setAttribute('aria-expanded','false');
+    jazzToggle.setAttribute('aria-label','Open optional jazz soundtrack');
+    jazzEmbed.replaceChildren();
+  }
+  function openJazz() {
+    const player = document.createElement('iframe');
+    player.className = 'jazz-player';
+    player.title = 'Cotton Tail (1990 Remastered Version) by Louis Armstrong and Duke Ellington on Apple Music';
+    player.src = 'https://embed.music.apple.com/us/album/the-great-summit-complete-sessions-deluxe-edition/695988623?i=695989411';
+    player.loading = 'eager';
+    player.setAttribute('allow','autoplay *; encrypted-media *; fullscreen *');
+    player.setAttribute('sandbox','allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation');
+    jazzEmbed.appendChild(player);
+    jazzPopover.hidden = false;
+    jazzToggle.setAttribute('aria-expanded','true');
+    jazzToggle.setAttribute('aria-label','Close optional jazz soundtrack');
+    track('soundtrack-open');
+  }
+  jazzToggle.addEventListener('click', () => jazzPopover.hidden ? openJazz() : closeJazz());
+  jazzClose.addEventListener('click', () => { closeJazz(); jazzToggle.focus(); });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !jazzPopover.hidden) { closeJazz(); jazzToggle.focus(); }
+  });
   $('#year').textContent = new Date().getFullYear();
 </script>
 </body>
