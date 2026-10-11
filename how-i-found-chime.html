@@ -210,13 +210,13 @@
   <div id="jazzPopover" class="jazz-popover" hidden>
     <div class="jazz-popover__head">
       <div>
-        <p class="jazz-popover__title">Cotton Tail <span style="font-weight:500">· 1990 Remaster</span></p>
-        <p class="jazz-popover__artist">Louis Armstrong &amp; Duke Ellington</p>
+        <p class="jazz-popover__title">Wanderlust</p>
+        <p class="jazz-popover__artist">Duke Ellington &amp; Coleman Hawkins</p>
       </div>
       <button id="jazzClose" class="jazz-close" type="button" aria-label="Close music player and stop playback">×</button>
     </div>
     <div id="jazzEmbed" aria-label="Apple Music player"></div>
-    <p class="jazz-hint">Press play in the Apple Music player. Sound is off until you choose it, and you control the volume. <a href="https://music.apple.com/us/album/the-great-summit-complete-sessions-deluxe-edition/695988623?i=695989411" target="_blank" rel="noopener noreferrer">Open in Music ↗</a></p>
+    <p class="jazz-hint">Press play in the Apple Music player. Sound is off until you choose it, and you control the volume. <a href="https://music.apple.com/us/song/1444036980" target="_blank" rel="noopener noreferrer">Open in Music ↗</a></p>
   </div>
   <button id="jazzToggle" class="jazz-trigger" type="button" aria-expanded="false" aria-controls="jazzPopover" aria-label="Open optional jazz soundtrack">
     <span class="jazz-note" aria-hidden="true">♫</span>
@@ -299,8 +299,8 @@
   function openJazz() {
     const player = document.createElement('iframe');
     player.className = 'jazz-player';
-    player.title = 'Cotton Tail (1990 Remastered Version) by Louis Armstrong and Duke Ellington on Apple Music';
-    player.src = 'https://embed.music.apple.com/us/album/the-great-summit-complete-sessions-deluxe-edition/695988623?i=695989411';
+    player.title = 'Wanderlust by Duke Ellington and Coleman Hawkins on Apple Music';
+    player.src = 'https://embed.music.apple.com/us/song/1444036980';
     player.loading = 'eager';
     player.setAttribute('allow','autoplay *; encrypted-media *; fullscreen *');
     player.setAttribute('sandbox','allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation');
